@@ -6,10 +6,10 @@ const Footer = () => {
 
   const quickLinks = [
     { name: 'Home', href: '#' },
-    { name: 'About', href: '#' },
-    { name: 'Services', href: '#' },
-    { name: 'Products', href: '#' },
-    { name: 'Contact', href: '#' }
+    { name: 'About Us', href: '#' },
+    { name: 'MBBS Programs', href: '#' },
+    { name: 'Consultation Services', href: '#' },
+    { name: 'Contact Us', href: '#' }
   ];
 
   const socialLinks = [
@@ -26,8 +26,7 @@ const Footer = () => {
           <div className="space-y-4">
             <h3 className="text-white text-lg font-semibold">About Us</h3>
             <p className="text-sm leading-relaxed">
-              We are dedicated to delivering innovative solutions that empower businesses 
-              and individuals. Our commitment to excellence drives everything we do.
+              Our MBBS consultation service is dedicated to helping aspiring medical students find the best-fit programs abroad. We guide you from application to admission with tailored support for a seamless experience.
             </p>
           </div>
 
@@ -54,15 +53,15 @@ const Footer = () => {
             <ul className="space-y-2">
               <li className="flex items-center space-x-2">
                 <Mail size={16} />
-                <span className="text-sm">contact@example.com</span>
+                <span className="text-sm">consult@mbbsadvisory.com</span>
               </li>
               <li className="flex items-center space-x-2">
                 <Phone size={16} />
-                <span className="text-sm">+1 (555) 123-4567</span>
+                <span className="text-sm">+1 (555) 678-9101</span>
               </li>
               <li className="flex items-center space-x-2">
                 <MapPin size={16} />
-                <span className="text-sm">123 Business Ave, City, ST 12345</span>
+                <span className="text-sm">456 Education Lane, Cityville, ST 56789</span>
               </li>
             </ul>
           </div>
@@ -89,7 +88,7 @@ const Footer = () => {
         <div className="border-t border-gray-800 mt-8 pt-8">
           {/* Copyright */}
           <div className="text-center text-sm">
-            <p>&copy; {currentYear} Your Company Name. All rights reserved.</p>
+            <p>&copy; {currentYear} MBBS Advisory Services. All rights reserved.</p>
           </div>
         </div>
       </div>

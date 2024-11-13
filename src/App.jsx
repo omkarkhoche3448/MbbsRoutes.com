@@ -1,26 +1,26 @@
 import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/common/Navbar";
-import HeroSection from "./components/landingpage/HeroSection";
-import InfoSection from "./components/landingpage/InfoSection";
-import Info from "./components/landingpage/Info";
-import Footer from "./components/common/Footer";
-import ConsultingContact from "./components/landingpage/ConsultingContact";
-import FlagBanner from "./components/landingpage/FlagBanner";
-import MBBSConsultancyForm from "./components/common/MBBSConsultancyForm";
-import FAQSection from "./components/common/FAQSection";
+import ConsultancyPage from "./pages/ConsultancyPage";
+import Landingpage from "./pages/Landingpage";
+import AboutPage from "./pages/AboutPage";
+import MBBSEducationAbroad from "./pages/MBBSEducationAbroad";
 
 function App() {
   return (
     <div>
-      <Navbar />
-      <HeroSection />
-      <FlagBanner />
-      <InfoSection />
-      <Info />
-      <ConsultingContact />
-      <MBBSConsultancyForm />
-      <FAQSection />
-      <Footer />
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Landingpage />} />
+          <Route
+            path="/consultancy/:countryName/mbbs"
+            element={<ConsultancyPage />}
+          />
+          <Route path="/about-us" element={<AboutPage />} />
+          <Route path="/mbbs-in-abroad" element={<MBBSEducationAbroad />} />
+        </Routes>
+      </Router>
     </div>
   );
 }

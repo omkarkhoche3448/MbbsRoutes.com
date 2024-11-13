@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import {
   GraduationCap,
   Globe,
@@ -9,7 +10,8 @@ import {
   ArrowRight,
   Building2,
 } from "lucide-react";
-// import { Users, Building2 } from "lucide-react";/
+import Button from "../common/Button";
+import MBBSConsultancyFormModal from "../common/MBBSConsultancyFormModal";
 
 // Reusable Card Component
 const BenefitCard = ({ icon: Icon, title, description }) => {
@@ -24,31 +26,6 @@ const BenefitCard = ({ icon: Icon, title, description }) => {
   );
 };
 
-// Reusable Button Component
-const Button = ({
-  children,
-  variant = "primary",
-  className = "",
-  icon: Icon,
-}) => {
-  const baseStyles =
-    "inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold transition-all duration-300";
-  const variants = {
-    primary:
-      "bg-blue-600 hover:bg-blue-700 text-white shadow-lg hover:shadow-xl hover:-translate-y-0.5",
-    secondary:
-      "bg-white hover:bg-gray-50 text-blue-600 border-2 border-blue-600",
-  };
-
-  return (
-    <button className={`${baseStyles} ${variants[variant]} ${className}`}>
-      {children}
-      {Icon && <Icon className="w-5 h-5" />}
-    </button>
-  );
-};
-
-// Main Info Section Component
 const InfoPart = () => {
   const benefits = [
     {
@@ -93,7 +70,7 @@ const InfoPart = () => {
         {/* Main Content Section */}
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
           {/* Content Container */}
-          <div className="space-y-6">
+          <div className="space-y-6 ">
             <div>
               <h2 className="text-blue-600 font-semibold text-lg uppercase tracking-wider mb-2">
                 Why Choose Us
@@ -108,7 +85,7 @@ const InfoPart = () => {
                 guidance.
               </p>
             </div>
-            <div className="space-x-4">
+            <div className="space-x-4 flex flex-row">
               <Button icon={ArrowRight}>Get Started Now</Button>
               <Button variant="secondary">Learn More</Button>
             </div>
@@ -139,7 +116,7 @@ const InfoPart = () => {
         </div>
 
         {/* Benefits Grid Section */}
-        {/* <div className="space-y-12">
+        <div className="space-y-12">
           <div className="text-center max-w-3xl mx-auto">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
               Comprehensive Benefits for Your Medical Journey
@@ -160,7 +137,7 @@ const InfoPart = () => {
               />
             ))}
           </div>
-        </div> */}
+        </div>
       </div>
     </div>
   );
@@ -197,6 +174,8 @@ const FeatureCard = ({ title, description, className = "" }) => {
 
 // Main Section Component
 const Info = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <>
       <InfoPart />
@@ -295,7 +274,12 @@ const Info = () => {
               counselors are here to guide you through every step.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="px-8 py-3 bg-white text-blue-600 rounded-lg font-semibold hover:bg-blue-50 transition-all duration-300">
+              <button
+                className="px-8 py-3 bg-white text-blue-600 rounded-lg font-semibold hover:bg-blue-50 transition-all duration-300"
+                onClick={() => {
+                  setIsModalOpen(true);
+                }}
+              >
                 Schedule Consultation
               </button>
               <button className="px-8 py-3 bg-transparent border-2 border-white text-white rounded-lg font-semibold hover:bg-white/10 transition-all duration-300">
@@ -305,6 +289,11 @@ const Info = () => {
           </div>
         </div>
       </div>
+
+      <MBBSConsultancyFormModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </>
   );
 };

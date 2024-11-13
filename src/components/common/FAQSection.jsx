@@ -6,24 +6,24 @@ const FAQSection = () => {
 
   const faqs = [
     {
-      question: "What payment methods do you accept?",
-      answer: "We accept all major credit cards (Visa, MasterCard, American Express), PayPal, and bank transfers. For enterprise customers, we also offer invoice-based payments with net-30 terms."
+      question: "What is the process for applying to an MBBS program abroad?",
+      answer: "Our MBBS consultation team will guide you through the entire application process, including choosing the right university, completing the application forms, and gathering the necessary documentation."
     },
     {
-      question: "How long does shipping usually take?",
-      answer: "Domestic shipping typically takes 2-4 business days. International shipping can take 7-14 business days depending on the destination. Express shipping options are available at checkout for faster delivery."
+      question: "What are the eligibility criteria for MBBS admissions?",
+      answer: "Eligibility typically requires completion of high school with a focus on science subjects and a minimum aggregate score. Some universities also require entrance exams or language proficiency tests, which our team can help you prepare for."
     },
     {
-      question: "What is your return policy?",
-      answer: "We offer a 30-day return policy for all unused items in their original packaging. Simply contact our customer service team for a return authorization number. Return shipping costs are covered for defective items."
+      question: "Do you assist with visa and travel arrangements?",
+      answer: "Yes, we offer comprehensive support for visa applications, travel arrangements, and accommodation. Our team ensures all documents are in order to avoid any last-minute issues."
     },
     {
-      question: "Do you offer international shipping?",
-      answer: "Yes, we ship to over 100 countries worldwide. International shipping rates are calculated at checkout based on destination, weight, and chosen shipping method. Import duties and taxes may apply."
+      question: "Can I get financial assistance or education loans?",
+      answer: "We provide guidance on securing financial assistance and loans. We work with trusted financial partners to help students manage the costs associated with studying abroad."
     },
     {
-      question: "How can I track my order?",
-      answer: "Once your order ships, you'll receive a tracking number via email. You can use this number on our website or the carrier's website to track your package in real-time. Our system also sends automated updates about significant shipping events."
+      question: "How long does the MBBS program typically take?",
+      answer: "The duration of an MBBS program abroad varies, typically ranging from 5 to 6 years, including the internship period. Our consultants can help you understand the curriculum structure of each university."
     }
   ];
 
@@ -34,7 +34,7 @@ const FAQSection = () => {
           Frequently Asked Questions
         </h2>
         <p className="text-gray-600">
-          Find answers to common questions about our services
+          Find answers to common questions about our MBBS consultation services
         </p>
       </div>
 
@@ -83,7 +83,7 @@ const FAQSection = () => {
           Still have questions?
         </h3>
         <p className="text-gray-600 mb-4">
-          We're here to help. Contact our support team.
+          We're here to help. Contact our MBBS consultation team for more information.
         </p>
         <button className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-200 font-medium">
           Contact Support

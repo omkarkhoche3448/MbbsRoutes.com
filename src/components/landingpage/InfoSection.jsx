@@ -74,7 +74,7 @@ const InfoSection = () => {
         </div>
 
         {/* Content Container */}
-        <div className="space-y-6" data-aos="fade-left">
+        <div className="space-y-6 " data-aos="fade-left">
           <SectionTitle
             subtitle="Why Choose Us"
             title="Begin Your Medical Journey with Expert Guidance"
