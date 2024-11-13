@@ -1,4 +1,5 @@
 import { ChevronRight } from "lucide-react";
+
 const CountryCard = ({ country, onSelect }) => (
   <button
     onClick={() => onSelect(country)}
@@ -7,7 +8,7 @@ const CountryCard = ({ country, onSelect }) => (
     <div className="flex items-center space-x-4">
       <div className="relative w-16 h-16 rounded-2xl overflow-hidden shadow-lg group-hover:shadow-xl transition-all duration-300">
         <img
-          src={`https://imgs.search.brave.com/Ckv7UJv6ilij8f3B-XkAIB02oWo4fs_i7G6JQTgf6FE/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzAwLzYyLzE5Lzg2/LzM2MF9GXzYyMTk4/NjAwX3ZxN0RSUmI0/TGQ3U3R5N3AwNTdt/eWZzMGo2NUtBVTN3/LmpwZw`}
+          src={`https://flagcdn.com/w320/${country.code.toLowerCase()}.png`}
           alt={`${country.name} flag`}
           className="w-full h-full object-cover"
         />

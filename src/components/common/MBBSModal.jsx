@@ -62,7 +62,7 @@ const MBBSModal = ({ isOpen, onClose }) => {
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4 animate-fade-in">
       <div
-        className="bg-white rounded-xl shadow-lg w-full max-w-md relative transform transition-all duration-300 ease-out scale-100"
+        className="bg-white rounded-xl shadow-lg w-full max-w-2xl relative transform transition-all duration-300 ease-out scale-100"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close Button */}

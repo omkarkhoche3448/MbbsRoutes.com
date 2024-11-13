@@ -1,5 +1,6 @@
 import React from "react";
 import { ArrowRight } from "lucide-react";
+import infoImg from "../../assets/LandingImg2.png";
 
 // Reusable Button Component
 const Button = ({
@@ -45,16 +46,17 @@ const SectionTitle = ({ subtitle, title, className = "" }) => {
 const InfoSection = () => {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-      <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <div className="grid lg:grid-cols-2 gap-20  items-center">
         {/* Image Container */}
         <div className="relative group" data-aos="fade-right">
           <div className="absolute -inset-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl opacity-75 blur-lg group-hover:opacity-100 transition duration-1000"></div>
           <div className="relative">
             <img
-              src="https://static.wixstatic.com/media/9cdbfb_e8e43418d101425fb0704ff7ba7b9bf6~mv2.jpg/v1/fill/w_255,h_170,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/9cdbfb_e8e43418d101425fb0704ff7ba7b9bf6~mv2.jpg"
+              src={infoImg}
               alt="Medical Students"
-              className="rounded-xl shadow-2xl w-full h-auto object-cover transform transition duration-500 group-hover:scale-[1.02]"
+              className="rounded-xl shadow-2xl w-full h-auto max-h-[500px] object-cover transition duration-500 transform group-hover:scale-[1.02]"
             />
+
             {/* Floating Stats Card */}
             <div className="absolute -bottom-6 -right-6 bg-white rounded-lg shadow-xl p-4 md:p-6 animate-float">
               <div className="space-y-2">
@@ -115,7 +117,7 @@ const InfoSection = () => {
           </div>
 
           {/* CTA Button */}
-          <div className="pt-4">
+          <div className="pt-4 ml-5">
             <Button icon={ArrowRight}>Explore Programs</Button>
           </div>
         </div>

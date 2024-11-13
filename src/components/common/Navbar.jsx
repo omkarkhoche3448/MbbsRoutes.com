@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Menu, X, Globe } from "lucide-react";
+import { Menu, X, Globe, ChevronDown } from "lucide-react";
 import { NavLink, useNavigate } from "react-router-dom";
 import MBBSModal from "./MBBSModal";
 import SearchBar from "./SearchBar";
 import CountryCard from "./CountryCard";
 
-// Country data and other components remain the same
 const countries = [
   {
     name: "United States",
@@ -49,7 +48,6 @@ const countries = [
   },
 ];
 
-// CategoryTabs Component remains the same
 const CategoryTabs = ({ selected, onSelect }) => {
   const categories = [
     { id: "all", label: "All Countries" },
@@ -60,7 +58,7 @@ const CategoryTabs = ({ selected, onSelect }) => {
   ];
 
   return (
-    <div className="flex space-x-4 overflow-x-auto pb-2 -mx-4 px-4">
+    <div className="flex space-x-2 overflow-x-auto pb-2 -mx-4 px-4">
       {categories.map(({ id, label }) => (
         <button
           key={id}
@@ -119,18 +117,15 @@ const Navbar = () => {
 
   return (
     <>
-      {/* Main Navbar */}
       <nav className="bg-white shadow-lg fixed w-full top-0 z-40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            {/* Logo */}
+          <div className="flex items-center justify-between h-20">
             <NavLink to="/" className="flex-shrink-0">
-              <div className="text-xl font-bold text-blue-600">
+              <div className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                 ConsultGlobal
               </div>
             </NavLink>
 
-            {/* Desktop Navigation */}
             <div className="hidden md:flex md:items-center md:space-x-8">
               <NavLink
                 to="/"
@@ -144,36 +139,28 @@ const Navbar = () => {
               >
                 MBBS In Abroad
               </NavLink>
-
               <NavLink
                 to="/about-us"
                 className="text-gray-600 hover:text-blue-600 hover:scale-105 transition-all"
               >
                 About
               </NavLink>
-
               <button
                 onClick={() => setIsCountrySelectorOpen(true)}
                 className="flex items-center text-gray-600 hover:text-blue-600 transition-all group"
               >
                 <Globe className="w-5 h-5 mr-2 group-hover:rotate-12 transition-transform" />
-                <span>
-                  {selectedCountry ? selectedCountry.name : "Select Country"}
-                </span>
+                <span>{selectedCountry ? selectedCountry.name : "Select Country"}</span>
+                <ChevronDown className="w-4 h-4 ml-1" />
               </button>
-
               <button
-                onClick={() => {
-                  console.log("Contact button clicked");
-                  setIsMBBSModalOpen(true);
-                }}
-                className="text-gray-600 hover:text-blue-600 hover:scale-105 transition-all"
+                onClick={() => setIsMBBSModalOpen(true)}
+                className="px-4 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors"
               >
                 Contact Us
               </button>
             </div>
 
-            {/* Mobile menu button */}
             <div className="md:hidden">
               <button
                 onClick={() => setIsOpen(!isOpen)}
@@ -189,34 +176,43 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Mobile menu */}
         {isOpen && (
-          <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 bg-white">
+          <div className="md:hidden absolute top-20 left-0 right-0 bg-white shadow-lg rounded-b-2xl overflow-hidden transition-all duration-300 ease-in-out">
+            <div className="px-2 pt-2 pb-3 space-y-1">
               <NavLink
                 to="/"
-                className="block w-full px-3 py-2 text-base text-gray-600 hover:text-blue-600 hover:bg-gray-100 rounded-md"
+                className="block w-full px-4 py-3 text-base text-gray-600 hover:text-blue-600 hover:bg-gray-100 rounded-md transition-colors"
               >
                 Home
               </NavLink>
               <NavLink
-                to="/services"
-                className="block w-full px-3 py-2 text-base text-gray-600 hover:text-blue-600 hover:bg-gray-100 rounded-md"
+                to="/mbbs-in-abroad"
+                className="block w-full px-4 py-3 text-base text-gray-600 hover:text-blue-600 hover:bg-gray-100 rounded-md transition-colors"
               >
-                Services
+                MBBS In Abroad
+              </NavLink>
+              <NavLink
+                to="/about-us"
+                className="block w-full px-4 py-3 text-base text-gray-600 hover:text-blue-600 hover:bg-gray-100 rounded-md transition-colors"
+              >
+                About
               </NavLink>
               <button
-                onClick={() => setIsCountrySelectorOpen(true)}
-                className="flex items-center w-full px-3 py-2 text-base text-gray-600 hover:text-blue-600 hover:bg-gray-100 rounded-md"
+                onClick={() => {
+                  setIsCountrySelectorOpen(true);
+                  setIsOpen(false);
+                }}
+                className="flex items-center w-full px-4 py-3 text-base text-gray-600 hover:text-blue-600 hover:bg-gray-100 rounded-md transition-colors"
               >
                 <Globe className="w-5 h-5 mr-2" />
-                <span>
-                  {selectedCountry ? selectedCountry.name : "Select Country"}
-                </span>
+                <span>{selectedCountry ? selectedCountry.name : "Select Country"}</span>
               </button>
               <button
-                onClick={() => setIsMBBSModalOpen(true)} // Added onClick handler
-                className="block w-full px-3 py-2 text-base text-gray-600 hover:text-blue-600 hover:bg-gray-100 rounded-md"
+                onClick={() => {
+                  setIsMBBSModalOpen(true);
+                  setIsOpen(false);
+                }}
+                className="block w-full px-4 py-3 text-base text-white bg-blue-600 hover:bg-blue-700 rounded-md transition-colors"
               >
                 Contact Us
               </button>
@@ -225,7 +221,6 @@ const Navbar = () => {
         )}
       </nav>
 
-      {/* Country Selector Modal */}
       {isCountrySelectorOpen && (
         <div className="fixed inset-0 z-50 transition-all duration-500 opacity-100 pointer-events-auto">
           <div
@@ -277,13 +272,6 @@ const Navbar = () => {
         </div>
       )}
 
-      {isMBBSModalOpen && (
-        <div className="fixed top-20 left-4 bg-green-100 p-2 rounded">
-          Modal should be open
-        </div>
-      )}
-
-      {/* MBBS Modal with proper z-index */}
       <MBBSModal
         isOpen={isMBBSModalOpen}
         onClose={() => setIsMBBSModalOpen(false)}
