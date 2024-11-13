@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/common/Navbar";
 import ChatBot from "./components/chatBotui/ChatBot";
 import Consultancypages from "./pages/Consultancypages";
-// import Landingpage from "./pages/Landingpage";
+import Landingpage from "./pages/Landingpage";
 import AboutPage from "./pages/AboutPage";
 import MBBSEducationAbroad from "./pages/MBBSEducationAbroad";
 import CollegeRecommendationpage from "./pages/CollegeRecommendationpage";
@@ -15,7 +15,7 @@ function App() {
       <Router>
         <Navbar />
         <Routes>
-          {/* <Route path="/" element={<Landingpage />} /> */}
+          <Route path="/" element={<Landingpage />} />
           <Route
             path="/consultancy/:countryName/mbbs"
             element={<Consultancypages />}
