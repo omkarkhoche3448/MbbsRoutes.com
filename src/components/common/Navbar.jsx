@@ -140,6 +140,11 @@ const Navbar = () => {
                 MBBS In Abroad
               </NavLink>
               <NavLink
+                to="/mbbs-in-abroad/college-recomendation"
+                className="text-gray-600 hover:text-blue-600 hover:scale-105 transition-all"
+              >College Recommendation
+              </NavLink>
+              <NavLink
                 to="/about-us"
                 className="text-gray-600 hover:text-blue-600 hover:scale-105 transition-all"
               >

@@ -6,6 +6,7 @@ import Landingpage from "./pages/Landingpage";
 import AboutPage from "./pages/AboutPage";
 import MBBSEducationAbroad from "./pages/MBBSEducationAbroad";
 import CollegeRecommendationpage from "./pages/CollegeRecommendationpage";
+import Footer from "./components/common/Footer"
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/mbbs-in-abroad" element={<MBBSEducationAbroad />} />
           <Route path ="/mbbs-in-abroad/college-recomendation" element={<CollegeRecommendationpage />} />
         </Routes>
+        <Footer/>
       </Router>
     </div>
   );

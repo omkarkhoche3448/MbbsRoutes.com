@@ -87,12 +87,12 @@ export default function MedicalCollegeRecommendationPage() {
     if (student.mcat >= 510) {
       score += 50
     }
-    score += (1 - college.acceptanceRate / 100) * 50 // Lower acceptance rate gives higher score
+    score += (1 - college.acceptanceRate / 100) * 50
     return score
   }
 
   return (
-    <div className="bg-gray-100 min-h-screen p-8">
+    <div className="bg-white min-h-fit p-8 mb-24">
       <h1 className="text-4xl font-bold text-gray-800 mb-8">Medical College Recommendation</h1>
       
       {!showRecommendations ? (

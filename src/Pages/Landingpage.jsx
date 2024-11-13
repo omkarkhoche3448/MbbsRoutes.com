@@ -14,7 +14,6 @@ function Landingpage() {
       <InfoSection />
       <Info />
       <FAQSection />
-      <Footer />
     </div>
   );
 }
