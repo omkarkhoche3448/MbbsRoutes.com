@@ -2,7 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import CollegeInfo from "./CollegeInfo";
 
-const ConsultancyPage = () => {
+const Consultancypage = () => {
   const { countryName } = useParams();
 
   // Dynamic content for different countries
@@ -46,4 +46,4 @@ const ConsultancyPage = () => {
   );
 };
 
-export default ConsultancyPage;
+export default Consultancypage;
