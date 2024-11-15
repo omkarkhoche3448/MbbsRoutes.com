@@ -1,106 +1,160 @@
-import React, { useState } from 'react'
-import { MapPin, DollarSign, Users, TrendingUp, GraduationCap, ExternalLink } from 'lucide-react'
+import React, { useState } from "react";
+import {
+  MapPin,
+  DollarSign,
+  Users,
+  TrendingUp,
+  GraduationCap,
+  ExternalLink,
+} from "lucide-react";
 
-const medicalCollegeData = [
-  {
-    id: 1,
-    name: "Harvard Medical School",
-    location: "Boston, MA",
-    tuition: 63000,
-    acceptanceRate: 3.9,
-    studentPopulation: 715,
-    imageUrl: "https://images.unsplash.com/photo-1564981797816-1043664bf78d?ixlib=rb-1.2.1&auto=format&fit=crop&w=2100&q=80"
-  },
-  {
-    id: 2,
-    name: "Stanford University School of Medicine",
-    location: "Stanford, CA",
-    tuition: 62000,
-    acceptanceRate: 2.5,
-    studentPopulation: 520,
-    imageUrl: "https://images.unsplash.com/photo-1564981797816-1043664bf78d?ixlib=rb-1.2.1&auto=format&fit=crop&w=2100&q=80"
-  },
-  {
-    id: 3,
-    name: "Johns Hopkins University School of Medicine",
-    location: "Baltimore, MD",
-    tuition: 60000,
-    acceptanceRate: 10.5,
-    studentPopulation: 482,
-    imageUrl: "https://images.unsplash.com/photo-1564981797816-1043664bf78d?ixlib=rb-1.2.1&auto=format&fit=crop&w=2100&q=80"
-  },
-  {
-    id: 4,
-    name: "University of California, San Francisco School of Medicine",
-    location: "San Francisco, CA",
-    tuition: 55000,
-    acceptanceRate: 3.8,
-    studentPopulation: 688,
-    imageUrl: "https://images.unsplash.com/photo-1564981797816-1043664bf78d?ixlib=rb-1.2.1&auto=format&fit=crop&w=2100&q=80"
-  },
-  {
-    id: 5,
-    name: "Columbia University Vagelos College of Physicians and Surgeons",
-    location: "New York, NY",
-    tuition: 63000,
-    acceptanceRate: 7.1,
-    studentPopulation: 600,
-    imageUrl: "https://images.unsplash.com/photo-1564981797816-1043664bf78d?ixlib=rb-1.2.1&auto=format&fit=crop&w=2100&q=80"
-  }
-]
+const ProgressBar = ({ value, max = 100 }) => {
+  const percentage = (value / max) * 100
+  return (
+    <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+      <div
+        className="bg-blue-600 h-2.5 rounded-full"
+        style={{ width: `${percentage}%` }}
+      ></div>
+    </div>
+  )
+}
 
-export default function MedicalCollegeRecommendationPage() {
+const InfoItem = ({ icon: Icon, value, label }) => (
+  <div className="flex flex-col items-center">
+    <Icon size={24} className="text-gray-400 mb-1" />
+    <span className="text-sm font-medium text-gray-700">{value}</span>
+    <span className="text-xs text-gray-500">{label}</span>
+  </div>
+)
+
+const RecommendationCard = ({ data }) => {
+  return (
+    <div className="max-w-sm rounded-xl overflow-hidden shadow-lg bg-gradient-to-br from-white to-gray-100 hover:shadow-xl transition-shadow duration-300">
+      <div className="relative">
+        <img
+          className="w-full h-48 object-cover"
+          src={data.imageUrl}
+          alt={data.name}
+        />
+        <div className="absolute inset-0 bg-black bg-opacity-50 flex items-end">
+          <div className="p-4">
+            <h3 className="text-xl font-bold text-white mb-1">{data.name}</h3>
+            <div className="flex items-center text-gray-200">
+              <MapPin size={16} className="mr-1" />
+              <span className="text-sm">{data.location}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="p-6">
+        <div className="flex justify-between items-center mb-4">
+          <div className="flex items-center">
+            <TrendingUp size={20} className="text-blue-600 mr-2" />
+            <span className="text-2xl font-bold text-gray-800">{data.score.toFixed(2)}</span>
+          </div>
+          <a
+            href={`https://www.google.com/search?q=${encodeURIComponent(data.name)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-600 hover:text-blue-800 transition-colors duration-200"
+          >
+            <ExternalLink size={20} />
+          </a>
+        </div>
+        <ProgressBar value={data.score} max={100} />
+        <div className="mt-6 grid grid-cols-3 gap-4">
+          <InfoItem
+            icon={Users}
+            value={data.studentPopulation.toLocaleString()}
+            label="Students"
+          />
+          <InfoItem
+            icon={DollarSign}
+            value={`$${(data.tuition / 1000).toFixed(0)}k`}
+            label="Tuition"
+          />
+          <InfoItem
+            icon={GraduationCap}
+            value={`${data.acceptanceRate}%`}
+            label="Acceptance"
+          />
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export default function CollegeRecommendationpage() {
   const [studentData, setStudentData] = useState({
-    gpa: '',
-    mcat: ''
-  })
-  const [recommendations, setRecommendations] = useState([])
-  const [showRecommendations, setShowRecommendations] = useState(false)
+    gpa: "",
+    mcat: "",
+  });
+  const [recommendations, setRecommendations] = useState([]);
+  const [showRecommendations, setShowRecommendations] = useState(false);
+  const [error, setError] = useState(null);
 
   const handleInputChange = (e) => {
-    const { name, value } = e.target
-    setStudentData(prev => ({ ...prev, [name]: value }))
-  }
+    const { name, value } = e.target;
+    setStudentData((prev) => ({ ...prev, [name]: value }));
+  };
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    // Simulate KNN algorithm by filtering and sorting colleges
-    const filteredColleges = medicalCollegeData.filter(college => 
-      college.acceptanceRate <= 10
-    )
-    
-    const scoredColleges = filteredColleges.map(college => ({
-      ...college,
-      score: calculateMatchScore(college, studentData)
-    }))
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError(null);
 
-    const sortedColleges = scoredColleges.sort((a, b) => b.score - a.score)
-    setRecommendations(sortedColleges.slice(0, 3))
-    setShowRecommendations(true)
-  }
+    try {
+      const response = await fetch(
+        "http://localhost:5000/api/recommendations",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            gpa: parseFloat(studentData.gpa),
+            mcat: parseFloat(studentData.mcat),
+          }),
+        }
+      );
 
-  const calculateMatchScore = (college, student) => {
-    let score = 0
-    if (student.gpa >= 3.6) {
-      score += 50
+      if (!response.ok) {
+        throw new Error("Failed to fetch recommendations");
+      }
+
+      const data = await response.json();
+      setRecommendations(data);
+      setShowRecommendations(true);
+    } catch (error) {
+      console.error("Error:", error);
+      setError("Failed to get recommendations. Please try again.");
     }
-    if (student.mcat >= 510) {
-      score += 50
-    }
-    score += (1 - college.acceptanceRate / 100) * 50
-    return score
-  }
+  };
 
   return (
     <div className="bg-white min-h-fit p-8 mb-24">
-      <h1 className="text-4xl font-bold text-gray-800 mb-8">Medical College Recommendation</h1>
-      
+      <h1 className="text-4xl font-bold text-gray-800 mb-8">
+        Medical College Recommendation
+      </h1>
+
+      {error && <div className="text-red-500 mb-4">{error}</div>}
+
       {!showRecommendations ? (
-        <form onSubmit={handleSubmit} className="bg-white rounded-xl shadow-lg p-8 max-w-2xl mx-auto">
-          <h2 className="text-2xl font-semibold mb-6">Enter Your Information</h2>
+        <form
+          onSubmit={handleSubmit}
+          className="bg-white rounded-xl shadow-lg p-8 max-w-2xl mx-auto lg:mt-24"
+        >
+          <h2 className="text-2xl font-semibold mb-6">
+            Enter Your Information
+          </h2>
           <div className="space-y-6">
             <div>
-              <label htmlFor="gpa" className="block text-sm font-medium text-gray-700 mb-1">GPA</label>
+              <label
+                htmlFor="gpa"
+                className="block text-sm font-medium text-gray-700 mb-1"
+              >
+                GPA
+              </label>
               <input
                 type="number"
                 id="gpa"
@@ -111,11 +165,16 @@ export default function MedicalCollegeRecommendationPage() {
                 required
                 value={studentData.gpa}
                 onChange={handleInputChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md"
               />
             </div>
             <div>
-              <label htmlFor="mcat" className="block text-sm font-medium text-gray-700 mb-1">MCAT Score</label>
+              <label
+                htmlFor="mcat"
+                className="block text-sm font-medium text-gray-700 mb-1"
+              >
+                MCAT Score
+              </label>
               <input
                 type="number"
                 id="mcat"
@@ -125,82 +184,24 @@ export default function MedicalCollegeRecommendationPage() {
                 required
                 value={studentData.mcat}
                 onChange={handleInputChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md"
               />
             </div>
+            <button
+              type="submit"
+              className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700"
+            >
+              Get Recommendations
+            </button>
           </div>
-          <button
-            type="submit"
-            className="mt-6 w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition duration-150 ease-in-out"
-          >
-            Get Recommendations
-          </button>
         </form>
       ) : (
-        <div>
-          <h2 className="text-2xl font-semibold mb-6">Your Medical College Recommendations</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {recommendations.map(college => (
-              <div key={college.id} className="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
-                <div className="relative h-48">
-                  <img src={college.imageUrl} alt={college.name} className="w-full h-full object-cover" />
-                  <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent to-black opacity-60"></div>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-2xl font-bold text-gray-800 mb-2">{college.name}</h3>
-                  <div className="flex items-center text-gray-600 mb-4">
-                    <MapPin className="w-4 h-4 mr-1" />
-                    <span>{college.location}</span>
-                  </div>
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="flex items-center">
-                      <DollarSign className="w-5 h-5 text-green-500 mr-1" />
-                      <span className="font-semibold text-gray-700">${college.tuition.toLocaleString()}/year</span>
-                    </div>
-                    <div className="flex items-center">
-                      <Users className="w-5 h-5 text-blue-500 mr-1" />
-                      <span className="font-semibold text-gray-700">{college.studentPopulation.toLocaleString()} students</span>
-                    </div>
-                  </div>
-                  <div className="mb-4">
-                    <div className="text-sm font-semibold text-gray-600 mb-1">Match Score</div>
-                    <div className="w-full bg-gray-200 rounded-full h-2.5">
-                      <div 
-                        className="bg-blue-600 h-2.5 rounded-full" 
-                        style={{ width: `${college.score}%` }}
-                      ></div>
-                    </div>
-                    <div className="text-right text-sm font-semibold text-blue-600 mt-1">{college.score.toFixed(1)}%</div>
-                  </div>
-                  <div className="mb-4">
-                    <div className="flex items-center text-gray-600 mb-2">
-                      <TrendingUp className="w-4 h-4 mr-2" />
-                      <span className="text-sm">Acceptance Rate: {college.acceptanceRate}%</span>
-                    </div>
-                    <div className="flex items-center text-gray-600">
-                      <GraduationCap className="w-4 h-4 mr-2" />
-                      <span className="text-sm">Medical School</span>
-                    </div>
-                  </div>
-                  <a 
-                    href="#" 
-                    className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200"
-                  >
-                    Learn More
-                    <ExternalLink className="w-4 h-4 ml-2" />
-                  </a>
-                </div>
-              </div>
-            ))}
-          </div>
-          <button
-            onClick={() => setShowRecommendations(false)}
-            className="mt-8 bg-gray-600 text-white py-2 px-4 rounded-md hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 transition duration-150 ease-in-out"
-          >
-            Back to Form
-          </button>
+        <div className="flex flex-row flex-wrap  mx-auto justify-center items-center gap-16 lg:mt-24 ">
+          {recommendations.map((recommendation) => (
+            <RecommendationCard key={recommendation.id} data={recommendation} />
+          ))}
         </div>
       )}
     </div>
-  )
+  );
 }
