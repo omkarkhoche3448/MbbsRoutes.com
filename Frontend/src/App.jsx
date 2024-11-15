@@ -2,11 +2,11 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/common/Navbar";
 import ChatBot from "./components/chatBotui/ChatBot";
-import Consultancypages from "./pages/Consultancypages";
-import Landingpage from "./pages/Landingpage";
-import AboutPage from "./pages/AboutPage";
-import MBBSEducationAbroad from "./pages/MBBSEducationAbroad";
-import CollegeRecommendationpage from "./pages/CollegeRecommendationpage";
+import Consultancypages from "./Pages/Consultancypages";
+import Landingpage from "./Pages/Landingpage";
+import AboutPage from "./Pages/AboutPage";
+import MBBSEducationAbroad from "./Pages/MBBSEducationAbroad";
+import CollegeRecommendationpage from "./Pages/CollegeRecommendationpage";
 import Footer from "./components/common/Footer";
 
 function App() {
