@@ -18,6 +18,7 @@ import {
   Building2,
   X,
 } from "lucide-react";
+import infoImg from "../../assets/LandingImg.png";
 
 const Button = ({
   children,
@@ -385,7 +386,7 @@ export default function Info() {
               <div className="absolute -inset-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl opacity-75 blur-lg group-hover:opacity-100 transition duration-1000"></div>
               <div className="relative">
                 <img
-                  src="/api/placeholder/800/600"
+                  src={infoImg}
                   alt="Medical Education"
                   className="rounded-xl shadow-2xl w-full h-[300px] sm:h-[400px] lg:h-[500px] object-cover"
                 />

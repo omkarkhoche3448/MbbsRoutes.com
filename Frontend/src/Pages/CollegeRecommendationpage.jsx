@@ -9,16 +9,16 @@ import {
 } from "lucide-react";
 
 const ProgressBar = ({ value, max = 100 }) => {
-  const percentage = (value / max) * 100
+  const percentage = (value / max) * 100;
   return (
-    <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+    <div className="w-full bg-gray-200 rounded-full h-2.5">
       <div
-        className="bg-blue-600 h-2.5 rounded-full"
+        className="bg-blue-600 h-2.5 rounded-full transition-all duration-300"
         style={{ width: `${percentage}%` }}
       ></div>
     </div>
-  )
-}
+  );
+};
 
 const InfoItem = ({ icon: Icon, value, label }) => (
   <div className="flex flex-col items-center">
@@ -30,31 +30,37 @@ const InfoItem = ({ icon: Icon, value, label }) => (
 
 const RecommendationCard = ({ data }) => {
   return (
-    <div className="max-w-sm rounded-xl overflow-hidden shadow-lg bg-gradient-to-br from-white to-gray-100 hover:shadow-xl transition-shadow duration-300">
+    <div className="w-full sm:w-[340px] rounded-xl overflow-hidden shadow-lg bg-gradient-to-br from-white to-gray-100 hover:shadow-xl transition-all duration-300">
       <div className="relative">
         <img
-          className="w-full h-48 object-cover"
+          className="w-full h-40 sm:h-48 object-cover"
           src={data.imageUrl}
           alt={data.name}
         />
         <div className="absolute inset-0 bg-black bg-opacity-50 flex items-end">
-          <div className="p-4">
-            <h3 className="text-xl font-bold text-white mb-1">{data.name}</h3>
+          <div className="p-3 sm:p-4">
+            <h3 className="text-lg sm:text-xl font-bold text-white mb-1 line-clamp-2">
+              {data.name}
+            </h3>
             <div className="flex items-center text-gray-200">
-              <MapPin size={16} className="mr-1" />
-              <span className="text-sm">{data.location}</span>
+              <MapPin size={14} className="mr-1 sm:size-16" />
+              <span className="text-xs sm:text-sm">{data.location}</span>
             </div>
           </div>
         </div>
       </div>
-      <div className="p-6">
+      <div className="p-4 sm:p-6">
         <div className="flex justify-between items-center mb-4">
           <div className="flex items-center">
             <TrendingUp size={20} className="text-blue-600 mr-2" />
-            <span className="text-2xl font-bold text-gray-800">{data.score.toFixed(2)}</span>
+            <span className="text-2xl font-bold text-gray-800">
+              {data.score.toFixed(2)}
+            </span>
           </div>
           <a
-            href={`https://www.google.com/search?q=${encodeURIComponent(data.name)}`}
+            href={`https://www.google.com/search?q=${encodeURIComponent(
+              data.name
+            )}`}
             target="_blank"
             rel="noopener noreferrer"
             className="text-blue-600 hover:text-blue-800 transition-colors duration-200"
@@ -82,8 +88,8 @@ const RecommendationCard = ({ data }) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default function CollegeRecommendationpage() {
   const [studentData, setStudentData] = useState({
@@ -132,71 +138,79 @@ export default function CollegeRecommendationpage() {
   };
 
   return (
-    <div className="bg-white min-h-fit p-8 mb-24">
-      <h1 className="text-4xl font-bold text-gray-800 mb-8">
+    <div className="min-h-fit bg-white px-4 sm:px-6 lg:px-8 py-6 sm:py-8 mb-24 lg:mt-0 mt-16">
+      <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-800 mb-6 sm:mb-8 text-center">
         Medical College Recommendation
       </h1>
 
-      {error && <div className="text-red-500 mb-4">{error}</div>}
+      {error && (
+        <div className="text-red-500 mb-4 text-center text-sm sm:text-base">
+          {error}
+        </div>
+      )}
 
       {!showRecommendations ? (
-        <form
-          onSubmit={handleSubmit}
-          className="bg-white rounded-xl shadow-lg p-8 max-w-2xl mx-auto lg:mt-24"
-        >
-          <h2 className="text-2xl font-semibold mb-6">
-            Enter Your Information
-          </h2>
-          <div className="space-y-6">
-            <div>
-              <label
-                htmlFor="gpa"
-                className="block text-sm font-medium text-gray-700 mb-1"
+        <div className="max-w-md mx-auto sm:mt-12 lg:mt-24">
+          <form
+            onSubmit={handleSubmit}
+            className="bg-white rounded-xl shadow-lg p-4 sm:p-6 lg:p-8"
+          >
+            <h2 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6">
+              Enter Your Information
+            </h2>
+            <div className="space-y-4 sm:space-y-6">
+              <div>
+                <label
+                  htmlFor="gpa"
+                  className="block text-sm font-medium text-gray-700 mb-1"
+                >
+                  GPA
+                </label>
+                <input
+                  type="number"
+                  id="gpa"
+                  name="gpa"
+                  step="0.01"
+                  min="0"
+                  max="4"
+                  required
+                  value={studentData.gpa}
+                  onChange={handleInputChange}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200"
+                  placeholder="Enter your GPA (0-4)"
+                />
+              </div>
+              <div>
+                <label
+                  htmlFor="mcat"
+                  className="block text-sm font-medium text-gray-700 mb-1"
+                >
+                  MCAT Score
+                </label>
+                <input
+                  type="number"
+                  id="mcat"
+                  name="mcat"
+                  min="400"
+                  max="528"
+                  required
+                  value={studentData.mcat}
+                  onChange={handleInputChange}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200"
+                  placeholder="Enter your MCAT score (400-528)"
+                />
+              </div>
+              <button
+                type="submit"
+                className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition-colors duration-200 text-sm sm:text-base font-medium"
               >
-                GPA
-              </label>
-              <input
-                type="number"
-                id="gpa"
-                name="gpa"
-                step="0.01"
-                min="0"
-                max="4"
-                required
-                value={studentData.gpa}
-                onChange={handleInputChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md"
-              />
+                Get Recommendations
+              </button>
             </div>
-            <div>
-              <label
-                htmlFor="mcat"
-                className="block text-sm font-medium text-gray-700 mb-1"
-              >
-                MCAT Score
-              </label>
-              <input
-                type="number"
-                id="mcat"
-                name="mcat"
-                min="400"
-                max="528"
-                required
-                value={studentData.mcat}
-                onChange={handleInputChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md"
-              />
-            </div>
-            <button
-              type="submit"
-              className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700"
-            >
-              Get Recommendations
-            </button>
-          </div>
-        </form>
+          </form>
+        </div>
       ) : (
-        <div className="flex flex-row flex-wrap  mx-auto justify-center items-center gap-16 lg:mt-24 ">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-12 max-w-7xl mx-auto mt-6 sm:mt-12 lg:mt-24">
           {recommendations.map((recommendation) => (
             <RecommendationCard key={recommendation.id} data={recommendation} />
           ))}

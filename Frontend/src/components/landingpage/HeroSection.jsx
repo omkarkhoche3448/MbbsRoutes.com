@@ -1,18 +1,43 @@
 import React from 'react'
+import { ArrowRight, GraduationCap, Globe, Award } from 'lucide-react';
+import heroImg from '../../assets/LandingImg3.png'
 
-const Button = ({ children, variant = 'primary', className = '', ...props }) => {
-  const baseClasses = "inline-flex h-12 items-center justify-center rounded-full px-8 text-sm font-medium shadow-lg transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
-  const variantClasses = {
-    primary: "bg-blue-600 text-white hover:bg-blue-700 focus-visible:ring-blue-600 ",
-    outline: "border-2 border-blue-600 bg-transparent text-blue-600 hover:bg-blue-50 focus-visible:ring-blue-600 "
-  }
+
+const Button = React.forwardRef(({ 
+  children, 
+  variant = 'primary', 
+  size = 'default',
+  className = '', 
+  ...props 
+}, ref) => {
+  const baseClasses = "inline-flex items-center justify-center rounded-full font-medium shadow-lg transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50";
   
+  const sizeClasses = {
+    small: "h-9 px-6 text-xs",
+    default: "h-12 px-8 text-sm",
+    large: "h-14 px-10 text-base",
+    icon: "h-12 w-12 p-0"  
+  };
+
+  const variantClasses = {
+    primary: "bg-blue-600 text-white hover:bg-blue-700 focus-visible:ring-blue-600",
+    secondary: "bg-gray-100 text-gray-900 hover:bg-gray-200 focus-visible:ring-gray-400",
+    outline: "border-2 border-blue-600 bg-transparent text-blue-600 hover:bg-blue-50 focus-visible:ring-blue-600",
+    ghost: "bg-transparent text-blue-600 shadow-none hover:bg-blue-50 focus-visible:ring-blue-600",
+    destructive: "bg-red-600 text-white hover:bg-red-700 focus-visible:ring-red-600",
+    success: "bg-green-600 text-white hover:bg-green-700 focus-visible:ring-green-600"
+  };
+
   return (
-    <button className={`${baseClasses} ${variantClasses[variant]} ${className}`} {...props}>
+    <button 
+      ref={ref}
+      className={`${baseClasses} ${sizeClasses[size]} ${variantClasses[variant]} ${className}`} 
+      {...props}
+    >
       {children}
     </button>
-  )
-}
+  );
+});
 
 const Icon = ({ name }) => {
   const icons = {
@@ -44,78 +69,90 @@ const Icon = ({ name }) => {
   return icons[name] || null
 }
 
-export default function HeroSection() {
+
+const HeroSection = () => {
   return (
-    <section className="w-full  py-12 mt-20 lg:mt-0 md:py-24 lg:py-32 xl:py-48 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50  overflow-hidden">
-      <div className="lg:container mx-auto px-4 md:px-6 relative">
-        <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 xl:grid-cols-[1fr_600px] ">
-          <div className="flex flex-col justify-center space-y-8">
-            <div className="space-y-6">
-              <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl xl:text-6xl/none">
-                <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent px-1">Empowering</span> Your Medical Journey Abroad
+    <section className="w-full py-8 sm:py-12 md:py-16 lg:py-24 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 overflow-hidden">
+      <div className="container mx-auto px-4 sm:px-6 relative">
+        <div className="grid gap-8 lg:grid-cols-2 xl:grid-cols-[1fr_600px] lg:mt-0 mt-32">
+          {/* Left Content Column */}
+          <div className="flex flex-col justify-center space-y-6 sm:space-y-8">
+            <div className="space-y-4 sm:space-y-6">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold tracking-tight">
+                <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                  Empowering
+                </span>{' '}
+                Your Medical Journey Abroad
               </h1>
-              <p className="max-w-[600px] text-gray-600 md:text-xl ">
+              <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-[600px]">
                 Expert guidance for aspiring medical professionals. Navigate admissions, visas, and cultural transitions with confidence.
               </p>
             </div>
-            <div className="flex flex-col gap-4 min-[400px]:flex-row">
-              <Button>
+
+            {/* Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Button className="w-full sm:w-auto">
                 Start Your Journey
-                <Icon name="ArrowRight" className="ml-2 h-4 w-4" />
+                <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
-              <Button variant="outline">
+              <Button variant="outline" className="w-full sm:w-auto">
                 Explore Programs
               </Button>
             </div>
-            <div className="grid grid-cols-3 gap-4 md:gap-8">
-              <div className="flex flex-col items-center space-y-2 text-center">
-                <div className="rounded-full bg-blue-100 p-2 ">
-                  <Icon name="GraduationCap" className="h-6 w-6 text-blue-600 " />
+
+            {/* Features Grid */}
+            <div className="grid grid-cols-3 gap-2 sm:gap-4 lg:gap-8">
+              {[
+                { icon: GraduationCap, text: "Top Universities", color: "blue" },
+                { icon: Globe, text: "Global Network", color: "purple" },
+                { icon: Award, text: "Expert Guidance", color: "indigo" }
+              ].map(({ icon: Icon, text, color }, index) => (
+                <div key={index} className="flex flex-col items-center space-y-2 text-center">
+                  <div className={`rounded-full bg-${color}-100 p-2`}>
+                    <Icon className={`h-4 w-4 sm:h-6 sm:w-6 text-${color}-600`} />
+                  </div>
+                  <span className="text-xs sm:text-sm font-medium">{text}</span>
                 </div>
-                <span className="text-sm font-medium">Top Universities</span>
-              </div>
-              <div className="flex flex-col items-center space-y-2 text-center">
-                <div className="rounded-full bg-purple-100 p-2 ">
-                  <Icon name="Globe" className="h-6 w-6 text-purple-600 " />
-                </div>
-                <span className="text-sm font-medium">Global Network</span>
-              </div>
-              <div className="flex flex-col items-center space-y-2 text-center">
-                <div className="rounded-full bg-indigo-100 p-2 ">
-                  <Icon name="Award" className="h-6 w-6 text-indigo-600 " />
-                </div>
-                <span className="text-sm font-medium">Expert Guidance</span>
-              </div>
+              ))}
             </div>
           </div>
-          <div className="relative flex items-center justify-center lg:justify-end">
-            <div className="absolute -right-20 -top-20 h-[500px] w-[500px] rounded-full bg-blue-200 blur-3xl opacity-50"></div>
-            <div className="absolute -bottom-20 -left-20 h-[500px] w-[500px] rounded-full bg-purple-200 blur-3xl  opacity-50"></div>
-            <div className="relative h-[450px] w-[450px] lg:h-[600px] lg:w-[600px]">
+
+          {/* Right Image Column */}
+          <div className="relative mt-8 lg:mt-0 flex items-center justify-center lg:justify-end">
+            {/* Background Blurs */}
+            <div className="absolute -right-20 -top-20 h-[300px] w-[300px] sm:h-[500px] sm:w-[500px] rounded-full bg-blue-200 blur-3xl opacity-50" />
+            <div className="absolute -bottom-20 -left-20 h-[300px] w-[300px] sm:h-[500px] sm:w-[500px] rounded-full bg-purple-200 blur-3xl opacity-50" />
+
+            {/* Main Image */}
+            <div className="relative h-[300px] w-[300px] sm:h-[450px] sm:w-[450px] lg:h-[600px] lg:w-[600px]">
               <img
-                src="https://images.hellosivi.com/fit-in/400x400/system/gen_assets/7f55f2d6-cff7-48b1-904f-a80e8d459e3f.png"
+                src={heroImg}
                 alt="MBBS Consultancy"
                 className="w-full h-full object-cover rounded-full shadow-2xl"
               />
-              <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-white rounded-full py-3 px-6 shadow-lg">
-                <p className="text-sm font-medium text-gray-900 ">
+
+              {/* Floating Stats */}
+              <div className="absolute -bottom-4 sm:-bottom-8 left-1/2 transform -translate-x-1/2 bg-white rounded-full py-2 sm:py-3 px-4 sm:px-6 shadow-lg">
+                <p className="text-xs sm:text-sm font-medium text-gray-900">
                   Trusted by 10,000+ Students
                 </p>
               </div>
-            </div>
-            <div className="absolute top-1/2 left-0 transform -translate-y-1/2 bg  bg-white rounded-full py-3 px-6 shadow-lg">
-              <p className="text-sm font-medium text-gray-900 -100">
-                100+ Partner Universities
-              </p>
-            </div>
-            <div className="absolute top-0 right-0 bg-white  rounded-full py-3 px-6 shadow-lg">
-              <p className="text-sm font-medium text-gray-900 ">
-                95% Success Rate
-              </p>
+              <div className="absolute top-1/2 -left-4 sm:left-0 transform -translate-y-1/2 bg-white rounded-full py-2 sm:py-3 px-4 sm:px-6 shadow-lg">
+                <p className="text-xs sm:text-sm font-medium text-gray-900">
+                  100+ Partner Universities
+                </p>
+              </div>
+              <div className="absolute top-4 right-4 sm:top-0 sm:right-0 bg-white rounded-full py-2 sm:py-3 px-4 sm:px-6 shadow-lg">
+                <p className="text-xs sm:text-sm font-medium text-gray-900">
+                  95% Success Rate
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
+
+export default HeroSection;

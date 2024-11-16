@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Menu, X, Globe, ChevronDown } from "lucide-react";
 import { NavLink, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import MBBSModal from "./MBBSModal";
 import SearchBar from "./SearchBar";
 import CountryCard from "./CountryCard";
@@ -50,29 +51,51 @@ const countries = [
 
 const CategoryTabs = ({ selected, onSelect }) => {
   const categories = [
-    { id: "all", label: "All Countries" },
-    { id: "popular", label: "Popular" },
-    { id: "europe", label: "Europe" },
-    { id: "asia", label: "Asia" },
-    { id: "americas", label: "Americas" },
+    { id: "all", label: "All Countries", icon: "🌎" },
+    { id: "popular", label: "Popular", icon: "⭐" },
+    { id: "europe", label: "Europe", icon: "🇪🇺" },
+    { id: "asia", label: "Asia", icon: "🌏" },
+    { id: "americas", label: "Americas", icon: "🌎" },
   ];
 
   return (
-    <div className="flex space-x-2 overflow-x-auto pb-2 -mx-4 px-4">
-      {categories.map(({ id, label }) => (
+    <div className="flex space-x-2 overflow-x-auto pb-2 -mx-4 px-4 scrollbar-hide py-2">
+      {categories.map(({ id, label, icon }) => (
         <button
           key={id}
           onClick={() => onSelect(id)}
-          className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all duration-300 ${
+          className={`px-4 py-2  rounded-full text-sm font-medium whitespace-nowrap transition-all duration-300 flex items-center gap-2 ${
             selected === id
-              ? "bg-blue-500 text-white shadow-lg shadow-blue-500/30 scale-105"
-              : "bg-white/50 text-gray-600 hover:bg-white/80"
+              ? "bg-blue-500 text-white shadow-lg shadow-blue-500/30 scale-105 ring-2 ring-blue-500 ring-offset-2"
+              : "bg-white/50 text-gray-600 hover:bg-white/80 hover:scale-102 active:scale-95"
           }`}
         >
+          <span className="text-base">{icon}</span>
           {label}
         </button>
       ))}
     </div>
+  );
+};
+
+const NavItem = ({ to, children }) => {
+  const location = useLocation();
+  const isActive = location.pathname === to;
+
+  return (
+    <NavLink
+      to={to}
+      className={`relative px-3 py-2 text-gray-600 transition-all duration-300 hover:text-blue-600 group ${
+        isActive ? "text-blue-600" : ""
+      }`}
+    >
+      {children}
+      <span
+        className={`absolute bottom-0 left-0 w-full h-0.5 bg-blue-600 transform origin-left transition-transform duration-300 ${
+          isActive ? "scale-x-100" : "scale-x-0"
+        } group-hover:scale-x-100`}
+      />
+    </NavLink>
   );
 };
 
@@ -84,9 +107,18 @@ const Navbar = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [selectedCountry, setSelectedCountry] = useState(null);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
-    if (isCountrySelectorOpen) {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    if (isCountrySelectorOpen || isMBBSModalOpen) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "unset";
@@ -94,7 +126,7 @@ const Navbar = () => {
     return () => {
       document.body.style.overflow = "unset";
     };
-  }, [isCountrySelectorOpen]);
+  }, [isCountrySelectorOpen, isMBBSModalOpen]);
 
   const filteredCountries = countries.filter((country) => {
     const matchesSearch =
@@ -115,119 +147,140 @@ const Navbar = () => {
     navigate(`/consultancy/${country.name.toLowerCase()}/mbbs`);
   };
 
+  const handleMobileNavClick = () => {
+    setIsOpen(false);
+    window.scrollTo(0, 0);
+  };
+
   return (
     <>
-      <nav className="bg-white shadow-lg fixed w-full top-0 z-40">
+      <nav
+        className={`fixed w-full top-0 z-40 transition-all duration-300 ${
+          isScrolled
+            ? "bg-white/80 backdrop-blur-md shadow-lg"
+            : "bg-white shadow-md"
+        }`}
+        role="navigation"
+        aria-label="Main navigation"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
-            <NavLink to="/" className="flex-shrink-0">
+            <NavLink
+              to="/"
+              className="flex-shrink-0 transform hover:scale-105 transition-transform duration-300"
+              aria-label="ConsultGlobal Home"
+            >
               <div className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                 ConsultGlobal
               </div>
             </NavLink>
 
             <div className="hidden md:flex md:items-center md:space-x-8">
-              <NavLink
-                to="/"
-                className="text-gray-600 hover:text-blue-600 hover:scale-105 transition-all"
-              >
-                Home
-              </NavLink>
-              <NavLink
-                to="/mbbs-in-abroad"
-                className="text-gray-600 hover:text-blue-600 hover:scale-105 transition-all"
-              >
-                MBBS In Abroad
-              </NavLink>
-              <NavLink
-                to="/mbbs-in-abroad/college-recomendation"
-                className="text-gray-600 hover:text-blue-600 hover:scale-105 transition-all"
-              >College Recommendation
-              </NavLink>
-              <NavLink
-                to="/about-us"
-                className="text-gray-600 hover:text-blue-600 hover:scale-105 transition-all"
-              >
-                About
-              </NavLink>
+              <NavItem to="/">Home</NavItem>
+              <NavItem to="/mbbs-in-abroad">MBBS In Abroad</NavItem>
+              <NavItem to="/mbbs-in-abroad/college-recomendation">
+                College Recommendation
+              </NavItem>
+              <NavItem to="/about-us">About</NavItem>
+
               <button
                 onClick={() => setIsCountrySelectorOpen(true)}
-                className="flex items-center text-gray-600 hover:text-blue-600 transition-all group"
+                className="flex items-center px-4 py-2 text-gray-600 hover:text-blue-600 rounded-full hover:bg-blue-50 transition-all duration-300 group"
+                aria-expanded={isCountrySelectorOpen}
+                aria-haspopup="true"
               >
-                <Globe className="w-5 h-5 mr-2 group-hover:rotate-12 transition-transform" />
-                <span>{selectedCountry ? selectedCountry.name : "Select Country"}</span>
-                <ChevronDown className="w-4 h-4 ml-1" />
+                <Globe className="w-5 h-5 mr-2 group-hover:rotate-12 transition-transform duration-300" />
+                <span>
+                  {selectedCountry ? selectedCountry.name : "Select Country"}
+                </span>
+                <ChevronDown
+                  className={`w-4 h-4 ml-1 transition-transform duration-300 ${
+                    isCountrySelectorOpen ? "rotate-180" : ""
+                  }`}
+                />
               </button>
+
               <button
                 onClick={() => setIsMBBSModalOpen(true)}
-                className="px-4 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors"
+                className="px-6 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/30 transform hover:-translate-y-0.5 active:translate-y-0"
               >
                 Contact Us
               </button>
             </div>
 
-            <div className="md:hidden">
-              <button
-                onClick={() => setIsOpen(!isOpen)}
-                className="inline-flex items-center justify-center p-2 rounded-md text-gray-600 hover:text-blue-600 hover:bg-gray-100 focus:outline-none"
-              >
-                {isOpen ? (
-                  <X className="block h-6 w-6" />
-                ) : (
-                  <Menu className="block h-6 w-6" />
-                )}
-              </button>
-            </div>
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="md:hidden p-2 rounded-lg text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition-all duration-300"
+              aria-expanded={isOpen}
+              aria-label="Toggle navigation menu"
+            >
+              {isOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
+            </button>
           </div>
         </div>
 
-        {isOpen && (
-          <div className="md:hidden absolute top-20 left-0 right-0 bg-white shadow-lg rounded-b-2xl overflow-hidden transition-all duration-300 ease-in-out">
-            <div className="px-2 pt-2 pb-3 space-y-1">
-              <NavLink
-                to="/"
-                className="block w-full px-4 py-3 text-base text-gray-600 hover:text-blue-600 hover:bg-gray-100 rounded-md transition-colors"
-              >
-                Home
-              </NavLink>
-              <NavLink
-                to="/mbbs-in-abroad"
-                className="block w-full px-4 py-3 text-base text-gray-600 hover:text-blue-600 hover:bg-gray-100 rounded-md transition-colors"
-              >
-                MBBS In Abroad
-              </NavLink>
-              <NavLink
-                to="/about-us"
-                className="block w-full px-4 py-3 text-base text-gray-600 hover:text-blue-600 hover:bg-gray-100 rounded-md transition-colors"
-              >
-                About
-              </NavLink>
-              <button
-                onClick={() => {
-                  setIsCountrySelectorOpen(true);
-                  setIsOpen(false);
-                }}
-                className="flex items-center w-full px-4 py-3 text-base text-gray-600 hover:text-blue-600 hover:bg-gray-100 rounded-md transition-colors"
-              >
-                <Globe className="w-5 h-5 mr-2" />
-                <span>{selectedCountry ? selectedCountry.name : "Select Country"}</span>
-              </button>
-              <button
-                onClick={() => {
-                  setIsMBBSModalOpen(true);
-                  setIsOpen(false);
-                }}
-                className="block w-full px-4 py-3 text-base text-white bg-blue-600 hover:bg-blue-700 rounded-md transition-colors"
-              >
-                Contact Us
-              </button>
-            </div>
+        {/* Mobile menu */}
+        <div
+          className={`md:hidden absolute top-20 left-0 right-0 bg-white/95 backdrop-blur-md shadow-lg rounded-b-2xl transform transition-all duration-300 ease-in-out ${
+            isOpen
+              ? "translate-y-0 opacity-100"
+              : "-translate-y-4 opacity-0 pointer-events-none"
+          }`}
+        >
+          <div className="px-2 pt-2 pb-3 space-y-1">
+            <NavLink
+              to="/"
+              onClick={handleMobileNavClick}
+              className="block w-full px-4 py-3 text-base text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-300"
+            >
+              Home
+            </NavLink>
+            <NavLink
+              to="/mbbs-in-abroad"
+              onClick={() => setIsOpen(false)}
+              className="block w-full px-4 py-3 text-base text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-300"
+            >
+              MBBS In Abroad
+            </NavLink>
+            <NavLink
+              to="/about-us"
+              onClick={() => setIsOpen(false)}
+              className="block w-full px-4 py-3 text-base text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-300"
+            >
+              About
+            </NavLink>
+            <button
+              onClick={() => {
+                setIsCountrySelectorOpen(true);
+                setIsOpen(false);
+              }}
+              className="flex items-center w-full px-4 py-3 text-base text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-300"
+            >
+              <Globe className="w-5 h-5 mr-2" />
+              <span>
+                {selectedCountry ? selectedCountry.name : "Select Country"}
+              </span>
+            </button>
+            <button
+              onClick={() => {
+                setIsMBBSModalOpen(true);
+                setIsOpen(false);
+              }}
+              className="block w-full px-4 py-3 text-base text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors duration-300 shadow-lg shadow-blue-500/30"
+            >
+              Contact Us
+            </button>
           </div>
-        )}
+        </div>
       </nav>
 
+      {/* Country selector modal */}
       {isCountrySelectorOpen && (
-        <div className="fixed inset-0 z-50 transition-all duration-500 opacity-100 pointer-events-auto">
+        <div className="fixed inset-0 z-50 transition-all duration-500">
           <div
             className="absolute inset-0 bg-black/30 backdrop-blur-md"
             onClick={() => setIsCountrySelectorOpen(false)}
@@ -242,7 +295,8 @@ const Navbar = () => {
                   </h2>
                   <button
                     onClick={() => setIsCountrySelectorOpen(false)}
-                    className="p-2 rounded-full hover:bg-white/50 transition-colors"
+                    className="p-2 rounded-full hover:bg-white/50 transition-all duration-300 hover:rotate-90"
+                    aria-label="Close country selector"
                   >
                     <X className="w-6 h-6 text-gray-600" />
                   </button>
