@@ -18,7 +18,6 @@ import {
   Building2,
   X,
 } from "lucide-react";
-import infoImg from "../../assets/LandingImg.png";
 
 const Button = ({
   children,
@@ -36,8 +35,8 @@ const Button = ({
       "bg-transparent border-2 border-white text-white hover:bg-white/10",
   };
   const sizeClasses = {
-    md: "px-6 py-2 text-sm",
-    lg: "px-8 py-3 text-base",
+    md: "px-4 sm:px-6 py-2 text-sm",
+    lg: "px-6 sm:px-8 py-3 text-base",
   };
 
   return (
@@ -51,24 +50,32 @@ const Button = ({
 };
 
 const BenefitCard = ({ icon: Icon, title, description }) => (
-  <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 group">
+  <div className="bg-white p-4 sm:p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 group">
     <div className="mb-4 inline-block p-3 bg-blue-50 rounded-lg group-hover:bg-blue-100 transition-colors duration-300">
       <Icon className="w-6 h-6 text-blue-600" />
     </div>
-    <h3 className="text-xl font-semibold mb-2 text-gray-900">{title}</h3>
-    <p className="text-gray-600 leading-relaxed">{description}</p>
+    <h3 className="text-lg sm:text-xl font-semibold mb-2 text-gray-900">
+      {title}
+    </h3>
+    <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
+      {description}
+    </p>
   </div>
 );
 
 const StatCard = ({ icon: Icon, value, label }) => (
-  <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-    <div className="flex items-center gap-4">
-      <div className="p-3 bg-blue-50 rounded-lg">
-        <Icon className="w-8 h-8 text-blue-600" />
+  <div className="bg-white p-4 sm:p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+    <div className="flex items-center gap-3 sm:gap-4">
+      <div className="p-2 sm:p-3 bg-blue-50 rounded-lg">
+        <Icon className="w-6 h-6 sm:w-8 sm:h-8 text-blue-600" />
       </div>
       <div>
-        <div className="text-3xl font-bold text-gray-900">{value}</div>
-        <div className="text-gray-600 font-medium">{label}</div>
+        <div className="text-xl sm:text-3xl font-bold text-gray-900">
+          {value}
+        </div>
+        <div className="text-sm sm:text-base text-gray-600 font-medium">
+          {label}
+        </div>
       </div>
     </div>
   </div>
@@ -76,10 +83,12 @@ const StatCard = ({ icon: Icon, value, label }) => (
 
 const FeatureCard = ({ title, description, className = "" }) => (
   <div
-    className={`bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 ${className}`}
+    className={`bg-white p-4 sm:p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 ${className}`}
   >
-    <h3 className="text-xl font-bold text-gray-900 mb-2">{title}</h3>
-    <p className="text-gray-600 leading-relaxed">{description}</p>
+    <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2">{title}</h3>
+    <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
+      {description}
+    </p>
   </div>
 );
 
@@ -87,10 +96,10 @@ const Modal = ({ isOpen, onClose, title, children }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0  bg-black bg-opacity-50 z-50 flex justify-center items-center">
-      <div className="bg-white rounded-lg p-8 max-w-2xl w-full">
-        <div className="flex justify-between items-center mb-4 ">
-          <h2 className="text-2xl font-bold">{title}</h2>
+    <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-center items-center p-4">
+      <div className="bg-white rounded-lg p-4 sm:p-8 max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+        <div className="flex justify-between items-center mb-4">
+          <h2 className="text-xl sm:text-2xl font-bold">{title}</h2>
           <button
             onClick={onClose}
             className="text-gray-500 hover:text-gray-700"
@@ -104,9 +113,7 @@ const Modal = ({ isOpen, onClose, title, children }) => {
   );
 };
 
-const MBBSConsultancyFormModal = () => {
-  const [isModalOpen, setIsModalOpen] = useState(true);
-
+const MBBSConsultancyFormModal = ({ isOpen, onClose }) => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -126,9 +133,6 @@ const MBBSConsultancyFormModal = () => {
       [name]: value,
     }));
   };
-  const handleClose = () => {
-    setIsModalOpen(false); 
-  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -147,19 +151,13 @@ const MBBSConsultancyFormModal = () => {
   ];
 
   return (
-    <Modal
-      isOpen={isModalOpen}
-      onClose={handleClose}
-      title="Schedule a Consultation"
-    >
-      <form onSubmit={handleSubmit} className="space-y-6 ">
-        <h3 className="text-2xl font-semibold text-gray-800 mb-6">
+    <Modal isOpen={isOpen} onClose={onClose} title="Schedule a Consultation">
+      <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+        <h3 className="text-xl sm:text-2xl font-semibold text-gray-800 mb-4 sm:mb-6">
           Request Consultation
         </h3>
 
-        {/* Personal Information */}
         <div className="space-y-4">
-          {/* Name Input */}
           <div className="relative">
             <label className="text-sm font-medium text-gray-700 mb-1 block">
               Full Name
@@ -170,7 +168,7 @@ const MBBSConsultancyFormModal = () => {
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                className="w-full px-4 py-3 pl-12 rounded-lg border border-gray-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 transition-all duration-200 bg-gray-50/50 hover:bg-white"
+                className="w-full px-4 py-2 sm:py-3 pl-12 rounded-lg border border-gray-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 transition-all duration-200 bg-gray-50/50 hover:bg-white"
                 placeholder="Your full name"
                 required
               />
@@ -178,8 +176,7 @@ const MBBSConsultancyFormModal = () => {
             </div>
           </div>
 
-          {/* Contact Details */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="relative">
               <label className="text-sm font-medium text-gray-700 mb-1 block">
                 Email
@@ -190,7 +187,7 @@ const MBBSConsultancyFormModal = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 pl-12 rounded-lg border border-gray-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 transition-all duration-200 bg-gray-50/50 hover:bg-white"
+                  className="w-full px-4 py-2 sm:py-3 pl-12 rounded-lg border border-gray-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 transition-all duration-200 bg-gray-50/50 hover:bg-white"
                   placeholder="your@email.com"
                   required
                 />
@@ -208,7 +205,7 @@ const MBBSConsultancyFormModal = () => {
                   name="phone"
                   value={formData.phone}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 pl-12 rounded-lg border border-gray-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 transition-all duration-200 bg-gray-50/50 hover:bg-white"
+                  className="w-full px-4 py-2 sm:py-3 pl-12 rounded-lg border border-gray-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 transition-all duration-200 bg-gray-50/50 hover:bg-white"
                   placeholder="Your phone number"
                   required
                 />
@@ -217,8 +214,7 @@ const MBBSConsultancyFormModal = () => {
             </div>
           </div>
 
-          {/* Age and Education */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="relative">
               <label className="text-sm font-medium text-gray-700 mb-1 block">
                 Age
@@ -229,7 +225,7 @@ const MBBSConsultancyFormModal = () => {
                   name="age"
                   value={formData.age}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 pl-12 rounded-lg border border-gray-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 transition-all duration-200 bg-gray-50/50 hover:bg-white"
+                  className="w-full px-4 py-2 sm:py-3 pl-12 rounded-lg border border-gray-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 transition-all duration-200 bg-gray-50/50 hover:bg-white"
                   placeholder="Your age"
                   required
                 />
@@ -247,7 +243,7 @@ const MBBSConsultancyFormModal = () => {
                   name="education"
                   value={formData.education}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 pl-12 rounded-lg border border-gray-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 transition-all duration-200 bg-gray-50/50 hover:bg-white"
+                  className="w-full px-4 py-2 sm:py-3 pl-12 rounded-lg border border-gray-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 transition-all duration-200 bg-gray-50/50 hover:bg-white"
                   placeholder="e.g., 12th Science"
                   required
                 />
@@ -256,7 +252,6 @@ const MBBSConsultancyFormModal = () => {
             </div>
           </div>
 
-          {/* Preferred Country */}
           <div className="relative">
             <label className="text-sm font-medium text-gray-700 mb-1 block">
               Preferred Country for MBBS
@@ -266,7 +261,7 @@ const MBBSConsultancyFormModal = () => {
                 name="preferredCountry"
                 value={formData.preferredCountry}
                 onChange={handleChange}
-                className="w-full px-4 py-3 pl-12 rounded-lg border border-gray-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 transition-all duration-200 bg-gray-50/50 hover:bg-white"
+                className="w-full px-4 py-2 sm:py-3 pl-12 rounded-lg border border-gray-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 transition-all duration-200 bg-gray-50/50 hover:bg-white"
                 required
               >
                 <option value="">Select a country</option>
@@ -280,7 +275,6 @@ const MBBSConsultancyFormModal = () => {
             </div>
           </div>
 
-          {/* Message */}
           <div className="relative">
             <label className="text-sm font-medium text-gray-700 mb-1 block">
               Additional Information
@@ -291,7 +285,7 @@ const MBBSConsultancyFormModal = () => {
                 value={formData.message}
                 onChange={handleChange}
                 rows={4}
-                className="w-full px-4 py-3 pl-12 rounded-lg border border-gray-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 transition-all duration-200 bg-gray-50/50 hover:bg-white resize-none"
+                className="w-full px-4 py-2 sm:py-3 pl-12 rounded-lg border border-gray-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 transition-all duration-200 bg-gray-50/50 hover:bg-white resize-none"
                 placeholder="Any specific requirements or questions?"
               />
               <MessageSquare className="w-5 h-5 text-gray-400 absolute left-4 top-6" />
@@ -299,10 +293,9 @@ const MBBSConsultancyFormModal = () => {
           </div>
         </div>
 
-        {/* Submit Button */}
         <button
           type="submit"
-          className="w-full bg-gradient-to-r from-teal-600 to-blue-600 text-white py-4 px-6 rounded-lg font-medium hover:from-teal-700 hover:to-blue-700 focus:outline-none focus:ring-2 focus:ring-teal-300 transition-all duration-200 transform hover:-translate-y-0.5 flex items-center justify-center space-x-2 shadow-lg"
+          className="w-full bg-gradient-to-r from-teal-600 to-blue-600 text-white py-3 sm:py-4 px-6 rounded-lg font-medium hover:from-teal-700 hover:to-blue-700 focus:outline-none focus:ring-2 focus:ring-teal-300 transition-all duration-200 transform hover:-translate-y-0.5 flex items-center justify-center space-x-2 shadow-lg"
         >
           <span>Request Free Consultation</span>
           <HeartPulse className="w-5 h-5" />
@@ -354,14 +347,14 @@ export default function Info() {
 
   return (
     <>
-      <section className="bg-gradient-to-br from-gray-50 to-blue-50 py-20">
+      <section className="bg-gradient-to-br from-gray-50 to-blue-50 py-12 sm:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <div className="text-center mb-12 sm:mb-16">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
               Transforming Medical Education
               <span className="text-blue-600"> Worldwide</span>
             </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto mb-6 sm:mb-8">
               Join thousands of successful medical professionals who started
               their journey with us. Experience world-class education with
               personalized guidance.
@@ -372,7 +365,7 @@ export default function Info() {
             </Button>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-12 sm:mb-16">
             <StatCard icon={Users} value="15,000+" label="Students Enrolled" />
             <StatCard
               icon={Building2}
@@ -386,23 +379,26 @@ export default function Info() {
               label="Countries Served"
             />
           </div>
-          <div className="grid lg:grid-cols-2 gap-8 items-center mb-16">
+
+          <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 items-center mb-12 sm:mb-16">
             <div className="relative group">
               <div className="absolute -inset-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl opacity-75 blur-lg group-hover:opacity-100 transition duration-1000"></div>
               <div className="relative">
                 <img
-                  src={infoImg}
+                  src="/api/placeholder/800/600"
                   alt="Medical Education"
-                  className="rounded-xl shadow-2xl w-full h-[500px] object-cover"
+                  className="rounded-xl shadow-2xl w-full h-[300px] sm:h-[400px] lg:h-[500px] object-cover"
                 />
-                <div className="absolute -bottom-6 -right-6 bg-white p-6 rounded-xl shadow-xl">
-                  <div className="flex items-center gap-3">
+                <div className="absolute -bottom-4 sm:-bottom-6 -right-4 sm:-right-6 bg-white p-4 sm:p-6 rounded-xl shadow-xl">
+                  <div className="flex items-center gap-2 sm:gap-3">
                     <div className="bg-green-100 p-2 rounded-lg">
-                      <Award className="w-6 h-6 text-green-600" />
+                      <Award className="w-5 h-5 sm:w-6 sm:h-6 text-green-600" />
                     </div>
                     <div>
-                      <div className="text-sm text-gray-600">Ranked</div>
-                      <div className="text-xl font-bold text-gray-900">
+                      <div className="text-xs sm:text-sm text-gray-600">
+                        Ranked
+                      </div>
+                      <div className="text-lg sm:text-xl font-bold text-gray-900">
                         #1 in Service
                       </div>
                     </div>
@@ -411,7 +407,7 @@ export default function Info() {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
               <FeatureCard
                 title="Expert Guidance"
                 description="Get personalized counseling from experienced medical education consultants."
@@ -432,18 +428,18 @@ export default function Info() {
             </div>
           </div>
 
-          <div className="space-y-12 mb-20">
-            <div className="text-center max-w-3xl mx-auto">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">
+          <div className="space-y-8 sm:space-y-12 mb-12 sm:mb-20">
+            <div className="text-center max-w-3xl mx-auto px-4">
+              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3 sm:mb-4">
                 Comprehensive Benefits for Your Medical Journey
               </h2>
-              <p className="text-gray-600 text-lg">
+              <p className="text-base sm:text-lg text-gray-600">
                 Discover how our expertise and support can help you achieve your
                 medical education goals
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8">
               {benefits.map((benefit, index) => (
                 <BenefitCard
                   key={index}
@@ -455,11 +451,11 @@ export default function Info() {
             </div>
           </div>
 
-          <div className="bg-blue-600 rounded-2xl p-8 md:p-12 text-center text-white">
-            <h2 className="text-3xl font-bold mb-4">
+          <div className="bg-blue-600 rounded-xl sm:rounded-2xl p-6 sm:p-8 md:p-12 text-center text-white">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">
               Ready to Begin Your Medical Journey?
             </h2>
-            <p className="text-lg text-blue-100 mb-8 max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg text-blue-100 mb-6 sm:mb-8 max-w-2xl mx-auto">
               Take the first step towards your medical career. Our expert
               counselors are here to guide you through every step.
             </p>

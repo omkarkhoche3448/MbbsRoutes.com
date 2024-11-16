@@ -46,13 +46,13 @@ const Icon = ({ name }) => {
 
 export default function HeroSection() {
   return (
-    <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50  overflow-hidden">
-      <div className="container mx-auto px-4 md:px-6 relative">
+    <section className="w-full  py-12 mt-20 lg:mt-0 md:py-24 lg:py-32 xl:py-48 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50  overflow-hidden">
+      <div className="lg:container mx-auto px-4 md:px-6 relative">
         <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 xl:grid-cols-[1fr_600px] ">
           <div className="flex flex-col justify-center space-y-8">
             <div className="space-y-6">
               <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl xl:text-6xl/none">
-                <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Empowering</span> Your Medical Journey Abroad
+                <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent px-1">Empowering</span> Your Medical Journey Abroad
               </h1>
               <p className="max-w-[600px] text-gray-600 md:text-xl ">
                 Expert guidance for aspiring medical professionals. Navigate admissions, visas, and cultural transitions with confidence.
