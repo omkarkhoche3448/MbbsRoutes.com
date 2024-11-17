@@ -108,6 +108,7 @@ const Navbar = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [selectedCountry, setSelectedCountry] = useState(null);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -163,7 +164,7 @@ const Navbar = () => {
         role="navigation"
         aria-label="Main navigation"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto sm:px-6 px-4">
           <div className="flex items-center justify-between h-20">
             <NavLink
               to="/"
@@ -206,6 +207,26 @@ const Navbar = () => {
               >
                 Contact Us
               </button>
+              {isAuthenticated ? (
+                <button
+                  onClick={() => {
+                    navigate("/logout");
+                    setIsOpen(false);
+                  }}
+                  
+                >
+                  Log Out
+                </button>
+              ) : (
+                <button
+                  onClick={() => {
+                    navigate("/signin");
+                    setIsOpen(false);
+                  }}
+                >
+                  Sign In
+                </button>
+              )}
             </div>
 
             <button
@@ -274,6 +295,28 @@ const Navbar = () => {
             >
               Contact Us
             </button>
+
+            {isAuthenticated ? (
+              <button
+                onClick={() => {
+                  navigate("/logout");
+                  setIsOpen(false);
+                }}
+                className="px-6 py-2 bg-red-600 text-white rounded-full hover:bg-red-700 transition-all duration-300 hover:shadow-lg hover:shadow-red-500/30 transform hover:-translate-y-0.5 active:translate-y-0"
+              >
+                Log Out
+              </button>
+            ) : (
+              <button
+                onClick={() => {
+                  navigate("/signin");
+                  setIsOpen(false);
+                }}
+                className="px-6 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/30 transform hover:-translate-y-0.5 active:translate-y-0"
+              >
+                Sign In
+              </button>
+            )}
           </div>
         </div>
       </nav>

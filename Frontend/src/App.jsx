@@ -8,6 +8,8 @@ import AboutPage from "./Pages/AboutPage";
 import MBBSEducationAbroad from "./Pages/MBBSEducationAbroad";
 import CollegeRecommendationpage from "./Pages/CollegeRecommendationpage";
 import Footer from "./components/common/Footer";
+import SignIn from "./components/auth/SignIn";
+import SignUp from "./components/auth/SignUp";
 
 function App() {
   return (
@@ -26,6 +28,8 @@ function App() {
             path="/mbbs-in-abroad/college-recomendation"
             element={<CollegeRecommendationpage />}
           />
+          <Route path="/signin" element={<SignIn />} />
+          <Route path="/signup" element={<SignUp />} />
         </Routes>
         <ChatBot />
         <Footer />
