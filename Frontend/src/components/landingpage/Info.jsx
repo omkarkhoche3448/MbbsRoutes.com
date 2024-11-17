@@ -98,7 +98,7 @@ const FeatureCard = ({ title, description, className = "" }) => (
 
 
 export default function Info() {
-  const [isModalOpen, setIsModalOpen] = useState(true);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const benefits = [
     {
