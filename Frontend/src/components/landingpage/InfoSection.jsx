@@ -118,7 +118,14 @@ const InfoSection = () => {
 
           {/* CTA Button */}
           <div className="pt-4 ml-5">
-            <Button icon={ArrowRight}>Explore Programs</Button>
+            <Button icon={ArrowRight} 
+            onClick={() => {
+              window.scrollTo({
+                top: 1600,
+                behavior: "smooth",
+              });
+            }}
+            >Explore Programs</Button>
           </div>
         </div>
       </div>
