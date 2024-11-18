@@ -213,7 +213,6 @@ const Navbar = () => {
                     navigate("/logout");
                     setIsOpen(false);
                   }}
-                  
                 >
                   Log Out
                 </button>
@@ -252,7 +251,7 @@ const Navbar = () => {
               : "-translate-y-4 opacity-0 pointer-events-none"
           }`}
         >
-          <div className="px-2 pt-2 pb-3 space-y-1">
+          <div className="px-2 pt-2 pb-3 space-y-2">
             <NavLink
               to="/"
               onClick={handleMobileNavClick}
@@ -267,6 +266,15 @@ const Navbar = () => {
             >
               MBBS In Abroad
             </NavLink>
+
+            <NavLink
+              to="/mbbs-in-abroad/college-recomendation"
+              onClick={() => setIsOpen(false)}
+              className="block w-full px-4 py-3 text-base text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-300"
+            >
+              College Recommendation
+            </NavLink>
+
             <NavLink
               to="/about-us"
               onClick={() => setIsOpen(false)}
@@ -274,6 +282,7 @@ const Navbar = () => {
             >
               About
             </NavLink>
+
             <button
               onClick={() => {
                 setIsCountrySelectorOpen(true);
@@ -286,37 +295,40 @@ const Navbar = () => {
                 {selectedCountry ? selectedCountry.name : "Select Country"}
               </span>
             </button>
-            <button
-              onClick={() => {
-                setIsMBBSModalOpen(true);
-                setIsOpen(false);
-              }}
-              className="block w-full px-4 py-3 text-base text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors duration-300 shadow-lg shadow-blue-500/30"
-            >
-              Contact Us
-            </button>
 
-            {isAuthenticated ? (
+            <div className=" flex flex-row space-x-2 items-center">
               <button
                 onClick={() => {
-                  navigate("/logout");
+                  setIsMBBSModalOpen(true);
                   setIsOpen(false);
                 }}
-                className="px-6 py-2 bg-red-600 text-white rounded-full hover:bg-red-700 transition-all duration-300 hover:shadow-lg hover:shadow-red-500/30 transform hover:-translate-y-0.5 active:translate-y-0"
+                className="block w-fit  px-4 py-3 text-base text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors duration-300 shadow-lg shadow-blue-500/30"
               >
-                Log Out
+                Contact Us
               </button>
-            ) : (
-              <button
-                onClick={() => {
-                  navigate("/signin");
-                  setIsOpen(false);
-                }}
-                className="px-6 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/30 transform hover:-translate-y-0.5 active:translate-y-0"
-              >
-                Sign In
-              </button>
-            )}
+
+              {isAuthenticated ? (
+                <button
+                  onClick={() => {
+                    navigate("/logout");
+                    setIsOpen(false);
+                  }}
+                  className="block w-fit  px-4 py-3 text-base text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors duration-300 shadow-lg shadow-blue-500/30"
+                >
+                  Log Out
+                </button>
+              ) : (
+                <button
+                  onClick={() => {
+                    navigate("/signin");
+                    setIsOpen(false);
+                  }}
+                  className="block w-fit  px-4 py-3 text-base text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors duration-300 shadow-lg shadow-blue-500/30"
+                >
+                  Sign In
+                </button>
+              )}
+            </div>
           </div>
         </div>
       </nav>
