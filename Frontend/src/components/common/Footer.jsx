@@ -1,21 +1,30 @@
-import React from 'react';
-import { Facebook, Twitter, Instagram, Mail, Phone, MapPin } from 'lucide-react';
+import React from "react";
+import {
+  Facebook,
+  Twitter,
+  Instagram,
+  Mail,
+  Phone,
+  MapPin,
+  Code,
+} from "lucide-react";
+import {NavLink} from "react-router-dom";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const quickLinks = [
-    { name: 'Home', href: '#' },
-    { name: 'About Us', href: '#' },
-    { name: 'MBBS Programs', href: '#' },
-    { name: 'Consultation Services', href: '#' },
-    { name: 'Contact Us', href: '#' }
+    { name: "Home", href: "#" },
+    { name: "About Us", href: "#" },
+    { name: "MBBS Programs", href: "#" },
+    { name: "Consultation Services", href: "#" },
+    { name: "Contact Us", href: "#" },
   ];
 
   const socialLinks = [
-    { icon: Facebook, href: '#', label: 'Facebook' },
-    { icon: Twitter, href: '#', label: 'Twitter' },
-    { icon: Instagram, href: '#', label: 'Instagram' }
+    { icon: Facebook, href: "#", label: "Facebook" },
+    { icon: Twitter, href: "#", label: "Twitter" },
+    { icon: Instagram, href: "#", label: "Instagram" },
   ];
 
   return (
@@ -26,7 +35,10 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4">About Us</h3>
             <p className="text-gray-400 text-sm">
-              Our MBBS consultation service is dedicated to helping aspiring medical students find the best-fit programs abroad. We guide you from application to admission with tailored support for a seamless experience.
+              Our MBBS consultation service is dedicated to helping aspiring
+              medical students find the best-fit programs abroad. We guide you
+              from application to admission with tailored support for a seamless
+              experience.
             </p>
           </div>
 
@@ -36,7 +48,10 @@ const Footer = () => {
             <ul className="space-y-2">
               {quickLinks.map((link) => (
                 <li key={link.name}>
-                  <a href={link.href} className="text-gray-400 hover:text-white text-sm transition duration-150">
+                  <a
+                    href={link.href}
+                    className="text-gray-400 hover:text-white text-sm transition duration-150"
+                  >
                     {link.name}
                   </a>
                 </li>
@@ -83,10 +98,32 @@ const Footer = () => {
 
         {/* Divider */}
         <div className="border-t border-gray-800 mt-12 pt-8">
-          {/* Copyright */}
-          <p className="text-center text-gray-400 text-sm">
-            © {currentYear} MBBS Advisory Services. All rights reserved.
-          </p>
+          {/* Copyright and Developer Credit */}
+          <div className="flex flex-col items-center space-y-4">
+            <p className="text-center text-gray-400 text-sm">
+              © {currentYear} MBBS Advisory Services. All rights reserved.
+            </p>
+
+            <NavLink
+              to="https://omkarkhoche.vercel.app"
+              className="flex justify-evenly w-1/3 flex-row items-center cursor-pointer  bg-gray-800 px-6 py-3 rounded-lg shadow-lg hover:bg-gray-700 transition duration-300"
+            >
+              <div className="flex items-center space-x-2 mb-1">
+                <Code className="w-5 h-5 text-blue-400" />
+                <span className="text-gray-300 text-base">
+                  Designed & Developed by
+                </span>
+              </div>
+              <a
+                href="https://omkarkhoche.vercel.app"
+                className="text-blue-400 hover:text-blue-300 transition duration-150 font-semibold text-lg mb-1"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Omkar Khoche
+              </a>
+            </NavLink>
+          </div>
         </div>
       </div>
     </footer>
