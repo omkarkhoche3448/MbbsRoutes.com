@@ -104,7 +104,7 @@ const Footer = () => {
               © {currentYear} MBBS Advisory Services. All rights reserved.
             </p>
 
-            <NavLink
+            {/* <NavLink
               to="https://omkarkhoche.vercel.app"
               className="flex justify-evenly w-1/3 flex-row items-center cursor-pointer  bg-gray-800 px-6 py-3 rounded-lg shadow-lg hover:bg-gray-700 transition duration-300"
             >
@@ -122,7 +122,19 @@ const Footer = () => {
               >
                 Omkar Khoche
               </a>
-            </NavLink>
+            </NavLink> */}
+            <div className="flex items-center text-gray-400 text-sm">
+              <Code className="w-4 h-4 mr-1" />
+              <span>Designed & Developed by</span>
+              <a 
+                href="https://omkarkhoche.vercel.app" 
+                className="ml-1 text-blue-400 hover:text-blue-300 transition duration-150 font-medium"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Omkar Khoche
+              </a>
+            </div>
           </div>
         </div>
       </div>
