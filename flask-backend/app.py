@@ -4,6 +4,8 @@ import os
 import requests
 import json
 from pymongo import MongoClient
+from flask_jwt_extended import JWTManager, create_access_token
+import bcrypt
 from config import Config
 
 
@@ -83,6 +85,11 @@ client = MongoClient(Config.MONGODB_URI)
 db = client['medical_college_db']
 contact_collection = db['contacts']
 consultation_collection = db['consultations']
+users_collection = db['users']
+
+
+jwt = JWTManager(app)
+app.config['JWT_SECRET_KEY'] = 'your-secret-key' 
     
 # Message history storage
 message_history = []
@@ -225,5 +232,56 @@ def handle_consultation():
             "message": str(e)
         }), 500
 
+
+@app.route('/api/signup', methods=['POST'])
+def signup():
+    try:
+        data = request.json
+        # Check if user already exists
+        if users_collection.find_one({"email": data['email']}):
+            return jsonify({"error": "Email already registered"}), 400
+        
+        # Hash password
+        hashed_password = bcrypt.hashpw(data['password'].encode('utf-8'), bcrypt.gensalt())
+        
+        # Create user document
+        user = {
+            "fullName": data['fullName'],
+            "email": data['email'],
+            "password": hashed_password
+        }
+        
+        # Insert user
+        users_collection.insert_one(user)
+        
+        return jsonify({"message": "User registered successfully"}), 201
+        
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@app.route('/api/login', methods=['POST'])
+def login():
+    try:
+        data = request.json
+        user = users_collection.find_one({"email": data['email']})
+        
+        if not user:
+            return jsonify({"error": "User not found"}), 404
+            
+        if bcrypt.checkpw(data['password'].encode('utf-8'), user['password']):
+            access_token = create_access_token(identity=str(user['_id']))
+            return jsonify({
+                "token": access_token,
+                "user": {
+                    "fullName": user['fullName'],
+                    "email": user['email']
+                }
+            }), 200
+        else:
+            return jsonify({"error": "Invalid password"}), 401
+            
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+    
 if __name__ == '__main__':
     app.run(debug=True, port=5000)

@@ -220,7 +220,7 @@ const Navbar = () => {
                   </span>
                   <button
                     onClick={handleLogout}
-                    className="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700"
+                    className="px-4 py-2 bg-red-600 text-white rounded-2xl  hover:bg-red-700"
                   >
                     Logout
                   </button>
@@ -229,13 +229,13 @@ const Navbar = () => {
                 <div className="flex items-center space-x-4">
                   <button
                     onClick={() => navigate("/signin")}
-                    className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+                    className="px-4 py-2 bg-blue-600 text-white rounded-full  hover:bg-blue-700 "
                   >
                     Sign In
                   </button>
                   <button
                     onClick={() => navigate("/signup")}
-                    className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+                    className="px-4 py-2 bg-blue-600 text-white rounded-full  hover:bg-blue-700"
                   >
                     Sign Up
                   </button>
@@ -328,13 +328,13 @@ const Navbar = () => {
                   </div>
                   <button
                     onClick={handleLogout}
-                    className="mt-2 w-full px-4 py-2 text-white bg-red-600 rounded"
+                    className="mt-2 w-full px-4 py-2 text-white  bg-red-600 rounded-full"
                   >
                     Logout
                   </button>
                 </div>
               ) : (
-                <div className="px-4 py-3   flex flex-row space-x-2 items-center">
+                <div className="px-4 py-3 flex flex-row space-x-2 items-center">
                   <button
                     onClick={() => {
                       navigate("/signin");
