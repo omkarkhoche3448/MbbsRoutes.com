@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { X, Send, Check, AlertCircle, Loader2 } from "lucide-react";
+import { toast } from "react-hot-toast";
 
 const MBBSModal = ({ isOpen, onClose }) => {
   const [formData, setFormData] = useState({
@@ -26,7 +27,6 @@ const MBBSModal = ({ isOpen, onClose }) => {
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -34,18 +34,33 @@ const MBBSModal = ({ isOpen, onClose }) => {
 
     setIsSubmitting(true);
 
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    try {
+      const response = await fetch("http://localhost:5000/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
-    setIsSubmitting(false);
-    setIsSuccess(true);
+      if (!response.ok) {
+        throw new Error("Failed to submit form");
+      }
 
-    // Reset form after success
-    setTimeout(() => {
-      setIsSuccess(false);
-      setFormData({ name: "", email: "", phone: "", message: "" });
-      onClose();
-    }, 2000);
+      setIsSuccess(true);
+
+      setTimeout(() => {
+        setIsSuccess(false);
+        setFormData({ name: "", email: "", phone: "", message: "" });
+        onClose();
+      }, 1000);
+      toast.success("Form submitted successfully!");
+    } catch (error) {
+      console.error("Error:", error);
+      setErrors({ submit: "Failed to submit form. Please try again." });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e) => {

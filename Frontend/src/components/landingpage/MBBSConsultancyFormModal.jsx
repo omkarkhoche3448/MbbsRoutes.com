@@ -1,34 +1,34 @@
 import React, { useState } from "react";
 import Modal from "./Modal";
 import {
-    Users,
-    User,
-    BookOpen,
-    Award,
-    Target,
-    Mail,
-    Phone,
-    Calendar,
-    Globe,
-    GraduationCap,
-    FileText,
-    MessageSquare,
-    HeartPulse,
-    Stethoscope,
-    ArrowRight,
-    Building2,
-    X,
-  } from "lucide-react";
+  Users,
+  User,
+  BookOpen,
+  Award,
+  Target,
+  Mail,
+  Phone,
+  Calendar,
+  Globe,
+  GraduationCap,
+  FileText,
+  MessageSquare,
+  HeartPulse,
+  Stethoscope,
+  ArrowRight,
+  Building2,
+  X,
+} from "lucide-react";
+import { toast } from "react-hot-toast";
+
 const MBBSConsultancyFormModal = ({ isOpen, onClose }) => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
     age: "",
-    country: "",
     education: "",
     preferredCountry: "",
-    budget: "",
     message: "",
   });
 
@@ -40,9 +40,42 @@ const MBBSConsultancyFormModal = ({ isOpen, onClose }) => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
+
+    try {
+      const response = await fetch("http://localhost:5000/api/consultation", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to submit consultation form");
+      }
+
+      // Clear form and show success
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        age: "",
+        country: "",
+        education: "",
+        preferredCountry: "",
+        budget: "",
+        message: "",
+      });
+
+      onClose();
+      // You can add a toast notification here
+      toast.success("Consultation request submitted successfully!");
+    } catch (error) {
+      console.error("Error:", error);
+      // Handle error (show error toast)
+    }
   };
 
   const preferredCountries = [
