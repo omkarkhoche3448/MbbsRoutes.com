@@ -3,6 +3,9 @@ from flask_cors import CORS
 import os
 import requests
 import json
+from pymongo import MongoClient
+from config import Config
+
 
 
 app = Flask(__name__)
@@ -75,6 +78,12 @@ medical_colleges = [
     }
 ]
 
+# MongoDB Connection
+client = MongoClient(Config.MONGODB_URI)
+db = client['medical_college_db']
+contact_collection = db['contacts']
+consultation_collection = db['consultations']
+    
 # Message history storage
 message_history = []
 
@@ -182,6 +191,39 @@ def get_recommendations():
     top_colleges = sorted(scored_colleges, key=lambda x: x['score'], reverse=True)[:3]
     
     return jsonify(top_colleges)
+
+
+@app.route('/api/contact', methods=['POST'])
+def handle_contact():
+    try:
+        contact_data = request.json
+        result = contact_collection.insert_one(contact_data)
+        return jsonify({
+            "success": True,
+            "message": "Contact form submitted successfully",
+            "id": str(result.inserted_id)
+        }), 201
+    except Exception as e:
+        return jsonify({
+            "success": False,
+            "message": str(e)
+        }), 500
+
+@app.route('/api/consultation', methods=['POST'])
+def handle_consultation():
+    try:
+        consultation_data = request.json
+        result = consultation_collection.insert_one(consultation_data)
+        return jsonify({
+            "success": True,
+            "message": "Consultation request submitted successfully",
+            "id": str(result.inserted_id)
+        }), 201
+    except Exception as e:
+        return jsonify({
+            "success": False,
+            "message": str(e)
+        }), 500
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
