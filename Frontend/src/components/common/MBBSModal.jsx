@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { X, Send, Check, AlertCircle, Loader2 } from "lucide-react";
 import { toast } from "react-hot-toast";
 
+const BASE_URL = import.meta.env.VITE_BASE_URL;
+
 const MBBSModal = ({ isOpen, onClose }) => {
   const [formData, setFormData] = useState({
     name: "",
@@ -35,7 +37,7 @@ const MBBSModal = ({ isOpen, onClose }) => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch("http://localhost:5000/api/contact", {
+      const response = await fetch(`http://${BASE_URL}/api/contact`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

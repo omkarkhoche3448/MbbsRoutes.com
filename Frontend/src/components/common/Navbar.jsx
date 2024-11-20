@@ -5,6 +5,7 @@ import { useLocation } from "react-router-dom";
 import MBBSModal from "./MBBSModal";
 import SearchBar from "./SearchBar";
 import CountryCard from "./CountryCard";
+import { useAuth } from "../../context/AuthContext";
 
 const countries = [
   {
@@ -108,7 +109,7 @@ const Navbar = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [selectedCountry, setSelectedCountry] = useState(null);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const { isAuthenticated, user, logout } = useAuth();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -153,6 +154,11 @@ const Navbar = () => {
     window.scrollTo(0, 0);
   };
 
+  const handleLogout = () => {
+    logout();
+    navigate("/");
+  };
+
   return (
     <>
       <nav
@@ -164,7 +170,7 @@ const Navbar = () => {
         role="navigation"
         aria-label="Main navigation"
       >
-        <div className="max-w-7xl mx-auto sm:px-6 px-4">
+        <div className="max-w-8xl mx-auto sm:px-6 px-4">
           <div className="flex items-center justify-between h-20">
             <NavLink
               to="/"
@@ -208,23 +214,32 @@ const Navbar = () => {
                 Contact Us
               </button>
               {isAuthenticated ? (
-                <button
-                  onClick={() => {
-                    navigate("/logout");
-                    setIsOpen(false);
-                  }}
-                >
-                  Log Out
-                </button>
+                <div className="flex items-center space-x-4">
+                  <span className="text-gray-600">
+                    Welcome, {user?.fullName}
+                  </span>
+                  <button
+                    onClick={handleLogout}
+                    className="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700"
+                  >
+                    Logout
+                  </button>
+                </div>
               ) : (
-                <button
-                  onClick={() => {
-                    navigate("/signin");
-                    setIsOpen(false);
-                  }}
-                >
-                  Sign In
-                </button>
+                <div className="flex items-center space-x-4">
+                  <button
+                    onClick={() => navigate("/signin")}
+                    className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+                  >
+                    Sign In
+                  </button>
+                  <button
+                    onClick={() => navigate("/signup")}
+                    className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+                  >
+                    Sign Up
+                  </button>
+                </div>
               )}
             </div>
 
@@ -306,27 +321,39 @@ const Navbar = () => {
               >
                 Contact Us
               </button>
-
               {isAuthenticated ? (
-                <button
-                  onClick={() => {
-                    navigate("/logout");
-                    setIsOpen(false);
-                  }}
-                  className="block w-fit  px-4 py-3 text-base text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors duration-300 shadow-lg shadow-blue-500/30"
-                >
-                  Log Out
-                </button>
+                <div className="px-4 py-3">
+                  <div className="text-sm text-gray-600">
+                    Welcome, {user?.fullName}
+                  </div>
+                  <button
+                    onClick={handleLogout}
+                    className="mt-2 w-full px-4 py-2 text-white bg-red-600 rounded"
+                  >
+                    Logout
+                  </button>
+                </div>
               ) : (
-                <button
-                  onClick={() => {
-                    navigate("/signin");
-                    setIsOpen(false);
-                  }}
-                  className="block w-fit  px-4 py-3 text-base text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors duration-300 shadow-lg shadow-blue-500/30"
-                >
-                  Sign In
-                </button>
+                <div className="px-4 py-3   flex flex-row space-x-2 items-center">
+                  <button
+                    onClick={() => {
+                      navigate("/signin");
+                      setIsOpen(false);
+                    }}
+                    className="block w-fit  px-4 py-3 text-base text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors duration-300 shadow-lg shadow-blue-500/30"
+                    >
+                    Sign In
+                  </button>
+                  <button
+                    onClick={() => {
+                      navigate("/signup");
+                      setIsOpen(false);
+                    }}
+                    className="block w-fit bottom-5  px-4 py-3 text-base text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors duration-300 shadow-lg shadow-blue-500/30"
+                    >
+                    Sign Up
+                  </button>
+                </div>
               )}
             </div>
           </div>

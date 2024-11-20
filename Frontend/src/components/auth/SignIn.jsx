@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
 import Template from './Template';
 import SignInImg from '../../assets/SigninImg.png';
+import { toast } from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
+
+const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 const SignIn = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -17,9 +22,38 @@ const SignIn = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
+    
+    try {
+      const response = await fetch(`http://${BASE_URL}/api/login`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: formData.email,
+          password: formData.password
+        })
+      });
+  
+      const data = await response.json();
+  
+      if (!response.ok) {
+        throw new Error(data.error || 'Login failed');
+      }
+  
+      // Store token in localStorage
+      localStorage.setItem('token', data.token);
+      localStorage.setItem('user', JSON.stringify(data.user));
+      
+      toast.success('Login successful!');
+      navigate('/');
+      
+    } catch (error) {
+      console.error('Error:', error);
+      alert(error.message);
+    }
   };
 
   return (

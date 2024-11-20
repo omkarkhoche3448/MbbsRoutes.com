@@ -8,6 +8,9 @@ import {
   ExternalLink,
 } from "lucide-react";
 
+const BASE_URL = import.meta.env.VITE_BASE_URL;
+
+
 const ProgressBar = ({ value, max = 100 }) => {
   const percentage = (value / max) * 100;
   return (
@@ -111,7 +114,7 @@ export default function CollegeRecommendationpage() {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/recommendations",
+        `http://${BASE_URL}/api/recommendations`,
         {
           method: "POST",
           headers: {
