@@ -17,7 +17,7 @@ const PremiumFlagBanner = () => {
   const doubledCountries = [...countries, ...countries];
 
   const FlagGroup = () => (
-    <div className="flex gap-4 sm:gap-6 md:gap-8 lg:gap-12 animate-marquee">
+    <div className="flex gap-4 sm:gap-6 md:gap-8 lg:gap-12 animate-marquee pointer-events-none">
       {doubledCountries.map((country, index) => (
         <div
           key={`${country.code}-${index}`}
