@@ -11,7 +11,7 @@ from config import Config
 
 
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": ["http://localhost:5173", "http://localhost:3000"]}})
+CORS(app, resources={r"/*": {"origins": ["http://localhost:5173", "http://localhost:3000","https://3.109.16.92:5000"]}})
 
 # Environment variables
 VULTR_API_KEY = os.getenv('VULTR_API_KEY')
@@ -152,8 +152,8 @@ def call_vultr_api(messages):
         
         # print(f"Sending request to Vultr API with data: {json.dumps(request_data, indent=2)}")
         response = requests.post(VULTR_API_URL, json=request_data, headers=headers)
-        # print(f"Vultr API Response Status Code: {response.status_code}")
-        # print(f"Vultr API Response Content: {response.content}")
+        print(f"Vultr API Response Status Code: {response.status_code}")
+        print(f"Vultr API Response Content: {response.content}")
 
         response.raise_for_status()
         return response.json()
