@@ -177,8 +177,34 @@ const Navbar = () => {
               className="flex-shrink-0 transform hover:scale-105 transition-transform duration-300"
               aria-label="ConsultGlobal Home"
             >
-              <div className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                MBBSRoutes
+              <div className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent tracking-wider flex items-center">
+                MBBSRo
+                <span className="inline-flex items-center mt-3">
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="url(#gradient)"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="lucide lucide-stethoscope"
+                  >
+                    <defs>
+                      <linearGradient id="gradient" x1="0" x2="1" y1="0" y2="0">
+                        <stop offset="0%" stopColor="#2563EB" />{" "}
+                        <stop offset="100%" stopColor="#8B5CF6" />{" "}
+                      </linearGradient>
+                    </defs>
+                    <path d="M11 2v2" />
+                    <path d="M5 2v2" />
+                    <path d="M5 3H4a2 2 0 0 0-2 2v4a6 6 0 0 0 12 0V5a2 2 0 0 0-2-2h-1" />
+                    <path d="M8 15a6 6 0 0 0 12 0v-3" />
+                    <circle cx="20" cy="10" r="2" />
+                  </svg>
+                </span>
+                tes
               </div>
             </NavLink>
 
@@ -313,44 +339,36 @@ const Navbar = () => {
 
             <div className=" flex flex-row space-x-2 items-center">
               <button
-                onClick={() => {
-                  setIsMBBSModalOpen(true);
-                  setIsOpen(false);
-                }}
-                className="block w-fit  px-4 py-3 text-base text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors duration-300 shadow-lg shadow-blue-500/30"
+                onClick={() => setIsMBBSModalOpen(true)}
+                className="px-5 py-2 bg-blue-600 text-white text-sm font-medium rounded-full hover:bg-blue-700 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/30 transform hover:-translate-y-0.5 active:translate-y-0"
               >
                 Contact Us
               </button>
+
               {isAuthenticated ? (
-                <div className="px-4 py-3">
-                  <div className="text-sm text-gray-600">
-                    Welcome, {user?.fullName}
-                  </div>
+                <div className="flex items-center space-x-4">
+                  <span className="text-sm font-medium text-gray-600">
+                    {user?.fullName}
+                  </span>
                   <button
                     onClick={handleLogout}
-                    className="mt-2 w-full px-4 py-2 text-white  bg-red-600 rounded-full"
+                    className="px-4 py-2 text-sm font-medium text-white bg-red-600 rounded-full hover:bg-red-700 transition-all duration-300"
                   >
                     Logout
                   </button>
                 </div>
               ) : (
-                <div className="px-4 py-3 flex flex-row space-x-2 items-center">
+                <div className="flex items-center space-x-3">
                   <button
-                    onClick={() => {
-                      navigate("/signin");
-                      setIsOpen(false);
-                    }}
-                    className="block w-fit  px-4 py-3 text-base text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors duration-300 shadow-lg shadow-blue-500/30"
-                    >
+                    onClick={() => navigate("/signin")}
+                    className="px-4 py-2 text-sm font-medium text-gray-600 hover:text-blue-600 transition-all duration-300"
+                  >
                     Sign In
                   </button>
                   <button
-                    onClick={() => {
-                      navigate("/signup");
-                      setIsOpen(false);
-                    }}
-                    className="block w-fit bottom-5  px-4 py-3 text-base text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors duration-300 shadow-lg shadow-blue-500/30"
-                    >
+                    onClick={() => navigate("/signup")}
+                    className="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-full hover:bg-blue-700 transition-all duration-300"
+                  >
                     Sign Up
                   </button>
                 </div>

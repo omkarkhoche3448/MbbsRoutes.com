@@ -121,6 +121,49 @@ const Icon = ({ name }) => {
   return icons[name] || null;
 };
 
+const FeatureGrid = () => {
+  const features = [
+    {
+      icon: GraduationCap,
+      text: "Top Universities",
+      bgColor: "bg-blue-100",
+      textColor: "text-blue-600"
+    },
+    {
+      icon: Globe,
+      text: "Global Network",
+      bgColor: "bg-purple-100",
+      textColor: "text-purple-600"
+    },
+    {
+      icon: Award,
+      text: "Expert Guidance",
+      bgColor: "bg-indigo-100",
+      textColor: "text-indigo-600"
+    }
+  ];
+
+  return (
+    <div className="grid grid-cols-3 gap-2 sm:gap-4 lg:gap-8">
+      {features.map(({ icon: Icon, text, bgColor, textColor }, index) => (
+        <div
+          key={index}
+          className="flex flex-col items-center space-y-2 text-center"
+        >
+          <div className={`rounded-full p-2 ${bgColor}`}>
+            <Icon
+              className={`h-4 w-4 sm:h-6 sm:w-6 ${textColor}`}
+            />
+          </div>
+          <span className={`text-xs sm:text-sm font-medium ${textColor}`}>
+            {text}
+          </span>
+        </div>
+      ))}
+    </div>
+  );
+};
+
 const HeroSection = () => {
   const [isModalOpen, setIsModalOpen] = React.useState(true);
 
@@ -165,31 +208,7 @@ const HeroSection = () => {
               </div>
 
               {/* Features Grid */}
-              <div className="grid grid-cols-3 gap-2 sm:gap-4 lg:gap-8">
-                {[
-                  {
-                    icon: GraduationCap,
-                    text: "Top Universities",
-                    color: "blue",
-                  },
-                  { icon: Globe, text: "Global Network", color: "purple" },
-                  { icon: Award, text: "Expert Guidance", color: "indigo" },
-                ].map(({ icon: Icon, text, color }, index) => (
-                  <div
-                    key={index}
-                    className="flex flex-col items-center space-y-2 text-center"
-                  >
-                    <div className={`rounded-full bg-${color}-100 p-2`}>
-                      <Icon
-                        className={`h-4 w-4 sm:h-6 sm:w-6 text-${color}-600`}
-                      />
-                    </div>
-                    <span className="text-xs sm:text-sm font-medium">
-                      {text}
-                    </span>
-                  </div>
-                ))}
-              </div>
+              <FeatureGrid/>
             </div>
 
             {/* Right Image Column */}

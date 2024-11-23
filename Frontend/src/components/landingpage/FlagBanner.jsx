@@ -21,7 +21,7 @@ const PremiumFlagBanner = () => {
       {doubledCountries.map((country, index) => (
         <div
           key={`${country.code}-${index}`}
-          className="flex flex-col items-center min-w-[80px] sm:min-w-[100px] md:min-w-[120px] lg:min-w-[140px] 
+          className="flex flex-col items-center justify-center min-w-[80px] sm:min-w-[100px] md:min-w-[120px] lg:min-w-[140px] 
                     p-2 sm:p-3 rounded-xl backdrop-blur-sm 
                     opacity-70 hover:opacity-100 transition-all duration-300 ease-out
                     hover:shadow-lg group"

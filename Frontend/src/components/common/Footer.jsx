@@ -8,23 +8,23 @@ import {
   MapPin,
   Code,
 } from "lucide-react";
-import {NavLink} from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const quickLinks = [
-    { name: "Home", href: "#" },
-    { name: "About Us", href: "#" },
-    { name: "MBBS Programs", href: "#" },
-    { name: "Consultation Services", href: "#" },
-    { name: "Contact Us", href: "#" },
+    { name: "Home", href: "/" },
+    { name: "About Us", href: "/about-us" },
+    { name: "MBBS Programs", href: "mbbs-in-abroad" },
+    { name: "Consultation Services", href: "/" },
+    { name: "Contact Us", href: "/" },
   ];
 
   const socialLinks = [
-    { icon: Facebook, href: "#", label: "Facebook" },
-    { icon: Twitter, href: "#", label: "Twitter" },
-    { icon: Instagram, href: "#", label: "Instagram" },
+    { icon: Facebook, href: "/", label: "Facebook" },
+    { icon: Twitter, href: "/", label: "Twitter" },
+    { icon: Instagram, href: "/", label: "Instagram" },
   ];
 
   return (
@@ -65,15 +65,18 @@ const Footer = () => {
             <ul className="space-y-3">
               <li className="flex items-center text-gray-400 text-sm">
                 <Mail className="w-4 h-4 mr-2" />
-                <span>consult@mbbsadvisory.com</span>
+                <span>consult@mbbsroutes.com</span>
               </li>
               <li className="flex items-center text-gray-400 text-sm">
                 <Phone className="w-4 h-4 mr-2" />
-                <span>+1 (555) 678-9101</span>
+                <span>+91 8434124950</span>
               </li>
-              <li className="flex items-center text-gray-400 text-sm">
+              <li className="flex items-center justify-center text-gray-400 text-sm">
                 <MapPin className="w-4 h-4 mr-2" />
-                <span>456 Education Lane, Cityville, ST 56789</span>
+                <span>
+                  {" "}
+                  AIIMS Delhi Hostel no. 1, East New , Delhi - 110029
+                </span>
               </li>
             </ul>
           </div>
@@ -98,36 +101,16 @@ const Footer = () => {
 
         {/* Divider */}
         <div className="border-t border-gray-800 mt-12 pt-8">
-          {/* Copyright and Developer Credit */}
-          <div className="flex flex-col items-center space-y-4">
+          <div className="flex flex-col items-center space-y-2">
             <p className="text-center text-gray-400 text-sm">
-              © {currentYear} MBBS Advisory Services. All rights reserved.
+              © {currentYear} MBBS Consultation Services. All rights reserved.
             </p>
 
-            {/* <NavLink
-              to="https://omkarkhoche.vercel.app"
-              className="flex justify-evenly w-1/3 flex-row items-center cursor-pointer  bg-gray-800 px-6 py-3 rounded-lg shadow-lg hover:bg-gray-700 transition duration-300"
-            >
-              <div className="flex items-center space-x-2 mb-1">
-                <Code className="w-5 h-5 text-blue-400" />
-                <span className="text-gray-300 text-base">
-                  Designed & Developed by
-                </span>
-              </div>
-              <a
-                href="https://omkarkhoche.vercel.app"
-                className="text-blue-400 hover:text-blue-300 transition duration-150 font-semibold text-lg mb-1"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Omkar Khoche
-              </a>
-            </NavLink> */}
-            <div className="flex items-center text-gray-400 text-sm">
+            <div className="flex items-center text-gray-400 text-[0.75rem] ">
               <Code className="w-4 h-4 mr-1" />
               <span>Designed & Developed by</span>
-              <a 
-                href="https://omkarkhoche.vercel.app" 
+              <a
+                href="https://omkarkhoche.vercel.app"
                 className="ml-1 text-blue-400 hover:text-blue-300 transition duration-150 font-medium"
                 target="_blank"
                 rel="noopener noreferrer"
