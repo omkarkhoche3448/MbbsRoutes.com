@@ -280,14 +280,14 @@ const Navbar = () => {
             >
               MBBS In Abroad
             </NavLink>
-
+{/* 
             <NavLink
               to="/mbbs-in-abroad/college-recomendation"
               onClick={() => setIsOpen(false)}
               className="block w-full px-4 py-3 text-base text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-300"
             >
               College Recommendation
-            </NavLink>
+            </NavLink> */}
 
             <NavLink
               to="/about-us"
