@@ -24,12 +24,12 @@ function App() {
           />
           <Route path="/about-us" element={<AboutPage />} />
           <Route path="/mbbs-in-abroad" element={<MBBSEducationAbroad />} />
-          <Route
+          {/* <Route
             path="/mbbs-in-abroad/college-recomendation"
             element={<CollegeRecommendationpage />}
-          />
-          <Route path="/signin" element={<SignIn />} />
-          <Route path="/signup" element={<SignUp />} />
+          /> */}
+          {/* <Route path="/signin" element={<SignIn />} />
+          <Route path="/signup" element={<SignUp />} /> */}
         </Routes>
         <ChatBot />
         <Footer />
