@@ -95,8 +95,6 @@ const FeatureCard = ({ title, description, className = "" }) => (
   </div>
 );
 
-
-
 export default function Info() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -141,23 +139,29 @@ export default function Info() {
     <>
       <section className="bg-gradient-to-br from-gray-50 to-blue-50 py-12 sm:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 sm:mb-16">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
-              Transforming Medical Education
-              <span className="text-blue-600"> Worldwide</span>
-            </h1>
-            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto mb-6 sm:mb-8">
-              Join thousands of successful medical professionals who started
-              their journey with us. Experience world-class education with
-              personalized guidance.
-            </p>
-            <Button size="lg" onClick={() => setIsModalOpen(true)}>
-              Start Your Journey
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-12 sm:mb-16">
+            <div className="text-center mb-12 sm:mb-16">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
+                Get started on your journey to
+                <span className="text-blue-600"> Study Abroad!</span>
+              </h1>
+              <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto mb-6 sm:mb-8">
+                <span>
+                  Your experience with us goes beyond academics it's a journey
+                  of personal growth, empowerment, and endless opportunities!
+                </span>
+              </p>
+              <Button size="lg" onClick={() => setIsModalOpen(true)}>
+                Get Started
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+              <img
+                src="https://www.acadfly.com/_next/static/media/City.53513510.svg"
+                alt="City Illustration"
+                className="mx-auto mb-12 sm:mb-16"
+              />
+            </div>
+    
+          {/* <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-12 sm:mb-16">
             <StatCard icon={Users} value="5,000+" label="Students Enrolled" />
             <StatCard
               icon={Building2}
@@ -170,7 +174,7 @@ export default function Info() {
               value="12+"
               label="Countries Served"
             />
-          </div>
+          </div> */}
 
           <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 items-center mb-12 sm:mb-16">
             <div className="relative group">
@@ -220,7 +224,7 @@ export default function Info() {
             </div>
           </div>
 
-          <div className="space-y-8 sm:space-y-12 mb-12 sm:mb-20">
+          {/* <div className="space-y-8 sm:space-y-12 mb-12 sm:mb-20">
             <div className="text-center max-w-3xl mx-auto px-4">
               <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3 sm:mb-4">
                 Comprehensive Benefits for Your Medical Journey
@@ -241,7 +245,7 @@ export default function Info() {
                 />
               ))}
             </div>
-          </div>
+          </div> */}
 
           <div className="bg-blue-600 rounded-xl sm:rounded-2xl p-6 sm:p-8 md:p-12 text-center text-white">
             <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">
@@ -273,4 +277,3 @@ export default function Info() {
     </>
   );
 }
-
