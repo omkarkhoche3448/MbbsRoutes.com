@@ -54,7 +54,7 @@ const InfoSection = () => {
             <img
               src={infoImg}
               alt="Medical Students"
-              className="rounded-xl shadow-2xl w-full h-auto max-h-[500px] object-cover transition duration-500 transform group-hover:scale-[1.02]"
+              className="rounded-xl shadow-2xl w-full h-auto max-h-[500px] object-cover"
             />
 
             {/* Floating Stats Card */}
