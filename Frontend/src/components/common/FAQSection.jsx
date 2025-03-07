@@ -45,11 +45,11 @@ const FAQSection = () => {
           return (
             <div
               key={index}
-              className="bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-200"
+              className="bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-200 outline-none"
             >
               <button
                 onClick={() => setOpenIndex(isOpen ? null : index)}
-                className="w-full text-left p-6 focus:outline-none focus:ring-2 focus:ring-blue-200 rounded-xl"
+                className="w-full text-left p-6  rounded-xl"
               >
                 <div className="flex items-center justify-between">
                   <h3 className="font-semibold text-gray-800 text-lg pr-8">
