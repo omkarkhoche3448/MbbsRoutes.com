@@ -164,14 +164,14 @@ const Navbar = () => {
       <nav
         className={`fixed w-full top-0 z-40 transition-all duration-300 ${
           isScrolled
-            ? "bg-white/80 backdrop-blur-md shadow-lg"
-            : "bg-white shadow-md"
+            ? "bg-white/90 text-white"
+            : "bg-transparent text-white"
         }`}
         role="navigation"
         aria-label="Main navigation"
       >
         <div className="max-w-8xl mx-auto sm:px-6 px-4">
-          <div className="flex items-center justify-between h-20">
+          <div className="flex items-center justify-evenly h-20">
             <NavLink
               to="/"
               className="flex-shrink-0 transform hover:scale-105 transition-transform duration-300"
@@ -211,9 +211,9 @@ const Navbar = () => {
             <div className="hidden md:flex md:items-center md:space-x-8">
               <NavItem to="/">Home</NavItem>
               <NavItem to="/mbbs-in-abroad">MBBS In Abroad</NavItem>
-              <NavItem to="/mbbs-in-abroad/college-recomendation">
+              {/* <NavItem to="/mbbs-in-abroad/college-recomendation">
                 College Recommendation
-              </NavItem>
+              </NavItem> */}
               <NavItem to="/about-us">About</NavItem>
 
               <button
@@ -239,34 +239,7 @@ const Navbar = () => {
               >
                 Contact Us
               </button>
-              {isAuthenticated ? (
-                <div className="flex items-center space-x-4">
-                  <span className="text-gray-600">
-                    Welcome, {user?.fullName}
-                  </span>
-                  <button
-                    onClick={handleLogout}
-                    className="px-4 py-2 bg-red-600 text-white rounded-2xl  hover:bg-red-700"
-                  >
-                    Logout
-                  </button>
-                </div>
-              ) : (
-                <div className="flex items-center space-x-4">
-                  <button
-                    onClick={() => navigate("/signin")}
-                    className="px-4 py-2 bg-blue-600 text-white rounded-full  hover:bg-blue-700 "
-                  >
-                    Sign In
-                  </button>
-                  <button
-                    onClick={() => navigate("/signup")}
-                    className="px-4 py-2 bg-blue-600 text-white rounded-full  hover:bg-blue-700"
-                  >
-                    Sign Up
-                  </button>
-                </div>
-              )}
+              
             </div>
 
             <button
@@ -345,34 +318,7 @@ const Navbar = () => {
                 Contact Us
               </button>
 
-              {isAuthenticated ? (
-                <div className="flex items-center space-x-4">
-                  <span className="text-sm font-medium text-gray-600">
-                    {user?.fullName}
-                  </span>
-                  <button
-                    onClick={handleLogout}
-                    className="px-4 py-2 text-sm font-medium text-white bg-red-600 rounded-full hover:bg-red-700 transition-all duration-300"
-                  >
-                    Logout
-                  </button>
-                </div>
-              ) : (
-                <div className="flex items-center space-x-3">
-                  <button
-                    onClick={() => navigate("/signin")}
-                    className="px-4 py-2 text-sm font-medium text-gray-600 hover:text-blue-600 transition-all duration-300"
-                  >
-                    Sign In
-                  </button>
-                  <button
-                    onClick={() => navigate("/signup")}
-                    className="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-full hover:bg-blue-700 transition-all duration-300"
-                  >
-                    Sign Up
-                  </button>
-                </div>
-              )}
+              
             </div>
           </div>
         </div>

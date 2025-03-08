@@ -184,6 +184,7 @@ const HeroSection = () => {
                 <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-[600px]">
                   Expert guidance for aspiring medical professionals. Navigate
                   admissions, visas, and cultural transitions with confidence.
+                  Make your dream of Study Abroad come true with MBBSRoutes
                 </p>
               </div>
 
