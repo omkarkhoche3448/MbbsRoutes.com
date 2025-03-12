@@ -27,28 +27,28 @@ const videos = [
   },
   {
     id: "ARXNLrHcK_U",
-    title: "World Sustainable Development Summit: CEO Exchange",
+    title: "Every NEET Aspirant Must Know !!!",
     thumbnail: "https://i.ytimg.com/vi/ARXNLrHcK_U/maxresdefault.jpg",
-    channel: "NEWSY Live",
-    views: "250 views",
-    timestamp: "3 days ago",
+    channel: "MBBS Routes | Path to Become Doctor In Abroad",
+    views: "8.9K views",
+    timestamp: "1 month ago",
   },
   {
     id: "t9flKCS2fNg",
-    title: "Trump LOSES CONTROL as Elon FINALLY ADMITS Americans SHOCKED",
+    title: "MBBS India vs Abroad: Full Comparison (Cost, Quality, Opportunities) AIR 1 ‪@soyebaftabaiims‬",
     thumbnail: "https://i.ytimg.com/vi/t9flKCS2fNg/maxresdefault.jpg",
-    channel: "MediasTouch",
+    channel: "MBBS Routes | Path to Become Doctor In Abroad",
     views: "47K views",
     timestamp: "7 hours ago",
   },
-  {
-    id: "t9flKCS2fNg",
-    title: "Ex CJI Chandrachud RSS Agent? Sibal & SC Lawyer DEBATE",
-    thumbnail: "https://i.ytimg.com/vi/t9flKCS2fNg/maxresdefault.jpg",
-    channel: "Bar Chakra",
-    views: "50K views",
-    timestamp: "5 days ago",
-  },
+  // {
+  //   id: "t9flKCS2fNg",
+  //   title: "Ex CJI Chandrachud RSS Agent? Sibal & SC Lawyer DEBATE",
+  //   thumbnail: "https://i.ytimg.com/vi/t9flKCS2fNg/maxresdefault.jpg",
+  //   channel: "Bar Chakra",
+  //   views: "50K views",
+  //   timestamp: "5 days ago",
+  // },
 ]
 
 export default function VideoSection() {
