@@ -45,8 +45,8 @@ const SectionTitle = ({ subtitle, title, className = "" }) => {
 // Info Section Component
 const InfoSection = () => {
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-      <div className="grid lg:grid-cols-2 gap-20  items-center">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
+      <div className="grid lg:grid-cols-2 gap-20 items-center">
         {/* Image Container */}
         <div className="relative group" data-aos="fade-right">
           <div className="absolute -inset-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl opacity-75 blur-lg group-hover:opacity-100 transition duration-1000"></div>
@@ -58,7 +58,7 @@ const InfoSection = () => {
             />
 
             {/* Floating Stats Card */}
-            <div className="absolute -bottom-6 -right-6 bg-white rounded-lg shadow-xl p-4 md:p-6 animate-float">
+            <div className="absolute -bottom-6 -right-6 bg-white rounded-xl shadow-xl p-4 md:p-6 animate-float">
               <div className="space-y-2">
                 <div className="flex items-center gap-2">
                   <div className="w-3 h-3 rounded-full bg-green-500"></div>
@@ -79,26 +79,31 @@ const InfoSection = () => {
         <div className="space-y-6 " data-aos="fade-left">
           <SectionTitle
             subtitle="Why Choose Us"
-            title="Begin Your Medical Journey with Expert Guidance"
+            title="Begin Your Medical Journey with AIIMS Delhi Doctors"
           />
 
           {/* Feature List */}
           <div className="space-y-4">
             {[
               {
-                title: "Expert Counseling",
+                title: "Choosing the Right Country/University",
                 description:
-                  "Get personalized guidance from experienced medical education consultants.",
+                  "Explore top destinations like Russia, China, Philippines, Georgia, Nepal & more!",
               },
               {
-                title: "Global Recognition",
+                title: "Admission & Visa Guidance",
                 description:
-                  "Partner with top medical universities worldwide for quality education.",
+                  "Understand admission processes, fees, scholarships & visa requirements.",
               },
               {
-                title: "Comprehensive Support",
+                title: "Student Experiences & Safety",
                 description:
-                  "From application to admission, we're with you at every step.",
+                  "Read student reviews, learn about cultural adaptation & get safety tips.",
+              },
+              {
+                title: "Avoiding Scams",
+                description:
+                  "Get reliable consultancy recommendations to ensure a secure admission process.",
               },
             ].map((feature, index) => (
               <div
@@ -116,17 +121,6 @@ const InfoSection = () => {
             ))}
           </div>
 
-          {/* CTA Button */}
-          <div className="pt-4 ml-5">
-            <Button icon={ArrowRight} 
-            onClick={() => {
-              window.scrollTo({
-                top: 1600,
-                behavior: "smooth",
-              });
-            }}
-            >Explore Programs</Button>
-          </div>
         </div>
       </div>
 
