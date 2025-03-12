@@ -6,6 +6,7 @@ import MBBSModal from "./MBBSModal";
 import SearchBar from "./SearchBar";
 import CountryCard from "./CountryCard";
 import { useAuth } from "../../context/AuthContext";
+import Logo from "../../assets/logo.png"
 
 const countries = [
   {
@@ -164,8 +165,8 @@ const Navbar = () => {
       <nav
         className={`fixed w-full top-0 z-40 transition-all duration-300 ${
           isScrolled
-            ? "bg-white/90 text-white"
-            : "bg-transparent text-white"
+            ? "bg-white/90 backdrop-blur-md shadow-sm"
+            : "bg-transparent"
         }`}
         role="navigation"
         aria-label="Main navigation"
@@ -174,42 +175,16 @@ const Navbar = () => {
           <div className="flex items-center justify-evenly h-20">
             <NavLink
               to="/"
-              className="flex-shrink-0 transform hover:scale-105 transition-transform duration-300"
+              className="flex-shrink-0 transform transition-transform duration-300"
               aria-label="ConsultGlobal Home"
             >
-              <div className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent tracking-wider flex items-center">
-                MBBSRo
-                <span className="inline-flex items-center mt-3">
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="url(#gradient)"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="lucide lucide-stethoscope"
-                  >
-                    <defs>
-                      <linearGradient id="gradient" x1="0" x2="1" y1="0" y2="0">
-                        <stop offset="0%" stopColor="#2563EB" />{" "}
-                        <stop offset="100%" stopColor="#8B5CF6" />{" "}
-                      </linearGradient>
-                    </defs>
-                    <path d="M11 2v2" />
-                    <path d="M5 2v2" />
-                    <path d="M5 3H4a2 2 0 0 0-2 2v4a6 6 0 0 0 12 0V5a2 2 0 0 0-2-2h-1" />
-                    <path d="M8 15a6 6 0 0 0 12 0v-3" />
-                    <circle cx="20" cy="10" r="2" />
-                  </svg>
-                </span>
-                tes
-              </div>
+              {/* <div className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent tracking-wider flex items-center"> */}
+                <img src={Logo} alt="Logo" className="h-16" />
+              {/* </div> */}
             </NavLink>
 
-            <div className="hidden md:flex md:items-center md:space-x-8">
-              <NavItem to="/">Home</NavItem>
+            <div className="hidden md:flex md:items-center md:space-x-8 ">
+              <NavItem to="/" >Home</NavItem>
               <NavItem to="/mbbs-in-abroad">MBBS In Abroad</NavItem>
               {/* <NavItem to="/mbbs-in-abroad/college-recomendation">
                 College Recommendation
