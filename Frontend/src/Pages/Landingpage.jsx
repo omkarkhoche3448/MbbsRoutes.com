@@ -5,7 +5,7 @@ import Info from "../components/landingpage/Info";
 import Footer from "../components/common/Footer";
 import FlagBanner from "../components/landingpage/FlagBanner";
 import FAQSection from "../components/common/FAQSection";
-// import StudyAbroadSection from "../components/landingpage/StudyAbroadSection"
+import StudyAbroadSection from "../components/landingpage/StudyAbroadSection"
 import VideoSection from "../components/landingpage/VideoSection";
 
 function Landingpage() {
@@ -13,7 +13,7 @@ function Landingpage() {
     <div>
       <HeroSection />
       <FlagBanner />
-      {/* <StudyAbroadSection/> */}
+      <StudyAbroadSection/>
       <InfoSection />
       <Info />
       <VideoSection/>
