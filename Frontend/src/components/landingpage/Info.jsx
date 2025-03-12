@@ -21,6 +21,8 @@ import {
 import infoImg from "../../assets/LandingImg.png";
 import MBBSConsultancyFormModal from "./MBBSConsultancyFormModal";
 import Modal from "./Modal";
+import StudyAbroadJourney from './StudyAbroadJourney';
+import City from "../../assets/City.svg"
 
 const Button = ({
   children,
@@ -150,12 +152,13 @@ export default function Info() {
                   of personal growth, empowerment, and endless opportunities!
                 </span>
               </p>
+              <StudyAbroadJourney />
               <Button size="lg" onClick={() => setIsModalOpen(true)}>
                 Get Started
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
               <img
-                src="https://www.acadfly.com/_next/static/media/City.53513510.svg"
+                src={City}
                 alt="City Illustration"
                 className="mx-auto mb-12 sm:mb-16"
               />
@@ -176,7 +179,7 @@ export default function Info() {
             />
           </div> */}
 
-          <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 items-center mb-12 sm:mb-16">
+          <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 items-center mb-16 sm:mb-16 py-16">
             <div className="relative group">
               <div className="absolute -inset-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl opacity-75 blur-lg group-hover:opacity-100 transition duration-1000"></div>
               <div className="relative">
