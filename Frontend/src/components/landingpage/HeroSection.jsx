@@ -182,9 +182,8 @@ const HeroSection = () => {
                   Your Medical Journey Abroad
                 </h1>
                 <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-[600px]">
-                  Expert guidance for aspiring medical professionals. Navigate
-                  admissions, visas, and cultural transitions with confidence.
-                  Make your dream of Study Abroad come true with MBBSRoutes
+                Expert guidance for future medical professionals. Simplifying admissions, visas, 
+                and cultural transitions—helping you achieve your dream of studying abroad with confidence.
                 </p>
               </div>
 
