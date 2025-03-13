@@ -106,7 +106,7 @@ const Footer = () => {
               © {currentYear} MBBS Consultation Services. All rights reserved.
             </p>
 
-            <div className="flex items-center text-gray-400 text-[0.75rem] ">
+            {/* <div className="flex items-center text-gray-400 text-[0.75rem] ">
               <Code className="w-4 h-4 mr-1" />
               <span>Designed & Developed by</span>
               <a
@@ -117,7 +117,7 @@ const Footer = () => {
               >
                 Omkar Khoche
               </a>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
