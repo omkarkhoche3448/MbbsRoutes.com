@@ -85,7 +85,7 @@ const MBBSModal = ({ isOpen, onClose }) => {
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute right-4 top-4 text-gray-400 hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-200 rounded-full p-1"
+          className="absolute right-4 top-4 text-gray-400 hover:text-gray-600 outline-none rounded-full p-1"
         >
           <X className="w-5 h-5" />
         </button>
@@ -114,7 +114,7 @@ const MBBSModal = ({ isOpen, onClose }) => {
               onChange={handleChange}
               className={`w-full px-4 py-2 rounded-lg border ${
                 errors.name ? "border-red-300" : "border-gray-200"
-              } focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-200`}
+              } outline-none transition-all duration-200`}
               placeholder="Enter your full name"
             />
             {errors.name && (
@@ -137,7 +137,7 @@ const MBBSModal = ({ isOpen, onClose }) => {
               onChange={handleChange}
               className={`w-full px-4 py-2 rounded-lg border ${
                 errors.email ? "border-red-300" : "border-gray-200"
-              } focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-200`}
+              } outline-none transition-all duration-200`}
               placeholder="you@example.com"
             />
             {errors.email && (
@@ -158,7 +158,7 @@ const MBBSModal = ({ isOpen, onClose }) => {
               name="phone"
               value={formData.phone}
               onChange={handleChange}
-              className="w-full px-4 py-2 rounded-lg border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-200"
+              className="w-full px-4 py-2 rounded-lg border border-gray-200 outline-none transition-all duration-200"
               placeholder="Your phone number"
             />
           </div>
@@ -175,7 +175,7 @@ const MBBSModal = ({ isOpen, onClose }) => {
               rows={4}
               className={`w-full px-4 py-2 rounded-lg border ${
                 errors.message ? "border-red-300" : "border-gray-200"
-              } focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-200 resize-none`}
+              } outline-none transition-all duration-200 resize-none`}
               placeholder="Tell us about your requirements..."
             />
             {errors.message && (
