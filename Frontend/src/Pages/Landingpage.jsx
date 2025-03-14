@@ -15,8 +15,8 @@ function Landingpage() {
       <FlagBanner />
       <StudyAbroadSection/>
       <InfoSection />
-      <Info />
       <VideoSection/>
+      <Info />
       <FAQSection />
     </div>
   );
