@@ -54,11 +54,11 @@ const InfoSection = () => {
             <img
               src={infoImg}
               alt="Medical Students"
-              className="rounded-xl shadow-2xl w-full h-auto max-h-[500px] object-cover"
+              className="rounded-xl shadow-2xl w-full h-auto max-h-[500px] object-cover object-top"
             />
 
             {/* Floating Stats Card */}
-            <div className="absolute -bottom-6 -right-6 bg-white rounded-xl shadow-xl p-4 md:p-6 animate-float">
+            <div className="absolute -bottom-6 -right-0 lg:-right-6 bg-white rounded-xl shadow-xl p-3 md:p-6 animate-float">
               <div className="space-y-2">
                 <div className="flex items-center gap-2">
                   <div className="w-3 h-3 rounded-full bg-green-500"></div>
@@ -125,7 +125,7 @@ const InfoSection = () => {
       </div>
 
       {/* Custom Animation Styles */}
-      <style jsx>{`
+      <style>{`
         @keyframes float {
           0% {
             transform: translateY(0px);
