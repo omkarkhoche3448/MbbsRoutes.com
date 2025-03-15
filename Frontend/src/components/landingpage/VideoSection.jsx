@@ -1,4 +1,4 @@
-import VideoCard from "../../components/common/VideoCard"
+import VideoCard from "../../components/common/VideoCard";
 
 const videos = [
   {
@@ -35,31 +35,23 @@ const videos = [
   },
   {
     id: "t9flKCS2fNg",
-    title: "MBBS India vs Abroad: Full Comparison (Cost, Quality, Opportunities) AIR 1 ‪@soyebaftabaiims‬",
+    title:
+      "MBBS India vs Abroad: Full Comparison (Cost, Quality, Opportunities) AIR 1 @soyebaftabaiims",
     thumbnail: "https://i.ytimg.com/vi/t9flKCS2fNg/maxresdefault.jpg",
     channel: "MBBS Routes | Path to Become Doctor In Abroad",
     views: "47K views",
     timestamp: "7 hours ago",
   },
-  // {
-  //   id: "t9flKCS2fNg",
-  //   title: "Ex CJI Chandrachud RSS Agent? Sibal & SC Lawyer DEBATE",
-  //   thumbnail: "https://i.ytimg.com/vi/t9flKCS2fNg/maxresdefault.jpg",
-  //   channel: "Bar Chakra",
-  //   views: "50K views",
-  //   timestamp: "5 days ago",
-  // },
-]
+];
 
 export default function VideoSection() {
   return (
-    <div className="mx-auto max-w-7xl  px-4 md:px-6 py-6 md:py-[60px] relative">
+    <div className="mx-auto max-w-7xl px-4 md:px-6 py-6 md:py-[60px] relative mt-2 md:mt-0">
       {/* Header */}
       <div className="flex items-center">
         {/* <h2 className=""> </h2> */}
         <h2 className="text-3xl sm:text-4xl md:text-4xl font-bold text-gray-900">
-        Discover and{" "}
-          <span className="text-blue-600"> Learn</span>
+          Discover and <span className="text-blue-600"> Learn</span>
         </h2>
         {/* <img src="/_next/static/media/bulb.3fe95fed.svg" alt="bulb" className="w-[22px] md:w-[41px] ml-2" /> */}
       </div>
@@ -67,7 +59,8 @@ export default function VideoSection() {
       {/* <img src="/_next/static/media/zigzag.d1f61145.svg" alt="zigzag" className="w-[178px] md:w-[284px]" /> */}
 
       <h3 className="text-gray-600 mt-2 md:mt-4 text-sm font-medium md:text-base max-w-[80%] pb-4 md:pb-6">
-        Explore and Learn with MbbsRoutes about getting started on your journey to Study Abroad
+        Explore and Learn with MbbsRoutes about getting started on your journey
+        to Study Abroad
       </h3>
 
       {/* Video Grid */}
@@ -77,6 +70,5 @@ export default function VideoSection() {
         ))}
       </div>
     </div>
-  )
+  );
 }
-

@@ -52,6 +52,56 @@ const countries = [
       "https://d2bps9p1kiy4ka.cloudfront.net/5b09189f7285894d9130ccd0/c744602a-508d-4aa8-8652-3812a689b577.jpg",
     active: false,
   },
+  // {
+  //   id: 6,
+  //   name: "Uzbekistan",
+  //   image:
+  //     "https://d2bps9p1kiy4ka.cloudfront.net/5b09189f7285894d9130ccd0/c744602a-508d-4aa8-8652-3812a689b577.jpg",
+  //   active: false,
+  // },
+  // {
+  //   id: 7,
+  //   name: "Uzbekistan",
+  //   image:
+  //     "https://d2bps9p1kiy4ka.cloudfront.net/5b09189f7285894d9130ccd0/c744602a-508d-4aa8-8652-3812a689b577.jpg",
+  //   active: false,
+  // },
+  // {
+  //   id: 8,
+  //   name: "Uzbekistan",
+  //   image:
+  //     "https://d2bps9p1kiy4ka.cloudfront.net/5b09189f7285894d9130ccd0/c744602a-508d-4aa8-8652-3812a689b577.jpg",
+  //   active: false,
+  // },
+  // {
+  //   id: 9,
+  //   name: "Uzbekistan",
+  //   image:
+  //     "https://d2bps9p1kiy4ka.cloudfront.net/5b09189f7285894d9130ccd0/c744602a-508d-4aa8-8652-3812a689b577.jpg",
+  //   active: false,
+  // },
+  // {
+  //   id: 10,
+  //   name: "Uzbekistan",
+  //   image:
+  //     "https://d2bps9p1kiy4ka.cloudfront.net/5b09189f7285894d9130ccd0/c744602a-508d-4aa8-8652-3812a689b577.jpg",
+  //   active: false,
+  // },
+  // {
+  //   id: 11,
+  //   name: "Uzbekistan",
+  //   image:
+  //     "https://d2bps9p1kiy4ka.cloudfront.net/5b09189f7285894d9130ccd0/c744602a-508d-4aa8-8652-3812a689b577.jpg",
+  //   active: false,
+  // },
+
+  // {
+  //   id: 12,
+  //   name: "Uzbekistan",
+  //   image:
+  //     "https://d2bps9p1kiy4ka.cloudfront.net/5b09189f7285894d9130ccd0/c744602a-508d-4aa8-8652-3812a689b577.jpg",
+  //   active: false,
+  // },
 ];
 
 // Featured Country Card Component
@@ -75,7 +125,8 @@ const FeaturedCountryCard = ({ country }) => {
         </div>
         <a
           className="absolute bottom-2 md:bottom-3 bg-primary transition-all duration-300 hover:bg-blue-700 inline-flex items-center justify-center rounded-[32px] cursor-pointer text-sm font-semibold text-white py-1.5 md:py-2.5 pr-1 md:pr-2.5 pl-3 md:pl-5"
-          href={`/${country.name.toLowerCase()}`}
+          href={`/country/${country.name.toLowerCase()}`}
+          rel="noopener noreferrer"
         >
           Explore
           <ChevronRightIcon />
@@ -133,7 +184,7 @@ export default function StudyAbroadSection() {
   };
 
   return (
-    <div className="py-6 md:py-[60px] relative overflow-x-hidden">
+    <div className="py-6 md:py-[60px] relative overflow-x-hidden mb-10 md:mb-4">
       {/* Header Section */}
       <div className="px-4 max-w-[800px] mb-4 text-center mx-auto">
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
