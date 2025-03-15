@@ -19,7 +19,6 @@ const CountryCard = ({ country, onSelect }) => (
           {country.name}
         </h3>
         <p className="text-sm text-gray-500">{country.nativeName}</p>
-        <p className="text-xs text-gray-400 mt-1">{country.speakersCount}</p>
       </div>
 
       <ChevronRight className="w-5 h-5 text-gray-400 group-hover:text-blue-500 transform group-hover:translate-x-1 transition-all" />

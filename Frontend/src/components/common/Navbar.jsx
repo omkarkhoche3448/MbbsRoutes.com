@@ -1,57 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Menu, X, Globe, ChevronDown } from "lucide-react";
-import { NavLink, useNavigate } from "react-router-dom";
-import { useLocation } from "react-router-dom";
+import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import MBBSModal from "./MBBSModal";
 import SearchBar from "./SearchBar";
 import CountryCard from "./CountryCard";
-import { useAuth } from "../../context/AuthContext";
-import Logo from "../../assets/logo.png"
+import Logo from "../../assets/logo.png";
+import {countries} from "../../data/countries"
 
-const countries = [
-  {
-    name: "United States",
-    code: "US",
-    nativeName: "English (US)",
-    speakersCount: "400M+ speakers",
-    region: "americas",
-    popular: true,
-  },
-  {
-    name: "United Kingdom",
-    code: "GB",
-    nativeName: "English (UK)",
-    speakersCount: "300M+ speakers",
-    region: "europe",
-    popular: true,
-  },
-  {
-    name: "India",
-    code: "IN",
-    nativeName: "Hindi/English",
-    speakersCount: "1B+ speakers",
-    region: "asia",
-    popular: true,
-  },
-  {
-    name: "Canada",
-    code: "CA",
-    nativeName: "English/French",
-    speakersCount: "40M+ speakers",
-    region: "americas",
-    popular: false,
-  },
-  {
-    name: "Australia",
-    code: "AU",
-    nativeName: "English (AU)",
-    speakersCount: "25M+ speakers",
-    region: "asia",
-    popular: false,
-  },
-];
-
-const CategoryTabs = ({ selected, onSelect }) => {
+const CategoryTabs = ({ selected, onSelect, countries }) => {
   const categories = [
     { id: "all", label: "All Countries", icon: "🌎" },
     { id: "popular", label: "Popular", icon: "⭐" },
@@ -60,13 +16,22 @@ const CategoryTabs = ({ selected, onSelect }) => {
     { id: "americas", label: "Americas", icon: "🌎" },
   ];
 
+  const filteredCategories = categories.filter((category) => {
+    if (category.id === "all" || category.id === "popular") {
+      return true;
+    }
+    return (
+      countries && countries.some((country) => country.region === category.id)
+    );
+  });
+
   return (
-    <div className="flex space-x-2 overflow-x-auto pb-2 -mx-4 px-4 scrollbar-hide py-2">
-      {categories.map(({ id, label, icon }) => (
+    <div className="flex space-x-3 overflow-x-auto pb-2 md:-mx-4 px-4 scrollbar-hide py-2">
+      {filteredCategories.map(({ id, label, icon }) => (
         <button
           key={id}
           onClick={() => onSelect(id)}
-          className={`px-4 py-2  rounded-full text-sm font-medium whitespace-nowrap transition-all duration-300 flex items-center gap-2 ${
+          className={`px-5 md:px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all duration-300 flex items-center gap-2 ${
             selected === id
               ? "bg-blue-500 text-white shadow-lg shadow-blue-500/30 scale-105 ring-2 ring-blue-500 ring-offset-2"
               : "bg-white/50 text-gray-600 hover:bg-white/80 hover:scale-102 active:scale-95"
@@ -103,6 +68,7 @@ const NavItem = ({ to, children }) => {
 
 const Navbar = () => {
   const navigate = useNavigate();
+  const location = useLocation(); 
   const [isOpen, setIsOpen] = useState(false);
   const [isCountrySelectorOpen, setIsCountrySelectorOpen] = useState(false);
   const [isMBBSModalOpen, setIsMBBSModalOpen] = useState(false);
@@ -110,11 +76,16 @@ const Navbar = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [selectedCountry, setSelectedCountry] = useState(null);
   const [isScrolled, setIsScrolled] = useState(false);
-  const { isAuthenticated, user, logout } = useAuth();
+
+  // Scroll to top whenever the location changes
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [location]);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      const threshold = window.innerWidth <= 768 ? 20 : 100;
+      setIsScrolled(window.scrollY > threshold);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -147,7 +118,7 @@ const Navbar = () => {
   const handleCountrySelect = (country) => {
     setSelectedCountry(country);
     setIsCountrySelectorOpen(false);
-    navigate(`/consultancy/${country.name.toLowerCase()}/mbbs`);
+    navigate(`/country/${country.name.toLowerCase()}`);
   };
 
   const handleMobileNavClick = () => {
@@ -155,17 +126,12 @@ const Navbar = () => {
     window.scrollTo(0, 0);
   };
 
-  const handleLogout = () => {
-    logout();
-    navigate("/");
-  };
-
   return (
     <>
       <nav
-        className={`fixed w-full top-0 z-40 transition-all duration-300 ${
+        className={`fixed w-full top-0 z-40 transition-all duration-200 ${
           isScrolled
-            ? "bg-white/90 backdrop-blur-md shadow-sm"
+            ? "bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 "
             : "bg-transparent"
         }`}
         role="navigation"
@@ -178,29 +144,24 @@ const Navbar = () => {
               className="flex-shrink-0 transform transition-transform duration-300"
               aria-label="ConsultGlobal Home"
             >
-              {/* <div className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent tracking-wider flex items-center"> */}
+              <div className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent tracking-wider flex items-center">
                 <img src={Logo} alt="Logo" className="h-16" />
-              {/* </div> */}
+              </div>
             </NavLink>
 
-            <div className="hidden md:flex md:items-center md:space-x-8 ">
-              <NavItem to="/" >Home</NavItem>
+            <div className="hidden lg:flex lg:items-center lg:space-x-8 ">
+              <NavItem to="/">Home</NavItem>
               <NavItem to="/mbbs-in-abroad">MBBS In Abroad</NavItem>
-              {/* <NavItem to="/mbbs-in-abroad/college-recomendation">
-                College Recommendation
-              </NavItem> */}
               <NavItem to="/about-us">About</NavItem>
 
               <button
                 onClick={() => setIsCountrySelectorOpen(true)}
-                className="flex items-center px-4 py-2 text-gray-600 hover:text-blue-600 rounded-full hover:bg-blue-50 transition-all duration-300 group"
+                className="flex items-center px-4 py-2 text-gray-600 hover:text-blue-600 rounded-full  transition-all duration-300 group"
                 aria-expanded={isCountrySelectorOpen}
                 aria-haspopup="true"
               >
                 <Globe className="w-5 h-5 mr-2 group-hover:rotate-12 transition-transform duration-300" />
-                <span>
-                  {selectedCountry ? selectedCountry.name : "Select Country"}
-                </span>
+                <span>Select Country</span>
                 <ChevronDown
                   className={`w-4 h-4 ml-1 transition-transform duration-300 ${
                     isCountrySelectorOpen ? "rotate-180" : ""
@@ -214,12 +175,11 @@ const Navbar = () => {
               >
                 Contact Us
               </button>
-              
             </div>
 
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="md:hidden p-2 rounded-lg text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition-all duration-300"
+              className="lg:hidden p-2 rounded-lg text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition-all duration-300"
               aria-expanded={isOpen}
               aria-label="Toggle navigation menu"
             >
@@ -234,7 +194,8 @@ const Navbar = () => {
 
         {/* Mobile menu */}
         <div
-          className={`md:hidden absolute top-20 left-0 right-0 bg-white/95 backdrop-blur-md shadow-lg rounded-b-2xl transform transition-all duration-300 ease-in-out ${
+          className={`lg:hidden absolute top-20 left-0 right-0 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50  
+          backdrop-blur-md shadow-lg rounded-b-2xl transform transition-all duration-300 ease-in-out ${
             isOpen
               ? "translate-y-0 opacity-100"
               : "-translate-y-4 opacity-0 pointer-events-none"
@@ -250,23 +211,14 @@ const Navbar = () => {
             </NavLink>
             <NavLink
               to="/mbbs-in-abroad"
-              onClick={() => setIsOpen(false)}
+              onClick={handleMobileNavClick}
               className="block w-full px-4 py-3 text-base text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-300"
             >
               MBBS In Abroad
             </NavLink>
-{/* 
-            <NavLink
-              to="/mbbs-in-abroad/college-recomendation"
-              onClick={() => setIsOpen(false)}
-              className="block w-full px-4 py-3 text-base text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-300"
-            >
-              College Recommendation
-            </NavLink> */}
-
             <NavLink
               to="/about-us"
-              onClick={() => setIsOpen(false)}
+              onClick={handleMobileNavClick}
               className="block w-full px-4 py-3 text-base text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-300"
             >
               About
@@ -281,7 +233,7 @@ const Navbar = () => {
             >
               <Globe className="w-5 h-5 mr-2" />
               <span>
-                {selectedCountry ? selectedCountry.name : "Select Country"}
+               Select Country
               </span>
             </button>
 
@@ -292,8 +244,6 @@ const Navbar = () => {
               >
                 Contact Us
               </button>
-
-              
             </div>
           </div>
         </div>
@@ -311,7 +261,7 @@ const Navbar = () => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full overflow-y-auto">
               <div className="sticky top-0 pt-6 pb-4 bg-gradient-to-b from-blue-50 to-blue-50/95 z-10">
                 <div className="flex justify-between items-center mb-6">
-                  <h2 className="text-3xl font-bold text-gray-800">
+                  <h2 className="text-2xl sm:text-3xl font-bold text-gray-800">
                     Choose Your Location
                   </h2>
                   <button
@@ -327,6 +277,7 @@ const Navbar = () => {
                 <CategoryTabs
                   selected={selectedCategory}
                   onSelect={setSelectedCategory}
+                  countries={countries}
                 />
               </div>
 
