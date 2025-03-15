@@ -1,23 +1,14 @@
 import React, { useState } from "react";
 import Modal from "./Modal";
 import {
-  Users,
   User,
-  BookOpen,
-  Award,
-  Target,
   Mail,
   Phone,
   Calendar,
-  Globe,
   GraduationCap,
-  FileText,
+  Globe,
   MessageSquare,
   HeartPulse,
-  Stethoscope,
-  ArrowRight,
-  Building2,
-  X,
 } from "lucide-react";
 import { toast } from "react-hot-toast";
 
@@ -64,41 +55,36 @@ const MBBSConsultancyFormModal = ({ isOpen, onClose }) => {
         email: "",
         phone: "",
         age: "",
-        country: "",
         education: "",
         preferredCountry: "",
-        budget: "",
         message: "",
       });
 
       onClose();
-      // You can add a toast notification here
       toast.success("Consultation request submitted successfully!");
     } catch (error) {
       console.error("Error:", error);
-      // Handle error (show error toast)
+      toast.error("Failed to submit consultation form. Please try again.");
     }
   };
 
   const preferredCountries = [
     "Russia",
-    "Ukraine",
-    "Philippines",
     "Kazakhstan",
     "Georgia",
     "China",
-    "Bangladesh",
     "Other",
   ];
 
   return (
     <Modal isOpen={isOpen} onClose={onClose} title="Schedule a Consultation">
-      <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+      <form onSubmit={handleSubmit} className="lg:space-y-4">
         <h3 className="text-xl sm:text-2xl font-semibold text-gray-800 mb-4 sm:mb-6">
           Request Consultation
         </h3>
 
         <div className="space-y-4">
+          {/* Full Name */}
           <div className="relative">
             <label className="text-sm font-medium text-gray-700 mb-1 block">
               Full Name
@@ -109,7 +95,7 @@ const MBBSConsultancyFormModal = ({ isOpen, onClose }) => {
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                className="w-full px-4 py-2 sm:py-3 pl-12 rounded-lg border border-gray-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 transition-all duration-200 bg-gray-50/50 hover:bg-white"
+                className="w-full px-4 py-2 sm:py-3 pl-12 rounded-xl border border-gray-200 outline-none transition-all duration-200 bg-gray-50/50 hover:bg-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
                 placeholder="Your full name"
                 required
               />
@@ -117,6 +103,7 @@ const MBBSConsultancyFormModal = ({ isOpen, onClose }) => {
             </div>
           </div>
 
+          {/* Email and Phone */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="relative">
               <label className="text-sm font-medium text-gray-700 mb-1 block">
@@ -128,7 +115,7 @@ const MBBSConsultancyFormModal = ({ isOpen, onClose }) => {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full px-4 py-2 sm:py-3 pl-12 rounded-lg border border-gray-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 transition-all duration-200 bg-gray-50/50 hover:bg-white"
+                  className="w-full px-4 py-2 sm:py-3 pl-12 rounded-xl border border-gray-200 outline-none transition-all duration-200 bg-gray-50/50 hover:bg-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
                   placeholder="your@email.com"
                   required
                 />
@@ -146,7 +133,7 @@ const MBBSConsultancyFormModal = ({ isOpen, onClose }) => {
                   name="phone"
                   value={formData.phone}
                   onChange={handleChange}
-                  className="w-full px-4 py-2 sm:py-3 pl-12 rounded-lg border border-gray-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 transition-all duration-200 bg-gray-50/50 hover:bg-white"
+                  className="w-full px-4 py-2 sm:py-3 pl-12 rounded-xl border border-gray-200 outline-none transition-all duration-200 bg-gray-50/50 hover:bg-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
                   placeholder="Your phone number"
                   required
                 />
@@ -155,6 +142,7 @@ const MBBSConsultancyFormModal = ({ isOpen, onClose }) => {
             </div>
           </div>
 
+          {/* Age and Education */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="relative">
               <label className="text-sm font-medium text-gray-700 mb-1 block">
@@ -166,7 +154,7 @@ const MBBSConsultancyFormModal = ({ isOpen, onClose }) => {
                   name="age"
                   value={formData.age}
                   onChange={handleChange}
-                  className="w-full px-4 py-2 sm:py-3 pl-12 rounded-lg border border-gray-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 transition-all duration-200 bg-gray-50/50 hover:bg-white"
+                  className="w-full px-4 py-2 sm:py-3 pl-12 rounded-xl border border-gray-200 outline-none transition-all duration-200 bg-gray-50/50 hover:bg-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
                   placeholder="Your age"
                   required
                 />
@@ -184,7 +172,7 @@ const MBBSConsultancyFormModal = ({ isOpen, onClose }) => {
                   name="education"
                   value={formData.education}
                   onChange={handleChange}
-                  className="w-full px-4 py-2 sm:py-3 pl-12 rounded-lg border border-gray-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 transition-all duration-200 bg-gray-50/50 hover:bg-white"
+                  className="w-full px-4 py-2 sm:py-3 pl-12 rounded-xl border border-gray-200 outline-none transition-all duration-200 bg-gray-50/50 hover:bg-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
                   placeholder="e.g., 12th Science"
                   required
                 />
@@ -193,6 +181,7 @@ const MBBSConsultancyFormModal = ({ isOpen, onClose }) => {
             </div>
           </div>
 
+          {/* Preferred Country */}
           <div className="relative">
             <label className="text-sm font-medium text-gray-700 mb-1 block">
               Preferred Country for MBBS
@@ -202,7 +191,7 @@ const MBBSConsultancyFormModal = ({ isOpen, onClose }) => {
                 name="preferredCountry"
                 value={formData.preferredCountry}
                 onChange={handleChange}
-                className="w-full px-4 py-2 sm:py-3 pl-12 rounded-lg border border-gray-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 transition-all duration-200 bg-gray-50/50 hover:bg-white"
+                className="w-full px-4 py-2 sm:py-3 pl-12 rounded-xl border border-gray-200 outline-none transition-all duration-200 bg-gray-50/50 hover:bg-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
                 required
               >
                 <option value="">Select a country</option>
@@ -216,6 +205,7 @@ const MBBSConsultancyFormModal = ({ isOpen, onClose }) => {
             </div>
           </div>
 
+          {/* Additional Information */}
           <div className="relative">
             <label className="text-sm font-medium text-gray-700 mb-1 block">
               Additional Information
@@ -226,7 +216,7 @@ const MBBSConsultancyFormModal = ({ isOpen, onClose }) => {
                 value={formData.message}
                 onChange={handleChange}
                 rows={4}
-                className="w-full px-4 py-2 sm:py-3 pl-12 rounded-lg border border-gray-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 transition-all duration-200 bg-gray-50/50 hover:bg-white resize-none"
+                className="w-full px-4 py-2 sm:py-3 pl-12 rounded-xl border border-gray-200 outline-none transition-all duration-200 bg-gray-50/50 hover:bg-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500 resize-none"
                 placeholder="Any specific requirements or questions?"
               />
               <MessageSquare className="w-5 h-5 text-gray-400 absolute left-4 top-6" />
@@ -234,9 +224,10 @@ const MBBSConsultancyFormModal = ({ isOpen, onClose }) => {
           </div>
         </div>
 
+        {/* Submit Button */}
         <button
           type="submit"
-          className="w-full bg-gradient-to-r from-teal-600 to-blue-600 text-white py-3 sm:py-4 px-6 rounded-lg font-medium hover:from-teal-700 hover:to-blue-700 focus:outline-none focus:ring-2 focus:ring-teal-300 transition-all duration-200 transform hover:-translate-y-0.5 flex items-center justify-center space-x-2 shadow-lg"
+          className="w-full bg-gradient-to-r from-teal-600 to-blue-600 text-white py-3 sm:py-4 px-6 rounded-xl font-medium hover:from-teal-700 hover:to-blue-700 outline-none transition-all duration-200 flex items-center justify-center space-x-2"
         >
           <span>Request Free Consultation</span>
           <HeartPulse className="w-5 h-5" />
