@@ -165,13 +165,13 @@ const FeatureGrid = () => {
 };
 
 const HeroSection = () => {
-  const [isModalOpen, setIsModalOpen] = React.useState(true);
+  const [isModalOpen, setIsModalOpen] = React.useState(false);
 
   return (
     <>
       <section className="w-full py-8 sm:py-12 md:py-16 lg:py-24 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 relative">
-          <div className="grid gap-8 lg:grid-cols-2 xl:grid-cols-[1fr_600px] lg:mt-0 mt-32">
+          <div className="grid gap-8 lg:grid-cols-2 xl:grid-cols-[1fr_600px] lg:mt-0 mt-14">
             {/* Left Content Column */}
             <div className="flex flex-col justify-center space-y-6 sm:space-y-8">
               <div className="space-y-4 sm:space-y-6">

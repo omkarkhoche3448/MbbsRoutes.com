@@ -21,8 +21,8 @@ import {
 import infoImg from "../../assets/LandingImg.png";
 import MBBSConsultancyFormModal from "./MBBSConsultancyFormModal";
 import Modal from "./Modal";
-import StudyAbroadJourney from './StudyAbroadJourney';
-import City from "../../assets/City.svg"
+import StudyAbroadJourney from "./StudyAbroadJourney";
+import City from "../../assets/City.svg";
 
 const Button = ({
   children,
@@ -140,55 +140,46 @@ export default function Info() {
   return (
     <>
       <section className="bg-gradient-to-br from-gray-50 to-blue-50 py-12 sm:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12 sm:mb-16">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
-                Get started on your journey to
-                <span className="text-blue-600"> Study Abroad!</span>
-              </h1>
-              <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto mb-6 sm:mb-8">
-                <span>
-                  Your experience with us goes beyond academics it's a journey
-                  of personal growth, empowerment, and endless opportunities!
-                </span>
-              </p>
-              <StudyAbroadJourney />
-              <Button size="lg" onClick={() => setIsModalOpen(true)}>
-                Get Started
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-              <img
-                src={City}
-                alt="City Illustration"
-                className="mx-auto mb-12 sm:mb-16"
-              />
-            </div>
-    
-          {/* <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-12 sm:mb-16">
-            <StatCard icon={Users} value="5,000+" label="Students Enrolled" />
-            <StatCard
-              icon={Building2}
-              value="20+"
-              label="Partner Universities"
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 md:py-4">
+          <div className="text-center mb-24">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
+              Get started on your journey to
+              <span className="text-blue-600"> Study Abroad!</span>
+            </h1>
+            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto mb-6 sm:mb-8">
+              <span>
+                Your experience with us goes beyond academics it's a journey of
+                personal growth, empowerment, and endless opportunities!
+              </span>
+            </p>
+            <StudyAbroadJourney />
+            <Button size="lg" onClick={() => setIsModalOpen(true)}>
+              Get Started
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+            <img
+              src={City}
+              alt="City Illustration"
+              className="mx-auto mb-12 sm:mb-16"
             />
-            <StatCard icon={Award} value="98%" label="Success Rate" />
-            <StatCard
-              icon={GraduationCap}
-              value="12+"
-              label="Countries Served"
-            />
-          </div> */}
+          </div>
 
-          <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 items-center mb-16 sm:mb-16 py-16">
+          <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 items-center mb-14 md:mb-24 ">
+            {/* Image Section */}
             <div className="relative group">
+              {/* Gradient Background */}
               <div className="absolute -inset-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl opacity-75 blur-lg group-hover:opacity-100 transition duration-1000"></div>
-              <div className="relative">
+
+              {/* Image Container */}
+              <div className="relative mb-6">
                 <img
                   src={infoImg}
                   alt="Medical Education"
-                  className="rounded-xl shadow-2xl w-full h-[300px] sm:h-[400px] lg:h-[500px] object-cover"
+                  className="rounded-xl shadow-2xl  w-full h-auto max-h-[500px] object-cover object-top"
                 />
-                <div className="absolute -bottom-4 sm:-bottom-6 -right-4 sm:-right-6 bg-white p-4 sm:p-6 rounded-xl shadow-xl">
+
+                {/* Badge */}
+                <div className="absolute -bottom-4 sm:-bottom-6 -right-0 md:-right-4 sm:-right-6 bg-white p-3 sm:p-5 rounded-xl shadow-xl">
                   <div className="flex items-center gap-2 sm:gap-3">
                     <div className="bg-green-100 p-2 rounded-lg">
                       <Award className="w-5 h-5 sm:w-6 sm:h-6 text-green-600" />
@@ -206,6 +197,7 @@ export default function Info() {
               </div>
             </div>
 
+            {/* Feature Cards Section */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
               <FeatureCard
                 title="Expert Guidance"
@@ -227,31 +219,8 @@ export default function Info() {
             </div>
           </div>
 
-          {/* <div className="space-y-8 sm:space-y-12 mb-12 sm:mb-20">
-            <div className="text-center max-w-3xl mx-auto px-4">
-              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3 sm:mb-4">
-                Comprehensive Benefits for Your Medical Journey
-              </h2>
-              <p className="text-base sm:text-lg text-gray-600">
-                Discover how our expertise and support can help you achieve your
-                medical education goals
-              </p>
-            </div>
-
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8">
-              {benefits.map((benefit, index) => (
-                <BenefitCard
-                  key={index}
-                  icon={benefit.icon}
-                  title={benefit.title}
-                  description={benefit.description}
-                />
-              ))}
-            </div>
-          </div> */}
-
-          <div className="bg-blue-600 rounded-xl sm:rounded-2xl p-6 sm:p-8 md:p-12 text-center text-white">
-            <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">
+          <div className="bg-blue-600 rounded-xl sm:rounded-2xl p-6 sm:p-8 md:p-12 text-center text-white ">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-3 md:mb-4">
               Ready to Begin Your Medical Journey?
             </h2>
             <p className="text-base sm:text-lg text-blue-100 mb-6 sm:mb-8 max-w-2xl mx-auto">
@@ -266,9 +235,9 @@ export default function Info() {
               >
                 Schedule Consultation
               </Button>
-              <Button variant="outline" size="lg">
+              {/* <Button variant="outline" size="lg">
                 Download Brochure
-              </Button>
+              </Button> */}
             </div>
           </div>
         </div>

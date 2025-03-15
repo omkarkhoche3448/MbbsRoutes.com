@@ -56,7 +56,7 @@ const PremiumFlagBanner = () => {
       <div className="absolute top-0 right-0 h-full w-16 sm:w-24 md:w-32 
                     bg-gradient-to-l from-gray-50 to-transparent pointer-events-none" />
 
-      <style jsx>{`
+      <style>{`
         .animate-marquee {
           animation: scroll 120s linear infinite;
         }
