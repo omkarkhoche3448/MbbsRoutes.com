@@ -34,4 +34,11 @@ export const  countries = [
       region: "asia",
       popular: false,
     },
+    {
+      name: "Nepal",
+      code: "NP",
+      nativeName: "Nepali",
+      region: "asia",
+      popular: true,
+    },
 ];
