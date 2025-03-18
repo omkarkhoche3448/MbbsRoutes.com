@@ -64,6 +64,9 @@ export default {
           "100%": { opacity: "1" },
         },
       },
+      fontFamily: {
+        reddit: ["'Reddit Sans'", "sans-serif"],
+      },
     },
   },
   plugins: [

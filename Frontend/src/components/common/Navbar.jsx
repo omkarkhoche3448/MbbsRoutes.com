@@ -151,7 +151,7 @@ const Navbar = () => {
 
             <div className="hidden lg:flex lg:items-center lg:space-x-8 ">
               <NavItem to="/">Home</NavItem>
-              <NavItem to="/mbbs-in-abroad">MBBS In Abroad</NavItem>
+              <NavItem to="/mbbs-in-abroad">MBBS Abroad</NavItem>
               <NavItem to="/about-us">About</NavItem>
 
               <button
@@ -161,7 +161,7 @@ const Navbar = () => {
                 aria-haspopup="true"
               >
                 <Globe className="w-5 h-5 mr-2 group-hover:rotate-12 transition-transform duration-300" />
-                <span>Select Country</span>
+                <span>Explore Countries</span>
                 <ChevronDown
                   className={`w-4 h-4 ml-1 transition-transform duration-300 ${
                     isCountrySelectorOpen ? "rotate-180" : ""
@@ -169,12 +169,12 @@ const Navbar = () => {
                 />
               </button>
 
-              <button
+              {/* <button
                 onClick={() => setIsMBBSModalOpen(true)}
                 className="px-6 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/30 transform hover:-translate-y-0.5 active:translate-y-0"
               >
                 Contact Us
-              </button>
+              </button> */}
             </div>
 
             <button
@@ -214,7 +214,7 @@ const Navbar = () => {
               onClick={handleMobileNavClick}
               className="block w-full px-4 py-3 text-base text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-300"
             >
-              MBBS In Abroad
+              MBBS Abroad
             </NavLink>
             <NavLink
               to="/about-us"
@@ -233,18 +233,18 @@ const Navbar = () => {
             >
               <Globe className="w-5 h-5 mr-2" />
               <span>
-               Select Country
+               Explore Countries
               </span>
             </button>
 
-            <div className=" flex flex-row space-x-2 items-center">
+            {/* <div className=" flex flex-row space-x-2 items-center">
               <button
                 onClick={() => setIsMBBSModalOpen(true)}
                 className="px-5 py-2 bg-blue-600 text-white text-sm font-medium rounded-full hover:bg-blue-700 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/30 transform hover:-translate-y-0.5 active:translate-y-0"
               >
                 Contact Us
               </button>
-            </div>
+            </div> */}
           </div>
         </div>
       </nav>
