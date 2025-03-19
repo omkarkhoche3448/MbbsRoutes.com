@@ -1,6 +1,9 @@
 export const VisaProcessingSection = ({ title, description, steps }) => {
+
+
+  console.log("visaProcessingSteps",steps)
   return (
-    <div className="max-w-6xl mx-auto px-6 mb-8">
+    <div className="container mx-auto px-4 md:px-6 mb-8">
       {/* Section Heading */}
       <h2 className="text-xl font-bold text-gray-900 mb-3">{title}</h2>
 

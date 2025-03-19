@@ -1,6 +1,6 @@
 export const CTABanner = ({ title, buttonText, setIsModalOpen, image }) => {
   return (
-    <div className="px-4 md:p-0 lg:p-0 ">
+    <div className="container mx-auto px-4 md:px-6"> 
       <div className="bg-blue-500 py-6 mx-auto md:max-w-[1110px] rounded-xl">
         <div className="mx-auto px-4 sm:px-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">

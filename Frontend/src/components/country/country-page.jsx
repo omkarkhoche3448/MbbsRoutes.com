@@ -13,23 +13,44 @@ import {
   WeatherIcon,
   CurrencyIcon,
   UniversityIcon,
+  PhoneIcon,
+  ExchangeIcon,
 } from "./icons";
 import Button from "../common/Button";
 import MBBSConsultancyFormModal from "../landingpage/MBBSConsultancyFormModal";
 import { useState } from "react";
 import Aeroplane from "../../assets/aeroplane.svg";
+import AnnualExpensesSection from "./AnnualExpensesSection"
 
 // Reusable DetailsSection component
 const DetailsSection = ({ title, details }) => {
   if (!details || !Array.isArray(details)) {
-    return null; // Return nothing if details is invalid
+    return null;
   }
 
   return (
     <div className="container mx-auto px-4 md:px-6 mb-8">
-      <h3 className="text-lg font-semibold text-gray-900 mb-3 ">{title}</h3>
+      <h3 className="text-lg font-semibold text-gray-900 mb-3">{title}</h3>
       <ul className="list-disc pl-5 space-y-2 text-gray-700 text-sm">
         {details.map((detail, index) => (
+          <li key={index}>{detail}</li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+// Recognition Section component
+const RecognitionSection = ({ recognition }) => {
+  if (!recognition || !recognition.details) return null;
+
+  return (
+    <div className="container mx-auto px-4 md:px-6 mb-8">
+      <h3 className="text-lg font-semibold text-gray-900 mb-3">
+        {recognition.title}
+      </h3>
+      <ul className="list-disc pl-5 space-y-2 text-gray-700 text-sm">
+        {recognition.details.map((detail, index) => (
           <li key={index}>{detail}</li>
         ))}
       </ul>
@@ -49,72 +70,93 @@ export default function Country(props) {
     visaProcessingSteps, // Array of visa processing steps
     courseDuration, // Object containing course duration details
     mediumOfInstruction, // Object containing medium of instruction details
+    recognition, // Recognition details
+    universityTypes, // Types of universities
+    universitiesByType, // Universities categorized by type
+    annualExpenses, // Annual expenses information
   } = props;
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   // Breadcrumb items
   const breadcrumbItems = [
-    { label: country, href: `/${country.toLowerCase()}`, isLast: true },
+    { label: country, href: `/country/${country.toLowerCase()}`, isLast: true },
   ];
 
   // Tab items
   const tabItems = [
-    { label: "About", href: `/${country.toLowerCase()}/about`, isActive: true },
-    // { label: "Universities", href: `/${country.toLowerCase()}/universities` },
-  ];
-
-  // Info cards
-  const infoCards = [
     {
-      title: "Capital",
-      value: countryData.capital,
-      icon: <CityIcon className="w-8 h-8 text-teal-600" />,
-      bgColor: "bg-teal-50",
+      label: "About",
+      href: `/country/${country.toLowerCase()}/`,
+      isActive: true,
     },
     {
-      title: "Languages",
-      value: countryData.languages,
-      icon: <LanguageIcon className="w-8 h-8 text-amber-600" />,
-      bgColor: "bg-amber-50",
-    },
-    {
-      title: "Population",
-      value: countryData.population,
-      icon: <PopulationIcon className="w-8 h-8 text-pink-600" />,
-      bgColor: "bg-pink-50",
-    },
-    {
-      title: "Weather",
-      value: countryData.weather,
-      icon: <WeatherIcon className="w-8 h-8 text-blue-600" />,
-      bgColor: "bg-blue-50",
-    },
-    {
-      title: "Currency",
-      value: countryData.currency,
-      icon: <CurrencyIcon className="w-8 h-8 text-green-600" />,
-      bgColor: "bg-green-50",
-      size: "large",
-    },
-    {
-      title: "Universities",
-      value: countryData.universities,
-      icon: <UniversityIcon className="w-8 h-8 text-purple-600" />,
-      bgColor: "bg-purple-50",
-      size: "large",
+      label: "Universities",
+      href: `/country/${country.toLowerCase()}/universities`,
     },
   ];
 
-  // console.log("Country Name:", country);
-  // console.log("Hero Image:", heroImage);
-  // console.log("Feature Image:", featureImage);
-  // console.log("Country Data:", countryData);
-  // console.log("About Sections:", aboutCountry);
-  // console.log("Eligibility:", eligibility);
-  // console.log("Visa Processing Steps:", visaProcessingSteps);
-  // console.log("Course Duration:", courseDuration);
-  // console.log("Medium of Instruction:", mediumOfInstruction);
+  // Generate info cards based on available data
+  const getInfoCards = () => {
+    const cards = [
+      {
+        title: "Capital",
+        value: countryData.capital,
+        icon: <CityIcon className="w-8 h-8 text-teal-600" />,
+        bgColor: "bg-teal-50",
+      },
+      {
+        title: "Languages",
+        value: countryData.languages,
+        icon: <LanguageIcon className="w-8 h-8 text-amber-600" />,
+        bgColor: "bg-amber-50",
+      },
+      {
+        title: "Population",
+        value: countryData.population,
+        icon: <PopulationIcon className="w-8 h-8 text-pink-600" />,
+        bgColor: "bg-pink-50",
+      },
+      {
+        title: "Weather",
+        value: countryData.weather,
+        icon: <WeatherIcon className="w-8 h-8 text-blue-600" />,
+        bgColor: "bg-blue-50",
+      },
+      {
+        title: "Currency",
+        value: countryData.currency,
+        icon: <CurrencyIcon className="w-8 h-8 text-green-600" />,
+        bgColor: "bg-green-50",
+        size: "large",
+      },
+      {
+        title: "Universities",
+        value: countryData.universities,
+        icon: <UniversityIcon className="w-8 h-8 text-purple-600" />,
+        bgColor: "bg-purple-50",
+        size: "large",
+      },
+      {
+        title: "Calling Code",
+        value: countryData.callingCode,
+        icon: <PhoneIcon className="w-8 h-8 text-indigo-600" />,
+        bgColor: "bg-indigo-50",
+        size: "large",
+      },
+      {
+        title: "Exchange Rate",
+        value: countryData.exchangeRate,
+        icon: <ExchangeIcon className="w-8 h-8 text-rose-600" />,
+        bgColor: "bg-rose-50",
+        size: "large",
+      },
+    ];
+
+    return cards;
+  };
+
+  console.log("visaProcessingSteps",visaProcessingSteps)
 
   return (
     <>
@@ -139,7 +181,7 @@ export default function Country(props) {
             title={`Life in ${country}`}
             subtitle={`Know all about your favourite study destination`}
             featureImage={featureImage}
-            infoCards={infoCards}
+            infoCards={getInfoCards()}
           />
 
           {/* About Country Section */}
@@ -161,6 +203,11 @@ export default function Country(props) {
           {/* Eligibility Section */}
           <EligibilitySection {...eligibility} />
 
+          {/* Annual Expenses Section - Conditionally Rendered */}
+          {annualExpenses && (
+            <AnnualExpensesSection annualExpenses={annualExpenses} />
+          )}
+
           {/* Course Duration Section */}
           {courseDuration && (
             <DetailsSection
@@ -177,6 +224,9 @@ export default function Country(props) {
             />
           )}
 
+          {/* Recognition Section */}
+          {recognition && <RecognitionSection recognition={recognition} />}
+
           {/* Visa Processing Section */}
           {visaProcessingSteps?.length > 0 && (
             <VisaProcessingSection
@@ -186,7 +236,7 @@ export default function Country(props) {
             />
           )}
 
-          <div className="px-4 md:p-0 lg:p-0 ">
+          <div className="container mx-auto px-4 md:px-6 mb-8">
             <div className="bg-blue-600 rounded-xl sm:rounded-2xl p-6 sm:p-8 md:p-12 text-center text-white mb-12">
               <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">
                 Ready to Begin Your Medical Journey?

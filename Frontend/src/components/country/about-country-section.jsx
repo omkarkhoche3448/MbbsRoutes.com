@@ -25,7 +25,7 @@ export const AboutCountrySection = ({ country, introduction, sections }) => {
     <div className="bg-white py-8">
       <div className="container mx-auto px-6">
         <h2 className="text-2xl font-bold text-gray-900 mb-4">About {country}</h2>
-        <p className="text-gray-700 mb-8">{introduction}</p>
+        <p className="text-gray-700 mb-8  text-sm">{introduction}</p>
 
         {/* Grid Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-5 md:gap-8">
@@ -37,7 +37,7 @@ export const AboutCountrySection = ({ country, introduction, sections }) => {
                   <div className="mr-3 text-blue-600">{getIconForSection(section.title)}</div>
                   <h3 className="text-lg font-semibold text-gray-900">{section.title}</h3>
                 </div>
-                <p className="text-gray-700">{section.description}</p>
+                <p className="text-gray-700  text-sm">{section.description}</p>
               </div>
             ))}
           </div>

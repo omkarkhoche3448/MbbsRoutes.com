@@ -2,235 +2,209 @@ import React, { useState } from "react";
 import Modal from "./Modal";
 import {
   User,
-  Mail,
   Phone,
-  Calendar,
-  GraduationCap,
+  MapPin,
+  Briefcase,
+  TrendingUp,
   Globe,
-  MessageSquare,
   HeartPulse,
+  ChevronDown,
+  AlertCircle,
 } from "lucide-react";
 import { toast } from "react-hot-toast";
-
-const BASE_URL = import.meta.env.VITE_BASE_URL;
+import { 
+  initialFormState, 
+  formFields 
+} from "../../data/consultationFormData";
+import consultationService from "../../services/consultationService";
 
 const MBBSConsultancyFormModal = ({ isOpen, onClose }) => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    age: "",
-    education: "",
-    preferredCountry: "",
-    message: "",
-  });
+  const [formData, setFormData] = useState(initialFormState);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [fieldErrors, setFieldErrors] = useState({});
+
+  // Map icon string to component
+  const getIcon = (iconName) => {
+    const icons = {
+      User: User,
+      Phone: Phone,
+      MapPin: MapPin,
+      Briefcase: Briefcase,
+      TrendingUp: TrendingUp,
+      Globe: Globe,
+    };
+    
+    const IconComponent = icons[iconName];
+    return IconComponent ? <IconComponent className="w-5 h-5 text-gray-400 absolute left-4 top-1/2 transform -translate-y-1/2" /> : null;
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+    
+    // Clear error when field is edited
+    if (fieldErrors[name]) {
+      setFieldErrors(prev => ({ ...prev, [name]: "" }));
+    }
+    
     setFormData((prevState) => ({
       ...prevState,
       [name]: value,
     }));
   };
 
+  // Validate NEET score
+  const isValidNEETScore = (score) => {
+    // Allow "N/A" or empty string
+    if (score === "N/A" || score === "") return true;
+    
+    // Convert to number and validate range (0-720)
+    const numScore = Number(score);
+    return !isNaN(numScore) && numScore >= 0 && numScore <= 720;
+  };
+
+  // Client-side validation before submitting
+  const validateForm = () => {
+    const errors = {};
+    
+    // Validate required fields
+    formFields.forEach(field => {
+      if (field.required && (!formData[field.id] || formData[field.id].trim() === "")) {
+        errors[field.id] = `${field.label} is required`;
+      }
+    });
+    
+    // Validate phone format
+    if (formData.contact && !/^[0-9+\-\s()]{10,15}$/.test(formData.contact)) {
+      errors.contact = "Please enter a valid phone number";
+    }
+    
+    // Validate NEET score format and range
+    if (formData.neetScore && !isValidNEETScore(formData.neetScore)) {
+      errors.neetScore = "NEET score must be between 0 and 720, or N/A";
+    }
+    
+    setFieldErrors(errors);
+    return Object.keys(errors).length === 0;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    // Add protection against double-submits
+    if (isSubmitting) return;
+    
+    // Client-side validation
+    if (!validateForm()) {
+      toast.error("Please correct the errors in the form");
+      return;
+    }
+    
+    setIsSubmitting(true);
 
     try {
-      const response = await fetch(`http://${BASE_URL}/api/consultation`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (!response.ok) {
-        throw new Error("Failed to submit consultation form");
-      }
-
+      await consultationService.submitConsultation(formData);
+      
       // Clear form and show success
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        age: "",
-        education: "",
-        preferredCountry: "",
-        message: "",
-      });
-
-      onClose();
+      setFormData(initialFormState);
+      setFieldErrors({});
       toast.success("Consultation request submitted successfully!");
+      onClose();
     } catch (error) {
-      console.error("Error:", error);
-      toast.error("Failed to submit consultation form. Please try again.");
+      toast.error(error.message || "Failed to submit consultation form. Please try again.");
+      
+      // If the error is related to a specific field, set the field error
+      if (error.field) {
+        setFieldErrors(prev => ({ ...prev, [error.field]: error.message }));
+      }
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
-  const preferredCountries = [
-    "Russia",
-    "Kazakhstan",
-    "Georgia",
-    "China",
-    "Other",
-  ];
-
-  return (
-    <Modal isOpen={isOpen} onClose={onClose} title="Schedule a Consultation">
-      <form onSubmit={handleSubmit} className="lg:space-y-4">
-        <h3 className="text-xl sm:text-2xl font-semibold text-gray-800 mb-4 sm:mb-6">
-          Request Consultation
-        </h3>
-
-        <div className="space-y-4">
-          {/* Full Name */}
-          <div className="relative">
-            <label className="text-sm font-medium text-gray-700 mb-1 block">
-              Full Name
-            </label>
-            <div className="relative">
-              <input
-                type="text"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                className="w-full px-4 py-2 sm:py-3 pl-12 rounded-xl border border-gray-200 outline-none transition-all duration-200 bg-gray-50/50 hover:bg-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
-                placeholder="Your full name"
-                required
-              />
-              <User className="w-5 h-5 text-gray-400 absolute left-4 top-1/2 transform -translate-y-1/2" />
-            </div>
-          </div>
-
-          {/* Email and Phone */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div className="relative">
-              <label className="text-sm font-medium text-gray-700 mb-1 block">
-                Email
-              </label>
-              <div className="relative">
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="w-full px-4 py-2 sm:py-3 pl-12 rounded-xl border border-gray-200 outline-none transition-all duration-200 bg-gray-50/50 hover:bg-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
-                  placeholder="your@email.com"
-                  required
-                />
-                <Mail className="w-5 h-5 text-gray-400 absolute left-4 top-1/2 transform -translate-y-1/2" />
-              </div>
-            </div>
-
-            <div className="relative">
-              <label className="text-sm font-medium text-gray-700 mb-1 block">
-                Phone
-              </label>
-              <div className="relative">
-                <input
-                  type="tel"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  className="w-full px-4 py-2 sm:py-3 pl-12 rounded-xl border border-gray-200 outline-none transition-all duration-200 bg-gray-50/50 hover:bg-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
-                  placeholder="Your phone number"
-                  required
-                />
-                <Phone className="w-5 h-5 text-gray-400 absolute left-4 top-1/2 transform -translate-y-1/2" />
-              </div>
-            </div>
-          </div>
-
-          {/* Age and Education */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div className="relative">
-              <label className="text-sm font-medium text-gray-700 mb-1 block">
-                Age
-              </label>
-              <div className="relative">
-                <input
-                  type="number"
-                  name="age"
-                  value={formData.age}
-                  onChange={handleChange}
-                  className="w-full px-4 py-2 sm:py-3 pl-12 rounded-xl border border-gray-200 outline-none transition-all duration-200 bg-gray-50/50 hover:bg-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
-                  placeholder="Your age"
-                  required
-                />
-                <Calendar className="w-5 h-5 text-gray-400 absolute left-4 top-1/2 transform -translate-y-1/2" />
-              </div>
-            </div>
-
-            <div className="relative">
-              <label className="text-sm font-medium text-gray-700 mb-1 block">
-                Current Education
-              </label>
-              <div className="relative">
-                <input
-                  type="text"
-                  name="education"
-                  value={formData.education}
-                  onChange={handleChange}
-                  className="w-full px-4 py-2 sm:py-3 pl-12 rounded-xl border border-gray-200 outline-none transition-all duration-200 bg-gray-50/50 hover:bg-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
-                  placeholder="e.g., 12th Science"
-                  required
-                />
-                <GraduationCap className="w-5 h-5 text-gray-400 absolute left-4 top-1/2 transform -translate-y-1/2" />
-              </div>
-            </div>
-          </div>
-
-          {/* Preferred Country */}
-          <div className="relative">
-            <label className="text-sm font-medium text-gray-700 mb-1 block">
-              Preferred Country for MBBS
-            </label>
+  // Generate form fields dynamically based on configuration
+  const renderFormField = (field) => {
+    const { id, label, type, placeholder, required, icon, options } = field;
+    const hasError = !!fieldErrors[id];
+    
+    return (
+      <div key={id} className="relative">
+        <label className="text-sm font-medium text-gray-700 mb-1 block">
+          {label} {required && <span className="text-red-500">*</span>}
+        </label>
+        <div className="relative">
+          {type === "select" ? (
             <div className="relative">
               <select
-                name="preferredCountry"
-                value={formData.preferredCountry}
+                name={id}
+                value={formData[id]}
                 onChange={handleChange}
-                className="w-full px-4 py-2 sm:py-3 pl-12 rounded-xl border border-gray-200 outline-none transition-all duration-200 bg-gray-50/50 hover:bg-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
-                required
+                className={`w-full px-4 py-2 sm:py-3 pl-12 pr-10 rounded-xl border ${hasError ? 'border-red-500 bg-red-50/50' : 'border-gray-200 bg-gray-50/50'} outline-none transition-all duration-200 hover:bg-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500 appearance-none`}
+                required={required}
+                disabled={isSubmitting}
+                aria-invalid={hasError}
+                aria-describedby={hasError ? `${id}-error` : undefined}
               >
-                <option value="">Select a country</option>
-                {preferredCountries.map((country) => (
-                  <option key={country} value={country}>
-                    {country}
+                <option value="">{placeholder}</option>
+                {options?.map((option) => (
+                  <option key={option} value={option}>
+                    {option}
                   </option>
                 ))}
               </select>
-              <Globe className="w-5 h-5 text-gray-400 absolute left-4 top-1/2 transform -translate-y-1/2" />
+              <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-gray-500">
+                <ChevronDown className="h-4 w-4" />
+              </div>
             </div>
+          ) : (
+            <input
+              type={type}
+              name={id}
+              value={formData[id]}
+              onChange={handleChange}
+              className={`w-full px-4 py-2 sm:py-3 pl-12 rounded-xl border ${hasError ? 'border-red-500 bg-red-50/50' : 'border-gray-200 bg-gray-50/50'} outline-none transition-all duration-200 hover:bg-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500`}
+              placeholder={placeholder}
+              required={required}
+              disabled={isSubmitting}
+              autoComplete={id === 'contact' ? 'tel' : id === 'name' ? 'name' : 'off'}
+              aria-invalid={hasError}
+              aria-describedby={hasError ? `${id}-error` : undefined}
+              // Add HTML pattern validation for phone
+              {...(id === 'contact' ? { pattern: '[0-9+\\-\\s()]{10,15}' } : {})}
+              // Add min/max validation for neetScore if it's a number input
+              {...(id === 'neetScore' && type === 'number' ? { min: '0', max: '720' } : {})}
+            />
+          )}
+          {getIcon(icon)}
+        </div>
+        {hasError && (
+          <div id={`${id}-error`} className="text-red-500 text-sm mt-1 flex items-center">
+            <AlertCircle className="h-3 w-3 mr-1" />
+            <span>{fieldErrors[id]}</span>
           </div>
+        )}
+      </div>
+    );
+  };
 
-          {/* Additional Information */}
-          <div className="relative">
-            <label className="text-sm font-medium text-gray-700 mb-1 block">
-              Additional Information
-            </label>
-            <div className="relative">
-              <textarea
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                rows={4}
-                className="w-full px-4 py-2 sm:py-3 pl-12 rounded-xl border border-gray-200 outline-none transition-all duration-200 bg-gray-50/50 hover:bg-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500 resize-none"
-                placeholder="Any specific requirements or questions?"
-              />
-              <MessageSquare className="w-5 h-5 text-gray-400 absolute left-4 top-6" />
-            </div>
-          </div>
+  return (
+    <Modal isOpen={isOpen} onClose={!isSubmitting ? onClose : undefined} title="Schedule a Consultation">
+      <form onSubmit={handleSubmit} className="lg:space-y-4" noValidate>
+        <h3 className="text-xl sm:text-2xl font-semibold text-gray-800 mb-4 sm:mb-6">
+          Request Free MBBS Consultation
+        </h3>
+
+        <div className="space-y-4">
+          {formFields.map(field => renderFormField(field))}
         </div>
 
         {/* Submit Button */}
         <button
           type="submit"
-          className="w-full bg-gradient-to-r from-teal-600 to-blue-600 text-white py-3 sm:py-4 px-6 rounded-xl font-medium hover:from-teal-700 hover:to-blue-700 outline-none transition-all duration-200 flex items-center justify-center space-x-2"
+          disabled={isSubmitting}
+          className={`w-full mt-6 bg-gradient-to-r from-teal-600 to-blue-600 text-white py-3 sm:py-4 px-6 rounded-xl font-medium hover:from-teal-700 hover:to-blue-700 outline-none transition-all duration-200 flex items-center justify-center space-x-2 ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
         >
-          <span>Request Free Consultation</span>
-          <HeartPulse className="w-5 h-5" />
+          <span>{isSubmitting ? 'Submitting...' : 'Request Free Consultation'}</span>
+          {!isSubmitting && <HeartPulse className="w-5 h-5" />}
         </button>
       </form>
     </Modal>

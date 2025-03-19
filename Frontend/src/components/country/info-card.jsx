@@ -3,7 +3,7 @@ export const InfoCard = ({ title, value, icon, bgColor = "bg-blue-50", size = "s
     <div
       className={`
         ${bgColor} rounded-lg p-4 flex items-start w-full sm:w-auto
-        ${size === "large" ? "col-span-2" : ""} rounded-xl
+        ${size === "large" ? "col-span-1" : ""} rounded-xl
       `}
     >
       {/* Icon */}
