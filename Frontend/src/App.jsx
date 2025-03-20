@@ -11,31 +11,29 @@ import Footer from "./components/common/Footer";
 import CountryPage from "./Pages/CountryPage";
 import WhatsApp from "./components/common/WhatsApp";
 import NotFound from "./Pages/NotFound";
+import ContactPage from "./Pages/ContactPage";
+import UniversityPage from "./Pages/UniversityPage";
 
 function App() {
   return (
     <div>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Landingpage />} />
-          <Route
-            path="/consultancy/:countryName/mbbs"
-            element={<Consultancypages />}
-          />
-          <Route path="/about-us" element={<AboutPage />} />
-          <Route path="/mbbs-in-abroad" element={<MBBSEducationAbroad />} />
-          <Route path="/country/:countryName" element={<CountryPage />} /> 
-          {/* <Route
-            path="/mbbs-in-abroad/college-recomendation"
-            element={<CollegeRecommendationpage />}
-          /> */}
-          {/* <Route path="/signin" element={<SignIn />} />
-          <Route path="/signup" element={<SignUp />} /> */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-        {/* <ChatBot /> */}
-        <WhatsApp/>
-        <Footer />
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Landingpage />} />
+        <Route path="/consultancy/:countryName/mbbs" element={<Consultancypages />}/>
+        <Route path="/about-us" element={<AboutPage />} />
+        <Route path="/mbbs-in-abroad" element={<MBBSEducationAbroad />} />
+        <Route path="/country/:countryName" element={<CountryPage />} />
+        <Route path="/country/:countryName/universities" element={<UniversityPage />}/>
+        <Route path="/contact-us" element={<ContactPage />} />
+        {/* <Route path="/mbbs-in-abroad/college-recomendation" element={<CollegeRecommendationpage />} */}
+        {/* <Route path="/signin" element={<SignIn />} />*/}
+        {/* <Route path="/signup" element={<SignUp />} />  */}
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+      {/* <ChatBot /> */}
+      <WhatsApp />
+      <Footer />
     </div>
   );
 }
