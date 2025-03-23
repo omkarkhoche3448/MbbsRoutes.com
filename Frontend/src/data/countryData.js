@@ -1,10 +1,10 @@
+import {countryImages} from "./countryImages";
+
 export const countryData = {
   georgia: {
     country: "Georgia",
-    heroImage:
-      "https://d2bps9p1kiy4ka.cloudfront.net/5b09189f7285894d9130ccd0/f0e6fdfa-9ce9-4339-ad41-165859aafdd6.jpg",
-    featureImage:
-      "https://d2bps9p1kiy4ka.cloudfront.net/5b09189f7285894d9130ccd0/8699a14c-2324-4380-a2cb-4c4ebb0cd4b0.jpg",
+    heroImage: countryImages.georgia.hero,
+    featureImage: countryImages.georgia.feature,
     countryData: {
       capital: "Tbilisi",
       languages: ["Georgian", "Russian"],
@@ -149,10 +149,8 @@ export const countryData = {
   },
   russia: {
     country: "Russia",
-    heroImage:
-      "https://d2bps9p1kiy4ka.cloudfront.net/5b09189f7285894d9130ccd0/f0e6fdfa-9ce9-4339-ad41-165859aafdd6.jpg", // Placeholder - you'll need to replace with actual image
-    featureImage:
-      "https://d2bps9p1kiy4ka.cloudfront.net/5b09189f7285894d9130ccd0/8699a14c-2324-4380-a2cb-4c4ebb0cd4b0.jpg", // Placeholder - you'll need to replace with actual image
+    heroImage: countryImages.russia.hero,
+    featureImage: countryImages.russia.feature,
     countryData: {
       capital: "Moscow",
       languages: ["Russian"],
@@ -394,10 +392,8 @@ export const countryData = {
   },
   kazakhstan: {
     country: "Kazakhstan",
-    heroImage:
-      "https://d2bps9p1kiy4ka.cloudfront.net/5b09189f7285894d9130ccd0/f0e6fdfa-9ce9-4339-ad41-165859aafdd6.jpg",
-    featureImage:
-      "https://d2bps9p1kiy4ka.cloudfront.net/5b09189f7285894d9130ccd0/8699a14c-2324-4380-a2cb-4c4ebb0cd4b0.jpg",
+    heroImage: countryImages.kazakhstan.hero,
+    featureImage: countryImages.kazakhstan.feature,
     countryData: {
       capital: "Astana",
       languages: ["Kazakh", "Russian"],
@@ -550,10 +546,8 @@ export const countryData = {
   },
   china: {
     country: "China",
-    heroImage:
-      "https://d2bps9p1kiy4ka.cloudfront.net/5b09189f7285894d9130ccd0/f0e6fdfa-9ce9-4339-ad41-165859aafdd6.jpg",
-    featureImage:
-      "https://d2bps9p1kiy4ka.cloudfront.net/5b09189f7285894d9130ccd0/8699a14c-2324-4380-a2cb-4c4ebb0cd4b0.jpg",
+    heroImage: countryImages.china.hero,
+    featureImage: countryImages.china.feature,
     countryData: {
       capital: "Beijing",
       languages: ["Mandarin", "English"],
@@ -682,10 +676,8 @@ export const countryData = {
   },
   kyrgyzstan: {
     country: "Kyrgyzstan",
-    heroImage:
-      "https://d2bps9p1kiy4ka.cloudfront.net/5b09189f7285894d9130ccd0/f0e6fdfa-9ce9-4339-ad41-165859aafdd6.jpg",
-    featureImage:
-      "https://d2bps9p1kiy4ka.cloudfront.net/5b09189f7285894d9130ccd0/8699a14c-2324-4380-a2cb-4c4ebb0cd4b0.jpg",
+    heroImage: countryImages.kyrgyzstan.hero,
+    featureImage: countryImages.kyrgyzstan.feature,
     countryData: {
       capital: "Bishkek",
       languages: ["Kyrgyz", "Russian"],
@@ -815,10 +807,8 @@ export const countryData = {
   },
   uzbekistan: {
     country: "Uzbekistan",
-    heroImage:
-      "https://d2bps9p1kiy4ka.cloudfront.net/5b09189f7285894d9130ccd0/f0e6fdfa-9ce9-4339-ad41-165859aafdd6.jpg",
-    featureImage:
-      "https://d2bps9p1kiy4ka.cloudfront.net/5b09189f7285894d9130ccd0/8699a14c-2324-4380-a2cb-4c4ebb0cd4b0.jpg",
+    heroImage: countryImages.uzbekistan.hero,
+    featureImage: countryImages.uzbekistan.feature,
     countryData: {
       capital: "Tashkent",
       languages: ["Uzbek", "Russian"],
@@ -956,315 +946,489 @@ export const countryData = {
     },
   },
   nepal: {
-  country: "Nepal",
-  heroImage:
-    "https://d2bps9p1kiy4ka.cloudfront.net/5b09189f7285894d9130ccd0/f0e6fdfa-9ce9-4339-ad41-165859aafdd6.jpg",
-  featureImage:
-    "https://d2bps9p1kiy4ka.cloudfront.net/5b09189f7285894d9130ccd0/8699a14c-2324-4380-a2cb-4c4ebb0cd4b0.jpg",
-  countryData: {
-    capital: "Kathmandu",
-    languages: ["Nepali", "English"],
-    population: "29 Million",
-    weather: "5°C to 35°C",
-    currency: "Nepalese Rupee (NPR)",
-    universities: 20,
-    callingCode: "+977",
-    exchangeRate: "1 INR = 1.60 NPR",
-  },
+    country: "Nepal",
+    heroImage: countryImages.nepal.hero,
+    featureImage: countryImages.nepal.feature,
+    countryData: {
+      capital: "Kathmandu",
+      languages: ["Nepali", "English"],
+      population: "29 Million",
+      weather: "5°C to 35°C",
+      currency: "Nepalese Rupee (NPR)",
+      universities: 20,
+      callingCode: "+977",
+      exchangeRate: "1 INR = 1.60 NPR",
+    },
 
-  aboutCountry: {
-    title: "About the Country",
-    description:
-      "MBBS in Nepal for Indian students is gaining momentum due to its affordability, quality education, and cultural similarities. A perfect destination for aspiring medical professionals, proximity, and seamless travel between India and Nepal make studying in Nepal an easy affair. It offers a perfect blend of advanced medical education with a warm atmosphere for students from India.",
-  },
+    aboutCountry: {
+      title: "About the Country",
+      description:
+        "MBBS in Nepal for Indian students is gaining momentum due to its affordability, quality education, and cultural similarities. A perfect destination for aspiring medical professionals, proximity, and seamless travel between India and Nepal make studying in Nepal an easy affair. It offers a perfect blend of advanced medical education with a warm atmosphere for students from India.",
+    },
 
-  highlights: [
-    {
-      title: "NMC-Approved Programs",
-      description:
-        "One of the biggest advantages is that the MBBS programs in Nepal are NMC-approved, which allows Indian students to return to India and practice medicine after passing the FMGE/NExT exam. The curriculum of Nepalese medical colleges closely aligns with Indian medical standards, making it easier for students to adapt and excel.",
-    },
-    {
-      title: "Straightforward Admission Process",
-      description:
-        "The admission process for MBBS in Nepal for Indian students is pretty straightforward. Though qualification in NEET is a must, there are no other entrance examinations or language proficiency tests required for admission. The admission process is transparent and less complicated compared to many other countries.",
-    },
-    {
-      title: "Affordable Education",
-      description:
-        "MBBS in Nepal is quite affordable, and the fees structure has flexible payment modes, thus making it accessible for students from middle-income groups. The cost of education is significantly lower than private institutions in India and many other countries abroad.",
-    },
-    {
-      title: "Quality Medical Education",
-      description:
-        "Medical colleges in Nepal, for example, include the Tribhuvan University Institute of Medicine and B.P. Koirala Institute of Health Sciences, which have infrastructure, faculties, and clinical exposure that is considered amongst the best. The degrees earned are internationally recognized by the WHO and other similar organizations.",
-    },
-    {
-      title: "Cultural Familiarity",
-      description:
-        "Since Nepal's cultural and food habits are quite similar to those of India, it is easy for Indian students to cope with life in Nepal. Major festivals and traditions would be similar to their own, not to mention cuisines. The language of instruction would generally be English, so it's very easy for them to understand and perform well in their studies.",
-    },
-    {
-      title: "Low Cost of Living",
-      description:
-        "Nepal's living expense is low since all the amenities include moderately affordable housing, good and affordable food, and other transportation methods. Students study safely and securely and live under quiet conditions for higher education with further opportunities to grow better personally.",
-    },
-    {
-      title: "Proximity to India",
-      description:
-        "The geographical proximity of Nepal allows students to travel easily and frequently, reducing the emotional stress of studying abroad. This makes it an ideal choice for those who want to stay close to home while pursuing their medical education.",
-    },
-  ],
+    highlights: [
+      {
+        title: "NMC-Approved Programs",
+        description:
+          "One of the biggest advantages is that the MBBS programs in Nepal are NMC-approved, which allows Indian students to return to India and practice medicine after passing the FMGE/NExT exam. The curriculum of Nepalese medical colleges closely aligns with Indian medical standards, making it easier for students to adapt and excel.",
+      },
+      {
+        title: "Straightforward Admission Process",
+        description:
+          "The admission process for MBBS in Nepal for Indian students is pretty straightforward. Though qualification in NEET is a must, there are no other entrance examinations or language proficiency tests required for admission. The admission process is transparent and less complicated compared to many other countries.",
+      },
+      {
+        title: "Affordable Education",
+        description:
+          "MBBS in Nepal is quite affordable, and the fees structure has flexible payment modes, thus making it accessible for students from middle-income groups. The cost of education is significantly lower than private institutions in India and many other countries abroad.",
+      },
+      {
+        title: "Quality Medical Education",
+        description:
+          "Medical colleges in Nepal, for example, include the Tribhuvan University Institute of Medicine and B.P. Koirala Institute of Health Sciences, which have infrastructure, faculties, and clinical exposure that is considered amongst the best. The degrees earned are internationally recognized by the WHO and other similar organizations.",
+      },
+      {
+        title: "Cultural Familiarity",
+        description:
+          "Since Nepal's cultural and food habits are quite similar to those of India, it is easy for Indian students to cope with life in Nepal. Major festivals and traditions would be similar to their own, not to mention cuisines. The language of instruction would generally be English, so it's very easy for them to understand and perform well in their studies.",
+      },
+      {
+        title: "Low Cost of Living",
+        description:
+          "Nepal's living expense is low since all the amenities include moderately affordable housing, good and affordable food, and other transportation methods. Students study safely and securely and live under quiet conditions for higher education with further opportunities to grow better personally.",
+      },
+      {
+        title: "Proximity to India",
+        description:
+          "The geographical proximity of Nepal allows students to travel easily and frequently, reducing the emotional stress of studying abroad. This makes it an ideal choice for those who want to stay close to home while pursuing their medical education.",
+      },
+    ],
 
-  eligibility: {
-    title: "Eligibility for Studying MBBS in Nepal",
-    introduction:
-      "The eligibility criteria for pursuing MBBS in Nepal is designed to ensure that students have the necessary academic background and meet the regulatory requirements for medical education.",
+    eligibility: {
+      title: "Eligibility for Studying MBBS in Nepal",
+      introduction:
+        "The eligibility criteria for pursuing MBBS in Nepal is designed to ensure that students have the necessary academic background and meet the regulatory requirements for medical education.",
 
-    educationalQualifications: {
-      title: "Educational Qualifications",
-      requirements: [
-        "10+2 or equivalent with Physics, Chemistry, and Biology",
-        "Minimum aggregate of 50% in PCB",
-        "Passed 10th and 12th standard with good marks",
+      educationalQualifications: {
+        title: "Educational Qualifications",
+        requirements: [
+          "10+2 or equivalent with Physics, Chemistry, and Biology",
+          "Minimum aggregate of 50% in PCB",
+          "Passed 10th and 12th standard with good marks",
+        ],
+      },
+
+      neetRequirements: {
+        title: "NEET Exam Qualification",
+        requirements: [
+          "The NEET exam is compulsory for Indian students seeking admission",
+          "Valid NEET scorecard required for application",
+        ],
+      },
+
+      ageCriteria: {
+        title: "Age Criteria",
+        requirements: [
+          "The candidate should have attained the age of 17 years as on December 31 of the admission year",
+        ],
+      },
+
+      requiredDocuments: {
+        title: "Required Documents for MBBS in Nepal",
+        documents: [
+          {
+            category: "Academic Documents",
+            details: [
+              "10th and 12th Mark Sheets (original and photocopies)",
+              "Transfer Certificate (TC) from the institute last studied",
+              "Migration Certificate (for students from Boards other than the local National Board)",
+            ],
+          },
+          {
+            category: "NEET Documents",
+            details: ["NEET Scorecard (mandatory for Indian students)"],
+          },
+          {
+            category: "Identification Documents",
+            details: [
+              "Passport and Visa (Students from India are exempt from visa requirements)",
+              "Passport-size Photographs (4-6 recent copies)",
+              "Birth Certificate",
+            ],
+          },
+          {
+            category: "Additional Documents",
+            details: [
+              "Character Certificate from the school or college last attended",
+              "Medical Fitness Certificate from a recognized medical authority",
+              "Offer Letter from the University",
+              "Proof of Financial Support (if applicable)",
+            ],
+          },
+        ],
+      },
+
+      note: "The admission process for MBBS in Nepal is straightforward and designed to accommodate both national and international students. The focus is on ensuring that students have the necessary academic qualifications and meet the regulatory requirements for medical education.",
+    },
+
+    visaProcessingSteps: [
+      {
+        title: "Application Form",
+        content:
+          "Fill out the application form/admission form from the university website.",
+      },
+      {
+        title: "Choose University",
+        content:
+          "Select your NMC-approved desired university for studying MBBS in Nepal.",
+      },
+      {
+        title: "Submit Documents",
+        content:
+          "Submit scanned documents: 10th and 12th mark sheets, NEET score card, copy of medical certificate, and passport.",
+      },
+      {
+        title: "Receive Invitation Letter",
+        content:
+          "After 10-15 days of applying, you'll receive an invitation letter from the university.",
+      },
+      {
+        title: "Apply for Visa",
+        content:
+          "Apply for a visa at the respective embassy (10 days processing time). Note: Indian students are exempt from visa requirements.",
+      },
+    ],
+
+    courseDuration: {
+      title: "Duration of MBBS Course",
+      details: [
+        "The MBBS program in Nepal typically lasts 5.5 years, which includes 1 year of internship",
+        "The curriculum is designed to provide a strong foundation in medical science, with extensive practical experience in hospitals and clinics",
       ],
     },
 
-    neetRequirements: {
-      title: "NEET Exam Qualification",
-      requirements: [
-        "The NEET exam is compulsory for Indian students seeking admission",
-        "Valid NEET scorecard required for application",
+    mediumOfInstruction: {
+      title: "Medium of Instruction",
+      details: [
+        "English is the chief medium of instruction in all medical colleges in Nepal",
+        "This removes the language barrier for international students, particularly those from India",
       ],
     },
 
-    ageCriteria: {
-      title: "Age Criteria",
-      requirements: [
-        "The candidate should have attained the age of 17 years as on December 31 of the admission year",
+    recognition: {
+      title: "Recognition of MBBS Degree",
+      details: [
+        "Medical colleges in Nepal are accredited by the Nepal Medical Council (NMC), World Health Organization (WHO), and other global organizations",
+        "Degrees from Nepalese medical colleges are recognized worldwide, allowing graduates to practice after completing necessary licensing exams",
+        "Indian students can return to India and practice medicine after passing the FMGE/NExT exam",
       ],
     },
 
-    requiredDocuments: {
-      title: "Required Documents for MBBS in Nepal",
-      documents: [
+    universityTypes: {
+      title: "Types of Universities",
+      types: [
+        "Government Medical Colleges",
+        "Private Medical Colleges (Affiliated to Kathmandu University)",
+        "Private Medical Colleges (Affiliated to Tribhuvan University)",
+      ],
+    },
+
+    universitiesByType: {
+      federalUniversities: {
+        title: "Government Medical Colleges NEPAL Tuition Fee",
+        universities: [
+          {
+            name: "Institute of Medicine (IOM)",
+            fee: "$75,021",
+            seats: "100 (8 for International)",
+          },
+          {
+            name: "B.P Koirala Institute of Health Sciences (BPKHIS)",
+            fee: "$74,555",
+            seats: "100 (8 for International)",
+          },
+          {
+            name: "Karnali Academy of Health Science (KAHS)",
+            fee: "$75,000",
+            seats: "20 (2 for International)",
+          },
+          {
+            name: "Patan Academy of Health Sciences (PAHS)",
+            fee: "$75,000",
+            seats: "65 (5 for International)",
+          },
+          {
+            name: "Nepalese Army Institute of Health Sciences (NAIHS)",
+            fee: "$75,000",
+            seats: "100 (4 for International)",
+          },
+        ],
+      },
+
+      stateMedicalUniversities: {
+        title:
+          "Private Medical Colleges (Kathmandu University) NEPAL Tuition Fee",
+        universities: [
+          {
+            name: "Manipal Medical College of Medical Science (MCOMS), Pokhara",
+            fee: "$75,000",
+            seats: "100 (50 for International)",
+          },
+          {
+            name: "College of Medical College, Bharatpur",
+            fee: "$75,000",
+            seats: "100 (50 for International)",
+          },
+          {
+            name: "Kathmandu School of Medical Science",
+            fee: "$75,000",
+            seats: "100 (33 for International)",
+          },
+          {
+            name: "Nepal Medical College, Jorpati, Kathmandu",
+            fee: "$75,000",
+            seats: "100 (33 for International)",
+          },
+          {
+            name: "Kathmandu Medical College, Kathmandu",
+            fee: "$75,000",
+            seats: "100 (33 for International)",
+          },
+          {
+            name: "Birat Medical College, Biratnagar",
+            fee: "$75,000",
+            seats: "100 (33 for International)",
+          },
+          {
+            name: "Nepalgunj Medical College, Nepalgunj",
+            fee: "$75,000",
+            seats: "100 (33 for International)",
+          },
+          {
+            name: "Lumbini Medical College (LMC), Tansen",
+            fee: "$75,000",
+            seats: "100 (33 for International)",
+          },
+          {
+            name: "Nobel Medical College, Biratnagar",
+            fee: "$75,000",
+            seats: "100 (33 for International)",
+          },
+          {
+            name: "Devdaha Medical College & Teaching Hospital, Devdaha",
+            fee: "$75,000",
+            seats: "60 (20 for International)",
+          },
+        ],
+      },
+
+      stateUniversities: {
+        title:
+          "Private Medical Colleges (Tribhuvan University) NEPAL Tuition Fee",
+        universities: [
+          {
+            name: "KIST Medical College (KISTMCTH), Imadol, Lalitpur",
+            fee: "$75,000",
+            seats: "100 (33 for International)",
+          },
+          {
+            name: "Chitwan Medical College (CMC), Bharatpur, Chitwan",
+            fee: "$75,000",
+            seats: "100 (33 for International)",
+          },
+          {
+            name: "Gandaki Medical College (GMCTHRC), Lekhnath, Pokhara",
+            fee: "$75,000",
+            seats: "100 (33 for International)",
+          },
+          {
+            name: "National Medical College (NMC), Birgunj",
+            fee: "$75,000",
+            seats: "100 (33 for International)",
+          },
+          {
+            name: "Universal Medicine College (UCMS), Bhairawaha",
+            fee: "$75,000",
+            seats: "100 (33 for International)",
+          },
+          {
+            name: "Janaki Medical College (JMC), Janakpur",
+            fee: "$75,000",
+            seats: "50 (17 for International)",
+          },
+        ],
+      },
+
+      governmentMedicalColleges: {
+        title: "Government Medical Colleges NEPAL Tuition Fee",
+        universities: [
+          {
+            name: "Institute of Medicine (IOM)",
+            fee: "$75,021",
+            seats: "100 (8 for International)",
+          },
+          {
+            name: "B.P Koirala Institute of Health Sciences (BPKHIS)",
+            fee: "$74,555",
+            seats: "100 (8 for International)",
+          },
+          {
+            name: "Karnali Academy of Health Science (KAHS)",
+            fee: "$75,000",
+            seats: "20 (2 for International)",
+          },
+          {
+            name: "Patan Academy of Health Sciences (PAHS)",
+            fee: "$75,000",
+            seats: "65 (5 for International)",
+          },
+          {
+            name: "Nepalese Army Institute of Health Sciences (NAIHS)",
+            fee: "$75,000",
+            seats: "100 (4 for International)",
+          },
+        ],
+      },
+
+      privateMedicalCollegesKU: {
+        title:
+          "Private Medical Colleges (Kathmandu University) NEPAL Tuition Fee",
+        universities: [
+          {
+            name: "Manipal Medical College of Medical Science (MCOMS), Pokhara",
+            fee: "$75,000",
+            seats: "100 (50 for International)",
+          },
+          {
+            name: "College of Medical College, Bharatpur",
+            fee: "$75,000",
+            seats: "100 (50 for International)",
+          },
+          {
+            name: "Kathmandu School of Medical Science",
+            fee: "$75,000",
+            seats: "100 (33 for International)",
+          },
+          {
+            name: "Nepal Medical College, Jorpati, Kathmandu",
+            fee: "$75,000",
+            seats: "100 (33 for International)",
+          },
+          {
+            name: "Kathmandu Medical College, Kathmandu",
+            fee: "$75,000",
+            seats: "100 (33 for International)",
+          },
+          {
+            name: "Birat Medical College, Biratnagar",
+            fee: "$75,000",
+            seats: "100 (33 for International)",
+          },
+          {
+            name: "Nepalgunj Medical College, Nepalgunj",
+            fee: "$75,000",
+            seats: "100 (33 for International)",
+          },
+          {
+            name: "Lumbini Medical College (LMC), Tansen",
+            fee: "$75,000",
+            seats: "100 (33 for International)",
+          },
+          {
+            name: "Nobel Medical College, Biratnagar",
+            fee: "$75,000",
+            seats: "100 (33 for International)",
+          },
+          {
+            name: "Devdaha Medical College & Teaching Hospital, Devdaha",
+            fee: "$75,000",
+            seats: "60 (20 for International)",
+          },
+        ],
+      },
+
+      privateMedicalCollegesTU: {
+        title:
+          "Private Medical Colleges (Tribhuvan University) NEPAL Tuition Fee",
+        universities: [
+          {
+            name: "KIST Medical College (KISTMCTH), Imadol, Lalitpur",
+            fee: "$75,000",
+            seats: "100 (33 for International)",
+          },
+          {
+            name: "Chitwan Medical College (CMC), Bharatpur, Chitwan",
+            fee: "$75,000",
+            seats: "100 (33 for International)",
+          },
+          {
+            name: "Gandaki Medical College (GMCTHRC), Lekhnath, Pokhara",
+            fee: "$75,000",
+            seats: "100 (33 for International)",
+          },
+          {
+            name: "National Medical College (NMC), Birgunj",
+            fee: "$75,000",
+            seats: "100 (33 for International)",
+          },
+          {
+            name: "Universal Medicine College (UCMS), Bhairawaha",
+            fee: "$75,000",
+            seats: "100 (33 for International)",
+          },
+          {
+            name: "Janaki Medical College (JMC), Janakpur",
+            fee: "$75,000",
+            seats: "50 (17 for International)",
+          },
+        ],
+      },
+    },
+
+    annualExpenses: {
+      title: "Annual Expenses in Addition to Tuition Fee",
+      expenses: [
         {
-          category: "Academic Documents",
-          details: [
-            "10th and 12th Mark Sheets (original and photocopies)",
-            "Transfer Certificate (TC) from the institute last studied",
-            "Migration Certificate (for students from Boards other than the local National Board)",
-          ],
+          category: "Hostel Fee",
+          details: "Approximately $1,000 to $1,500 per year",
         },
         {
-          category: "NEET Documents",
-          details: ["NEET Scorecard (mandatory for Indian students)"],
+          category: "Food Expenses",
+          details: "Approximately $1,000 to $1,500 per year",
         },
         {
-          category: "Identification Documents",
-          details: [
-            "Passport and Visa (Students from India are exempt from visa requirements)",
-            "Passport-size Photographs (4-6 recent copies)",
-            "Birth Certificate",
-          ],
+          category: "Medical Insurance",
+          details: "Approximately $200 to $300 per year",
         },
         {
-          category: "Additional Documents",
-          details: [
-            "Character Certificate from the school or college last attended",
-            "Medical Fitness Certificate from a recognized medical authority",
-            "Offer Letter from the University",
-            "Proof of Financial Support (if applicable)",
-          ],
+          category: "Books and Supplies",
+          details: "Approximately $300 to $500 per year",
+        },
+        {
+          category: "Miscellaneous Expenses",
+          details: "Approximately $500 to $1,000 per year",
         },
       ],
     },
 
-    note: "The admission process for MBBS in Nepal is straightforward and designed to accommodate both national and international students. The focus is on ensuring that students have the necessary academic qualifications and meet the regulatory requirements for medical education.",
-  },
-
-  visaProcessingSteps: [
-    {
-      title: "Application Form",
-      content: "Fill out the application form/admission form from the university website.",
-    },
-    {
-      title: "Choose University",
-      content: "Select your NMC-approved desired university for studying MBBS in Nepal.",
-    },
-    {
-      title: "Submit Documents",
-      content: "Submit scanned documents: 10th and 12th mark sheets, NEET score card, copy of medical certificate, and passport.",
-    },
-    {
-      title: "Receive Invitation Letter",
-      content: "After 10-15 days of applying, you'll receive an invitation letter from the university.",
-    },
-    {
-      title: "Apply for Visa",
-      content: "Apply for a visa at the respective embassy (10 days processing time). Note: Indian students are exempt from visa requirements.",
-    },
-  ],
-
-  courseDuration: {
-    title: "Duration of MBBS Course",
-    details: [
-      "The MBBS program in Nepal typically lasts 5.5 years, which includes 1 year of internship",
-      "The curriculum is designed to provide a strong foundation in medical science, with extensive practical experience in hospitals and clinics",
-    ],
-  },
-
-  mediumOfInstruction: {
-    title: "Medium of Instruction",
-    details: [
-      "English is the chief medium of instruction in all medical colleges in Nepal",
-      "This removes the language barrier for international students, particularly those from India",
-    ],
-  },
-
-  recognition: {
-    title: "Recognition of MBBS Degree",
-    details: [
-      "Medical colleges in Nepal are accredited by the Nepal Medical Council (NMC), World Health Organization (WHO), and other global organizations",
-      "Degrees from Nepalese medical colleges are recognized worldwide, allowing graduates to practice after completing necessary licensing exams",
-      "Indian students can return to India and practice medicine after passing the FMGE/NExT exam",
-    ],
-  },
-
-  universityTypes: {
-    title: "Types of Universities",
-    types: [
-      "Government Medical Colleges",
-      "Private Medical Colleges (Affiliated to Kathmandu University)",
-      "Private Medical Colleges (Affiliated to Tribhuvan University)",
-    ],
-  },
-
-  universitiesByType: {
-    federalUniversities: {
-      title: "Government Medical Colleges NEPAL Tuition Fee",
-      universities: [
-        { name: "Institute of Medicine (IOM)", fee: "$75,021", seats: "100 (8 for International)" },
-        { name: "B.P Koirala Institute of Health Sciences (BPKHIS)", fee: "$74,555", seats: "100 (8 for International)" },
-        { name: "Karnali Academy of Health Science (KAHS)", fee: "$75,000", seats: "20 (2 for International)" },
-        { name: "Patan Academy of Health Sciences (PAHS)", fee: "$75,000", seats: "65 (5 for International)" },
-        { name: "Nepalese Army Institute of Health Sciences (NAIHS)", fee: "$75,000", seats: "100 (4 for International)" },
+    admissionProcess: {
+      title: "Admission Process for MBBS in Nepal",
+      steps: [
+        "Fill out the application form/admission form from the university website",
+        "Select your NMC-approved desired university for studying MBBS in Nepal",
+        "Submit scanned documents: 10th and 12th mark sheets, NEET score card, copy of medical certificate, and passport",
+        "After 10-15 days of applying, you'll receive an invitation letter from the university",
+        "Apply for a visa at the respective embassy (Note: Indian students are exempt from visa requirements)",
       ],
     },
 
-    
-    stateMedicalUniversities: {
-      title: "Private Medical Colleges (Kathmandu University) NEPAL Tuition Fee",
-      universities: [
-        { name: "Manipal Medical College of Medical Science (MCOMS), Pokhara", fee: "$75,000", seats: "100 (50 for International)" },
-        { name: "College of Medical College, Bharatpur", fee: "$75,000", seats: "100 (50 for International)" },
-        { name: "Kathmandu School of Medical Science", fee: "$75,000", seats: "100 (33 for International)" },
-        { name: "Nepal Medical College, Jorpati, Kathmandu", fee: "$75,000", seats: "100 (33 for International)" },
-        { name: "Kathmandu Medical College, Kathmandu", fee: "$75,000", seats: "100 (33 for International)" },
-        { name: "Birat Medical College, Biratnagar", fee: "$75,000", seats: "100 (33 for International)" },
-        { name: "Nepalgunj Medical College, Nepalgunj", fee: "$75,000", seats: "100 (33 for International)" },
-        { name: "Lumbini Medical College (LMC), Tansen", fee: "$75,000", seats: "100 (33 for International)" },
-        { name: "Nobel Medical College, Biratnagar", fee: "$75,000", seats: "100 (33 for International)" },
-        { name: "Devdaha Medical College & Teaching Hospital, Devdaha", fee: "$75,000", seats: "60 (20 for International)" },
-      ],
-    },
-
-    stateUniversities: {
-      title: "Private Medical Colleges (Tribhuvan University) NEPAL Tuition Fee",
-      universities: [
-        { name: "KIST Medical College (KISTMCTH), Imadol, Lalitpur", fee: "$75,000", seats: "100 (33 for International)" },
-        { name: "Chitwan Medical College (CMC), Bharatpur, Chitwan", fee: "$75,000", seats: "100 (33 for International)" },
-        { name: "Gandaki Medical College (GMCTHRC), Lekhnath, Pokhara", fee: "$75,000", seats: "100 (33 for International)" },
-        { name: "National Medical College (NMC), Birgunj", fee: "$75,000", seats: "100 (33 for International)" },
-        { name: "Universal Medicine College (UCMS), Bhairawaha", fee: "$75,000", seats: "100 (33 for International)" },
-        { name: "Janaki Medical College (JMC), Janakpur", fee: "$75,000", seats: "50 (17 for International)" },
-      ],
-    },
-
-    governmentMedicalColleges: {
-      title: "Government Medical Colleges NEPAL Tuition Fee",
-      universities: [
-        { name: "Institute of Medicine (IOM)", fee: "$75,021", seats: "100 (8 for International)" },
-        { name: "B.P Koirala Institute of Health Sciences (BPKHIS)", fee: "$74,555", seats: "100 (8 for International)" },
-        { name: "Karnali Academy of Health Science (KAHS)", fee: "$75,000", seats: "20 (2 for International)" },
-        { name: "Patan Academy of Health Sciences (PAHS)", fee: "$75,000", seats: "65 (5 for International)" },
-        { name: "Nepalese Army Institute of Health Sciences (NAIHS)", fee: "$75,000", seats: "100 (4 for International)" },
-      ],
-    },
-
-    privateMedicalCollegesKU: {
-      title: "Private Medical Colleges (Kathmandu University) NEPAL Tuition Fee",
-      universities: [
-        { name: "Manipal Medical College of Medical Science (MCOMS), Pokhara", fee: "$75,000", seats: "100 (50 for International)" },
-        { name: "College of Medical College, Bharatpur", fee: "$75,000", seats: "100 (50 for International)" },
-        { name: "Kathmandu School of Medical Science", fee: "$75,000", seats: "100 (33 for International)" },
-        { name: "Nepal Medical College, Jorpati, Kathmandu", fee: "$75,000", seats: "100 (33 for International)" },
-        { name: "Kathmandu Medical College, Kathmandu", fee: "$75,000", seats: "100 (33 for International)" },
-        { name: "Birat Medical College, Biratnagar", fee: "$75,000", seats: "100 (33 for International)" },
-        { name: "Nepalgunj Medical College, Nepalgunj", fee: "$75,000", seats: "100 (33 for International)" },
-        { name: "Lumbini Medical College (LMC), Tansen", fee: "$75,000", seats: "100 (33 for International)" },
-        { name: "Nobel Medical College, Biratnagar", fee: "$75,000", seats: "100 (33 for International)" },
-        { name: "Devdaha Medical College & Teaching Hospital, Devdaha", fee: "$75,000", seats: "60 (20 for International)" },
-      ],
-    },
-
-    privateMedicalCollegesTU: {
-      title: "Private Medical Colleges (Tribhuvan University) NEPAL Tuition Fee",
-      universities: [
-        { name: "KIST Medical College (KISTMCTH), Imadol, Lalitpur", fee: "$75,000", seats: "100 (33 for International)" },
-        { name: "Chitwan Medical College (CMC), Bharatpur, Chitwan", fee: "$75,000", seats: "100 (33 for International)" },
-        { name: "Gandaki Medical College (GMCTHRC), Lekhnath, Pokhara", fee: "$75,000", seats: "100 (33 for International)" },
-        { name: "National Medical College (NMC), Birgunj", fee: "$75,000", seats: "100 (33 for International)" },
-        { name: "Universal Medicine College (UCMS), Bhairawaha", fee: "$75,000", seats: "100 (33 for International)" },
-        { name: "Janaki Medical College (JMC), Janakpur", fee: "$75,000", seats: "50 (17 for International)" },
+    scholarships: {
+      title: "Scholarships for MBBS in Nepal",
+      details: [
+        "Many private colleges affiliated with Kathmandu University and Tribhuvan University offer scholarships for international students",
+        "Scholarships are typically merit-based and can significantly reduce the cost of education",
+        "Specific scholarship availability varies by institution and should be confirmed directly with the university",
       ],
     },
   },
-
-  annualExpenses: {
-    title: "Annual Expenses in Addition to Tuition Fee",
-    expenses: [
-      {
-        category: "Hostel Fee",
-        details: "Approximately $1,000 to $1,500 per year",
-      },
-      {
-        category: "Food Expenses",
-        details: "Approximately $1,000 to $1,500 per year",
-      },
-      {
-        category: "Medical Insurance",
-        details: "Approximately $200 to $300 per year",
-      },
-      {
-        category: "Books and Supplies",
-        details: "Approximately $300 to $500 per year",
-      },
-      {
-        category: "Miscellaneous Expenses",
-        details: "Approximately $500 to $1,000 per year",
-      },
-    ],
-  },
-
-  admissionProcess: {
-    title: "Admission Process for MBBS in Nepal",
-    steps: [
-      "Fill out the application form/admission form from the university website",
-      "Select your NMC-approved desired university for studying MBBS in Nepal",
-      "Submit scanned documents: 10th and 12th mark sheets, NEET score card, copy of medical certificate, and passport",
-      "After 10-15 days of applying, you'll receive an invitation letter from the university",
-      "Apply for a visa at the respective embassy (Note: Indian students are exempt from visa requirements)",
-    ],
-  },
-
-  scholarships: {
-    title: "Scholarships for MBBS in Nepal",
-    details: [
-      "Many private colleges affiliated with Kathmandu University and Tribhuvan University offer scholarships for international students",
-      "Scholarships are typically merit-based and can significantly reduce the cost of education",
-      "Specific scholarship availability varies by institution and should be confirmed directly with the university",
-    ],
-  },
-},
 };

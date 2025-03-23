@@ -1,4 +1,5 @@
 import { useState } from "react";
+import {countries} from "../../data/abroadCountries"
 // SVG for the chevron right icon
 const ChevronRightIcon = () => (
   <svg
@@ -16,93 +17,6 @@ const ChevronRightIcon = () => (
   </svg>
 );
 
-const countries = [
-  {
-    id: 1,
-    name: "Georgia",
-    image:
-      "https://d2bps9p1kiy4ka.cloudfront.net/5b09189f7285894d9130ccd0/f0e6fdfa-9ce9-4339-ad41-165859aafdd6.jpg",
-    active: true,
-  },
-  {
-    id: 2,
-    name: "Kyrgyzstan",
-    image:
-      "https://d2bps9p1kiy4ka.cloudfront.net/5b09189f7285894d9130ccd0/6c9e819d-7dad-4eb6-b8f1-8f0bd5dad8d2.jpg",
-    active: false,
-  },
-  {
-    id: 3,
-    name: "Russia",
-    image:
-      "https://d2bps9p1kiy4ka.cloudfront.net/5b09189f7285894d9130ccd0/437922eb-db85-4dc4-ad0f-ddf20629f328.jpg",
-    active: false,
-  },
-  {
-    id: 4,
-    name: "Kazakhstan",
-    image:
-      "https://d2bps9p1kiy4ka.cloudfront.net/5b09189f7285894d9130ccd0/d074871a-2044-4354-bd31-44e685d22c0f.jpg",
-    active: false,
-  },
-  {
-    id: 5,
-    name: "Uzbekistan",
-    image:
-      "https://d2bps9p1kiy4ka.cloudfront.net/5b09189f7285894d9130ccd0/c744602a-508d-4aa8-8652-3812a689b577.jpg",
-    active: false,
-  },
-  // {
-  //   id: 6,
-  //   name: "Uzbekistan",
-  //   image:
-  //     "https://d2bps9p1kiy4ka.cloudfront.net/5b09189f7285894d9130ccd0/c744602a-508d-4aa8-8652-3812a689b577.jpg",
-  //   active: false,
-  // },
-  // {
-  //   id: 7,
-  //   name: "Uzbekistan",
-  //   image:
-  //     "https://d2bps9p1kiy4ka.cloudfront.net/5b09189f7285894d9130ccd0/c744602a-508d-4aa8-8652-3812a689b577.jpg",
-  //   active: false,
-  // },
-  // {
-  //   id: 8,
-  //   name: "Uzbekistan",
-  //   image:
-  //     "https://d2bps9p1kiy4ka.cloudfront.net/5b09189f7285894d9130ccd0/c744602a-508d-4aa8-8652-3812a689b577.jpg",
-  //   active: false,
-  // },
-  // {
-  //   id: 9,
-  //   name: "Uzbekistan",
-  //   image:
-  //     "https://d2bps9p1kiy4ka.cloudfront.net/5b09189f7285894d9130ccd0/c744602a-508d-4aa8-8652-3812a689b577.jpg",
-  //   active: false,
-  // },
-  // {
-  //   id: 10,
-  //   name: "Uzbekistan",
-  //   image:
-  //     "https://d2bps9p1kiy4ka.cloudfront.net/5b09189f7285894d9130ccd0/c744602a-508d-4aa8-8652-3812a689b577.jpg",
-  //   active: false,
-  // },
-  // {
-  //   id: 11,
-  //   name: "Uzbekistan",
-  //   image:
-  //     "https://d2bps9p1kiy4ka.cloudfront.net/5b09189f7285894d9130ccd0/c744602a-508d-4aa8-8652-3812a689b577.jpg",
-  //   active: false,
-  // },
-
-  // {
-  //   id: 12,
-  //   name: "Uzbekistan",
-  //   image:
-  //     "https://d2bps9p1kiy4ka.cloudfront.net/5b09189f7285894d9130ccd0/c744602a-508d-4aa8-8652-3812a689b577.jpg",
-  //   active: false,
-  // },
-];
 
 // Featured Country Card Component
 const FeaturedCountryCard = ({ country }) => {
