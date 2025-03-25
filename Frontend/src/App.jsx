@@ -21,7 +21,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Landingpage />} />
         <Route path="/consultancy/:countryName/mbbs" element={<Consultancypages />}/>
-        <Route path="/about-us" element={<AboutPage />} />
+        {/* <Route path="/about-us" element={<AboutPage />} /> */}
         <Route path="/mbbs-in-abroad" element={<MBBSEducationAbroad />} />
         <Route path="/country/:countryName" element={<CountryPage />} />
         <Route path="/country/:countryName/universities" element={<UniversityPage />}/>
