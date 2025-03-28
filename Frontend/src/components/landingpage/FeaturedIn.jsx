@@ -20,41 +20,21 @@ const FeaturedIn = () => {
     }
   ];
 
-  const getSizeClasses = (size) => {
-    switch(size) {
-      case 'large':
-        return 'w-64 h-32';
-      case 'medium':
-        return 'w-48 h-24';
-      case 'small':
-        return 'w-40 h-20';
-      default:
-        return 'w-48 h-24';
-    }
-  };
-
   return (
-    <div className="flex flex-col items-center justify-center max-w-7xl mx-auto px-4 py-16 mt-6 md:mt-14">
-      <h2 className="text-2xl font-semibold text-gray-800 mb-8">
+    <div className="container mx-auto px-4 py-14 mt-8">
+      <h2 className="text-2xl md:text-3xl font-bold text-center mb-8">
         Featured In
       </h2>
-      
-      <div className="flex flex-wrap justify-center items-center gap-8">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-6 items-center justify-center">
         {logos.map((logo) => (
           <div 
             key={logo.name} 
-            className={`
-              flex items-center justify-center 
-              ${getSizeClasses(logo.size)}
-              bg-white border border-blue-100 rounded-xl
-              transition-all duration-300 
-              hover:shadow-md hover:border-blue-200
-            `}
+            className="flex items-center justify-center p-4 bg-gray-100 rounded-lg hover:bg-gray-200 transition-all duration-300"
           >
             <img 
               src={logo.placeholder} 
-              alt={`${logo.name} Logo`} 
-              className="max-h-full max-w-full object-contain p-4 opacity-70 hover:opacity-100"
+              alt={`${logo.name} logo`} 
+              className="max-h-16 max-w-full object-contain transition-all duration-300"
             />
           </div>
         ))}
