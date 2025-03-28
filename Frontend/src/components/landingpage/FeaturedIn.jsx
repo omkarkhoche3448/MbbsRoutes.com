@@ -22,7 +22,7 @@ const FeaturedIn = () => {
 
   return (
     <div className="container mx-auto px-4 py-14 mt-8">
-      <h2 className="text-2xl md:text-3xl font-bold text-center mb-8">
+      <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 text-gray-800">
         Featured In
       </h2>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-6 items-center justify-center">

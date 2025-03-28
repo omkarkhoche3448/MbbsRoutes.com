@@ -177,7 +177,7 @@ const HeroSection = () => {
                   Elevate MBBS Abroad By
                   <br></br>
                   <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                    AIIMS Delhi Drs.
+                    AIIMS Delhi Doctors.
                   </span>{" "}
                 </h1>
                 <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-[600px]">
