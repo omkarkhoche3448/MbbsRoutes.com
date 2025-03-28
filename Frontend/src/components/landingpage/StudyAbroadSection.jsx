@@ -1,5 +1,9 @@
 import { useState } from "react";
-import {countries} from "../../data/abroadCountries"
+import { countries } from "../../data/abroadCountries";
+import StudyAbroadJourney from "./StudyAbroadJourney";
+import Button from "../common/Button";
+import City from "../../assets/City.svg";
+import { ArrowRight } from "lucide-react";
 // SVG for the chevron right icon
 const ChevronRightIcon = () => (
   <svg
@@ -16,7 +20,6 @@ const ChevronRightIcon = () => (
     />
   </svg>
 );
-
 
 // Featured Country Card Component
 const FeaturedCountryCard = ({ country }) => {
@@ -98,8 +101,33 @@ export default function StudyAbroadSection() {
   };
 
   return (
-    <div className="py-6 md:py-[60px] relative overflow-x-hidden mb-10 md:mb-4">
+    <div className="py-6 md:py-[60px] relative overflow-x-hidden mb-10 md:mb-4 ">
       {/* Header Section */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 md:py-4 ">
+        <div className="text-center mb-24">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
+            Get started on your journey to
+            <span className="text-blue-600"> Study Abroad!</span>
+          </h1>
+          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto mb-6 sm:mb-8">
+            <span>
+              Your experience with us goes beyond academics it's a journey of
+              personal growth, empowerment, and endless opportunities!
+            </span>
+          </p>
+          <StudyAbroadJourney />
+          <Button size="lg" onClick={() => setIsModalOpen(true)} className="mx-auto">
+            Get Started
+            <ArrowRight className="ml-2 h-5 w-5" />
+          </Button>
+          <img
+            src={City}
+            alt="City Illustration"
+            className="mx-auto mb-12 sm:mb-16"
+          />
+        </div>
+      </div>
+
       <div className="px-4 max-w-[800px] mb-4 text-center mx-auto">
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
           Top Countries to{" "}
