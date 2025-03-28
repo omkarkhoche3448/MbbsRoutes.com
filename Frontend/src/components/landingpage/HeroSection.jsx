@@ -127,20 +127,20 @@ const FeatureGrid = () => {
       icon: GraduationCap,
       text: "Top Universities",
       bgColor: "bg-blue-100",
-      textColor: "text-blue-600"
+      textColor: "text-blue-600",
     },
     {
       icon: Globe,
       text: "Global Network",
       bgColor: "bg-purple-100",
-      textColor: "text-purple-600"
+      textColor: "text-purple-600",
     },
     {
       icon: Award,
       text: "Expert Guidance",
       bgColor: "bg-indigo-100",
-      textColor: "text-indigo-600"
-    }
+      textColor: "text-indigo-600",
+    },
   ];
 
   return (
@@ -151,9 +151,7 @@ const FeatureGrid = () => {
           className="flex flex-col items-center space-y-2 text-center"
         >
           <div className={`rounded-full p-2 ${bgColor}`}>
-            <Icon
-              className={`h-4 w-4 sm:h-6 sm:w-6 ${textColor}`}
-            />
+            <Icon className={`h-4 w-4 sm:h-6 sm:w-6 ${textColor}`} />
           </div>
           <span className={`text-xs sm:text-sm font-medium ${textColor}`}>
             {text}
@@ -176,14 +174,16 @@ const HeroSection = () => {
             <div className="flex flex-col justify-center space-y-6 sm:space-y-8">
               <div className="space-y-4 sm:space-y-6">
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold tracking-tight">
+                  Elevate MBBS Abroad By
+                  <br></br>
                   <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                    Empowering
+                    AIIMS Delhi Drs.
                   </span>{" "}
-                  Your Medical Journey Abroad
                 </h1>
                 <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-[600px]">
-                Expert guidance for future medical professionals. Simplifying admissions, visas, 
-                and cultural transitions—helping you achieve your dream of studying abroad with confidence.
+                  Expert guidance for future medical professionals. Simplifying
+                  admissions, visas, and cultural transitions—helping you
+                  achieve your dream of studying abroad with confidence.
                 </p>
               </div>
 
@@ -208,7 +208,7 @@ const HeroSection = () => {
               </div>
 
               {/* Features Grid */}
-              <FeatureGrid/>
+              <FeatureGrid />
             </div>
 
             {/* Right Image Column */}
@@ -231,7 +231,7 @@ const HeroSection = () => {
                     Trusted by 10,000+ Students
                   </p>
                 </div>
-                <div className="absolute top-1/2 -left-4 sm:left-0 transform -translate-y-1/2 bg-white rounded-full py-2 sm:py-3 px-4 sm:px-6 shadow-lg">
+                {/* <div className="absolute top-1/2 -left-4 sm:left-0 transform -translate-y-1/2 bg-white rounded-full py-2 sm:py-3 px-4 sm:px-6 shadow-lg">
                   <p className="text-xs sm:text-sm font-medium text-gray-900">
                     100+ Partner Universities
                   </p>
@@ -240,7 +240,7 @@ const HeroSection = () => {
                   <p className="text-xs sm:text-sm font-medium text-gray-900">
                     95% Success Rate
                   </p>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

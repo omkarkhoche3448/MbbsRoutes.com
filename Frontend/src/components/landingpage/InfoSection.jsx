@@ -58,7 +58,7 @@ const InfoSection = () => {
             />
 
             {/* Floating Stats Card */}
-            <div className="absolute -bottom-6 -right-0 lg:-right-6 bg-white rounded-xl shadow-xl p-3 md:p-6 animate-float">
+            {/* <div className="absolute -bottom-6 -right-0 lg:-right-6 bg-white rounded-xl shadow-xl p-3 md:p-6 animate-float">
               <div className="space-y-2">
                 <div className="flex items-center gap-2">
                   <div className="w-3 h-3 rounded-full bg-green-500"></div>
@@ -71,7 +71,7 @@ const InfoSection = () => {
                   Student Satisfaction
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
 
