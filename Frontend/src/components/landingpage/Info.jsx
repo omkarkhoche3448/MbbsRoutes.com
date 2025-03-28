@@ -24,7 +24,7 @@ import Modal from "./Modal";
 import StudyAbroadJourney from "./StudyAbroadJourney";
 import City from "../../assets/City.svg";
 import FeaturedIn from "./FeaturedIn";
-import YouTubeShowcase from "./YoutubeShowCase";
+import YouTubeShowcase from "./YouTubeShowcase";
 
 const Button = ({
   children,
