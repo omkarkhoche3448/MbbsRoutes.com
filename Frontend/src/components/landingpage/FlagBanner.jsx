@@ -2,16 +2,16 @@ import React from 'react';
 
 const PremiumFlagBanner = () => {
   const countries = [
-    { code: 'US', name: 'United States' },
-    { code: 'GB', name: 'United Kingdom' },
-    { code: 'FR', name: 'France' },
-    { code: 'DE', name: 'Germany' },
-    { code: 'IT', name: 'Italy' },
-    { code: 'ES', name: 'Spain' },
-    { code: 'JP', name: 'Japan' },
-    { code: 'KR', name: 'South Korea' },
-    { code: 'BR', name: 'Brazil' },
-    { code: 'CA', name: 'Canada' }
+    { code: 'NP', name: 'Nepal' },
+    { code: 'BD', name: 'Bangladesh' },
+    { code: 'RU', name: 'Russia' },
+    { code: 'RS', name: 'Serbia' },
+    { code: 'GE', name: 'Georgia' },
+    { code: 'KZ', name: 'Kazakhstan' },
+    { code: 'KG', name: 'Kyrgyzstan' },
+    { code: 'UZ', name: 'Uzbekistan' },
+    { code: 'TJ', name: 'Tajikistan' },
+    { code: 'IN', name: 'India' }
   ];
 
   const doubledCountries = [...countries, ...countries];
@@ -30,7 +30,7 @@ const PremiumFlagBanner = () => {
             <img
               src={`https://flagcdn.com/w80/${country.code.toLowerCase()}.png`}
               alt={`${country.name} flag`}
-              className="w-full h-auto rounded-lg shadow-sm transition-transform duration-300
+              className="w-full h-fit rounded-lg shadow-sm transition-transform duration-300
                        group-hover:scale-105"
             />
           </div>

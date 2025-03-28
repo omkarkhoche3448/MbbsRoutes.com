@@ -169,6 +169,15 @@ const Navbar = () => {
                 />
               </button>
 
+              <a
+                href="https://pages.razorpay.com/pl_QC8n1HsnBKPWmH/view"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-6 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/30 active:translate-y-0"
+              >
+                Book Your Seat
+              </a>
+
               {/* <button
                 onClick={() => setIsMBBSModalOpen(true)}
                 className="px-6 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/30 transform hover:-translate-y-0.5 active:translate-y-0"
