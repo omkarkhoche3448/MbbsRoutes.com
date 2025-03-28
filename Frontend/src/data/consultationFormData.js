@@ -9,13 +9,16 @@ export const initialFormState = {
   };
   
   export const preferredCountries = [
-    "Russia",
-    "Georgia",
-    "Kazakhstan",
+    "India",
     "Bangladesh",
-    "Kyrgystan",
+    "Russia",
+    "Serbia",
+    "Kazakhstan",
+    "Georgia",
+    "Kyrgyzstan",
     "Nepal",
     "Uzbekistan",
+    "Tajikistan",
     "No Idea/ Want More Information",
   ];
   

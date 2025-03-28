@@ -41,47 +41,32 @@ export const countries = [
         "https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=1932&auto=format&fit=crop",
       active: false,
     },
-    // {
-    //   id: 7,
-    //   name: "Uzbekistan",
-    //   image:
-    //     "https://d2bps9p1kiy4ka.cloudfront.net/5b09189f7285894d9130ccd0/c744602a-508d-4aa8-8652-3812a689b577.jpg",
-    //   active: false,
-    // },
-    // {
-    //   id: 8,
-    //   name: "Uzbekistan",
-    //   image:
-    //     "https://d2bps9p1kiy4ka.cloudfront.net/5b09189f7285894d9130ccd0/c744602a-508d-4aa8-8652-3812a689b577.jpg",
-    //   active: false,
-    // },
-    // {
-    //   id: 9,
-    //   name: "Uzbekistan",
-    //   image:
-    //     "https://d2bps9p1kiy4ka.cloudfront.net/5b09189f7285894d9130ccd0/c744602a-508d-4aa8-8652-3812a689b577.jpg",
-    //   active: false,
-    // },
-    // {
-    //   id: 10,
-    //   name: "Uzbekistan",
-    //   image:
-    //     "https://d2bps9p1kiy4ka.cloudfront.net/5b09189f7285894d9130ccd0/c744602a-508d-4aa8-8652-3812a689b577.jpg",
-    //   active: false,
-    // },
-    // {
-    //   id: 11,
-    //   name: "Uzbekistan",
-    //   image:
-    //     "https://d2bps9p1kiy4ka.cloudfront.net/5b09189f7285894d9130ccd0/c744602a-508d-4aa8-8652-3812a689b577.jpg",
-    //   active: false,
-    // },
-  
-    // {
-    //   id: 12,
-    //   name: "Uzbekistan",
-    //   image:
-    //     "https://d2bps9p1kiy4ka.cloudfront.net/5b09189f7285894d9130ccd0/c744602a-508d-4aa8-8652-3812a689b577.jpg",
-    //   active: false,
-    // },
+    {
+      id: 7,
+      name: "Bangladesh",
+      image:
+        "https://divineeac.com/wp-content/uploads/2024/05/mo1_udd5ics-jpg.webp",
+      active: false,
+    },
+    {
+      id: 8,
+      name: "Serbia",
+      image:
+        "https://divineeac.com/wp-content/uploads/2024/05/wa9gkmhotf8-jpg.webp",
+      active: false,
+    },
+    {
+      id: 9,
+      name: "Tajikistan",
+      image:
+        "https://yourchanakya.com/wp-content/uploads/2021/12/2771391-1711728783.jpg",
+      active: false,
+    },
+    {
+      id: 10,
+      name: "India",
+      image:
+        "https://divineeac.com/wp-content/uploads/2024/05/wupje-mpho-jpg.webp",
+      active: false,
+    }
   ];

@@ -29,4 +29,8 @@ export const countryImages = {
     hero: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=1932&auto=format&fit=crop",
     feature: "https://imgs.search.brave.com/EcZPphTfY0YiGBnhkQyU5tJ8h1LC8_aey8iKZr6G5ic/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/am9pbnVzNGVkdWNh/dGlvbi5jb20vaW1h/Z2VzL2JuZXBhbDYu/anBn",
   },
+  india: {
+    hero: "https://imgs.search.brave.com/Sd7CTUiXb7L9Pclzszjbsanv3JR5Rk_xIfzmm_zz9sM/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly93d3cu/eWFzaG92ZXJzZWFz/Lm9yZy93cC1jb250/ZW50L3VwbG9hZHMv/MjAyNC8wMi9pbmRp/YS5wbmc",
+    feature: "https://imgs.search.brave.com/F9G554ooukLe5imk7BhIavsJtHvJPsJRAnUeM1BuOPM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jbGFz/c3RvY29sbGVnZS5j/b20vd3AtY29udGVu/dC91cGxvYWRzLzIw/MjQvMDIvQWxsLUlu/ZGlhLUluc3RpdHV0/ZS1vZi1NZWRpY2Fs/LVNjaWVuY2UtMTAy/NHg1NTIud2VicA",
+  },
 };

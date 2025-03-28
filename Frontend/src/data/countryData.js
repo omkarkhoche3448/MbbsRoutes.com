@@ -1431,4 +1431,172 @@ export const countryData = {
       ],
     },
   },
+  india: {
+    country: "India",
+    heroImage: countryImages.india.hero,
+    featureImage: countryImages.india.feature,
+    countryData: {
+      capital: "New Delhi",
+      languages: ["Hindi", "English", "Regional Languages"],
+      population: "1.4 Billion",
+      weather: "-10°C to +45°C",
+      currency: "Indian Rupee (INR)",
+      universities: 612,
+      callingCode: "+91",
+      exchangeRate: "1 USD = 83 INR",
+    },
+
+    aboutCountry: {
+      title: "About the Country",
+      description:
+        "India, a land of rich cultural heritage and academic excellence, offers international students a unique and diverse educational experience. With world-class universities, affordable education, and a vibrant atmosphere, studying in India opens doors to unparalleled growth and knowledge. India's medical education system is highly regarded, producing top medical professionals recognized worldwide.",
+    },
+
+    highlights: [
+      {
+        title: "Prestigious Medical Education",
+        description:
+          "India is home to some of the most prestigious medical colleges such as AIIMS, JIPMER, and AFMC. With a rigorous curriculum and state-of-the-art facilities, medical education in India is globally recognized and respected.",
+      },
+      {
+        title: "Affordable and Quality Education",
+        description:
+          "Medical education in India is highly affordable compared to many Western countries. Government medical colleges offer subsidized tuition fees, making it a cost-effective option for students. Private colleges also offer world-class education with modern infrastructure.",
+      },
+      {
+        title: "English Medium Instruction",
+        description:
+          "Most medical universities in India offer MBBS programs in English, ensuring ease of learning for international students. Additionally, students have the opportunity to learn regional languages to enhance their communication skills during clinical practice.",
+      },
+      {
+        title: "Diverse Clinical Exposure",
+        description:
+          "India provides extensive hands-on clinical experience with its vast and diverse patient population. Medical students gain exposure to a wide range of diseases and treatments, preparing them for real-world medical challenges.",
+      },
+      {
+        title: "Global Recognition of Degrees",
+        description:
+          "MBBS degrees from Indian medical colleges are recognized by major medical councils such as the WHO, NMC (India), ECFMG (USA), and GMC (UK), allowing graduates to pursue careers globally.",
+      },
+      {
+        title: "Rich Cultural Experience",
+        description:
+          "India is known for its cultural diversity and historical significance. Students studying in India get to experience its vibrant traditions, festivals, and cuisine, making their educational journey more enriching.",
+      },
+    ],
+
+    eligibility: {
+      title: "Eligibility for Studying MBBS in India",
+      introduction:
+        "To study MBBS in India, students must meet specific eligibility criteria, including educational qualifications, NEET exam qualification, age criteria, and required documents.",
+
+      educationalQualifications: {
+        title: "Educational Qualifications",
+        requirements: [
+          "Passed Class 12th with a Science background.",
+          "Subjects: Physics, Chemistry, Biology (PCB), and English.",
+          "Minimum 50% aggregate in 12th standard (40% for reserved categories).",
+        ],
+      },
+
+      neetRequirements: {
+        title: "NEET Exam Qualification",
+        requirements: [
+          "Qualified in the National Eligibility cum Entrance Test (NEET).",
+          "NEET score is mandatory for MBBS admission in India.",
+        ],
+      },
+
+      ageCriteria: {
+        title: "Age Criteria",
+        requirements: [
+          "The student must have completed 17 years of age by 31st December of the admission year.",
+        ],
+      },
+
+      requiredDocuments: {
+        title: "Required Documents for MBBS in India",
+        documents: [
+          {
+            category: "Academic Certificates",
+            details: [
+              "Scanned copy of Class 12th Pass Certificate.",
+              "Scanned copy of Class 10th Pass Certificate.",
+            ],
+          },
+          {
+            category: "NEET Documents",
+            details: ["NEET Scorecard.", "Admit Card of NEET.", "Counseling Letter."],
+          },
+          {
+            category: "Identification Documents",
+            details: [
+              "Scanned copy of Aadhaar Card or Passport.",
+              "Recent passport-sized photographs.",
+            ],
+          },
+        ],
+      },
+    },
+
+    courseDuration: {
+      title: "Duration of MBBS Course",
+      details: [
+        "The MBBS program in India typically lasts 5.5 years, which includes 1 year of mandatory internship.",
+      ],
+    },
+
+    mediumOfInstruction: {
+      title: "Medium of Instruction",
+      details: [
+        "The majority of medical universities in India offer MBBS programs in English, ensuring accessibility for international students.",
+      ],
+    },
+
+    recognition: {
+      title: "Recognition of MBBS Degree",
+      details: [
+        "The MBBS degree from India is recognized by WHO, NMC (India), ECFMG (USA), GMC (UK), and other global medical bodies.",
+      ],
+    },
+
+    universityTypes: {
+      title: "Types of Universities",
+      types: ["Government Medical Colleges", "Private Medical Colleges"],
+    },
+
+    universitiesByType: {
+      governmentColleges: {
+        title: "Government Medical Colleges in India (Tuition Fee Range)",
+        universities: [
+          { name: "AIIMS Delhi", fee: "INR 5856 per year" },
+          { name: "JIPMER Puducherry", fee: "INR 1,20,000 per year" },
+          { name: "KGMU Lucknow", fee: "INR 54,900 per year" },
+          { name: "Grant Medical College Mumbai", fee: "INR 78,000 per year" },
+          { name: "Madras Medical College", fee: "INR 10,000 per year" },
+        ],
+      },
+
+      privateColleges: {
+        title: "Private Medical Colleges in India (Tuition Fee Range)",
+        universities: [
+          { name: "Kasturba Medical College Manipal", fee: "INR 17,00,000 per year" },
+          { name: "SRM Medical College Chennai", fee: "INR 22,50,000 per year" },
+          { name: "DY Patil Medical College Pune", fee: "INR 20,00,000 per year" },
+          { name: "Bharati Vidyapeeth Medical College", fee: "INR 18,00,000 per year" },
+          { name: "JSS Medical College Mysore", fee: "INR 15,00,000 per year" },
+        ],
+      },
+    },
+
+    annualExpenses: {
+      title: "Annual Expenses in Addition to Tuition Fee",
+      expenses: [
+        { category: "Hostel Fee", details: "Varies from INR 20,000 to INR 2,00,000 per annum" },
+        { category: "Food Expenses", details: "INR 50,000 to INR 1,20,000 per annum" },
+        { category: "Medical Insurance", details: "INR 3,000 to INR 15,000 annually" },
+        { category: "Miscellaneous", details: "INR 10,000 to INR 50,000 per annum" },
+      ],
+    },
+  }
 };
