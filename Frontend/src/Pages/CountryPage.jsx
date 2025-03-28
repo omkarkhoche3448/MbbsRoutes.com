@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import Country from "../components/country/country-page";
 import { countryData } from "../data/countryData"; 
+import ComingSoon from "./ComingSoon";
 
 export default function CountryPage() {
   const { countryName } = useParams();
@@ -8,7 +9,7 @@ export default function CountryPage() {
 
 
   if (!countryInfo) {
-    return <h1>Country data not found</h1>; 
+    return <ComingSoon/>
   }
 
   return <Country {...countryInfo} />;
