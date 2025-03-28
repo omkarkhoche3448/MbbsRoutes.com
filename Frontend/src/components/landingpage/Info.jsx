@@ -23,6 +23,8 @@ import MBBSConsultancyFormModal from "./MBBSConsultancyFormModal";
 import Modal from "./Modal";
 import StudyAbroadJourney from "./StudyAbroadJourney";
 import City from "../../assets/City.svg";
+import FeaturedIn from "./FeaturedIn";
+import YouTubeShowcase from "./YoutubeShowCase";
 
 const Button = ({
   children,
@@ -141,28 +143,6 @@ export default function Info() {
     <>
       <section className="bg-gradient-to-br from-gray-50 to-blue-50 py-12 sm:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 md:py-4">
-          <div className="text-center mb-24">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
-              Get started on your journey to
-              <span className="text-blue-600"> Study Abroad!</span>
-            </h1>
-            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto mb-6 sm:mb-8">
-              <span>
-                Your experience with us goes beyond academics it's a journey of
-                personal growth, empowerment, and endless opportunities!
-              </span>
-            </p>
-            <StudyAbroadJourney />
-            <Button size="lg" onClick={() => setIsModalOpen(true)}>
-              Get Started
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-            <img
-              src={City}
-              alt="City Illustration"
-              className="mx-auto mb-12 sm:mb-16"
-            />
-          </div>
 
           <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 items-center mb-14 md:mb-24 ">
             {/* Image Section */}
@@ -219,6 +199,11 @@ export default function Info() {
             </div>
           </div>
 
+          {/* your Youtube Section  */}
+          <YouTubeShowcase/>
+
+          <FeaturedIn/>
+
           <div className="bg-blue-600 rounded-xl sm:rounded-2xl p-6 sm:p-8 md:p-12 text-center text-white ">
             <h2 className="text-2xl sm:text-3xl font-bold mb-3 md:mb-4">
               Ready to Begin Your Medical Journey?
@@ -233,11 +218,15 @@ export default function Info() {
                 size="lg"
                 onClick={() => setIsModalOpen(true)}
               >
-                Schedule Consultation
+                Schedule Free Consultation
               </Button>
-              {/* <Button variant="outline" size="lg">
-                Download Brochure
-              </Button> */}
+              <Button
+                  variant="secondary"
+                  size="lg"
+                  onClick={() => window.open("https://pages.razorpay.com/pl_QC8n1HsnBKPWmH/view", "_blank")}
+                >
+                  Book Your Seat
+                </Button>
             </div>
           </div>
         </div>

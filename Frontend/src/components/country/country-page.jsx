@@ -251,11 +251,15 @@ export default function Country(props) {
                   size="lg"
                   onClick={() => setIsModalOpen(true)}
                 >
-                  Schedule Consultation
+                  Schedule Free Consultation
                 </Button>
-                {/* <Button variant="outline" size="lg">
-                  Download Brochure
-                </Button> */}
+                <Button
+                  variant="secondary"
+                  size="lg"
+                  onClick={() => window.open("https://pages.razorpay.com/pl_QC8n1HsnBKPWmH/view", "_blank")}
+                >
+                  Book Your Seat
+                </Button>
               </div>
             </div>
           </div>
