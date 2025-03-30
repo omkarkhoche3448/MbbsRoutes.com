@@ -155,14 +155,14 @@ const Navbar = () => {
         aria-label="Main navigation"
       >
         <div className="max-w-8xl mx-auto sm:px-6 px-4">
-          <div className="flex items-center justify-between h-20">
+          <div className="flex items-center justify-between md:justify-evenly h-20">
             <NavLink
               to="/"
               className="flex-shrink-0 transform transition-transform duration-300"
               aria-label="ConsultGlobal Home"
             >
               <div className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent tracking-wider flex items-center">
-                <img src={Logo} alt="Logo" className=" h-14 md:h-16" />
+                <img src={Logo} alt="Logo" className="h-16" />
               </div>
             </NavLink>
 
@@ -170,7 +170,7 @@ const Navbar = () => {
               <NavItem to="/">Home</NavItem>
               <NavItem to="/mbbs-in-abroad">MBBS Abroad</NavItem>
               {/* <NavItem to="/about-us">About</NavItem> */}
-
+              <NavItem to="/contact-us">Contact</NavItem>
               <button
                 onClick={() => setIsCountrySelectorOpen(true)}
                 className="flex items-center px-4 py-2 text-gray-600 hover:text-blue-600 rounded-full  transition-all duration-300 group"
@@ -249,6 +249,13 @@ const Navbar = () => {
             >
               About
             </NavLink> */}
+            <NavLink
+              to="/contact-us"
+              onClick={handleMobileNavClick}
+              className="block w-full px-4 py-3 text-base text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-300"
+            >
+              Contact
+            </NavLink>
 
             <button
               onClick={() => {
