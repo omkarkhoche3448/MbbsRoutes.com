@@ -13,7 +13,7 @@ export const footerData = {
   contactInfo: [
     {
       icon: "Mail",
-      text: "ayush.k@toppersclubs.col",
+      text: "contact@mbbsroutes.com",
     },
     {
       icon: "Phone",
@@ -21,7 +21,7 @@ export const footerData = {
     },
     {
       icon: "MapPin",
-      text: "AIIMS Delhi Hostel no. 1, East New, Delhi - 110029",
+      text: "115/3, lower ground floor, gautam nagar, gautam nagar, south delhi, 110049",
     },
   ],
   socialLinks: [

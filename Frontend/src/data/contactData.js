@@ -5,7 +5,7 @@ export const contactData = {
       "Welcome to the Official Page of MBBS Routes, your dedicated partner for all things related to your medical education aspirations. We are here to assist you with any inquiries, feedback, complaints, or concerns you may have about our offerings. At MBBS Routes, we are committed to guiding you through every step of your international academic journey.",
     contactInfo: {
       phone: "+91 8434124950",
-      email: "ayush.k@toppersclubs.col",
+      email: "contact@mbbsroutes.com",
     },
   },
   contactOptions: [
@@ -42,8 +42,7 @@ export const contactData = {
   ],
   officeAddress: {
     title: "Visit Our Office",
-    address:
-      "1st Floor, Noida One, Rasoolpur Nawada, Industrial Area, Sector 62, Noida, Uttar Pradesh 201309",
+    address: "115/3, LOWER GROUND FLOOR, GAUTAM NAGAR, GAUTAM NAGAR, South Delhi, 110049",
   },
   closingMessage: {
     text1:
