@@ -17,21 +17,21 @@ const channels = [
     videos: [
       {
         title:
-          "How I Scored 720/720 & All India Rank 1 in NEET | My Story | How You Can Learn From It For Your Prep",
+          "How I Scored 720/720 🎯ft. Then V/S Now 🚀| 2020 vs 2025 🔥 What To Do To Crack & Score High 📝| Soyeb",
         thumbnailUrl:
-          "https://i.ytimg.com/vi/sWp1lQrfd4g/hqdefault.jpg?sqp=-oaymwEnCNACELwBSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLD2KDnesi5BAIXengW8tRtyV93d8A",
+          "https://i.ytimg.com/vi/s7dHyswE2ZQ/hqdefault.jpg?sqp=-oaymwEnCNACELwBSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLBK92TBr2bwMyn2Ir0mDP7vP2vfPg",
       },
       {
         title:
-          "45 Chapters = 600+ Marks🔥| NEET Ultra-High Yield Chapters 🚀|Only Half Syllabus = 600+|Soyeb Aftab",
+          "NEET 25 BIG Pattern CHANGE ‼️UPDATE your Study Plan OR Kill Your Prep 😣 Do/Die 💪 ENDGAME Strategy🔥",
         thumbnailUrl:
-          "https://i.ytimg.com/vi/uN7v-xN5Lhc/hqdefault.jpg?sqp=-oaymwEnCNACELwBSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLCVExEjwJ5svjW_88BJt_a02qdH1g",
+          "https://i.ytimg.com/vi/P6J4bgOdZNA/hqdefault.jpg?sqp=-oaymwEnCNACELwBSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLAw6yWlAxxX_bRQOadyToL-7JlWKw",
       },
       {
         title:
-          "A Day In My Life as an AIIMS Delhi MBBS Student || Soyeb Aftab || NEET 2020 AIR 1",
+          "100 Days 2 Hour Per Day 📝 360/360 Biology Challenge 🔥| NEET 2025 🚀| Soyeb Aftab",
         thumbnailUrl:
-          "https://i.ytimg.com/vi/keuwKH5LMDI/hqdefault.jpg?sqp=-oaymwEnCNACELwBSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLC9Q3LgUZYkuxTBzWgStkaU6AdM7g",
+          "https://i.ytimg.com/vi/vpjFnv7hsOk/hqdefault.jpg?sqp=-oaymwEnCNACELwBSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLCDrE2pAUfIxnC68qNZAdteE5fPXg",
       },
     ],
   },
