@@ -144,7 +144,10 @@ export default function Info() {
       <section className="bg-gradient-to-br from-gray-50 to-blue-50 py-12 sm:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 md:py-4">
           <div className="mb-10 text-center">
-            <h2 className="text-4xl font-extrabold text-gray-800 mb-8">Why Choose MBBS Routes for <span className="text-blue-600">Your Medical Journey?</span></h2>
+            <h2 className="text-4xl font-extrabold text-gray-800 mb-8">
+              Why Choose MBBS Routes for{" "}
+              <span className="text-blue-600">Your Medical Journey?</span>
+            </h2>
           </div>
           <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 items-center mb-14 md:mb-24 ">
             {/* Image Section */}
@@ -168,10 +171,10 @@ export default function Info() {
                     </div>
                     <div>
                       <div className="text-xs sm:text-sm text-gray-600">
-                        Ranked
+                        Seminar
                       </div>
                       <div className="text-lg sm:text-xl font-bold text-gray-900">
-                        #1 in Service
+                        #Our Seminar
                       </div>
                     </div>
                   </div>
@@ -223,12 +226,17 @@ export default function Info() {
                 Schedule Free Consultation
               </Button>
               <Button
-                  variant="secondary"
-                  size="lg"
-                  onClick={() => window.open("https://pages.razorpay.com/pl_QC8n1HsnBKPWmH/view", "_blank")}
-                >
-                  Book Your Seat
-                </Button>
+                variant="secondary"
+                size="lg"
+                onClick={() =>
+                  window.open(
+                    "https://pages.razorpay.com/pl_QC8n1HsnBKPWmH/view",
+                    "_blank"
+                  )
+                }
+              >
+                Book Your Seat
+              </Button>
             </div>
           </div>
         </div>

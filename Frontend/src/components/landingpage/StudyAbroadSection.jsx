@@ -4,6 +4,7 @@ import StudyAbroadJourney from "./StudyAbroadJourney";
 import Button from "../common/Button";
 import City from "../../assets/City.svg";
 import { ArrowRight } from "lucide-react";
+import MBBSConsultancyFormModal from "./MBBSConsultancyFormModal";
 
 const ChevronRightIcon = () => (
   <svg
@@ -88,6 +89,7 @@ export default function StudyAbroadSection() {
     countries.map((c, index) => ({ ...c, active: index === 0 }))
   );
   const [activeCountry, setActiveCountry] = useState(countryList[0]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleCountryClick = (country) => {
     const updatedCountries = countryList.map((c) => ({
@@ -115,7 +117,11 @@ export default function StudyAbroadSection() {
             personal growth, empowerment, and endless opportunities!
           </p>
           <StudyAbroadJourney />
-          <Button size="lg" className="mx-auto">
+          <Button
+            size="lg"
+            className="mx-auto"
+            onClick={() => setIsModalOpen(true)}
+          >
             Get Started
             <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
@@ -150,6 +156,10 @@ export default function StudyAbroadSection() {
           />
         ))}
       </div>
+      <MBBSConsultancyFormModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </div>
   );
 }
