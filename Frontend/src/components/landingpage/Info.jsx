@@ -185,21 +185,21 @@ export default function Info() {
             {/* Feature Cards Section */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
               <FeatureCard
-                title="Expert Guidance"
-                description="Get personalized counseling from experienced medical education consultants."
+                title="AIIMS Delhi Expertise"
+                description="Our team is led by professionals from India’s top medical institution, ensuring expert guidance."
                 className="bg-blue-50 border-l-4 border-blue-600"
               />
               <FeatureCard
-                title="Global Recognition"
-                description="Study at internationally recognized universities with world-class facilities."
+                title="Extensive Network of Top Med Universities"
+                description="We partner with top medical universities worldwide to help you choose the best MBBS options."
               />
               <FeatureCard
-                title="Career Support"
-                description="Comprehensive assistance with placements and career development."
+                title="Personalized Support"
+                description="We provide tailored advice to help you choose the best MBBS program based on your goals and preferences."
               />
               <FeatureCard
-                title="Visa Assistance"
-                description="Complete support for visa application and documentation process."
+                title="End-to-End Assistance"
+                description="From university selection to visa support, we assist you at every step of your MBBS journey abroad."
               />
             </div>
           </div>
