@@ -7,6 +7,7 @@ export default function StudyAbroadJourney() {
   const sectionRef = useRef(null);
   const scrollContainerRef = useRef(null);
   const [isMobile, setIsMobile] = useState(false);
+  const autoAdvanceTimerRef = useRef(null);
 
   // Journey steps data
   const journeySteps = [
@@ -58,6 +59,44 @@ export default function StudyAbroadJourney() {
     };
   }, []);
 
+  // Auto-advance for mobile view - every 5 seconds
+  useEffect(() => {
+    if (isMobile && isVisible) {
+      // Clear any existing timer when component updates
+      if (autoAdvanceTimerRef.current) {
+        clearInterval(autoAdvanceTimerRef.current);
+      }
+      
+      // Set up new timer
+      autoAdvanceTimerRef.current = setInterval(() => {
+        setCurrentStep((prevStep) => {
+          // Loop back to the beginning when we reach the end
+          return prevStep === journeySteps.length - 1 ? 0 : prevStep + 1;
+        });
+      }, 5000);
+    }
+    
+    // Clean up timer when component unmounts or when mobile state changes
+    return () => {
+      if (autoAdvanceTimerRef.current) {
+        clearInterval(autoAdvanceTimerRef.current);
+      }
+    };
+  }, [isMobile, isVisible, journeySteps.length]);
+
+  // Reset the auto-advance timer when manually navigating
+  const resetAutoAdvanceTimer = () => {
+    if (isMobile && autoAdvanceTimerRef.current) {
+      clearInterval(autoAdvanceTimerRef.current);
+      
+      autoAdvanceTimerRef.current = setInterval(() => {
+        setCurrentStep((prevStep) => {
+          return prevStep === journeySteps.length - 1 ? 0 : prevStep + 1;
+        });
+      }, 5000);
+    }
+  };
+
   // Horizontal scroll with arrow keys for accessibility
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -86,6 +125,7 @@ export default function StudyAbroadJourney() {
   const handleNextStep = () => {
     if (currentStep < journeySteps.length - 1) {
       setCurrentStep(currentStep + 1);
+      resetAutoAdvanceTimer(); // Reset timer when manually navigating
     }
   };
 
@@ -93,6 +133,7 @@ export default function StudyAbroadJourney() {
   const handlePrevStep = () => {
     if (currentStep > 0) {
       setCurrentStep(currentStep - 1);
+      resetAutoAdvanceTimer(); // Reset timer when manually navigating
     }
   };
 
