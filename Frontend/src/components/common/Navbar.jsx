@@ -145,7 +145,7 @@ const Navbar = () => {
               aria-label="ConsultGlobal Home"
             >
               <div className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent tracking-wider flex items-center">
-                <img src={Logo} alt="Logo" className="h-16" />
+                <img src={Logo} alt="Logo" className=" h-14 md:h-16" />
               </div>
             </NavLink>
 
