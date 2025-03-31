@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/common/Navbar";
 // import ChatBot from "./components/chatBotui/ChatBot";
@@ -13,8 +13,18 @@ import WhatsApp from "./components/common/WhatsApp";
 import NotFound from "./Pages/NotFound";
 import ContactPage from "./Pages/ContactPage";
 import UniversityPage from "./Pages/UniversityPage";
+import MBBSConsultancyFormModal from "./components/landingpage/MBBSConsultancyFormModal";
 
 function App() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsModalOpen(true);
+    }, 8000);
+
+    return () => clearTimeout(timer);
+  }, []);
   return (
     <div>
       <Navbar />
@@ -34,6 +44,11 @@ function App() {
       {/* <ChatBot /> */}
       <WhatsApp />
       <Footer />
+
+      <MBBSConsultancyFormModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </div>
   );
 }
