@@ -5,29 +5,48 @@ import MBBSModal from "./MBBSModal";
 import SearchBar from "./SearchBar";
 import CountryCard from "./CountryCard";
 import Logo from "../../assets/logo.png";
-import {countries} from "../../data/countries"
+import { countries } from "../../data/countries";
 
 const CategoryTabs = ({ selected, onSelect, countries }) => {
-  const categories = [
-    { id: "all", label: "All Countries", icon: "🌎" },
-    { id: "popular", label: "Popular", icon: "⭐" },
-    { id: "europe", label: "Europe", icon: "🇪🇺" },
-    { id: "asia", label: "Asia", icon: "🌏" },
-    { id: "americas", label: "Americas", icon: "🌎" },
-  ];
+  // Define the base category for "All Countries"
+  const baseCategories = [{ id: "all", label: "All Countries", icon: "🌎" }];
 
-  const filteredCategories = categories.filter((category) => {
-    if (category.id === "all" || category.id === "popular") {
-      return true;
+  // Dynamically generate region categories from the available countries
+  const regionSet = new Set();
+  countries.forEach((country) => {
+    if (country.region) {
+      regionSet.add(country.region);
     }
-    return (
-      countries && countries.some((country) => country.region === category.id)
-    );
   });
+
+  // Convert the Set to an array of category objects
+  const regionCategories = Array.from(regionSet).map((region) => {
+    let icon = "🌏"; // Default icon
+
+    // Assign appropriate icons based on region
+    if (region.includes("Europe") || region === "Europe") {
+      icon = "🇪🇺";
+    } else if (region.includes("Asia") || region === "Asia") {
+      icon = "🌏";
+    } else if (region.includes("America") || region === "Americas") {
+      icon = "🌎";
+    } else if (region.includes("Central Asia")) {
+      icon = "🌏";
+    } else if (region.includes("South Asia")) {
+      icon = "🌏";
+    } else if (region.includes("Eurasia")) {
+      icon = "🌍";
+    }
+
+    return { id: region.toLowerCase(), label: region, icon };
+  });
+
+  // Combine base categories with region categories
+  const allCategories = [...baseCategories, ...regionCategories];
 
   return (
     <div className="flex space-x-3 overflow-x-auto pb-2 md:-mx-4 px-4 scrollbar-hide py-2">
-      {filteredCategories.map(({ id, label, icon }) => (
+      {allCategories.map(({ id, label, icon }) => (
         <button
           key={id}
           onClick={() => onSelect(id)}
@@ -68,7 +87,7 @@ const NavItem = ({ to, children }) => {
 
 const Navbar = () => {
   const navigate = useNavigate();
-  const location = useLocation(); 
+  const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
   const [isCountrySelectorOpen, setIsCountrySelectorOpen] = useState(false);
   const [isMBBSModalOpen, setIsMBBSModalOpen] = useState(false);
@@ -109,12 +128,10 @@ const Navbar = () => {
 
     const matchesCategory =
       selectedCategory === "all" ||
-      (selectedCategory === "popular" && country.popular) ||
-      country.region === selectedCategory;
+      (country.region && country.region.toLowerCase() === selectedCategory);
 
     return matchesSearch && matchesCategory;
   });
-
   const handleCountrySelect = (country) => {
     setSelectedCountry(country);
     setIsCountrySelectorOpen(false);
@@ -241,17 +258,20 @@ const Navbar = () => {
               className="flex items-center w-full px-4 py-3 text-base text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-300"
             >
               <Globe className="w-5 h-5 mr-2" />
-              <span>
-               Explore Countries
-              </span>
+              <span>Explore Countries</span>
             </button>
 
             <button
-                onClick={() => window.open("https://pages.razorpay.com/pl_QC8n1HsnBKPWmH/view", "_blank")}
-                className="px-6 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/30 active:translate-y-0"
-              >
-                Book Your Seat
-              </button>
+              onClick={() =>
+                window.open(
+                  "https://pages.razorpay.com/pl_QC8n1HsnBKPWmH/view",
+                  "_blank"
+                )
+              }
+              className="px-6 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/30 active:translate-y-0"
+            >
+              Book Your Seat
+            </button>
 
             {/* <div className=" flex flex-row space-x-2 items-center">
               <button
