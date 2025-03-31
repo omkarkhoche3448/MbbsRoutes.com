@@ -243,7 +243,7 @@ export default function Country(props) {
               </h2>
               <p className="text-base sm:text-lg text-blue-100 mb-6 sm:mb-8 max-w-2xl mx-auto">
                 Take the first step towards your medical career. Our expert
-                counselors are here to guide you through every step.
+                counsellors are here to guide you through every step.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center text-center w-full">
                 <Button
