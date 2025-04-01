@@ -11,16 +11,16 @@ export default function StudyAbroadJourney() {
 
   // Journey steps data
   const journeySteps = [
-    { icon: "https://www.acadfly.com/_next/static/media/Discover.b5268a7c.svg", label: "Discover" },
-    { icon: "https://www.acadfly.com/_next/static/media/Counselling.4b2588f8.svg", label: "Counselling" },
-    { icon: "https://www.acadfly.com/_next/static/media/Shortlist.0a612141.svg", label: "Shortlist" },
-    { icon: "https://www.acadfly.com/_next/static/media/Exams.baaa2811.svg", label: "Exams" },
-    { icon: "https://www.acadfly.com/_next/static/media/Application.ec9f5a78.svg", label: "Application" },
-    { icon: "https://www.acadfly.com/_next/static/media/Offerletter.a07c92fc.svg", label: "Offer letter" },
-    { icon: "https://www.acadfly.com/_next/static/media/Finance.33a17eda.svg", label: "Finance" },
-    { icon: "https://www.acadfly.com/_next/static/media/Visa.5f9af770.svg", label: "Visa" },
-    { icon: "https://www.acadfly.com/_next/static/media/Travel.71a18df5.svg", label: "Travel" },
-    { icon: "https://www.acadfly.com/_next/static/media/OnCampus.93429840.svg", label: "On Campus" },
+    { icon: "https://img.icons8.com/lollipop/48/compass.png", label: "Discover" },
+    { icon: "https://img.icons8.com/external-flaticons-flat-flat-icons/64/external-counselling-mental-health-flaticons-flat-flat-icons-2.png", label: "Counselling" },
+    { icon: "https://img.icons8.com/external-flaticons-flat-flat-icons/64/external-shortlist-resume-flaticons-flat-flat-icons.png", label: "Shortlist" },
+    { icon: "https://img.icons8.com/external-flaticons-lineal-color-flat-icons/64/external-test-seo-flaticons-lineal-color-flat-icons.png", label: "Exams" },
+    { icon: "https://img.icons8.com/color/48/goodnotes.png", label: "Application" },
+    { icon: "https://img.icons8.com/scribby/50/secured-letter.png", label: "Offer letter" },
+    { icon: "https://img.icons8.com/color/48/cash-in-hand.png", label: "Finance" },
+    { icon: "https://img.icons8.com/color/48/visa.png", label: "Visa" },
+    { icon: "https://img.icons8.com/color/48/airplane-take-off--v1.png", label: "Travel" },
+    { icon: "https://img.icons8.com/color/48/university.png", label: "On Campus" },
   ];
 
   // Check if mobile view

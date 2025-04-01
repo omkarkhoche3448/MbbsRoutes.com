@@ -70,35 +70,35 @@ export const mbbsData = {
           }
         ]
       },
-      {
-        country: "Bangladesh",
-        shortPoints: [
-          "Similar MBBS curriculum to India",
-          "English is the medium of teaching",
-          "Affordable MBBS fees",
-          "Globally recognized medical degrees",
-          "Recognized and accredited by global statutory bodies",
-          "Hostel facilities for Indian students",
-          "Indian food",
-          "FMGE coaching",
-          "No entrance exams",
-          "No donations"
-        ],
-        topUniversities: [
-          {
-            name: "Khulna City Medical College",
-            fees: "INR 30,00,000"
-          },
-          {
-            name: "Shahabuddin Medical College",
-            fees: "INR 33,75,000"
-          },
-          {
-            name: "Rangpur Community Medical College",
-            fees: "INR 32,96,250"
-          }
-        ]
-      },
+      // {
+      //   country: "Bangladesh",
+      //   shortPoints: [
+      //     "Similar MBBS curriculum to India",
+      //     "English is the medium of teaching",
+      //     "Affordable MBBS fees",
+      //     "Globally recognized medical degrees",
+      //     "Recognized and accredited by global statutory bodies",
+      //     "Hostel facilities for Indian students",
+      //     "Indian food",
+      //     "FMGE coaching",
+      //     "No entrance exams",
+      //     "No donations"
+      //   ],
+      //   topUniversities: [
+      //     {
+      //       name: "Khulna City Medical College",
+      //       fees: "INR 30,00,000"
+      //     },
+      //     {
+      //       name: "Shahabuddin Medical College",
+      //       fees: "INR 33,75,000"
+      //     },
+      //     {
+      //       name: "Rangpur Community Medical College",
+      //       fees: "INR 32,96,250"
+      //     }
+      //   ]
+      // },
       {
         country: "Georgia",
         shortPoints: [
@@ -145,29 +145,29 @@ export const mbbsData = {
           }
         ]
       },
-      {
-        country: "Philippines",
-        shortPoints: [
-          "English-speaking country",
-          "Globally recognized medical degrees",
-          "Affordable tuition fees",
-          "US-based curriculum",
-          "No entrance exams",
-          "Low cost of living",
-          "Indian food available",
-          "Safe and student-friendly environment"
-        ],
-        topUniversities: [
-          {
-            name: "University of Santo Tomas",
-            fees: "INR 22,00,000"
-          },
-          {
-            name: "Ateneo de Manila University",
-            fees: "INR 24,00,000"
-          }
-        ]
-      },
+      // {
+      //   country: "Philippines",
+      //   shortPoints: [
+      //     "English-speaking country",
+      //     "Globally recognized medical degrees",
+      //     "Affordable tuition fees",
+      //     "US-based curriculum",
+      //     "No entrance exams",
+      //     "Low cost of living",
+      //     "Indian food available",
+      //     "Safe and student-friendly environment"
+      //   ],
+      //   topUniversities: [
+      //     {
+      //       name: "University of Santo Tomas",
+      //       fees: "INR 22,00,000"
+      //     },
+      //     {
+      //       name: "Ateneo de Manila University",
+      //       fees: "INR 24,00,000"
+      //     }
+      //   ]
+      // },
       {
         country: "China",
         shortPoints: [
@@ -191,29 +191,29 @@ export const mbbsData = {
           }
         ]
       },
-      {
-        country: "Ukraine",
-        shortPoints: [
-          "Affordable tuition fees",
-          "Globally recognized degrees",
-          "English medium MBBS programs",
-          "Modern infrastructure",
-          "No entrance exams",
-          "Low cost of living",
-          "Indian food available",
-          "Safe and student-friendly environment"
-        ],
-        topUniversities: [
-          {
-            name: "Kharkiv National Medical University",
-            fees: "INR 18,00,000"
-          },
-          {
-            name: "Kyiv Medical University",
-            fees: "INR 20,00,000"
-          }
-        ]
-      },
+      // {
+      //   country: "Ukraine",
+      //   shortPoints: [
+      //     "Affordable tuition fees",
+      //     "Globally recognized degrees",
+      //     "English medium MBBS programs",
+      //     "Modern infrastructure",
+      //     "No entrance exams",
+      //     "Low cost of living",
+      //     "Indian food available",
+      //     "Safe and student-friendly environment"
+      //   ],
+      //   topUniversities: [
+      //     {
+      //       name: "Kharkiv National Medical University",
+      //       fees: "INR 18,00,000"
+      //     },
+      //     {
+      //       name: "Kyiv Medical University",
+      //       fees: "INR 20,00,000"
+      //     }
+      //   ]
+      // },
       {
         country: "Nepal",
         shortPoints: [

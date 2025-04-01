@@ -14,16 +14,16 @@ export const contactData = {
       title: "WhatsApp Community",
       description: "Join our WhatsApp community for updates and discussions.",
       buttonText: "Join Now",
-      link: "#",
+      link: "https://www.whatsapp.com/channel/0029Vb9x6A9ISTkLTCLIqX0p",
     },
-    {
-      id: 2,
-      title: "Webinar Registration",
-      description:
-        "Register for our informative webinars to gain valuable insights.",
-      buttonText: "Register Now",
-      link: "#",
-    },
+    // {
+    //   id: 2,
+    //   title: "Webinar Registration",
+    //   description:
+    //     "Register for our informative webinars to gain valuable insights.",
+    //   buttonText: "Register Now",
+    //   link: "#",
+    // },
     {
       id: 3,
       title: "Free Counseling",
@@ -32,13 +32,13 @@ export const contactData = {
       buttonText: "Book Now",
       link: "#",
     },
-    {
-      id: 4,
-      title: "Visa Sessions",
-      description: "Join our free visa sessions to receive expert advice.",
-      buttonText: "Join Now",
-      link: "#",
-    },
+    // {
+    //   id: 4,
+    //   title: "Visa Sessions",
+    //   description: "Join our free visa sessions to receive expert advice.",
+    //   buttonText: "Join Now",
+    //   link: "#",
+    // },
   ],
   officeAddress: {
     title: "Visit Our Office",
