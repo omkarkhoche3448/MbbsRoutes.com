@@ -167,7 +167,7 @@ export default function StudyAbroadJourney() {
               ))}
             </div>
 
-            <div className="flex flex-col items-center mt-6 mb-4">
+            <div className="flex flex-col mt-6 mb-4">
               <Button
                 size="lg"
                 className="mx-auto mb-8"
@@ -177,13 +177,11 @@ export default function StudyAbroadJourney() {
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
 
-              <div className="w-full flex justify-center">
                 <img
                   src={City}
                   alt="City Illustration"
                   className="w-full object-contain"
                 />
-              </div>
             </div>
           </div>
         </div>

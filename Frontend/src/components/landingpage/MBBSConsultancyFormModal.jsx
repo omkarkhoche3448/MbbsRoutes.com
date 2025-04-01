@@ -128,7 +128,7 @@ const MBBSConsultancyFormModal = ({ isOpen, onClose }) => {
     
     return (
       <div key={id} className="relative">
-        <label className="text-sm font-medium text-gray-700 mb-1 block">
+        <label className="text-sm font-medium text-gray-700 mb-1 block text-left">
           {label} {required && <span className="text-red-500">*</span>}
         </label>
         <div className="relative">
