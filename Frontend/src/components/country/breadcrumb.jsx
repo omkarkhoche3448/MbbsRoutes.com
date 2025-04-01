@@ -4,30 +4,34 @@ import { HomeIcon } from "./icons";
 
 export const Breadcrumb = ({ items }) => {
   return (
-    <div className="flex items-center space-x-2 py-1 md:py-4 px-6 text-sm">
-      {/* Home Link */}
-      <Link
-        to="/"
-        className="flex items-center text-gray-600 hover:text-gray-900"
-        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-      >
-        <HomeIcon className="w-4 h-4 mr-1" />
-        Home
-      </Link>
+    <div className="bg-gray-50 py-3">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center space-x-2 text-sm">
+          <Link
+            to="/"
+            className="flex items-center text-gray-600 hover:text-blue-600 transition-colors"
+          >
+            <HomeIcon className="w-4 h-4 mr-1" />
+            <span>Home</span>
+          </Link>
 
-      {/* Breadcrumb Items */}
-      {items.map((item, index) => (
-        <React.Fragment key={index}>
-          <span className="text-gray-400 mx-1">&gt;</span>
-          {item.isLast ? (
-            <span className="text-gray-900 font-medium">{item.label}</span>
-          ) : (
-            <Link to={item.href} className="text-gray-600 hover:text-gray-900">
-              {item.label}
-            </Link>
-          )}
-        </React.Fragment>
-      ))}
+          {items.map((item, index) => (
+            <div key={index} className="flex items-center">
+              <span className="text-gray-400 mx-1">&gt;</span>
+              {item.isLast ? (
+                <span className="text-blue-600 font-medium">{item.label}</span>
+              ) : (
+                <Link
+                  to={item.href}
+                  className="text-gray-600 hover:text-blue-600 transition-colors"
+                >
+                  {item.label}
+                </Link>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };
