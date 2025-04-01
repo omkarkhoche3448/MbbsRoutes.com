@@ -20,9 +20,6 @@ import {
 } from "lucide-react";
 import infoImg from "../../assets/LandingImg.png";
 import MBBSConsultancyFormModal from "./MBBSConsultancyFormModal";
-import Modal from "./Modal";
-import StudyAbroadJourney from "./StudyAbroadJourney";
-import City from "../../assets/City.png";
 import FeaturedIn from "./FeaturedIn";
 import YouTubeShowcase from "./YouTubeShowcase";
 

@@ -89,7 +89,6 @@ export default function StudyAbroadSection() {
     countries.map((c, index) => ({ ...c, active: index === 0 }))
   );
   const [activeCountry, setActiveCountry] = useState(countryList[0]);
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleCountryClick = (country) => {
     const updatedCountries = countryList.map((c) => ({
@@ -105,34 +104,24 @@ export default function StudyAbroadSection() {
   }, [countryList]);
 
   return (
-    <div className="py-6 md:py-[60px] relative overflow-x-hidden mb-10 md:mb-4 ">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 md:py-4 ">
-        <div className="text-center mb-24">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
-            Get started on your journey to{" "}
-            <span className="text-blue-600"> Study Abroad!</span>
-          </h1>
-          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto mb-6 sm:mb-8">
-            Your experience with us goes beyond academics—it’s a journey of
-            personal growth, empowerment, and endless opportunities!
-          </p>
-          <StudyAbroadJourney />
-          <Button
-            size="lg"
-            className="mx-auto"
-            onClick={() => setIsModalOpen(true)}
-          >
-            Get Started
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </Button>
-          <img
-            src={City}
-            alt="City Illustration"
-            className="mx-auto mb-12 sm:mb-16"
-          />
+    <div className="py-16 md:py-16 relative overflow-x-hidden mb-12 md:mb-16">
+      <div className="bg-gradient-to-b from-white to-blue-50">
+        <div className="max-w-full mx-auto sm:px-6 lg:px-8 md:py-0 px-4">
+          <div className="text-center mb-16 md:mb-20">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
+              Get started on your journey to{" "}
+              <span className="text-blue-600"> Study Abroad!</span>
+            </h1>
+            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto mb-6 sm:mb-8">
+              Your experience with us goes beyond academics—it's a journey of
+              personal growth, empowerment, and endless opportunities!
+            </p>
+            <StudyAbroadJourney />
+          </div>
         </div>
       </div>
-      <div className="px-4 max-w-[800px] mb-4 text-center mx-auto">
+
+      <div className="px-4 max-w-[800px] mb-8 md:mb-10 text-center mx-auto mt-4 md:mt-8">
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
           Top Countries to <span className="text-blue-600">Study Abroad</span>
         </h1>
@@ -144,10 +133,10 @@ export default function StudyAbroadSection() {
       </div>
 
       {/* Featured Country Card */}
-      <div className="text-center mb-4 md:mb-6 mx-4">
+      <div className="text-center mb-6 md:mb-8 mx-4">
         <FeaturedCountryCard country={activeCountry} />
       </div>
-      <div className="relative flex gap-2 md:gap-6 overflow-x-auto scrollbar-hide justify-start md:justify-center">
+      <div className="relative flex gap-3 md:gap-6 overflow-x-auto scrollbar-hide justify-start md:justify-center px-4 md:px-0 pb-4">
         {countryList.map((country) => (
           <CountryThumbnail
             key={country.id}
@@ -156,10 +145,6 @@ export default function StudyAbroadSection() {
           />
         ))}
       </div>
-      <MBBSConsultancyFormModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-      />
     </div>
   );
 }

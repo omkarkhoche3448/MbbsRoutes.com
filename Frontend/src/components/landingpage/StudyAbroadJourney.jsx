@@ -1,41 +1,68 @@
 import { useState, useEffect, useRef } from "react";
-import { ChevronRight, ChevronLeft } from "lucide-react";
+import Button from "../common/Button";
+import { ArrowRight } from "lucide-react";
+import City from "../../assets/City.png";
+import MBBSConsultancyFormModal from "./MBBSConsultancyFormModal";
 
 export default function StudyAbroadJourney() {
   const [isVisible, setIsVisible] = useState(false);
-  const [currentStep, setCurrentStep] = useState(0);
+  const [activeStep, setActiveStep] = useState(0);
   const sectionRef = useRef(null);
-  const scrollContainerRef = useRef(null);
-  const [isMobile, setIsMobile] = useState(false);
-  const autoAdvanceTimerRef = useRef(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   // Journey steps data
   const journeySteps = [
-    { icon: "https://img.icons8.com/lollipop/48/compass.png", label: "Discover" },
-    { icon: "https://img.icons8.com/external-flaticons-flat-flat-icons/64/external-counselling-mental-health-flaticons-flat-flat-icons-2.png", label: "Counselling" },
-    { icon: "https://img.icons8.com/external-flaticons-flat-flat-icons/64/external-shortlist-resume-flaticons-flat-flat-icons.png", label: "Shortlist" },
-    { icon: "https://img.icons8.com/external-flaticons-lineal-color-flat-icons/64/external-test-seo-flaticons-lineal-color-flat-icons.png", label: "Exams" },
-    { icon: "https://img.icons8.com/color/48/goodnotes.png", label: "Application" },
-    { icon: "https://img.icons8.com/scribby/50/secured-letter.png", label: "Offer letter" },
-    { icon: "https://img.icons8.com/color/48/cash-in-hand.png", label: "Finance" },
-    { icon: "https://img.icons8.com/color/48/visa.png", label: "Visa" },
-    { icon: "https://img.icons8.com/color/48/airplane-take-off--v1.png", label: "Travel" },
-    { icon: "https://img.icons8.com/color/48/university.png", label: "On Campus" },
+    {
+      icon: "https://img.icons8.com/lollipop/48/compass.png",
+      label: "Discover",
+      description: "Explore study abroad options and countries",
+    },
+    {
+      icon: "https://img.icons8.com/external-flaticons-flat-flat-icons/64/external-counselling-mental-health-flaticons-flat-flat-icons-2.png",
+      label: "Counselling",
+      description: "Get expert guidance on your journey",
+    },
+    {
+      icon: "https://img.icons8.com/external-flaticons-flat-flat-icons/64/external-shortlist-resume-flaticons-flat-flat-icons.png",
+      label: "Shortlist",
+      description: "Select your preferred universities & programs",
+    },
+    {
+      icon: "https://img.icons8.com/external-flaticons-lineal-color-flat-icons/64/external-test-seo-flaticons-lineal-color-flat-icons.png",
+      label: "Exams",
+      description: "Prepare for and take required tests",
+    },
+    {
+      icon: "https://img.icons8.com/color/48/goodnotes.png",
+      label: "Application",
+      description: "Submit your university applications",
+    },
+    {
+      icon: "https://img.icons8.com/scribby/50/secured-letter.png",
+      label: "Offer letter",
+      description: "Receive and accept your admission",
+    },
+    {
+      icon: "https://img.icons8.com/color/48/cash-in-hand.png",
+      label: "Finance",
+      description: "Arrange funding and scholarships",
+    },
+    {
+      icon: "https://img.icons8.com/color/48/visa.png",
+      label: "Visa",
+      description: "Process your study visa",
+    },
+    {
+      icon: "https://img.icons8.com/color/48/airplane-take-off--v1.png",
+      label: "Travel",
+      description: "Plan and prepare for your journey",
+    },
+    {
+      icon: "https://img.icons8.com/color/48/university.png",
+      label: "On Campus",
+      description: "Begin your international education",
+    },
   ];
-
-  // Check if mobile view
-  useEffect(() => {
-    const checkIfMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    
-    checkIfMobile();
-    window.addEventListener("resize", checkIfMobile);
-    
-    return () => {
-      window.removeEventListener("resize", checkIfMobile);
-    };
-  }, []);
 
   // Intersection observer to trigger animations when section is in view
   useEffect(() => {
@@ -59,195 +86,201 @@ export default function StudyAbroadJourney() {
     };
   }, []);
 
-  // Auto-advance for mobile view - every 5 seconds
-  useEffect(() => {
-    if (isMobile && isVisible) {
-      // Clear any existing timer when component updates
-      if (autoAdvanceTimerRef.current) {
-        clearInterval(autoAdvanceTimerRef.current);
-      }
-      
-      // Set up new timer
-      autoAdvanceTimerRef.current = setInterval(() => {
-        setCurrentStep((prevStep) => {
-          // Loop back to the beginning when we reach the end
-          return prevStep === journeySteps.length - 1 ? 0 : prevStep + 1;
-        });
-      }, 5000);
-    }
-    
-    // Clean up timer when component unmounts or when mobile state changes
-    return () => {
-      if (autoAdvanceTimerRef.current) {
-        clearInterval(autoAdvanceTimerRef.current);
-      }
-    };
-  }, [isMobile, isVisible, journeySteps.length]);
-
-  // Reset the auto-advance timer when manually navigating
-  const resetAutoAdvanceTimer = () => {
-    if (isMobile && autoAdvanceTimerRef.current) {
-      clearInterval(autoAdvanceTimerRef.current);
-      
-      autoAdvanceTimerRef.current = setInterval(() => {
-        setCurrentStep((prevStep) => {
-          return prevStep === journeySteps.length - 1 ? 0 : prevStep + 1;
-        });
-      }, 5000);
-    }
-  };
-
-  // Horizontal scroll with arrow keys for accessibility
-  useEffect(() => {
-    const handleKeyDown = (e) => {
-      if (!scrollContainerRef.current) return;
-
-      if (e.key === "ArrowRight") {
-        scrollContainerRef.current.scrollLeft += 100;
-      } else if (e.key === "ArrowLeft") {
-        scrollContainerRef.current.scrollLeft -= 100;
-      }
-    };
-
-    const container = scrollContainerRef.current;
-    if (container) {
-      container.addEventListener("keydown", handleKeyDown);
-    }
-
-    return () => {
-      if (container) {
-        container.removeEventListener("keydown", handleKeyDown);
-      }
-    };
-  }, []);
-
-  // Move to next step
-  const handleNextStep = () => {
-    if (currentStep < journeySteps.length - 1) {
-      setCurrentStep(currentStep + 1);
-      resetAutoAdvanceTimer(); // Reset timer when manually navigating
-    }
-  };
-
-  // Move to previous step
-  const handlePrevStep = () => {
-    if (currentStep > 0) {
-      setCurrentStep(currentStep - 1);
-      resetAutoAdvanceTimer(); // Reset timer when manually navigating
-    }
+  // Function to handle step selection
+  const selectStep = (index) => {
+    setActiveStep(index);
   };
 
   return (
     <section
       ref={sectionRef}
-      className="relative flex flex-col items-center justify-center mb-3 pb-4"
+      className="relative px-4 py-2 md:py-0 md:pb-0"
       aria-labelledby="journey-title"
     >
-      {/* Journey Steps Timeline */}
-      <div className="w-full overflow-hidden md:overflow-x-auto scrollbar-hide">
-        {/* Mobile Carousel View */}
-        {isMobile && (
-          <div className="px-4 relative">
-            {/* Mobile Progress Bar (indicator dots) */}
-            <div className="flex justify-center gap-1 mb-2">
-              {journeySteps.map((_, index) => (
-                <div 
-                  key={`indicator-${index}`}
-                  className={`h-2 rounded-full transition-all duration-300 ${
-                    currentStep === index ? "w-4 bg-blue-600" : "w-2 bg-gray-300"
-                  }`}
-                />
-              ))}
-            </div>
-            
-            {/* Current Step Display */}
-            <div 
-              className={`flex flex-col items-center p-4 transition-all duration-500 ${
-                isVisible ? "opacity-100" : "opacity-0"
-              }`}
-            >
-              <div className="relative flex items-center justify-center w-16 h-16 p-2 bg-gradient-to-br from-gray-50 to-blue-50 rounded-full shadow-md mb-3 hover:scale-110 transition-transform duration-300">
-                <img 
-                  src={journeySteps[currentStep].icon || "/placeholder.svg"} 
-                  alt="" 
-                  className="w-10" 
-                  aria-hidden="true" 
-                />
-              </div>
-              <span className="font-semibold text-center text-slate-800 text-lg">
-                {journeySteps[currentStep].label}
-              </span>
-              <p className="text-sm text-gray-600 mt-2 text-center">
-                Step {currentStep + 1} of {journeySteps.length}
-              </p>
-            </div>
-            
-            {/* Navigation Buttons */}
-            <div className="flex justify-between absolute top-1/2 left-0 right-0 -translate-y-1/2 px-2">
-              <button 
-                onClick={handlePrevStep}
-                disabled={currentStep === 0}
-                className={`bg-white rounded-full p-2 shadow-md ${
-                  currentStep === 0 ? "text-gray-300" : "text-blue-600"
-                }`}
-                aria-label="Previous step"
-              >
-                <ChevronLeft size={20} />
-              </button>
-              <button 
-                onClick={handleNextStep}
-                disabled={currentStep === journeySteps.length - 1}
-                className={`bg-white rounded-full p-2 shadow-md ${
-                  currentStep === journeySteps.length - 1 ? "text-gray-300" : "text-blue-600"
-                }`}
-                aria-label="Next step"
-              >
-                <ChevronRight size={20} />
-              </button>
-            </div>
-          </div>
-        )}
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-6 md:mb-8">
+          <span className="bg-blue-100 text-blue-800 px-4 py-1.5 rounded-full text-sm font-medium inline-block">
+            Your Journey
+          </span>
+        </div>
 
-        {/* Desktop Timeline View (unchanged) */}
-        {!isMobile && (
+        {/* Desktop View - Full Horizontal Timeline */}
+        <div className="hidden md:block w-full">
           <div
-            ref={scrollContainerRef}
-            className="relative px-4 flex flex-row gap-8 mx-auto min-w-max px-8"
-            tabIndex={0}
+            className="relative px-6 mx-auto pb-4"
             role="region"
             aria-label="Study abroad journey steps"
           >
-            {/* Desktop Progress Bar (Horizontal) */}
-            <div className="absolute z-0 top-10 left-8 right-8 h-1 bg-gray-200">
+            {/* Journey Steps - Desktop */}
+            <div className="grid grid-cols-5 gap-2 lg:gap-4 mb-8">
+              {journeySteps.map((step, index) => (
+                <div
+                  key={`desktop-${step.label}`}
+                  onClick={() => selectStep(index)}
+                  style={{
+                    transitionDelay: `${index * 100}ms`,
+                  }}
+                  className={`flex flex-col items-center transition-all duration-500 ease-in-out cursor-pointer ${
+                    isVisible
+                      ? "opacity-100 translate-y-0"
+                      : "opacity-0 translate-y-5"
+                  } ${activeStep === index ? "scale-110" : ""}`}
+                >
+                  <div className="flex items-center justify-center mt-4">
+                    <div
+                      className={`relative z-10 flex items-center justify-center w-14 h-14 md:w-16 md:h-16 p-2 rounded-full shadow-md hover:shadow-lg transition-all duration-300 ${
+                        activeStep === index
+                          ? "bg-blue-600"
+                          : "bg-gradient-to-br from-gray-50 to-blue-50"
+                      }`}
+                    >
+                      <img
+                        src={step.icon || "/placeholder.svg"}
+                        alt=""
+                        className={`w-8 md:w-10 ${
+                          activeStep === index
+                            ? "filter brightness-0 invert"
+                            : ""
+                        }`}
+                        aria-hidden="true"
+                      />
+                      <span className="absolute -top-2 -right-2 flex items-center justify-center w-5 h-5 md:w-6 md:h-6 bg-blue-100 text-blue-800 rounded-full text-xs font-bold border-2 border-white">
+                        {index + 1}
+                      </span>
+                    </div>
+                  </div>
+                  <div className="text-center mt-2">
+                    <span
+                      className={`font-semibold text-xs md:text-sm lg:text-base ${
+                        activeStep === index
+                          ? "text-blue-600"
+                          : "text-slate-800"
+                      }`}
+                    >
+                      {step.label}
+                    </span>
+                    <p className="text-xs text-gray-500 mt-1 max-w-[100px] lg:max-w-[120px] hidden lg:block">
+                      {step.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="flex flex-col items-center mt-6 mb-4">
+              <Button
+                size="lg"
+                className="mx-auto mb-8"
+                onClick={() => setIsModalOpen(true)}
+              >
+                Get Started
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+
+              <div className="w-full flex justify-center">
+                <img
+                  src={City}
+                  alt="City Illustration"
+                  className="w-full object-contain"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile View - Vertical Timeline */}
+        <div className="md:hidden">
+          <div className="relative pl-12 mb-8">
+            {/* Vertical Progress Line */}
+            <div className="absolute top-0 bottom-0 left-6 w-1 bg-gray-200">
               <div
-                className={`h-full bg-blue-600 transition-all duration-2000 ease-in-out ${
-                  isVisible ? "w-full" : "w-0"
+                className={`w-full bg-blue-600 transition-all duration-2000 ease-in-out ${
+                  isVisible ? "h-full" : "h-0"
                 }`}
               />
             </div>
 
-            {/* Journey Steps */}
+            {/* Vertical Steps */}
             {journeySteps.map((step, index) => (
               <div
-                key={step.label}
+                key={`mobile-${step.label}`}
+                className={`relative mb-8 ${
+                  isVisible
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-5"
+                }`}
                 style={{
-                  transitionDelay: `${index * 100}ms`,
+                  transitionDelay: `${index * 150}ms`,
                 }}
-                className={`flex flex-col items-center shrink-0 transition-all duration-500 ease-in-out ${
-                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
-                } ${index === 0 ? "relative" : ""}`}
+                onClick={() => selectStep(index)}
               >
-                <div className="flex items-center justify-center mb-4">
-                  <div className="relative z-10 flex items-center justify-center w-20 h-20 p-2 bg-gradient-to-br from-gray-50 to-blue-50 rounded-full shadow-md hover:scale-110 transition-transform duration-300 mr-[0.4rem]">
-                    <img src={step.icon || "/placeholder.svg"} alt="" className="w-12" aria-hidden="true" />
+                {/* Step Icon */}
+                <div className="absolute -left-6 top-0 transform -translate-x-1/2">
+                  <div
+                    className={`relative flex items-center justify-center w-16 h-16 rounded-full shadow-md ${
+                      activeStep === index
+                        ? "bg-blue-600"
+                        : "bg-gradient-to-br from-gray-50 to-blue-50"
+                    }`}
+                  >
+                    <img
+                      src={step.icon || "/placeholder.svg"}
+                      alt=""
+                      className={`w-10 ${
+                        activeStep === index ? "filter brightness-0 invert" : ""
+                      }`}
+                      aria-hidden="true"
+                    />
+                    <span className="absolute -top-1 -right-1 flex items-center justify-center w-5 h-5 bg-blue-100 text-blue-800 rounded-full text-xs font-bold border-2 border-white">
+                      {index + 1}
+                    </span>
                   </div>
                 </div>
-                <span className="font-semibold text-center text-slate-800">{step.label}</span>
+
+                {/* Step Content */}
+                <div
+                  className={`pl-4 ${
+                    activeStep === index ? "rounded-lg p-4" : ""
+                  }`}
+                >
+                  <h3
+                    className={`text-lg font-semibold mb-1 ${
+                      activeStep === index ? "text-blue-600" : "text-gray-800"
+                    }`}
+                  >
+                    {step.label}
+                  </h3>
+                  <p className="text-sm text-gray-600">{step.description}</p>
+                </div>
+
+                {/* Add connecting dot between steps (except for last step) */}
+                {index < journeySteps.length - 1 && (
+                  <div className="absolute -left-6 bottom-0 transform -translate-x-1/2 translate-y-1/2">
+                    <div className="w-2 h-2 rounded-full bg-blue-200"></div>
+                  </div>
+                )}
               </div>
             ))}
           </div>
-        )}
+
+          {/* Mobile Button and City Image */}
+          <div className="flex flex-col items-center px-4">
+            <Button
+              size="lg"
+              className="w-fit mb-8"
+              onClick={() => setIsModalOpen(true)}
+            >
+              Get Started
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+          </div>
+        </div>
       </div>
+
+      <MBBSConsultancyFormModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </section>
   );
 }
