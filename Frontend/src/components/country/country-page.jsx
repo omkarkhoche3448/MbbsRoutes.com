@@ -29,7 +29,7 @@ const DetailsSection = ({ title, details }) => {
   }
 
   return (
-    <div className="py-12 ">
+    <div className="py-12 px-4 ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto">
           <h3 className="text-2xl font-bold text-gray-900 mb-6">{title}</h3>
@@ -247,7 +247,6 @@ export default function Country(props) {
           {/* Recognition Section */}
           {recognition && <RecognitionSection recognition={recognition} />}
 
-          {/* Visa Processing Section */}
         {/* Visa Processing Section */}
         {visaProcessingSteps?.length > 0 && (
             <VisaProcessingSection

@@ -1,10 +1,6 @@
 import { useEffect, useState } from "react";
 import { countries } from "../../data/abroadCountries";
 import StudyAbroadJourney from "./StudyAbroadJourney";
-import Button from "../common/Button";
-import City from "../../assets/City.png";
-import { ArrowRight } from "lucide-react";
-import MBBSConsultancyFormModal from "./MBBSConsultancyFormModal";
 
 const ChevronRightIcon = () => (
   <svg
@@ -126,9 +122,7 @@ export default function StudyAbroadSection() {
           Top Countries to <span className="text-blue-600">Study Abroad</span>
         </h1>
         <h3 className="text-gray-600 mb-4 sm:mb-6 md:text-lg font-medium">
-          Pack your bags to get top-notch education beyond borders in Russia,
-          Nepal, Serbia, Georgia, Kazakhstan, Kyrgyzstan, Uzbekistan,
-          Tajikistan, Bangladesh, India, and more!
+          Explore top-notch educational opportunities beyond borders in countries like Russia, Nepal, Serbia, Georgia, Kazakhstan, Kyrgyzstan, Uzbekistan, Tajikistan, Bangladesh, India, and many more!
         </h3>
       </div>
 
