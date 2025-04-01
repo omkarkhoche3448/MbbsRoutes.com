@@ -146,7 +146,7 @@ const Navbar = () => {
   return (
     <>
       <nav
-        className={`fixed w-full top-0 z-40 transition-all duration-200 ${
+        className={`fixed w-full top-0 z-40 transition-all duration-200 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 ${
           isScrolled
             ? "bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 "
             : "bg-transparent"
