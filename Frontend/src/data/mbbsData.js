@@ -2,9 +2,9 @@
 export const mbbsData = {
     title: "Study MBBS Abroad",
     description: [
-      "MBBS in abroad is gradually becoming a popular choice for Indian students aspiring to become world-class doctors. The tough competition and the scarcity of MBBS seats in India force many aspiring doctors to look for other opportunities to move ahead in their careers. The top medical universities and colleges abroad boast of ultramodern facilities for their international students with quality medical education at affordable MBBS fees.",
-      "Russia, Bangladesh, Caribbean Islands, Armenia, Kyrgyzstan, Georgia, etc., have been the top destinations to study MBBS abroad for Indian students for decades. Every year more than 5,000 Indian students join medical universities in these countries with hopes of becoming excellent doctors. Apart from providing unbeatable international practical exposure to Indian students, these medical institutions promise comfortable and safe living conditions.",
-      "Speaking of the MBBS in abroad fee structure in foreign medical universities associated with Education Abroad, any Indian student aspiring to become a good doctor can complete an MBBS within INR 15-40 lakhs from an NMC-recognized university overseas."
+     "Pursuing an MBBS degree abroad has become a viable option for Indian students due to intense competition and limited seats in India. Countries like Russia, Nepal, Serbia, Georgia, Kazakhstan, Kyrgyzstan, Uzbekistan, Tajikistan, Bangladesh, India offer quality medical education with modern facilities at more affordable costs.",
+     "For instance, studying MBBS in India can cost between ₹50 lakh to ₹1.5 crore, whereas in countries like Russia and Kazakhstan, tuition fees range from ₹15 lakh to ₹30 lakh for the entire course.",
+     "In 2024, over 24 lakh candidates registered for NEET UG, competing for approximately 1.18 lakh seats across 700 medical colleges in India, highlighting the intense competition. International medical universities not only provide quality education but also ensure comfortable and safe living conditions, along with valuable international exposure. Prospective students should research and choose institutions recognized by the National Medical Commission (NMC) to ensure their degrees are valid in India."
     ],
     quickOverview: {
       duration: "5 or 6 years",

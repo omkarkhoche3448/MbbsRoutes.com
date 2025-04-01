@@ -1,4 +1,4 @@
-import {countryImages} from "./countryImages";
+import { countryImages } from "./countryImages";
 
 export const countryData = {
   georgia: {
@@ -7,143 +7,122 @@ export const countryData = {
     featureImage: countryImages.georgia.feature,
     countryData: {
       capital: "Tbilisi",
-      languages: ["Georgian", "Russian"],
-      population: "4 Million",
-      weather: "-5°C to 30°C",
-      currency: "Georgian Lari (GEL)",
-      universities: 26,
+      languages: ["Georgian", "Russian", "English"],
+      population: "3.7 million",
+      weather: "Mild winters (0°C) to warm summers (28°C)",
+      currency: "Georgian Lari (₾)",
+      universities: 28,
     },
 
     aboutCountry: {
       title: "About the Country",
       description:
-        "Nestled at the crossroads of Europe and Asia, Georgia is a country that seamlessly blends rich history, diverse culture, and breathtaking landscapes. From its vibrant capital, Tbilisi, to the pristine landscapes of the Caucasus Mountains, Georgia promises a remarkable journey of academic and cultural exploration.",
+        "At the intersection of Europe and Asia, Georgia presents an ideal mix of cultural heritage and progressive education. The capital Tbilisi showcases a harmonious blend of historic architecture and modern urban development, while the Caucasus Mountains offer breathtaking natural scenery for student life.",
     },
 
     highlights: [
       {
-        title: "Academic Excellence",
+        title: "Globally Recognized Programs",
         description:
-          "Georgia boasts a burgeoning academic scene, with internationally recognized universities such as Tbilisi State University and Free University of Tbilisi, offering quality education in English.",
+          "Medical degrees from Georgian universities hold recognition from WHO, NMC, and other international medical councils, with English-medium instruction available.",
       },
       {
-        title: "Unique Cultural Experience",
+        title: "Cultural Richness",
         description:
-          "Immerse yourself in Georgia’s blend of ancient traditions and modern influences, from historic cave cities to vibrant street art in Tbilisi.",
+          "Experience a unique fusion of European and Asian influences through diverse traditions, architectural wonders, and renowned hospitality.",
       },
       {
-        title: "Warm Hospitality",
+        title: "Affordable Excellence",
         description:
-          'Georgian hospitality, known as "supra," is legendary. The warmth of the people ensures international students feel at home.',
+          "Georgia offers high-quality medical education at costs significantly lower than Western counterparts, with reasonable living expenses.",
       },
       {
-        title: "Affordable Living Costs",
+        title: "Early Clinical Exposure",
         description:
-          "Georgia offers a budget-friendly cost of living, making it an attractive study destination compared to Western Europe or North America.",
-      },
-      {
-        title: "Stunning Natural Beauty",
-        description:
-          "From the Black Sea coastline to the Caucasus Mountains, Georgia is a paradise for nature lovers and adventure seekers.",
-      },
-      {
-        title: "Gateway to Europe and Asia",
-        description:
-          "Strategically located at the crossroads of Europe and Asia, Georgia offers easy access to various cultural and travel experiences.",
-      },
-      {
-        title: "Language Opportunities",
-        description:
-          "While English is commonly spoken in universities, students can also learn the Georgian language, a unique skill in the global job market.",
+          "Students gain hands-on hospital experience from early academic years in well-equipped medical facilities across the country.",
       },
     ],
 
     eligibility: {
-      title: "Eligibility for Studying MBBS in Georgia",
+      title: "Admission Requirements",
       introduction:
-        "To study MBBS in Georgia, students must meet specific eligibility criteria, including educational qualifications, NEET exam qualification, age criteria, and required documents.",
+        "To pursue medical studies in Georgia, applicants must meet these essential criteria:",
 
       educationalQualifications: {
-        title: "Educational Qualifications",
+        title: "Academic Background",
         requirements: [
-          "Passed Class 12th with a Science background.",
-          "Subjects: Physics, Chemistry, Biology (PCB), and English.",
-          "Minimum 50% aggregate in 12th standard.",
+          "Completion of 12th grade with Science stream (Physics, Chemistry, Biology)",
+          "Minimum 50% aggregate marks in PCB subjects",
+          "English language proficiency recommended",
         ],
       },
 
       neetRequirements: {
-        title: "NEET Exam Qualification",
+        title: "NEET Qualification",
         requirements: [
-          "Qualified in the National Eligibility cum Entrance Test (NEET).",
-          "NEET exam Result/Admit Card is mandatory for MBBS admission.",
+          "Valid NEET score required for Indian applicants",
+          "NEET scorecard must be presented during admission",
         ],
       },
 
       ageCriteria: {
-        title: "Age Criteria",
+        title: "Age Requirements",
         requirements: [
-          "The student must have completed 17 years of age by 31st December of the admission year.",
+          "Minimum 17 years of age by December 31 of admission year",
+          "No upper age limit specified",
         ],
       },
 
       requiredDocuments: {
-        title: "Required Documents for MBBS in Georgia",
+        title: "Application Materials",
         documents: [
           {
-            category: "Admission Form",
-            details: ["Duly filled-in Admission form."],
-          },
-          {
-            category: "Academic Certificates",
+            category: "Academic Records",
             details: [
-              "Scanned copy of Class 12th Pass Certificate.",
-              "Scanned copy of Class 10th Pass Certificate.",
+              "High school transcripts (12th grade marksheet)",
+              "Secondary school certificate (10th grade)",
             ],
           },
           {
-            category: "NEET Documents",
-            details: ["NEET exam Result/Admit Card."],
-          },
-          {
-            category: "Photographs",
+            category: "Identification",
             details: [
-              "6 Passport size-colored photographs of students in a white background (4.5 cm / 3.5 cm).",
+              "Passport copy (valid for minimum 2 years)",
+              "Birth certificate",
             ],
           },
           {
-            category: "Identification Documents",
+            category: "Additional Materials",
             details: [
-              "Scanned copy of Passport (first and last page).",
-              "ID Proof (Aadhar card, PAN card, Driving License, etc.) if Passport is not ready at the time of application.",
+              "6 passport-sized photographs",
+              "Medical fitness certificate",
+              "HIV test results",
             ],
           },
         ],
       },
-
-      note: "Georgian universities offer excellent services to international students, streamlining the enrollment process. Ensure compliance with specific university requirements for a successful application.",
+      note: "Georgian universities provide comprehensive support for international applicants throughout the admission process.",
     },
 
     visaProcessingSteps: [
       {
-        title: "Application Submission",
+        title: "Initial Application",
         content:
-          "The processing time for a Georgian student visa can vary, but it generally takes about 4-12 weeks. You should apply for a student visa approximately three months before the start of your studies.",
+          "Submit complete application package to chosen university within specified deadlines (typically 4-6 weeks processing).",
       },
       {
-        title: "Document Verification",
+        title: "Acceptance Documentation",
         content:
-          "The Georgian embassy will verify all your documents and may request additional information if needed.",
+          "Receive official admission letter and invitation documents from the university (2-3 weeks after application approval).",
       },
       {
-        title: "Interview",
+        title: "Visa Application",
         content:
-          "You may be called for an interview at the Georgian embassy or consulate in your country.",
+          "Apply for student visa at Georgian embassy/consulate with required documents (processing takes 15-30 working days).",
       },
       {
-        title: "Decision",
+        title: "Final Registration",
         content:
-          "After reviewing your application, the embassy will make a decision on your visa application.",
+          "Complete university registration upon arrival in Georgia, including medical check-up and residence permit application.",
       },
     ],
   },
@@ -153,132 +132,93 @@ export const countryData = {
     featureImage: countryImages.russia.feature,
     countryData: {
       capital: "Moscow",
-      languages: ["Russian"],
-      population: "144 Million",
-      weather: "-40°C to +30°C",
-      currency: "Russian Ruble (RUB)",
-      universities: 372,
+      languages: ["Russian", "English"],
+      population: "146 million",
+      weather: "Seasonal extremes (-30°C winter to 25°C summer)",
+      currency: "Russian Ruble (₽)",
+      universities: 370,
       callingCode: "+7",
-      exchangeRate: "1 INR = 1.10 RR",
+      exchangeRate: "1 INR ≈ 1.10 RUB",
     },
 
     aboutCountry: {
-      title: "About the Country",
+      title: "Russian Medical Education",
       description:
-        "Russia, a land of grandeur and cultural richness, beckons international students with a promise of an extraordinary educational experience. From its illustrious history to its vibrant contemporary life, Russia presents a unique blend of academic excellence, cultural diversity, and unparalleled opportunities for personal growth. Embarking on a journey to study in Russia offers a distinctive and enriching chapter in the lives of international students.",
+        "With centuries of academic tradition and cutting-edge research facilities, Russia offers international students robust medical training at affordable costs through globally recognized institutions.",
     },
 
     highlights: [
       {
-        title: "Academic Prestige",
+        title: "Prestigious Institutions",
         description:
-          "Russia boasts a long-standing tradition of academic excellence, with a robust higher education system that has produced some of the world's most influential thinkers and innovators. Home to prestigious institutions such as Moscow State University, Saint Petersburg State University, and Novosibirsk State University, the country offers a diverse range of programs in fields ranging from engineering and sciences to humanities and the arts.",
+          "Home to world-renowned medical schools like Sechenov University and RUDN University, offering centuries of accumulated medical expertise.",
       },
       {
-        title: "Affordable Education",
+        title: "Comprehensive Clinical Training",
         description:
-          "One of the standout features of studying in Russia is the affordability of education. Tuition fees in Russian universities are comparatively lower than those in many Western countries, making it an attractive option for international students seeking high-quality education without breaking the bank. Additionally, numerous scholarships are available for international students, further easing the financial burden of pursuing higher education.",
+          "Extensive hospital rotations provide exposure to diverse medical cases across Russia's vast healthcare network.",
       },
       {
-        title: "Language Diversity",
+        title: "Cost-Effective Education",
         description:
-          "While many Russian universities offer programs in English, studying in Russia provides an excellent opportunity to immerse oneself in the Russian language. Acquiring language skills in a country where it is spoken daily not only enhances communication but also opens up doors to a rich cultural experience. The ability to speak Russian is a valuable asset, especially for those considering careers in diplomacy, international relations, or global business.",
+          "High-quality medical degrees available at a fraction of Western tuition costs, with government scholarships for eligible students.",
       },
       {
-        title: "Cultural Extravaganza",
+        title: "Global Degree Recognition",
         description:
-          "Russia's cultural heritage is nothing short of spectacular, and studying in the country allows students to be a part of this living history. From the iconic Red Square in Moscow to the artistic vibes of Saint Petersburg, students can explore historical landmarks, world-class museums, and vibrant cultural festivals. Engaging with Russian arts, literature, and traditions enriches the overall educational experience, providing insights into a diverse and fascinating cultural tapestry.",
-      },
-      {
-        title: "Global Perspective",
-        description:
-          "Russia's geopolitical significance and its diverse population create an environment where students can gain a nuanced understanding of global affairs. Engaging with peers from various cultural backgrounds fosters a global perspective, preparing students to navigate the complexities of our interconnected world. The exposure to different viewpoints and experiences contributes to a well-rounded education that goes beyond the confines of textbooks.",
-      },
-      {
-        title: "Cutting-Edge Research Opportunities",
-        description:
-          "Russian universities are at the forefront of scientific research and technological advancements. Students have the opportunity to engage in cutting-edge research projects and work alongside leading experts in their respective fields. This hands-on experience not only deepens academic knowledge but also prepares students for impacting contributions to their chosen fields in the future.",
-      },
-      {
-        title: "Natural Beauty and Adventure",
-        description:
-          "Beyond the academic sphere, Russia's vast and diverse landscapes offer a playground for adventure seekers. From the serene shores of Lake Baikal to the majestic Caucasus Mountains, students can take breaks from their studies to explore the natural wonders that Russia has to offer. The country's immense size and varied climate provide opportunities for skiing, hiking, and exploring unique ecosystems.",
+          "Russian medical qualifications are recognized by WHO, NMC, ECFMG, and medical councils worldwide.",
       },
     ],
 
     eligibility: {
-      title: "Eligibility for Studying MBBS in Russia",
+      title: "Admission Criteria",
       introduction:
-        "Studying MBBS in Russia is a popular choice for international students, including those from India, due to its affordable tuition fees, high-quality education, and globally recognized degrees. To study MBBS in Russia, students must meet specific eligibility criteria, including educational qualifications, NEET exam qualification, age criteria, and required documents.",
+        "Prospective medical students must fulfill these requirements for Russian medical programs:",
 
       educationalQualifications: {
-        title: "Educational Qualifications",
+        title: "Academic Prerequisites",
         requirements: [
-          "Passed Class 12th with a Science background.",
-          "Subjects: Physics, Chemistry, Biology (PCB), and English.",
-          "Minimum 50% aggregate in 12th standard.",
+          "12th grade completion with Physics, Chemistry, Biology (minimum 50% aggregate)",
+          "English language proficiency for English-medium programs",
         ],
       },
 
       neetRequirements: {
-        title: "NEET Exam Qualification",
+        title: "NEET Qualification",
         requirements: [
-          "Qualified in the National Eligibility cum Entrance Test (NEET).",
-          "NEET exam Result/Admit Card is mandatory for MBBS admission.",
-        ],
-      },
-
-      ageCriteria: {
-        title: "Age Criteria",
-        requirements: [
-          "The student must have completed 17 years of age by 31st December of the admission year.",
+          "Valid NEET score mandatory for Indian applicants",
+          "NEET scorecard must be presented during application",
         ],
       },
 
       requiredDocuments: {
-        title: "Required Documents for MBBS in Russia",
+        title: "Application Package",
         documents: [
           {
-            category: "Admission Form",
-            details: ["Duly filled-in Admission form."],
-          },
-          {
-            category: "Academic Certificates",
+            category: "Academic Documentation",
             details: [
-              "Scanned copy of Class 12th Pass Certificate.",
-              "Scanned copy of Class 10th Pass Certificate.",
+              "High school transcripts (attested copies)",
+              "Secondary school certificate",
             ],
           },
           {
-            category: "NEET Documents",
-            details: ["NEET exam Result/Admit Card."],
-          },
-          {
-            category: "Photographs",
+            category: "Identification",
             details: [
-              "6 Passport size-colored photographs of students in a white background (4.5 cm / 3.5 cm).",
-            ],
-          },
-          {
-            category: "Identification Documents",
-            details: [
-              "Scanned copy of Passport (first and last page).",
-              "ID Proof (Aadhar card, PAN card, Driving License, etc.) if Passport is not ready at the time of application.",
+              "Passport valid for minimum 18 months",
+              "Birth certificate (translated if needed)",
             ],
           },
         ],
       },
-
-      note: "Russian universities provide seamless services to international students, simplifying the enrollment process. Additionally, students can manage their expenses efficiently while pursuing MBBS in Russia. Ensure compliance with specific university requirements for a successful application.",
     },
 
-    visaProcessingSteps: [], // You can fill this in if needed
+    visaProcessingSteps: [],
 
     courseDuration: {
-      title: "Duration of MBBS Course",
+      title: "Program Structure",
       details: [
-        "The MBBS program in Russia typically lasts 6 years, which includes 1 year of internship.",
-        "The curriculum is designed to provide a strong foundation in medical science, with extensive practical experience in hospitals and clinics.",
+        "6-year MBBS program including 1 year clinical internship",
+        "Bilingual options available (English/Russian medium)",
       ],
     },
 
@@ -395,19 +335,20 @@ export const countryData = {
     heroImage: countryImages.kazakhstan.hero,
     featureImage: countryImages.kazakhstan.feature,
     countryData: {
-      capital: "Astana",
-      languages: ["Kazakh", "Russian"],
-      population: "20 Million",
-      weather: "-30°C to +35°C",
-      currency: "Kazakhstani Tenge (KZT)",
-      universities: 112,
+      capital: "Nur-Sultan",
+      languages: ["Kazakh", "Russian", "English"],
+      population: "19 million",
+      weather: "Continental climate (-20°C to 30°C)",
+      currency: "Tenge (₸)",
+      universities: 110,
     },
 
     aboutCountry: {
-      title: "About the Country",
+      title: "Medical Education in Kazakhstan",
       description:
-        "Kazakhstan, a vast and diverse country at the heart of Central Asia, beckons international students with its unique blend of rich cultural heritage, growing educational infrastructure, and immense natural beauty. Studying in this dynamic country is not just about gaining a degree; it's an invitation to explore a land of traditions, embark on an academic journey, and contribute to the thriving educational landscape.",
+        "Kazakhstan combines modern educational infrastructure with affordable costs, offering quality medical education in English with growing international recognition across Central Asia."
     },
+
 
     highlights: [
       {
@@ -548,19 +489,19 @@ export const countryData = {
     country: "China",
     heroImage: countryImages.china.hero,
     featureImage: countryImages.china.feature,
-    countryData: {
+      countryData: {
       capital: "Beijing",
       languages: ["Mandarin", "English"],
-      population: "1.4 Billion",
-      weather: "-30°C to +40°C",
-      currency: "Chinese Yuan (CNY)",
-      universities: 51,
+      population: "1.4 billion",
+      weather: "Diverse climatic zones",
+      currency: "Yuan (¥)",
+      universities: 50,
     },
 
     aboutCountry: {
-      title: "About the Country",
+      title: "Chinese Medical Training",
       description:
-        "China, a global powerhouse of education, innovation, and culture, offers an unparalleled study experience for international students. As one of the world's oldest civilizations, China seamlessly blends ancient traditions with cutting-edge technology and modern infrastructure. With a rapidly growing education sector, China has become a prime destination for students seeking world-class education, diverse career opportunities, and an enriching cultural experience.",
+        "China's medical universities combine traditional healing knowledge with modern technology, offering English-medium programs with extensive clinical exposure in high-volume hospitals."
     },
 
     highlights: [
@@ -600,10 +541,10 @@ export const countryData = {
           "China's vast landscape offers diverse travel experiences, from the skyscrapers of Shanghai to the serene countryside of Guilin. Students can easily explore iconic sites like the Great Wall and the Forbidden City.",
       },
       {
-        title: "Advanced Infrastructure and Modern Lifestyle",
+        title: "Integrated Curriculum",
         description:
-          "China boasts world-class infrastructure, including high-speed rail networks, smart cities, and state-of-the-art universities. Students enjoy modern amenities for a comfortable lifestyle.",
-      },
+          "Unique combination of Western medicine and traditional Chinese medical approaches in curriculum."
+      }
     ],
 
     eligibility: {
@@ -680,17 +621,17 @@ export const countryData = {
     featureImage: countryImages.kyrgyzstan.feature,
     countryData: {
       capital: "Bishkek",
-      languages: ["Kyrgyz", "Russian"],
-      population: "7 Million",
-      weather: "-20°C to +30°C",
-      currency: "Kyrgyzstani Som (KGS)",
-      universities: 54,
+      languages: ["Kyrgyz", "Russian", "English"],
+      population: "6.6 million",
+      weather: "Mountain climate variations",
+      currency: "Som (с)",
+      universities: 55,
     },
 
     aboutCountry: {
-      title: "About the Country",
+      title: "Medical Studies in Kyrgyzstan",
       description:
-        "Nestled in the heart of Central Asia, Kyrgyzstan stands as an undiscovered treasure for international students seeking a unique and enriching educational experience. With its breathtaking landscapes, warm hospitality, and growing educational infrastructure, Kyrgyzstan offers a distinctive blend of cultural diversity and academic opportunities. Choosing to study in Kyrgyzstan is an invitation to explore a land of contrasts, embark on a transformative academic journey, and contribute to the burgeoning educational landscape.",
+        "With budget-friendly education costs and simplified admission processes, Kyrgyzstan has become an emerging destination for quality medical studies in Central Asia."
     },
 
     highlights: [
@@ -809,19 +750,19 @@ export const countryData = {
     country: "Uzbekistan",
     heroImage: countryImages.uzbekistan.hero,
     featureImage: countryImages.uzbekistan.feature,
-    countryData: {
+      countryData: {
       capital: "Tashkent",
-      languages: ["Uzbek", "Russian"],
-      population: "35 Million",
-      weather: "-10°C to +45°C",
-      currency: "Uzbekistani Som (UZS)",
-      universities: 58,
+      languages: ["Uzbek", "Russian", "English"],
+      population: "34 million",
+      weather: "Arid continental climate",
+      currency: "Som (UZS)",
+      universities: 60,
     },
 
     aboutCountry: {
-      title: "About the Country",
+      title: "Uzbek Medical Education",
       description:
-        "Uzbekistan, a land steeped in history and cultural richness, offers international students a unique blend of academic excellence, affordability, and a vibrant student life. From its stunning Silk Road cities to its modern infrastructure, Uzbekistan provides an enriching study-abroad experience that extends beyond the classroom.",
+        "Uzbekistan's medical schools offer internationally structured programs with clinical training in modern hospitals, blending affordability with quality education in the heart of Central Asia."
     },
 
     highlights: [
@@ -1447,9 +1388,9 @@ export const countryData = {
     },
 
     aboutCountry: {
-      title: "About the Country",
+      title: "Indian Medical Excellence",
       description:
-        "India, a land of rich cultural heritage and academic excellence, offers international students a unique and diverse educational experience. With world-class universities, affordable education, and a vibrant atmosphere, studying in India opens doors to unparalleled growth and knowledge. India's medical education system is highly regarded, producing top medical professionals recognized worldwide.",
+        "Home to premier institutions like AIIMS, India's medical education combines rigorous academics with unparalleled clinical exposure across diverse healthcare settings in the world's second-most populous nation."
     },
 
     highlights: [
@@ -1526,7 +1467,11 @@ export const countryData = {
           },
           {
             category: "NEET Documents",
-            details: ["NEET Scorecard.", "Admit Card of NEET.", "Counseling Letter."],
+            details: [
+              "NEET Scorecard.",
+              "Admit Card of NEET.",
+              "Counseling Letter.",
+            ],
           },
           {
             category: "Identification Documents",
@@ -1580,10 +1525,22 @@ export const countryData = {
       privateColleges: {
         title: "Private Medical Colleges in India (Tuition Fee Range)",
         universities: [
-          { name: "Kasturba Medical College Manipal", fee: "INR 17,00,000 per year" },
-          { name: "SRM Medical College Chennai", fee: "INR 22,50,000 per year" },
-          { name: "DY Patil Medical College Pune", fee: "INR 20,00,000 per year" },
-          { name: "Bharati Vidyapeeth Medical College", fee: "INR 18,00,000 per year" },
+          {
+            name: "Kasturba Medical College Manipal",
+            fee: "INR 17,00,000 per year",
+          },
+          {
+            name: "SRM Medical College Chennai",
+            fee: "INR 22,50,000 per year",
+          },
+          {
+            name: "DY Patil Medical College Pune",
+            fee: "INR 20,00,000 per year",
+          },
+          {
+            name: "Bharati Vidyapeeth Medical College",
+            fee: "INR 18,00,000 per year",
+          },
           { name: "JSS Medical College Mysore", fee: "INR 15,00,000 per year" },
         ],
       },
@@ -1592,11 +1549,23 @@ export const countryData = {
     annualExpenses: {
       title: "Annual Expenses in Addition to Tuition Fee",
       expenses: [
-        { category: "Hostel Fee", details: "Varies from INR 20,000 to INR 2,00,000 per annum" },
-        { category: "Food Expenses", details: "INR 50,000 to INR 1,20,000 per annum" },
-        { category: "Medical Insurance", details: "INR 3,000 to INR 15,000 annually" },
-        { category: "Miscellaneous", details: "INR 10,000 to INR 50,000 per annum" },
+        {
+          category: "Hostel Fee",
+          details: "Varies from INR 20,000 to INR 2,00,000 per annum",
+        },
+        {
+          category: "Food Expenses",
+          details: "INR 50,000 to INR 1,20,000 per annum",
+        },
+        {
+          category: "Medical Insurance",
+          details: "INR 3,000 to INR 15,000 annually",
+        },
+        {
+          category: "Miscellaneous",
+          details: "INR 10,000 to INR 50,000 per annum",
+        },
       ],
     },
-  }
+  },
 };
