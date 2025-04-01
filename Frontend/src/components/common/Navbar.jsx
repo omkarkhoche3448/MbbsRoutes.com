@@ -169,7 +169,7 @@ const Navbar = () => {
             <div className="hidden lg:flex lg:items-center lg:space-x-8 ">
               <NavItem to="/">Home</NavItem>
               <NavItem to="/mbbs-in-abroad">MBBS Abroad</NavItem>
-              <NavItem to="/about-us">About</NavItem>
+              {/* <NavItem to="/about-us">About</NavItem> */}
 
               <button
                 onClick={() => setIsCountrySelectorOpen(true)}
@@ -242,13 +242,13 @@ const Navbar = () => {
             >
               MBBS Abroad
             </NavLink>
-            <NavLink
+            {/* <NavLink
               to="/about-us"
               onClick={handleMobileNavClick}
               className="block w-full px-4 py-3 text-base text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-300"
             >
               About
-            </NavLink>
+            </NavLink> */}
 
             <button
               onClick={() => {

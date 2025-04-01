@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { countries } from "../../data/abroadCountries";
 import StudyAbroadJourney from "./StudyAbroadJourney";
 import Button from "../common/Button";
-import City from "../../assets/City.svg";
+import City from "../../assets/City.png";
 import { ArrowRight } from "lucide-react";
 import MBBSConsultancyFormModal from "./MBBSConsultancyFormModal";
 
