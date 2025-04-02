@@ -1,17 +1,14 @@
-import React from "react";
-import {contactData} from "../data/contactData";
+import React, { useState } from "react";
+import { contactData } from "../data/contactData";
+import MBBSConsultancyFormModal from "../components/landingpage/MBBSConsultancyFormModal";
 
 const ContactUs = () => {
-  const {
-    title,  
-    introduction,
-    contactOptions,
-    officeAddress,
-    closingMessage,
-  } = contactData;
+  const { title, introduction, contactOptions, officeAddress, closingMessage } =
+    contactData;
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <div className="bg-gradient-to-br from-blue-50 to-purple-50 py-16 mt-5 md:mt-0">
+    <div className="bg-gradient-to-br from-blue-50 to-purple-50 py-16 mt-5 md:mt-5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Heading */}
         <h2 className="text-4xl font-bold text-center text-gray-900 mb-8">
@@ -41,12 +38,21 @@ const ContactUs = () => {
                 {option.title}
               </h3>
               <p className="text-gray-700 mb-4">{option.description}</p>
-              <a
-                href={option.link}
-                className="inline-block px-6 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-all duration-300"
-              >
-                {option.buttonText}
-              </a>
+              {option.buttonText === "Join Now" ? (
+                <a
+                  href={option.link}
+                  className="inline-block px-6 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-all duration-300"
+                >
+                  {option.buttonText}
+                </a>
+              ) : (
+                <div
+                  onClick={() => setIsModalOpen(true)}
+                  className="inline-block px-6 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-all duration-300"
+                >
+                  {option.buttonText}
+                </div>
+              )}
             </div>
           ))}
         </div>
@@ -65,6 +71,10 @@ const ContactUs = () => {
           <p className="text-lg mt-4">{closingMessage.text2}</p>
         </div>
       </div>
+      <MBBSConsultancyFormModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </div>
   );
 };

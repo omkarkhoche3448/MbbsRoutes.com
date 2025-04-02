@@ -168,7 +168,7 @@ const HeroSection = () => {
   return (
     <>
       <section className="w-full py-8 sm:py-12 md:py-16 lg:py-24 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 overflow-hidden">
-        <div className="container mx-auto px-4 sm:px-6 relative">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 relative">
           <div className="grid gap-8 lg:grid-cols-2 xl:grid-cols-[1fr_600px] lg:mt-0 mt-14">
             {/* Left Content Column */}
             <div className="flex flex-col justify-center space-y-6 sm:space-y-8">
@@ -177,7 +177,7 @@ const HeroSection = () => {
                   Elevate MBBS Abroad By
                   <br></br>
                   <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                    AIIMS Delhi Doctors.
+                    AIIMS Delhi Doctors.
                   </span>{" "}
                 </h1>
                 <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-[600px]">
@@ -212,7 +212,7 @@ const HeroSection = () => {
             </div>
 
             {/* Right Image Column */}
-            <div className="relative mt-8 lg:mt-0 flex items-center justify-center lg:justify-end">
+            <div className="relative lg:mt-0 flex items-center justify-center lg:justify-end">
               {/* Background Blurs */}
               <div className="absolute -right-20 -top-20 h-[300px] w-[300px] sm:h-[500px] sm:w-[500px] rounded-full bg-blue-200 blur-3xl opacity-50" />
               <div className="absolute -bottom-20 -left-20 h-[300px] w-[300px] sm:h-[500px] sm:w-[500px] rounded-full bg-purple-200 blur-3xl opacity-50" />
