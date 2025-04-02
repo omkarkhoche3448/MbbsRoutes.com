@@ -114,7 +114,7 @@ export default function CollegeRecommendationpage() {
 
     try {
       const response = await fetch(
-        `http://${BASE_URL}/api/recommendations`,
+        `${BASE_URL}/api/recommendations`,
         {
           method: "POST",
           headers: {

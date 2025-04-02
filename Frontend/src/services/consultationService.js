@@ -130,7 +130,7 @@ export const consultationService = {
         submittedAt: new Date().toISOString()
       };
       
-      const response = await fetch(`http://${BASE_URL}/api/v1/consultation`, {
+      const response = await fetch(`${BASE_URL}/api/v1/consultation`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -160,7 +160,7 @@ export const consultationService = {
    */
   getConsultations: async () => {
     try {
-      const response = await fetch(`http://${BASE_URL}/api/consultation`, {
+      const response = await fetch(`${BASE_URL}/api/consultation`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",

@@ -37,7 +37,7 @@ const MBBSModal = ({ isOpen, onClose }) => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch(`http://${BASE_URL}/api/contact`, {
+      const response = await fetch(`${BASE_URL}/api/contact`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

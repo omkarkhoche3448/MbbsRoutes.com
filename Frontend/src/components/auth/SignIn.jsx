@@ -26,7 +26,7 @@ const SignIn = () => {
     e.preventDefault();
     
     try {
-      const response = await fetch(`http://${BASE_URL}/api/login`, {
+      const response = await fetch(`${BASE_URL}/api/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
