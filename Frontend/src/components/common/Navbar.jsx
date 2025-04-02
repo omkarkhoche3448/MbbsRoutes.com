@@ -155,7 +155,7 @@ const Navbar = () => {
         aria-label="Main navigation"
       >
         <div className="max-w-8xl mx-auto sm:px-6 px-4">
-          <div className="flex items-center justify-evenly h-20">
+          <div className="flex items-center justify-between h-20">
             <NavLink
               to="/"
               className="flex-shrink-0 transform transition-transform duration-300"
