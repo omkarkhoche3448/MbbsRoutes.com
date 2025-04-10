@@ -1,7 +1,5 @@
 # MMBS Routes - Medical Education Abroad Consultancy
 
-![MMBS Routes](https://cdn.razorpay.com/logos/QC8UuwBODsOGI7_large.png)
-
 A comprehensive web application designed to help students navigate their journey to study medicine abroad. MMBS Routes provides information about medical universities worldwide, application processes, and consultancy services.
 
 ---
