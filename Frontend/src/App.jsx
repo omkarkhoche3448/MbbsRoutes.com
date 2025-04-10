@@ -14,20 +14,23 @@ import NotFound from "./Pages/NotFound";
 import ContactPage from "./Pages/ContactPage";
 import UniversityPage from "./Pages/UniversityPage";
 import MBBSConsultancyFormModal from "./components/landingpage/MBBSConsultancyFormModal";
+import RegistrationForm from './pages/RegistrationForm';
 
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsModalOpen(true);
-    }, 8000);
+    const currentPath = window.location.pathname;
+    if (currentPath !== "/registration") {
+      const timer = setTimeout(() => {
+        setIsModalOpen(true);
+      }, 8000);
 
-    return () => clearTimeout(timer);
+      return () => clearTimeout(timer);
+    }
   }, []);
   return (
     <div>
-      <Navbar />
       <Routes>
         <Route path="/" element={<Landingpage />} />
         <Route path="/consultancy/:countryName/mbbs" element={<Consultancypages />}/>
@@ -39,11 +42,18 @@ function App() {
         {/* <Route path="/mbbs-in-abroad/college-recomendation" element={<CollegeRecommendationpage />} */}
         {/* <Route path="/signin" element={<SignIn />} />*/}
         {/* <Route path="/signup" element={<SignUp />} />  */}
+        <Route path="/registration" element={<RegistrationForm />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       {/* <ChatBot /> */}
       <WhatsApp />
-      <Footer />
+
+      {window.location.pathname !== "/registration" && (
+        <>
+          <Navbar />
+          <Footer />
+        </>
+      )}
 
       <MBBSConsultancyFormModal
         isOpen={isModalOpen}
