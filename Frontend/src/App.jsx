@@ -14,7 +14,7 @@ import NotFound from "./Pages/NotFound";
 import ContactPage from "./Pages/ContactPage";
 import UniversityPage from "./Pages/UniversityPage";
 import MBBSConsultancyFormModal from "./components/landingpage/MBBSConsultancyFormModal";
-import RegistrationForm from './pages/RegistrationForm';
+import RegistrationForm from "./Pages/RegistrationForm";
 
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
