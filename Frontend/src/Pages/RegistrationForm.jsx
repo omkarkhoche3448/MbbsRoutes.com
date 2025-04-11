@@ -1,12 +1,9 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import MBBSConsultancyFormModal from '../components/landingpage/MBBSConsultancyFormModal';
 
 const RegistrationForm = () => {
-  const navigate = useNavigate();
-
   const handleClose = () => {
-    navigate('/');
+    window.location.href = '/';
   };
 
   return (
