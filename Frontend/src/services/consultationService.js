@@ -94,6 +94,13 @@ const validateFormData = (formData) => {
     sanitizedData.preferredCountry = sanitizeInput(formData.preferredCountry);
   }
   
+  // Validate preferredCounsellor
+  if (!formData.preferredCounsellor || formData.preferredCounsellor.trim().length === 0) {
+    errors.preferredCounsellor = "Please select a counsellor";
+  } else {
+    sanitizedData.preferredCounsellor = sanitizeInput(formData.preferredCounsellor);
+  }
+  
   // Return validation result
   return {
     isValid: Object.keys(errors).length === 0,
@@ -106,27 +113,20 @@ const validateFormData = (formData) => {
  * Service for handling consultation-related API calls
  */
 export const consultationService = {
-  /**
-   * Submit a consultation request to the server
-   * 
-   * @param {Object} formData - The consultation form data
-   * @returns {Promise} Promise resolving to the API response
-   * @throws {Error} Validation or API errors
-   */
   submitConsultation: async (formData) => {
     // Validate and sanitize form data
     const { isValid, errors, sanitizedData } = validateFormData(formData);
     
     if (!isValid) {
-      // Get the first error message to display
       const firstError = Object.values(errors)[0];
       throw new Error(firstError);
     }
     
     try {
-      // Add timestamp for audit trail
+      // Add timestamp and ensure preferredCounsellor is included
       const dataToSubmit = {
         ...sanitizedData,
+        preferredCounsellor: sanitizedData.preferredCounsellor, // Explicitly include preferredCounsellor
         submittedAt: new Date().toISOString()
       };
       
@@ -134,10 +134,8 @@ export const consultationService = {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          // Include CSRF token if you have one
-          // "X-CSRF-Token": getCsrfToken(),
         },
-        credentials: "include", // Include cookies for authentication if needed
+        credentials: "include",
         body: JSON.stringify(dataToSubmit),
       });
 

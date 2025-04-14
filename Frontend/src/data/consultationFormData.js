@@ -6,38 +6,45 @@ export const initialFormState = {
     interestedIn: "",
     neetScore: "",
     preferredCountry: "",
-  };
-  
-  export const preferredCountries = [
-    "India",
-    "Bangladesh",
-    "Russia",
-    "Serbia",
-    "Kazakhstan",
-    "Georgia",
-    "Kyrgyzstan",
-    "Nepal",
-    "Uzbekistan",
-    "Tajikistan",
-    "No Idea/ Want More Information",
-  ];
-  
-  export const interestedInOptions = [
-    "MBBS From Abroad",
-    "MBBS From Private College",
-  ];
-  
-  export const indianStates = [
-    "Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh", 
-    "Goa", "Gujarat", "Haryana", "Himachal Pradesh", "Jharkhand", "Karnataka", 
-    "Kerala", "Madhya Pradesh", "Maharashtra", "Manipur", "Meghalaya", "Mizoram", 
-    "Nagaland", "Odisha", "Punjab", "Rajasthan", "Sikkim", "Tamil Nadu", 
-    "Telangana", "Tripura", "Uttar Pradesh", "Uttarakhand", "West Bengal",
-    "Delhi", "Chandigarh", "Jammu and Kashmir", "Ladakh", "Puducherry", 
-    "Lakshadweep", "Andaman and Nicobar Islands", "Daman and Diu", "Dadra and Nagar Haveli"
-  ];
-  
-  export const formFields = [
+    preferredCounsellor: "", 
+};
+
+export const counsellorOptions = [
+  "Soyeb Aftab",
+  "Deepak Sahu",
+  "Atharava Aggarwal"
+];
+
+export const preferredCountries = [
+  "India",
+  "Bangladesh",
+  "Russia",
+  "Serbia",
+  "Kazakhstan",
+  "Georgia",
+  "Kyrgyzstan",
+  "Nepal",
+  "Uzbekistan",
+  "Tajikistan",
+  "No Idea/ Want More Information",
+];
+
+export const interestedInOptions = [
+  "MBBS From Abroad",
+  "MBBS From Private College",
+];
+
+export const indianStates = [
+  "Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh", 
+  "Goa", "Gujarat", "Haryana", "Himachal Pradesh", "Jharkhand", "Karnataka", 
+  "Kerala", "Madhya Pradesh", "Maharashtra", "Manipur", "Meghalaya", "Mizoram", 
+  "Nagaland", "Odisha", "Punjab", "Rajasthan", "Sikkim", "Tamil Nadu", 
+  "Telangana", "Tripura", "Uttar Pradesh", "Uttarakhand", "West Bengal",
+  "Delhi", "Chandigarh", "Jammu and Kashmir", "Ladakh", "Puducherry", 
+  "Lakshadweep", "Andaman and Nicobar Islands", "Daman and Diu", "Dadra and Nagar Haveli"
+];
+
+export const formFields = [
     {
       id: "name",
       label: "Name",
@@ -88,5 +95,14 @@ export const initialFormState = {
       options: preferredCountries,
       required: true,
       icon: "Globe"
+    },
+    {
+      id: "preferredCounsellor",
+      label: "Select Counsellor",
+      type: "select",
+      placeholder: "Choose your preferred counsellor",
+      options: counsellorOptions,
+      required: true,
+      icon: "User"
     }
   ];
