@@ -7,6 +7,7 @@ import {
   Briefcase,
   TrendingUp,
   Globe,
+  Building,
   HeartPulse,
   ChevronDown,
   AlertCircle,
@@ -14,7 +15,8 @@ import {
 import { toast } from "react-hot-toast";
 import { 
   initialFormState, 
-  formFields 
+  formFields,
+  districtsByState
 } from "../../data/consultationFormData";
 import consultationService from "../../services/consultationService";
 
@@ -32,6 +34,7 @@ const MBBSConsultancyFormModal = ({ isOpen, onClose }) => {
       Briefcase: Briefcase,
       TrendingUp: TrendingUp,
       Globe: Globe,
+      Building: Building,  
     };
     
     const IconComponent = icons[iconName];
@@ -46,10 +49,19 @@ const MBBSConsultancyFormModal = ({ isOpen, onClose }) => {
       setFieldErrors(prev => ({ ...prev, [name]: "" }));
     }
     
-    setFormData((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
+    setFormData((prevState) => {
+      const newState = {
+        ...prevState,
+        [name]: name === 'district' ? value.trim() : value,
+      };
+
+      // Reset district when state changes
+      if (name === 'state') {
+        newState.district = '';
+      }
+
+      return newState;
+    });
   };
 
   // Validate NEET score
@@ -81,6 +93,13 @@ const MBBSConsultancyFormModal = ({ isOpen, onClose }) => {
     // Validate NEET score format and range
     if (formData.neetScore && !isValidNEETScore(formData.neetScore)) {
       errors.neetScore = "NEET score must be between 0 and 720, or N/A";
+    }
+
+    // Add specific validation for district
+    if (!formData.district || formData.district.trim() === "") {
+      errors.district = "District is required";
+    } else if (!districtsByState[formData.state]?.includes(formData.district)) {
+      errors.district = "Please select a valid district for the selected state";
     }
     
     setFieldErrors(errors);
@@ -123,9 +142,53 @@ const MBBSConsultancyFormModal = ({ isOpen, onClose }) => {
 
   // Generate form fields dynamically based on configuration
   const renderFormField = (field) => {
-    const { id, label, type, placeholder, required, icon, options } = field;
+    const { id, label, type, placeholder, required, icon, options, dependsOn } = field;
     const hasError = !!fieldErrors[id];
     
+    // Handle district field specially
+    if (id === 'district') {
+      const availableDistricts = formData.state ? districtsByState[formData.state] || [] : [];
+      
+      return (
+        <div key={id} className="relative">
+          <label className="text-sm font-medium text-gray-700 mb-1 block text-left">
+            {label} {required && <span className="text-red-500">*</span>}
+          </label>
+          <div className="relative">
+            <select
+              name={id}
+              value={formData[id]}
+              onChange={handleChange}
+              className={`w-full px-4 py-2 sm:py-3 pl-12 pr-10 rounded-xl border ${
+                hasError ? 'border-red-500 bg-red-50/50' : 'border-gray-200 bg-gray-50/50'
+              } outline-none transition-all duration-200 hover:bg-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500 appearance-none`}
+              required={required}
+              disabled={isSubmitting || !formData.state}
+              aria-invalid={hasError}
+              aria-describedby={hasError ? `${id}-error` : undefined}
+            >
+              <option value="">{formData.state ? placeholder : "Please select state first"}</option>
+              {availableDistricts.map((district) => (
+                <option key={district} value={district}>
+                  {district}
+                </option>
+              ))}
+            </select>
+            {getIcon(icon)} 
+            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-gray-500">
+              <ChevronDown className="h-4 w-4" />
+            </div>
+          </div>
+          {hasError && (
+            <div id={`${id}-error`} className="text-red-500 text-sm mt-1 flex items-center">
+              <AlertCircle className="h-3 w-3 mr-1" />
+              <span>{fieldErrors[id]}</span>
+            </div>
+          )}
+        </div>
+      );
+    }
+
     return (
       <div key={id} className="relative">
         <label className="text-sm font-medium text-gray-700 mb-1 block text-left">

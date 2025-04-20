@@ -1,4 +1,6 @@
 // src/services/consultationService.js
+import { districtsByState } from "../data/consultationFormData";
+
 const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 /**
@@ -44,6 +46,18 @@ const sanitizeInput = (input) => {
 };
 
 /**
+ * Validate input based on the selected state and district
+ * @param {string} state - Selected state
+ * @param {string} district - Selected district
+ * @returns {boolean} True if district belongs to state
+ */
+const isValidDistrict = (state, district) => {
+  if (!state || !district) return false;
+  const districts = districtsByState[state] || [];
+  return districts.includes(district);
+};
+
+/**
  * Validate and sanitize all form data
  * @param {Object} formData - The form data to validate
  * @returns {Object} Object with validated status and either errors or sanitized data
@@ -71,6 +85,15 @@ const validateFormData = (formData) => {
     errors.state = "Please select a state";
   } else {
     sanitizedData.state = sanitizeInput(formData.state);
+  }
+
+  // Validate district
+  if (!formData.district || formData.district.trim().length === 0) {
+    errors.district = "Please select a district";
+  } else if (!isValidDistrict(formData.state, formData.district)) {
+    errors.district = "Please select a valid district for the selected state";
+  } else {
+    sanitizedData.district = sanitizeInput(formData.district);
   }
   
   // Validate interestedIn
