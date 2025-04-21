@@ -86,8 +86,9 @@ const MBBSConsultancyFormModal = ({ isOpen, onClose }) => {
     });
     
     // Validate phone format
-    if (formData.contact && !/^[0-9+\-\s()]{10,15}$/.test(formData.contact)) {
-      errors.contact = "Please enter a valid phone number";
+    if (  formData.contact &&
+      !/^(\+91|91)?\d{10}$/.test(formData.contact.replace(/\D/g, ""))) {
+      errors.contact = "Please enter a valid 10-digit phone number";
     }
     
     // Validate NEET score format and range
@@ -114,7 +115,13 @@ const MBBSConsultancyFormModal = ({ isOpen, onClose }) => {
     
     // Client-side validation
     if (!validateForm()) {
-      toast.error("Please correct the errors in the form");
+      // Collect all error messages
+      const errorList = Object.values(fieldErrors).filter(Boolean);
+      if (errorList.length > 0) {
+        toast.error(errorList.join(', '));
+      } else {
+        toast.error("Please correct the errors in the form");
+      }
       return;
     }
     
@@ -149,6 +156,19 @@ const MBBSConsultancyFormModal = ({ isOpen, onClose }) => {
     if (id === 'district') {
       const availableDistricts = formData.state ? districtsByState[formData.state] || [] : [];
       
+      const handleDistrictClick = (e) => {
+        if (!formData.state) {
+          e.preventDefault();
+          e.stopPropagation();
+          toast.error("Please select state first!");
+          const stateField = document.querySelector('select[name="state"]');
+          if (stateField) {
+            stateField.focus();
+            stateField.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        }
+      };
+
       return (
         <div key={id} className="relative">
           <label className="text-sm font-medium text-gray-700 mb-1 block text-left">
@@ -159,30 +179,33 @@ const MBBSConsultancyFormModal = ({ isOpen, onClose }) => {
               name={id}
               value={formData[id]}
               onChange={handleChange}
-              className={`w-full px-4 py-2 sm:py-3 pl-12 pr-10 rounded-xl border ${
-                hasError ? 'border-red-500 bg-red-50/50' : 'border-gray-200 bg-gray-50/50'
-              } outline-none transition-all duration-200 hover:bg-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500 appearance-none`}
+              onMouseDown={handleDistrictClick} // Remove onClick, only use onMouseDown
+              className={`w-full px-4 py-2 sm:py-3 pl-12 pr-10 rounded-xl border 
+                ${hasError ? 'border-red-500 bg-red-50/50' : 'border-gray-200 bg-gray-50/50'}
+                ${!formData.state ? 'cursor-not-allowed bg-gray-100' : ''}
+                outline-none transition-all duration-200 hover:bg-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500 appearance-none`}
               required={required}
-              disabled={isSubmitting || !formData.state}
               aria-invalid={hasError}
               aria-describedby={hasError ? `${id}-error` : undefined}
             >
-              <option value="">{formData.state ? placeholder : "Please select state first"}</option>
+              <option value="">
+                {formData.state ? placeholder : "← Select state first"}
+              </option>
               {availableDistricts.map((district) => (
                 <option key={district} value={district}>
                   {district}
                 </option>
               ))}
             </select>
-            {getIcon(icon)} 
+            {getIcon(icon)}
             <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-gray-500">
               <ChevronDown className="h-4 w-4" />
             </div>
           </div>
-          {hasError && (
+          {(!formData.state || hasError) && (
             <div id={`${id}-error`} className="text-red-500 text-sm mt-1 flex items-center">
               <AlertCircle className="h-3 w-3 mr-1" />
-              <span>{fieldErrors[id]}</span>
+              <span>{fieldErrors[id] || "Please select a state first"}</span>
             </div>
           )}
         </div>

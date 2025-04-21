@@ -4,14 +4,23 @@ import { districtsByState } from "../data/consultationFormData";
 const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 /**
- * Validate phone number format
+ * Validate phone number format - allow + at the start, then only digits, and length at least 10
  * @param {string} phone - Phone number to validate
  * @returns {boolean} True if phone is valid
  */
 const isValidPhone = (phone) => {
-  // Basic phone validation - allows numbers, +, -, and spaces
-  const phoneRegex = /^[0-9+\-\s()]{10,15}$/;
-  return phoneRegex.test(phone);
+  // Allow + at the start, then only digits, and length at least 10
+  return /^(\+)?\d{10,}$/.test(phone);
+};
+
+/**
+ * Sanitize phone number to keep only 10 digits
+ * @param {string} phone - Phone number to sanitize
+ * @returns {string} Sanitized 10-digit number
+ */
+const sanitizePhone = (phone) => {
+  // Remove all non-digit characters
+  return phone.replace(/\D/g, '').slice(-10);
 };
 
 /**
@@ -74,10 +83,11 @@ const validateFormData = (formData) => {
   }
   
   // Validate contact
-  if (!formData.contact || !isValidPhone(formData.contact)) {
-    errors.contact = "Please enter a valid phone number";
+  const sanitizedContact = sanitizePhone(formData.contact);
+  if (!sanitizedContact || !isValidPhone(sanitizedContact)) {
+    errors.contact = "Please enter a valid 10-digit phone number";
   } else {
-    sanitizedData.contact = sanitizeInput(formData.contact);
+    sanitizedData.contact = sanitizedContact;
   }
   
   // Validate state
