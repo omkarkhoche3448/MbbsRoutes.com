@@ -14,9 +14,9 @@ export const counsellorOptions = [
   "Soyeb Aftab",
   "Deepak Sahu",
   "Atharava Aggarwal",
-  "Shivam Raj Singh",
-  "Apron Boy",
-  "Dev Hooda"
+  // "Shivam Raj Singh",
+  // "Apron Boy",
+  // "Dev Hooda"
 ];
 
 export const preferredCountries = [
