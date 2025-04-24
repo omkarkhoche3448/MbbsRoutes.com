@@ -22,6 +22,7 @@ import infoImg from "../../assets/LandingImg.png";
 import MBBSConsultancyFormModal from "./MBBSConsultancyFormModal";
 import FeaturedIn from "./FeaturedIn";
 import YouTubeShowcase from "./YouTubeShowcase";
+import { channels } from "../../data/youtubeChannels";
 
 const Button = ({
   children,
@@ -201,8 +202,11 @@ export default function Info() {
             </div>
           </div>
 
-          {/* your Youtube Section  */}
-          <YouTubeShowcase/>
+          {/* First YouTube Section - with header */}
+          <YouTubeShowcase channels={channels.slice(0, 3)} showHeader={true} />
+          
+          {/* Second YouTube Section - without header */}
+          <YouTubeShowcase channels={channels.slice(3)} showHeader={false} />
 
           <FeaturedIn/>
 
