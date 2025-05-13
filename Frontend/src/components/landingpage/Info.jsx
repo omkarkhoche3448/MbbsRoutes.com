@@ -23,6 +23,7 @@ import MBBSConsultancyFormModal from "./MBBSConsultancyFormModal";
 import FeaturedIn from "./FeaturedIn";
 import YouTubeShowcase from "./YouTubeShowcase";
 import { channels } from "../../data/youtubeChannels";
+import CountryrepresentativeSection from "./CountryrepresentativeSection";
 
 const Button = ({
   children,
@@ -206,7 +207,9 @@ export default function Info() {
           <YouTubeShowcase channels={channels.slice(0, 3)} showHeader={true} />
           
           {/* Second YouTube Section - without header */}
-          <YouTubeShowcase channels={channels.slice(3)} showHeader={false} />
+          {/* <YouTubeShowcase channels={channels.slice(3)} showHeader={false} /> */}
+
+          <CountryrepresentativeSection/>
 
           <FeaturedIn/>
 
