@@ -24,6 +24,7 @@ export const preferredCountries = [
   "India",
   "Bangladesh",
   "Russia",
+  "Mauritius",
   "Serbia",
   "Kazakhstan",
   "Georgia",
