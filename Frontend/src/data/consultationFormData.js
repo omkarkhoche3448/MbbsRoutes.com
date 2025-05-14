@@ -13,7 +13,7 @@ export const initialFormState = {
 export const counsellorOptions = [
   "Soyeb Aftab",
   "Deepak Sahu",
-  "Atharva Aggarwal",
+  "Atharava Aggarwal",
   "Swasti Gaur – Russia",
   "Siya Rajput – Mauritius",
   "Jagrati Pamnani – Kazakhstan",
