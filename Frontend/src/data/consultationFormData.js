@@ -17,7 +17,8 @@ export const counsellorOptions = [
   "Swasti Gaur – Russia",
   "Siya Rajput – Mauritius",
   "Jagrati Pamnani – Kazakhstan",
-  "Vandana – Uzbekistan"
+  "Vandana – Uzbekistan",
+  "Meemanshaa - Nepal",
 ];
 
 export const preferredCountries = [

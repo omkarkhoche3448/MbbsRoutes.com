@@ -3,6 +3,7 @@ import Siya from '../../assets/Siya.jpg';
 import Swasti from '../../assets/Swasti.jpg';
 import Jagrati from '../../assets/Jagrati.jpg';
 import Vandana from '../../assets/Vandana.jpg';
+import Meemanshaa from '../../assets/Meemanshaa.jpg';
 
 function CountryrepresentativeSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -34,6 +35,13 @@ function CountryrepresentativeSection() {
       country: "Uzbekistan",
       instaHandle: "@vandscreates",
       image: Vandana
+    },
+    {
+      id: 5,
+      name: "Meemanshaa",
+      country: "Nepal",
+      instaHandle: "@meemanshaaaaaa",
+      image: Meemanshaa
     },
   ];
 
@@ -110,7 +118,7 @@ function CountryrepresentativeSection() {
           <button onClick={nextSlide} className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full">›</button>
         </div>
 
-        <div className="hidden md:grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+        <div className="hidden md:flex flex-wrap justify-center gap-8">
           {representatives.map((rep) => (
             <div
               key={rep.id}
