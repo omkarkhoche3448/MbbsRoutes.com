@@ -19,6 +19,7 @@ export const counsellorOptions = [
   "Jagrati Pamnani – Kazakhstan",
   "Vandana – Uzbekistan",
   "Meemanshaa - Nepal",
+  "Swechchha dubey"
 ];
 
 export const preferredCountries = [
