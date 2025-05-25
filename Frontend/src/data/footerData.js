@@ -17,7 +17,7 @@ export const footerData = {
     },
     {
       icon: "Phone",
-      text: "+91 9960143433",
+      text: "+91 8434124950",
     },
     {
       icon: "MapPin",
