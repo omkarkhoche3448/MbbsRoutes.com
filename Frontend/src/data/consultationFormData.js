@@ -14,11 +14,11 @@ export const counsellorOptions = [
   "Soyeb Aftab",
   "Deepak Sahu",
   "Atharava Aggarwal",
-  "Swasti Gaur – Russia",
-  "Siya Rajput – Mauritius",
-  "Jagrati Pamnani – Kazakhstan",
-  "Vandana – Uzbekistan",
-  "Meemanshaa - Nepal",
+  "Swasti Gaur",
+  "Siya Rajput",
+  "Jagrati Pamnani",
+  "Vandana",
+  "Meemanshaa",
   "Swechchha dubey"
 ];
 
