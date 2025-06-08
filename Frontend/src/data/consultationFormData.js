@@ -23,8 +23,6 @@ export const counsellorOptions = [
 ];
 
 export const preferredCountries = [
-  "India",
-  "Bangladesh",
   "Russia",
   "Mauritius",
   "Serbia",
@@ -38,8 +36,7 @@ export const preferredCountries = [
 ];
 
 export const interestedInOptions = [
-  "MBBS From Abroad",
-  "MBBS From Private College",
+  "MBBS From Abroad"
 ];
 
 export const indianStates = [
