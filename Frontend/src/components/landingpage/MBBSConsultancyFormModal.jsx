@@ -276,7 +276,7 @@ const MBBSConsultancyFormModal = ({ isOpen, onClose }) => {
     <Modal isOpen={isOpen} onClose={!isSubmitting ? onClose : undefined} title="Schedule a Consultation">
       <form onSubmit={handleSubmit} className="lg:space-y-4" noValidate>
         <h3 className="text-xl sm:text-2xl font-semibold text-gray-800 mb-4 sm:mb-6">
-          Request Free MBBS Consultation
+          Request Free MBBS Abroad Consultation
         </h3>
 
         <div className="space-y-4">
