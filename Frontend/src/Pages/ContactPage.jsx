@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import { contactData } from "../data/contactData";
-import MBBSConsultancyFormModal from "../components/landingpage/MBBSConsultancyFormModal";
+import { useModal } from "../contexts/ModalContext";
 
 const ContactUs = () => {
   const { title, introduction, contactOptions, officeAddress, closingMessage } =
     contactData;
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const { openModal } = useModal();
 
   return (
     <div className="bg-gradient-to-br from-blue-50 to-purple-50 py-16 mt-5 md:mt-5">
@@ -47,8 +47,8 @@ const ContactUs = () => {
                 </a>
               ) : (
                 <div
-                  onClick={() => setIsModalOpen(true)}
-                  className="inline-block px-6 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-all duration-300"
+                  onClick={openModal}
+                  className="inline-block px-6 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-all duration-300 cursor-pointer"
                 >
                   {option.buttonText}
                 </div>
@@ -71,10 +71,6 @@ const ContactUs = () => {
           <p className="text-lg mt-4">{closingMessage.text2}</p>
         </div>
       </div>
-      <MBBSConsultancyFormModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-      />
     </div>
   );
 };

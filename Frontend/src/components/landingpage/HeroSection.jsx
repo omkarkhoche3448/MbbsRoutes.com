@@ -1,7 +1,7 @@
 import React from "react";
 import { ArrowRight, GraduationCap, Globe, Award } from "lucide-react";
 import heroImg from "../../assets/LandingImg3.png";
-import MBBSConsultancyFormModal from "./MBBSConsultancyFormModal";
+import { useModal } from "../../contexts/ModalContext";
 
 const Button = React.forwardRef(
   (
@@ -163,7 +163,7 @@ const FeatureGrid = () => {
 };
 
 const HeroSection = () => {
-  const [isModalOpen, setIsModalOpen] = React.useState(false);
+  const { openModal } = useModal();
 
   return (
     <>
@@ -191,7 +191,7 @@ const HeroSection = () => {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button
                   className="w-full sm:w-auto"
-                  onClick={() => setIsModalOpen(true)}
+                  onClick={openModal}
                 >
                   Start Your Journey
                   <ArrowRight className="ml-2 h-4 w-4" />
@@ -246,10 +246,6 @@ const HeroSection = () => {
           </div>
         </div>
       </section>
-      <MBBSConsultancyFormModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-      />
     </>
   );
 };

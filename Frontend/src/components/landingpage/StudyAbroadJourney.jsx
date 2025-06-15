@@ -2,13 +2,13 @@ import { useState, useEffect, useRef } from "react";
 import Button from "../common/Button";
 import { ArrowRight } from "lucide-react";
 import City from "../../assets/City.png";
-import MBBSConsultancyFormModal from "./MBBSConsultancyFormModal";
+import { useModal } from "../../contexts/ModalContext";
 
 export default function StudyAbroadJourney() {
   const [isVisible, setIsVisible] = useState(false);
   const [activeStep, setActiveStep] = useState(0);
   const sectionRef = useRef(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const { openModal } = useModal();
 
   // Journey steps data
   const journeySteps = [
@@ -181,7 +181,7 @@ export default function StudyAbroadJourney() {
                   transitionDelay: "2800ms",
                   transitionTimingFunction: "cubic-bezier(0.22, 0.61, 0.36, 1)" 
                 }}
-                onClick={() => setIsModalOpen(true)}
+                onClick={openModal}
               >
                 Get Started
                 <ArrowRight className="ml-2 h-5 w-5" />
@@ -291,7 +291,7 @@ export default function StudyAbroadJourney() {
                 transitionDelay: "3200ms",
                 transitionTimingFunction: "cubic-bezier(0.22, 0.61, 0.36, 1)"
               }}
-              onClick={() => setIsModalOpen(true)}
+              onClick={openModal}
             >
               Get Started
               <ArrowRight className="ml-2 h-5 w-5" />
@@ -310,11 +310,6 @@ export default function StudyAbroadJourney() {
           </div>
         </div>
       </div>
-
-      <MBBSConsultancyFormModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-      />
     </section>
   );
 }

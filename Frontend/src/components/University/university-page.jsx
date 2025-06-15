@@ -2,8 +2,7 @@ import { HeroBanner } from "../country/hero-banner";
 import { Breadcrumb } from "../country/breadcrumb";
 import { TabNavigation } from "../country/tab-navigation";
 import { CTABanner } from "../country/cta-banner";
-import { useState } from "react";
-import MBBSConsultancyFormModal from "../landingpage/MBBSConsultancyFormModal";
+import { useModal } from "../../contexts/ModalContext";
 import Aeroplane from "../../assets/aeroplane.svg";
 import FAQSection from "../common/FAQSection";
 import UniversityInfoSection from "./country-university-section"
@@ -16,7 +15,7 @@ export default function University(props) {
     universitiesByType
   } = props;
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const { openModal } = useModal();
 
   // Breadcrumb items
   const breadcrumbItems = [
@@ -53,7 +52,7 @@ export default function University(props) {
           title={`Study in ${country}`}
           backgroundImage={heroImage}
           buttonText="Get Started"
-          setIsModalOpen={setIsModalOpen}
+          setIsModalOpen={openModal}
         />
 
         <div className="max-w-6xl mx-auto">
@@ -76,7 +75,7 @@ export default function University(props) {
             buttonText="Get Started"
             buttonLink="/"
             image={Aeroplane}
-            setIsModalOpen={setIsModalOpen}
+            setIsModalOpen={openModal}
           />
 
           <div className="mt-12">
@@ -84,10 +83,6 @@ export default function University(props) {
           </div>
         </div>
       </div>
-      <MBBSConsultancyFormModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-      />
     </>
   );
 }

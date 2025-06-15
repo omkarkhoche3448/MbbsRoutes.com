@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   Users,
   User,
@@ -19,11 +19,11 @@ import {
   X,
 } from "lucide-react";
 import infoImg from "../../assets/LandingImg.png";
-import MBBSConsultancyFormModal from "./MBBSConsultancyFormModal";
 import FeaturedIn from "./FeaturedIn";
 import YouTubeShowcase from "./YouTubeShowcase";
 import { channels } from "../../data/youtubeChannels";
 import CountryrepresentativeSection from "./CountryrepresentativeSection";
+import { useModal } from "../../contexts/ModalContext";
 
 const Button = ({
   children,
@@ -99,7 +99,7 @@ const FeatureCard = ({ title, description, className = "" }) => (
 );
 
 export default function Info() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const { openModal } = useModal();
 
   const benefits = [
     {
@@ -225,7 +225,7 @@ export default function Info() {
               <Button
                 variant="secondary"
                 size="lg"
-                onClick={() => setIsModalOpen(true)}
+                onClick={openModal}
               >
                 Schedule Free Consultation
               </Button>
@@ -245,10 +245,6 @@ export default function Info() {
           </div>
         </div>
       </section>
-      <MBBSConsultancyFormModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-      />
     </>
   );
 }

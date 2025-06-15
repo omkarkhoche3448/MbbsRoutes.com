@@ -159,7 +159,7 @@ export const consultationService = {
       // Add timestamp and ensure preferredCounsellor is included
       const dataToSubmit = {
         ...sanitizedData,
-        preferredCounsellor: sanitizedData.preferredCounsellor, // Explicitly include preferredCounsellor
+        preferredCounsellor: sanitizedData.preferredCounsellor,
         submittedAt: new Date().toISOString()
       };
       
@@ -195,9 +195,8 @@ export const consultationService = {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
-          // Include any auth headers here
         },
-        credentials: "include", // Include cookies for auth if needed
+        credentials: "include",
       });
 
       if (!response.ok) {
@@ -207,6 +206,49 @@ export const consultationService = {
       return await response.json();
     } catch (error) {
       console.error("Error fetching consultations:", error);
+      throw error;
+    }
+  },
+
+  /**
+   * Submit a referral consultation
+   * @param {Object} formData - The form data to submit for referral
+   * @returns {Promise} Promise resolving to the response data
+   */
+  submitReferralConsultation: async (formData) => {
+    try {
+      const { isValid, errors, sanitizedData } = validateFormData(formData);
+      
+      if (!isValid) {
+        const firstError = Object.values(errors)[0];
+        throw new Error(firstError);
+      }
+
+      const response = await fetch(
+        `${BASE_URL}/api/v1/influencer/submit-form?ref=${encodeURIComponent(formData.referralCode)}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+          },
+          credentials: "include",
+          body: JSON.stringify({
+            ...sanitizedData,
+            submittedAt: new Date().toISOString(),
+            referralCode: formData.referralCode
+          }),
+        }
+      );
+
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(errorData.message || "Failed to submit referral consultation");
+      }
+
+      return await response.json();
+    } catch (error) {
+      console.error("Referral consultation submission error:", error);
       throw error;
     }
   },

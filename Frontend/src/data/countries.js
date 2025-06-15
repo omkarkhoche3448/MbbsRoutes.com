@@ -5,12 +5,12 @@ export const countries = [
     nativeName: "Nepali",
     region: "asia",
   },
-  {
-    name: "Bangladesh",
-    code: "BD",
-    nativeName: "Bengali",
-    region: "asia",
-  },
+  // {
+  //   name: "Bangladesh",
+  //   code: "BD",
+  //   nativeName: "Bengali",
+  //   region: "asia",
+  // },
   {
     name: "Russia",
     code: "RU",
@@ -53,10 +53,10 @@ export const countries = [
     nativeName: "Tajik",
     region: "asia",
   },
-  {
-    name: "India",
-    code: "IN",
-    nativeName: "Hindi",
-    region: "asia",
-  },
+  // {
+  //   name: "India",
+  //   code: "IN",
+  //   nativeName: "Hindi",
+  //   region: "asia",
+  // },
 ];

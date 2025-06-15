@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { HeroBanner } from "./hero-banner";
 import { Breadcrumb } from "./breadcrumb";
 import { TabNavigation } from "./tab-navigation";
@@ -19,9 +18,10 @@ import {
   ExchangeIcon,
 } from "./icons";
 import { CalendarClock, Award, BookOpen } from "lucide-react";
-import MBBSConsultancyFormModal from "../landingpage/MBBSConsultancyFormModal";
 import Aeroplane  from "../../assets/aeroplane.svg" 
 import FAQSection from "../common/FAQSection";
+import { useModal } from "../../contexts/ModalContext";
+
 // Reusable DetailsSection component
 const DetailsSection = ({ title, details }) => {
   if (!details || !Array.isArray(details)) {
@@ -99,7 +99,7 @@ export default function Country(props) {
     annualExpenses,
   } = props;
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const { openModal } = useModal();
 
   // Breadcrumb items
   const breadcrumbItems = [
@@ -186,7 +186,7 @@ export default function Country(props) {
         <HeroBanner
           title={`Study MBBS in ${country}`}
           backgroundImage={heroImage}
-          setIsModalOpen={setIsModalOpen}
+          setIsModalOpen={openModal}
         />
 
         {/* Breadcrumb */}
@@ -217,7 +217,7 @@ export default function Country(props) {
             title={`Begin your journey to study MBBS in ${country} with expert guidance`}
             buttonText="Get Free Consultation"
             image={Aeroplane}
-            setIsModalOpen={setIsModalOpen}
+            setIsModalOpen={openModal}
           />
 
           {/* Eligibility Section */}
@@ -320,7 +320,7 @@ export default function Country(props) {
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
                 <button
-                  onClick={() => setIsModalOpen(true)}
+                  onClick={openModal}
                   className="px-8 py-4 bg-white text-blue-900 font-bold rounded-full hover:bg-blue-50 transition-all transform hover:scale-105 shadow-lg text-lg w-full sm:w-auto"
                 >
                   Schedule Free Consultation
@@ -440,16 +440,10 @@ export default function Country(props) {
         
       </div>
       
-      {/* Consultation Modal */}
-      <MBBSConsultancyFormModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-      />
-      
       {/* Quick Action Float Button */}
       <div className="fixed bottom-20 md:bottom-24 right-4 md:right-8 z-50">
         <button
-          onClick={() => setIsModalOpen(true)}
+          onClick={openModal}
           className="bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition-colors flex items-center justify-center"
           aria-label="Get assistance"
         >
