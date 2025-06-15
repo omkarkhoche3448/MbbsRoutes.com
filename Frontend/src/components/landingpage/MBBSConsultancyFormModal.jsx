@@ -57,6 +57,15 @@ const MBBSConsultancyFormModal = ({
 
   // Determine if modal should actually show
   const shouldShowModal = () => {
+    // Enhanced debug logging
+    // console.log('Modal Debug - Enhanced:', {
+    //   isOpen,
+    //   isManualTrigger,
+    //   userState,
+    //   currentPath: window.location.pathname,
+    //   shouldShow: isOpen && (isManualTrigger || !userState.formSubmitted)
+    // });
+
     if (!isOpen) return false;
 
     // ALWAYS allow manual trigger (button click) - regardless of form submission status
@@ -64,24 +73,24 @@ const MBBSConsultancyFormModal = ({
       return true;
     }
 
-    // For auto-trigger (8-second), check conditions:
-    // Don't show if form has been submitted OR button has been clicked
-    return !userState.formSubmitted && !userState.buttonClicked;
+    // For auto-trigger: Only block if form has been submitted
+    // Allow auto-modals to continue even if modal was seen before (with 15s delay)
+    return !userState.formSubmitted;
   };
 
   const handleClose = () => {
     // Reset manual state
     setWasManuallyOpened(false);
     
-    // Only set localStorage flags for auto-triggers
-    if (!isManualTrigger) {
+    // Mark as seen for BOTH auto and manual triggers if form wasn't submitted
+    // This ensures the 15-second delay applies after any dismissal without submission
+    if (!userState.formSubmitted) {
       localStorage.setItem("mbbsModalSeen", "true");
       setUserState((prev) => ({ ...prev, modalSeen: true }));
     }
 
     onClose();
   };
-
 
   // Map icon string to component
   const getIcon = (iconName) => {
@@ -151,7 +160,9 @@ const MBBSConsultancyFormModal = ({
     // Validate phone format
     if (
       formData.contact &&
-      !/^(\+91|91)?[6-9]\d{9}$/.test(formData.contact.replace(/[\s\-\(\)]/g, ""))
+      !/^(\+91|91)?[6-9]\d{9}$/.test(
+        formData.contact.replace(/[\s\-\(\)]/g, "")
+      )
     ) {
       errors.contact = "Please enter a valid 10-digit phone number";
     }
@@ -196,22 +207,19 @@ const MBBSConsultancyFormModal = ({
       setFieldErrors({});
       toast.success("Consultation request submitted successfully!");
 
-      // Always mark form as submitted (this only affects auto-modals)
+      // Mark form as submitted - this stops ALL future auto-modals
       localStorage.setItem("mbbsFormSubmitted", "true");
+      
+      // Also mark as seen and button clicked to be thorough
+      localStorage.setItem("mbbsModalSeen", "true");
+      localStorage.setItem("mbbsButtonClicked", "true");
+      
       setUserState((prev) => ({ 
         ...prev, 
-        formSubmitted: true
+        formSubmitted: true,
+        modalSeen: true,
+        buttonClicked: true
       }));
-
-      // Only mark button clicked for auto-triggers (not manual triggers)
-      // This ensures manual triggers continue to work even after form submission
-      if (!isManualTrigger) {
-        localStorage.setItem("mbbsButtonClicked", "true");
-        setUserState((prev) => ({ 
-          ...prev, 
-          buttonClicked: true
-        }));
-      }
 
       setWasManuallyOpened(false);
       onClose();
@@ -356,9 +364,7 @@ const MBBSConsultancyFormModal = ({
               aria-invalid={hasError}
               aria-describedby={hasError ? `${id}-error` : undefined}
               // Fix the regex pattern error
-              {...(id === "contact"
-                ? { pattern: "[0-9+\\-\\s()]*" }
-                : {})}
+              {...(id === "contact" ? { pattern: "[0-9+\\-\\s()]*" } : {})}
               // Add min/max validation for neetScore if it's a number input
               {...(id === "neetScore" && type === "number"
                 ? { min: "0", max: "720" }
@@ -381,9 +387,9 @@ const MBBSConsultancyFormModal = ({
   };
 
   return (
-    <Modal 
-      isOpen={shouldShowModal()} 
-      onClose={!isSubmitting ? handleClose : undefined} 
+    <Modal
+      isOpen={shouldShowModal()}
+      onClose={!isSubmitting ? handleClose : undefined}
       title="Schedule a Consultation"
     >
       <form onSubmit={handleSubmit} className="lg:space-y-4" noValidate>
@@ -392,16 +398,20 @@ const MBBSConsultancyFormModal = ({
         </h3>
 
         <div className="space-y-4">
-          {formFields.map(field => renderFormField(field))}
+          {formFields.map((field) => renderFormField(field))}
         </div>
 
         {/* Submit Button */}
         <button
           type="submit"
           disabled={isSubmitting}
-          className={`w-full mt-6 bg-gradient-to-r from-teal-600 to-blue-600 text-white py-3 sm:py-4 px-6 rounded-xl font-medium hover:from-teal-700 hover:to-blue-700 outline-none transition-all duration-200 flex items-center justify-center space-x-2 ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
+          className={`w-full mt-6 bg-gradient-to-r from-teal-600 to-blue-600 text-white py-3 sm:py-4 px-6 rounded-xl font-medium hover:from-teal-700 hover:to-blue-700 outline-none transition-all duration-200 flex items-center justify-center space-x-2 ${
+            isSubmitting ? "opacity-70 cursor-not-allowed" : ""
+          }`}
         >
-          <span>{isSubmitting ? 'Submitting...' : 'Request Free Consultation'}</span>
+          <span>
+            {isSubmitting ? "Submitting..." : "Request Free Consultation"}
+          </span>
           {!isSubmitting && <HeartPulse className="w-5 h-5" />}
         </button>
       </form>

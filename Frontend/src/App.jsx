@@ -21,11 +21,25 @@ function AppContent() {
 
   useEffect(() => {
     const currentPath = window.location.pathname;
-    // Don't set timer on registration, form pages, or any manual trigger pages
     if (!["/registration", "/form"].includes(currentPath)) {
+      
+      // Check if user has seen modal before and not filled form
+      const modalSeen = localStorage.getItem('mbbsModalSeen') === 'true';
+      const formSubmitted = localStorage.getItem('mbbsFormSubmitted') === 'true';
+      
+      // If form is submitted, don't show auto-modal at all
+      if (formSubmitted) {
+        return;
+      }
+      
+      // Determine timer delay based on whether user has seen modal before
+      const delay = modalSeen ? 15000 : 8000; // 15 seconds if seen before, 8 seconds for first time
+      
+      // console.log(`Setting auto-modal timer: ${delay}ms (${delay/1000}s) - First time: ${!modalSeen}`);
+      
       const timer = setTimeout(() => {
-        openAutoModal(); // Use openAutoModal instead of openModal
-      }, 8000);
+        openAutoModal();
+      }, delay);
 
       return () => clearTimeout(timer);
     }
