@@ -13,7 +13,7 @@ import ContactPage from "./Pages/ContactPage";
 import UniversityPage from "./Pages/UniversityPage";
 import MBBSConsultancyFormModal from "./components/landingpage/MBBSConsultancyFormModal";
 import RegistrationForm from "./Pages/RegistrationForm";
-import ReferralForm from "./pages/ReferralForm";
+import ReferralForm from "./Pages/ReferralForm";
 import { ModalProvider, useModal } from "./contexts/ModalContext";
 
 function AppContent() {
