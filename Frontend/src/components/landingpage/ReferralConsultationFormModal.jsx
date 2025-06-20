@@ -46,11 +46,13 @@ const ReferralConsultationFormModal = ({ isOpen, onClose, isManualTrigger = fals
   const validateForm = () => {
     const errors = {};
     
-    formFields.forEach(field => {
-      if (field.required && (!formData[field.id] || formData[field.id].trim() === "")) {
-        errors[field.id] = `${field.label} is required`;
-      }
-    });
+    formFields
+      .filter(field => field.id !== 'preferredCounsellor')
+      .forEach(field => {
+        if (field.required && (!formData[field.id] || formData[field.id].trim() === "")) {
+          errors[field.id] = `${field.label} is required`;
+        }
+      });
 
     if (formData.contact && !/^(\+91|91)?\d{10}$/.test(formData.contact.replace(/\D/g, ""))) {
       errors.contact = "Please enter a valid 10-digit phone number";
@@ -100,6 +102,7 @@ const ReferralConsultationFormModal = ({ isOpen, onClose, isManualTrigger = fals
     try {
       await consultationService.submitReferralConsultation({
         ...formData,
+        preferredCounsellor: "MBBSRoutes",
         referralCode: formData.referralCode
       });
       
@@ -250,7 +253,9 @@ const ReferralConsultationFormModal = ({ isOpen, onClose, isManualTrigger = fals
         </h3>
 
         <div className="space-y-4">
-          {formFields.map(field => renderFormField(field))}
+          {formFields
+            .filter(field => field.id !== 'preferredCounsellor') // Hide counsellor field for referral form
+            .map(field => renderFormField(field))}
         </div>
 
         <button
