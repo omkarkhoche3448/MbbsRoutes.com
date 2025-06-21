@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useSearchParams, Navigate } from "react-router-dom";
 import ReferralConsultationFormModal from "../components/landingpage/ReferralConsultationFormModal";
+import HeroSection from '../components/landingpage/HeroSection';
+import Navbar from '../components/common/Navbar';
 
 const ReferralForm = () => {
   const [searchParams] = useSearchParams();
@@ -31,11 +33,17 @@ const ReferralForm = () => {
     setShowModal(false);
     window.location.href = "/";
   };
-
   if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-500"></div>
+      <div className="relative min-h-screen">
+        <div className="absolute inset-0 z-0">
+          <Navbar />
+          <HeroSection />
+        </div>
+        
+        <div className="relative z-10 min-h-screen flex items-center justify-center">
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-500"></div>
+        </div>
       </div>
     );
   }
@@ -43,10 +51,18 @@ const ReferralForm = () => {
   if (!isValidRef) {
     return <Navigate to="/" replace />;
   }
-
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50">
-      <ReferralConsultationFormModal isOpen={showModal} onClose={handleClose} isManualTrigger={true} />
+    <div className="relative min-h-screen">
+      {/* Navbar and Hero section as background */}
+      <div className="absolute inset-0 z-0">
+        <Navbar />
+        <HeroSection />
+      </div>
+      
+      {/* Form overlay */}
+      <div className="relative z-10 min-h-screen flex items-center justify-center">
+        <ReferralConsultationFormModal isOpen={showModal} onClose={handleClose} isManualTrigger={true} />
+      </div>
     </div>
   );
 };
