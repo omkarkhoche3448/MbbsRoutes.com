@@ -79,7 +79,7 @@ const InfoSection = () => {
         <div className="space-y-6 " data-aos="fade-left">
           <SectionTitle
             subtitle="Why Choose Us"
-            title="Begin Your Medical Journey with AIIMS Delhi Doctors"
+            title="Begin Your Medical Journey with Us"
           />
 
           {/* Feature List */}

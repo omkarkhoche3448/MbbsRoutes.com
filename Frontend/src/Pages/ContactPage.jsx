@@ -58,12 +58,12 @@ const ContactUs = () => {
         </div>
 
         {/* Office Address */}
-        <div className="mt-12 text-center">
+        {/* <div className="mt-12 text-center">
           <h3 className="text-2xl font-bold text-gray-900 mb-4">
             {officeAddress.title}
           </h3>
           <p className="text-gray-700">{officeAddress.address}</p>
-        </div>
+        </div> */}
 
         {/* Closing Message */}
         <div className="mt-12 text-center text-gray-700">

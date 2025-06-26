@@ -13,11 +13,11 @@ const videos = [
   },
   {
     id: "7HXUz3fDWjA",
-    title: "THE LIFE OF INDIAN MBBS IN RUSSIA | FEES, NEET CUTOFF",
-    thumbnail: "https://i.ytimg.com/vi/7HXUz3fDWjA/maxresdefault.jpg",
+    title: "MBBS in NEPAL 🇳🇵 The Shocking Reality You Must Know! || Fees, Life, NMC Rules & More 🔥",
+    thumbnail: "https://i.ytimg.com/vi/xIPjVIVuvwY/hqdefault.jpg?sqp=-oaymwEnCNACELwBSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLAayz4v-yJA0ATOWJzSSQ0VN-N2Pg",
     channel: "MBBS Routes | Path to Become Doctor In Abroad",
-    views: "12K views",
-    timestamp: "2 weeks ago",
+    views: "15K views",
+    timestamp: "3 weeks ago",
   },
   {
     id: "0KuOkB26hiI",
@@ -37,12 +37,20 @@ const videos = [
   },
   {
     id: "t9flKCS2fNg",
-    title: "MBBS India vs Abroad: Full Comparison (Cost, Quality, Opportunities) AIR 1 @soyebaftabaiims",
-    thumbnail: "https://i.ytimg.com/vi/t9flKCS2fNg/maxresdefault.jpg",
+    title: "Complete Review of MEPhI Russia 🇷🇺 || Fees, Hostel, Classes by MBBS Student 🩺",
+    thumbnail: "https://i.ytimg.com/vi/384zvUzGNZ8/hqdefault.jpg?sqp=-oaymwEnCNACELwBSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLCso8etMv74JII71WRt7_eN4CV36g",
     channel: "MBBS Routes | Path to Become Doctor In Abroad",
     views: "47K views",
     timestamp: "7 hours ago",
   },
+  {
+    id: "xIPKGIVuvwY",
+    title: "MBBS in RUSSIA Ground Reality 🇷🇺 || Fees, Academic, Hostel || Swasti Gaur",
+    thumbnail: "https://i.ytimg.com/vi/pMaCLH5C8tU/hqdefault.jpg?sqp=-oaymwEnCNACELwBSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLB_B5EjSRbVPRj3Fok9jWyJ3EsMuw",
+    channel: "MBBS Routes | Path to Become Doctor In Abroad",
+    views: "3K views",
+    timestamp: "1 month ago",
+  }
 ];
 
 export default function VideoSection() {

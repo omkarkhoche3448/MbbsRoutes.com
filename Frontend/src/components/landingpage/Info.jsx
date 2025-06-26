@@ -184,8 +184,8 @@ export default function Info() {
             {/* Feature Cards Section */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
               <FeatureCard
-                title="AIIMS Delhi Expertise"
-                description="Our team is led by professionals from India’s top medical institution, ensuring expert guidance."
+                title="Expert Guidance"
+                description="Our team is led by professionals from India’s top medical institutions, ensuring expert guidance."
                 className="bg-blue-50 border-l-4 border-blue-600"
               />
               <FeatureCard

@@ -19,10 +19,10 @@ export const footerData = {
       icon: "Phone",
       text: "+91 8434124950",
     },
-    {
-      icon: "MapPin",
-      text: "115/3, lower ground floor, gautam nagar, gautam nagar, south delhi, 110049",
-    },
+    // {
+    //   icon: "MapPin",
+    //   text: "115/3, lower ground floor, gautam nagar, gautam nagar, south delhi, 110049",
+    // },
   ],
   socialLinks: [
     {
