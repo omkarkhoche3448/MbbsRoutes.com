@@ -47,12 +47,12 @@ export const countries = [
     nativeName: "Uzbek",
     region: "asia",
   },
-  {
-    name: "Tajikistan",
-    code: "TJ",
-    nativeName: "Tajik",
-    region: "asia",
-  },
+  // {
+  //   name: "Tajikistan",
+  //   code: "TJ",
+  //   nativeName: "Tajik",
+  //   region: "asia",
+  // },
   // {
   //   name: "India",
   //   code: "IN",

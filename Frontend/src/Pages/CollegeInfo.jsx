@@ -111,7 +111,6 @@ const CollegeInfo = ({ countryName }) => {
 
   const facilities = [
     "Personal counseling from experts for the selection of the best universities for your MBBS in Russia",
-    "100% admission support including arranging student visas, air travel, or even getting education loans",
     "Special Indian mess facilities serving Indian food during their stay in Russia",
     "Comfortable hostels for Indian students in Russia with access to all the basic necessities",
     "Coaching for FMGE/NExT by Indian doctors and professors during their MBBS in Russia",

@@ -367,7 +367,7 @@ export default function Country(props) {
                 </div>
                 
                 {/* FAQ Item 2 */}
-                <div className="mb-6">
+                {/* <div className="mb-6">
                   <details className="group">
                     <summary className="flex justify-between items-center font-medium cursor-pointer list-none bg-gray-50 p-4 rounded-lg">
                       <span className="text-lg font-semibold">How much does it cost to study MBBS in {country}?</span>
@@ -381,7 +381,7 @@ export default function Country(props) {
                       The total cost varies by university but is generally affordable compared to private medical colleges in India. Annual tuition fees range from $3,000 to $7,000, with living expenses of $2,000 to $4,000 per year depending on lifestyle and location.
                     </p>
                   </details>
-                </div>
+                </div> */}
                 
                 {/* FAQ Item 3 */}
                 <div className="mb-6">

@@ -10,14 +10,14 @@ export const faqData = {
         question: "What are the eligibility criteria for MBBS admissions?",
         answer: "Eligibility typically requires completion of high school with a focus on science subjects and a minimum aggregate score. Some universities also require entrance exams or language proficiency tests, which our team can help you prepare for."
       },
-      {
-        question: "Do you assist with visa and travel arrangements?",
-        answer: "Yes, we offer comprehensive support for visa applications, travel arrangements, and accommodation. Our team ensures all documents are in order to avoid any last-minute issues."
-      },
-      {
-        question: "Can I get financial assistance or education loans?",
-        answer: "We provide guidance on securing financial assistance and loans. We work with trusted financial partners to help students manage the costs associated with studying abroad."
-      },
+      // {
+      //   question: "Do you assist with visa and travel arrangements?",
+      //   answer: "Yes, we offer comprehensive support for visa applications, travel arrangements, and accommodation. Our team ensures all documents are in order to avoid any last-minute issues."
+      // },
+      // {
+      //   question: "Can I get financial assistance or education loans?",
+      //   answer: "We provide guidance on securing financial assistance and loans. We work with trusted financial partners to help students manage the costs associated with studying abroad."
+      // },
       {
         question: "How long does the MBBS program typically take?",
         answer: "The duration of an MBBS program abroad varies, typically ranging from 5 to 6 years, including the internship period. Our consultants can help you understand the curriculum structure of each university."

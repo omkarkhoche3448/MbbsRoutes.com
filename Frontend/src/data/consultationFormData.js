@@ -31,7 +31,7 @@ export const preferredCountries = [
   "Kyrgyzstan",
   "Nepal",
   "Uzbekistan",
-  "Tajikistan",
+  // "Tajikistan",
   "No Idea/ Want More Information",
 ];
 

@@ -663,7 +663,7 @@ export const countryData = {
       {
         title: "Strategic Location and Travel Opportunities",
         description:
-          "Kyrgyzstan's location allows students to explore neighboring Central Asian countries like Kazakhstan, Uzbekistan, and Tajikistan, offering unique cultural and travel experiences.",
+          "Kyrgyzstan's location allows students to explore neighboring Central Asian countries like Kazakhstan, Uzbekistan and offering unique cultural and travel experiences.",
       },
       {
         title: "Natural Beauty and Adventure",

@@ -122,7 +122,7 @@ export default function StudyAbroadSection() {
           Top Countries to <span className="text-blue-600">Study Abroad</span>
         </h1>
         <h3 className="text-gray-600 mb-4 sm:mb-6 md:text-lg font-medium">
-          Explore top-notch educational opportunities beyond borders in countries like Russia, Nepal, Serbia, Georgia, Kazakhstan, Kyrgyzstan, Uzbekistan, Tajikistan, Bangladesh, India, and many more!
+          Explore top-notch educational opportunities beyond borders in countries like Russia, Nepal, Serbia, Georgia, Kazakhstan, Kyrgyzstan, Uzbekistan and many more!
         </h3>
       </div>
 

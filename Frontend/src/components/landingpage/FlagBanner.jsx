@@ -3,21 +3,21 @@ import React from 'react';
 const PremiumFlagBanner = () => {
   const countries = [
     { code: 'NP', name: 'Nepal' },
-    { code: 'BD', name: 'Bangladesh' },
+    // { code: 'BD', name: 'Bangladesh' },
     { code: 'RU', name: 'Russia' },
     { code: 'RS', name: 'Serbia' },
     { code: 'GE', name: 'Georgia' },
     { code: 'KZ', name: 'Kazakhstan' },
     { code: 'KG', name: 'Kyrgyzstan' },
     { code: 'UZ', name: 'Uzbekistan' },
-    { code: 'TJ', name: 'Tajikistan' },
-    { code: 'IN', name: 'India' }
+    // { code: 'TJ', name: 'Tajikistan' },
+    // { code: 'IN', name: 'India' }
   ];
 
   const doubledCountries = [...countries, ...countries];
 
   const FlagGroup = () => (
-    <div className="flex gap-4 sm:gap-6 md:gap-8 lg:gap-12 animate-marquee pointer-events-none">
+    <div className="flex gap-4 sm:gap-6 md:gap-8 lg:gap-16 animate-marquee pointer-events-none">
       {doubledCountries.map((country, index) => (
         <div
           key={`${country.code}-${index}`}
