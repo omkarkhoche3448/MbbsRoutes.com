@@ -16,15 +16,16 @@ const mentors = [
 ];
 
 export default function SportlightSection() {
-  const carouselRef = useRef<HTMLDivElement>(null);
+  const carouselRef = useRef(null);
   const [current, setCurrent] = useState(1);
-  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  const intervalRef = useRef(null);
+  const hasInitialized = useRef(false);
 
   // Scroll to the current mentor
-  const scrollToCard = (idx: number, instant = false) => {
+  const scrollToCard = (idx, instant = false) => {
     const carousel = carouselRef.current;
     if (!carousel) return;
-    const card = carousel.children[idx] as HTMLElement;
+    const card = carousel.children[idx];
     if (card) {
       card.scrollIntoView({
         behavior: instant ? "auto" : "smooth",
@@ -34,14 +35,13 @@ export default function SportlightSection() {
     }
   };
 
-  // Ensure carousel starts at the middle mentor (index 1) on mount
+  // Set initial state without scrolling
   useEffect(() => {
-    scrollToCard(1, true);
     setCurrent(1);
-    // eslint-disable-next-line
+    hasInitialized.current = true;
   }, []);
 
-  // Auto-scroll logic
+  // Auto-scroll logic (commented out as requested)
   useEffect(() => {
     function startAutoScroll() {
       intervalRef.current = setInterval(() => {
@@ -59,16 +59,14 @@ export default function SportlightSection() {
     const pause = () => intervalRef.current && clearInterval(intervalRef.current);
     const resume = () => {
       pause();
-      startAutoScroll();
     };
+    
     if (carousel) {
       carousel.addEventListener("mouseenter", pause);
       carousel.addEventListener("mouseleave", resume);
       carousel.addEventListener("touchstart", pause);
       carousel.addEventListener("touchend", resume);
     }
-    // Always scroll to the current card on update
-    scrollToCard(current);
 
     return () => {
       pause();
@@ -79,19 +77,14 @@ export default function SportlightSection() {
         carousel.removeEventListener("touchend", resume);
       }
     };
-    // eslint-disable-next-line
-  }, [current]);
+  }, []);
 
-  // Manual navigation (if you want to keep arrow buttons, otherwise remove)
-  const goLeft = () => {
-    const next = (current - 1 + mentors.length) % mentors.length;
-    setCurrent(next);
-    scrollToCard(next);
-  };
-  const goRight = () => {
-    const next = (current + 1) % mentors.length;
-    setCurrent(next);
-    scrollToCard(next);
+  // Handle manual navigation (only scroll if component has been initialized and user is interacting)
+  const handleCardNavigation = (idx) => {
+    if (hasInitialized.current) {
+      setCurrent(idx);
+      scrollToCard(idx);
+    }
   };
 
   return (
@@ -130,10 +123,12 @@ export default function SportlightSection() {
                 ${idx === 1 ? "md:-translate-y-3" : ""}
                 snap-center md:snap-none
                 flex-shrink-0
+                cursor-pointer
               `}
               style={{
                 minHeight: 320,
               }}
+              onClick={() => handleCardNavigation(idx)}
             >
               <div className="relative mb-5">
                 <span className="absolute -inset-1 rounded-full bg-gradient-to-tr from-blue-400 via-blue-200 to-blue-400 opacity-60 blur-sm"></span>

@@ -194,7 +194,7 @@ export default function StudyAbroadJourney() {
                   isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
                 }`}
                 style={{ 
-                  transitionDelay: "3000ms",
+                  transitionDelay: "1500ms",
                   transitionTimingFunction: "cubic-bezier(0.22, 0.61, 0.36, 1)" 
                 }}
               />
