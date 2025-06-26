@@ -154,8 +154,8 @@ const Navbar = () => {
         role="navigation"
         aria-label="Main navigation"
       >
-        <div className="max-w-8xl mx-auto sm:px-6 px-4">
-          <div className="flex items-center justify-between md:justify-between h-20">
+        
+          <div className=" max-w-[85rem] mx-auto flex items-center justify-between md:justify-between h-20 md:px-0 px-4">
             <NavLink
               to="/"
               className="flex-shrink-0 transform transition-transform duration-300"
@@ -186,14 +186,14 @@ const Navbar = () => {
                 />
               </button>
 
-              <a
+              {/* <a
                 href="https://pages.razorpay.com/pl_QC8n1HsnBKPWmH/view"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-6 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/30 active:translate-y-0"
               >
                 Book Your Seat
-              </a>
+              </a> */}
 
               {/* <button
                 onClick={() => setIsMBBSModalOpen(true)}
@@ -216,7 +216,7 @@ const Navbar = () => {
               )}
             </button>
           </div>
-        </div>
+      
 
         {/* Mobile menu */}
         <div
@@ -268,7 +268,7 @@ const Navbar = () => {
               <span>Explore Countries</span>
             </button>
 
-            <button
+            {/* <button
               onClick={() =>
                 window.open(
                   "https://pages.razorpay.com/pl_QC8n1HsnBKPWmH/view",
@@ -278,7 +278,7 @@ const Navbar = () => {
               className="px-6 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/30 active:translate-y-0"
             >
               Book Your Seat
-            </button>
+            </button> */}
 
             {/* <div className=" flex flex-row space-x-2 items-center">
               <button

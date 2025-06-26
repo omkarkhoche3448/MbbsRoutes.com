@@ -318,7 +318,7 @@ export default function Country(props) {
               </div>
               
               {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+              {/* <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
                 <button
                   onClick={openModal}
                   className="px-8 py-4 bg-white text-blue-900 font-bold rounded-full hover:bg-blue-50 transition-all transform hover:scale-105 shadow-lg text-lg w-full sm:w-auto"
@@ -331,7 +331,7 @@ export default function Country(props) {
                 >
                   Book Your Seat Now
                 </button>
-              </div>
+              </div> */}
             </div>
           </div>
           

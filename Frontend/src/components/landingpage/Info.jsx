@@ -229,7 +229,7 @@ export default function Info() {
               >
                 Schedule Free Consultation
               </Button>
-              <Button
+              {/* <Button
                 variant="secondary"
                 size="lg"
                 onClick={() =>
@@ -240,7 +240,7 @@ export default function Info() {
                 }
               >
                 Book Your Seat
-              </Button>
+              </Button> */}
             </div>
           </div>
         </div>
