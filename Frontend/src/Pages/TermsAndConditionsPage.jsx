@@ -16,7 +16,7 @@ const TermsAndConditionsPage = () => {
   return (
     <div className="max-w-3xl mx-auto px-4 py-8 text-gray-800 mt-14">
       <h1 className="text-3xl font-bold mb-4">Terms and Conditions</h1>
-      <p className="mb-6 text-sm text-gray-500">Effective Date: {termsAndConditions.effectiveDate}</p>
+      {/* <p className="mb-6 text-sm text-gray-500">Effective Date: {termsAndConditions.effectiveDate}</p> */}
       {termsAndConditions.sections.map((section, idx) => (
         <div key={idx} className="mb-6">
           <h2 className="text-xl font-semibold mb-2">{section.title}</h2>

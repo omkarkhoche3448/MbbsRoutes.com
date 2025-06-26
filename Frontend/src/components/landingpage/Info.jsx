@@ -205,13 +205,13 @@ export default function Info() {
 
           {/* First YouTube Section - with header */}
           <YouTubeShowcase channels={channels.slice(0, 3)} showHeader={true} />
-          
+
           {/* Second YouTube Section - without header */}
           {/* <YouTubeShowcase channels={channels.slice(3)} showHeader={false} /> */}
 
-          <CountryrepresentativeSection/>
+          <CountryrepresentativeSection />
 
-          <FeaturedIn/>
+          <FeaturedIn />
 
           <div className="bg-blue-600 rounded-xl sm:rounded-2xl p-6 sm:p-8 md:p-12 text-center text-white ">
             <h2 className="text-2xl sm:text-3xl font-bold mb-3 md:mb-4">
@@ -222,11 +222,7 @@ export default function Info() {
               counsellors are here to guide you through every step.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                variant="secondary"
-                size="lg"
-                onClick={openModal}
-              >
+              <Button variant="secondary" size="lg" onClick={openModal}>
                 Schedule Free Consultation
               </Button>
               {/* <Button

@@ -182,7 +182,7 @@ const HeroSection = () => {
                 </h1>
                 <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-[600px]">
                   Expert guidance for future medical professionals. Simplifying
-                  admissions, visas, and cultural transitions—helping you
+                  admissions, and cultural transitions helping you
                   achieve your dream of studying abroad with confidence.
                 </p>
               </div>
