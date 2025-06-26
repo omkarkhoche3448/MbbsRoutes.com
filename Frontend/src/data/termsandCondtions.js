@@ -68,7 +68,7 @@ export const termsAndConditions = {
     {
       title: "Privacy Policy",
       content: [
-        "By using our platform, you also agree to our [Privacy Policy] regarding the collection, use, and protection of your personal data."
+        "By using our platform, you also agree to our Privacy Policy regarding the collection, use, and protection of your personal data."
       ]
     },
     {
@@ -86,7 +86,7 @@ export const termsAndConditions = {
     {
       title: "Governing Law",
       content: [
-        "These terms are governed by the laws of India. Any disputes arising will be subject to the jurisdiction of the courts of [insert city/state, e.g., Delhi, India]."
+        "These terms are governed by the laws of India. Any disputes arising will be subject to the jurisdiction of the courts of Delhi."
       ]
     }
   ],
