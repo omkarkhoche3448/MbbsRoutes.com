@@ -6,7 +6,7 @@ export const footerData = {
   },
   quickLinks: [
     { name: "Home", href: "/" },
-    { name: "About Us", href: "/about-us" },
+    { name: "Terms and Conditions", href: "/terms-and-conditions" },
     { name: "MBBS Programs", href: "/mbbs-in-abroad" },
     { name: "Contact Us", href: "/contact-us" },
   ],

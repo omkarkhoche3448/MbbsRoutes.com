@@ -57,14 +57,8 @@ const MBBSConsultancyFormModal = ({
 
   // Determine if modal should actually show
   const shouldShowModal = () => {
-    // Enhanced debug logging
-    // console.log('Modal Debug - Enhanced:', {
-    //   isOpen,
-    //   isManualTrigger,
-    //   userState,
-    //   currentPath: window.location.pathname,
-    //   shouldShow: isOpen && (isManualTrigger || !userState.formSubmitted)
-    // });
+    // Block modal if temp block flag is set (e.g., on Terms and Conditions page)
+    if (localStorage.getItem("mbbsModalBlockTemp") === "true") return false;
 
     if (!isOpen) return false;
 

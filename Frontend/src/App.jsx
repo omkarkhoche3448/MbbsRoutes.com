@@ -15,6 +15,7 @@ import MBBSConsultancyFormModal from "./components/landingpage/MBBSConsultancyFo
 import RegistrationForm from "./Pages/RegistrationForm";
 import ReferralForm from "./Pages/ReferralForm";
 import { ModalProvider, useModal } from "./contexts/ModalContext";
+import TermsAndConditionsPage from "./Pages/TermsAndConditionsPage";
 
 function AppContent() {
   const { isModalOpen, openAutoModal, closeModal, isManualTrigger } = useModal();
@@ -54,6 +55,7 @@ function AppContent() {
         <Route path="/country/:countryName" element={<CountryPage />} />
         <Route path="/country/:countryName/universities" element={<UniversityPage />}/>
         <Route path="/contact-us" element={<ContactPage />} />
+        <Route path="/terms-and-conditions" element={<TermsAndConditionsPage />} />
         <Route path="/registration" element={<RegistrationForm />} />
         <Route path="/form" element={<ReferralForm />} />
         <Route path="*" element={<NotFound />} />
