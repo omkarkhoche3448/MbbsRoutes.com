@@ -52,7 +52,7 @@ export default function SportlightSection() {
         });
       }, 3000);
     }
-    startAutoScroll();
+    // startAutoScroll();
 
     // Pause/resume on hover/touch
     const carousel = carouselRef.current;
