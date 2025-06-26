@@ -7,6 +7,7 @@ import FlagBanner from "../components/landingpage/FlagBanner";
 import FAQSection from "../components/common/FAQSection";
 import StudyAbroadSection from "../components/landingpage/StudyAbroadSection"
 import VideoSection from "../components/landingpage/VideoSection";
+import SportlightSection from "../components/landingpage/SportlightSection";
 
 function Landingpage() {
   return (
@@ -14,6 +15,7 @@ function Landingpage() {
       <HeroSection />
       <FlagBanner />
       <StudyAbroadSection/>
+      <SportlightSection/>
       <InfoSection />
       <VideoSection/>
       <Info />
