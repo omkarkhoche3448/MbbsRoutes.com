@@ -97,7 +97,7 @@ const YouTubeShowcase = ({ channels = [], showHeader = true }) => {
                   {channels[activeChannel]?.name || 'Channel'}
                 </h3>
                 <p className="text-xs text-gray-500">
-                  {channels[activeChannel]?.handle || '@handle'}
+                  {channels[activeChannel]?.handle || ''}
                 </p>
               </div>
             </div>
@@ -189,7 +189,7 @@ const YouTubeShowcase = ({ channels = [], showHeader = true }) => {
               />
               <div>
                 <h3 className="font-semibold">{channel?.name || 'Channel'}</h3>
-                <p className="text-sm opacity-70">{channel?.handle || '@handle'}</p>
+                <p className="text-sm opacity-70">{channel?.handle || ' '}</p>
               </div>
             </div>
           ))}

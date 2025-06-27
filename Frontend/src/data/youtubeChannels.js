@@ -3,9 +3,9 @@ export const channels = [
     {
         id: "UCgxWVz0CSbqZvCXUKs6y9uw", // Soyeb Aftab's channel ID
         name: "Soyeb Aftab",
-        handle: "@soyebaftabaiims",
+        // handle: "@soyebaftab",
         description:
-            "AIIMS medical aspirant and top NEET performer sharing educational insights, medical preparation strategies, and motivational content.",
+            "AIR 1 NEET achiever sharing smart strategies, resource breakdowns, and prep hacks for MBBS aspirants.",
         logoUrl:
             "https://yt3.googleusercontent.com/qzzAY_ylmZ6viFCI_30_ol1dqM1NwGOa3gvS1ybB_ii7AH94U-fQbn4rWt8lU8t3339CJJv2Fwg=s160-c-k-c0x00ffffff-no-rj",
         channelUrl: "https://www.youtube.com/@soyebaftabaiims",
@@ -33,9 +33,9 @@ export const channels = [
         ],
     },
     {
-        id: "UCRkO8VrqyEzxWYRGbhmcwUg", // Deepak AIIMS channel ID
-        name: "Deepak AIIMS",
-        handle: "@DeepakAIIMSonian",
+        id: "UCRkO8VrqyEzxWYRGbhmcwUg", // Deepak Sahu channel ID
+        name: "Deepak Sahu",
+        // handle: "@DeepakSahu",
         description:
             "Medical education content creator focusing on NEET preparation, medical insights, and student success strategies.",
         logoUrl:
@@ -58,16 +58,16 @@ export const channels = [
             },
             {
                 title:
-                    "BEST STRATEGY FOR DROPPERS NEET2025 🔥COMPLETE MONTHLY PLAN 🤩#neet2025 #aiims #neet #droppers",
+                    "NEET 2026 GONNA TOUGH🔥BEST STRATEGY TO CRACK IT IN ONE YEAR ‼️",
                 thumbnailUrl:
-                    "https://i.ytimg.com/vi/AN_OKY_g74Q/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLA-m_S4viIzu_UNKo25M_RXcwBthg",
+                    "https://i.ytimg.com/vi/2c6RTdYQNGY/hqdefault.jpg?sqp=-oaymwEnCNACELwBSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLDsHuwxK2NQM4WKlxXRf0_O1SJIBA",
             },
         ],
     },
     {
         id: "UCXXGbEr2PMqh1rd4UtK4jVQ", // Atharva Aggarwal channel ID
         name: "Atharva Aggarwal",
-        handle: "@AtharvaAggarwal",
+        // handle: "@AtharvaAggarwal",
         description:
             "Medical student and content creator sharing academic journey, medical education tips, and motivational content for aspiring doctors.",
         logoUrl:
@@ -82,15 +82,15 @@ export const channels = [
                     "https://i.ytimg.com/vi/WkP6Zk_2ZB8/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDZc6M8lbdCSV8KbEGWsIX2RuhIzw",
             },
             {
-                title: "AIIMS Cut-off😱 | NEET 2024/25 | Shocking Analysis",
+                title: "NEET 2026 : Complete Roadmap🩺| 1 year Plan | 650+ marks",
                 thumbnailUrl:
-                    "https://i.ytimg.com/vi/GR5VVjD-Fkc/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCbGWMp8O_CWK-uvENMDDpYqFQhbQ",
+                    "https://i.ytimg.com/vi/bWXK3_4c7k8/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDt8Q2SMLVS43kH_3ZiAZvi6wXoNA",
             },
             {
                 title:
-                    "Salary of Doctors/Med Students at AIIMS🤑 | MBBS / PG / Post PG | Real Truth😱",
+                    "AIIMS TOPPER’S TIMETABLE🩺🚀| 0 to 650+ marks | NEET 2026",
                 thumbnailUrl:
-                    "https://i.ytimg.com/vi/w3sjnAFM1AI/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAJ7pRCd5eHokExaaraxdCtB2TrLw",
+                    "https://i.ytimg.com/vi_webp/UT0In0LzTjo/mqdefault.webp",
             },
         ],
     },

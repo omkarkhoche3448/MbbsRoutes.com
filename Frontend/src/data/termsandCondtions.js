@@ -19,18 +19,18 @@ export const termsAndConditions = {
         "❗ We do not guarantee admission, visa approval, or offer any financial services."
       ]
     },
-    {
-      title: "No University Affiliation",
-      content: [
-        "We are not affiliated with any foreign medical university, embassy, government body, or educational institution unless explicitly stated and the affiliation clearly explained under a separate section of the website as ‘affiliations’. The decision to apply and enroll lies solely with the student."
-      ]
-    },
-    {
-      title: "Accuracy of Information",
-      content: [
-        "We strive to provide accurate and updated information, but we do not guarantee the correctness, completeness, or timeliness of any data, including tuition fees, admission deadlines, or eligibility criteria. Users are advised to verify critical information directly from official university or government sources."
-      ]
-    },
+    // {
+    //   title: "No University Affiliation",
+    //   content: [
+    //     "We are not affiliated with any foreign medical university, embassy, government body, or educational institution unless explicitly stated and the affiliation clearly explained under a separate section of the website as ‘affiliations’. The decision to apply and enroll lies solely with the student."
+    //   ]
+    // },
+    // {
+    //   title: "Accuracy of Information",
+    //   content: [
+    //     "We strive to provide accurate and updated information, but we do not guarantee the correctness, completeness, or timeliness of any data, including tuition fees, admission deadlines, or eligibility criteria. Users are advised to verify critical information directly from official university or government sources."
+    //   ]
+    // },
     {
       title: "No Legal or Immigration Advice",
       content: [

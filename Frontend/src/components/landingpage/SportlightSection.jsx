@@ -88,7 +88,7 @@ export default function SportlightSection() {
   };
 
   return (
-    <section className="max-w-7xl mx-auto px-4 py-12 md:py-16 animate-fadeIn">
+    <section className="max-w-7xl mx-auto px-4 mb-24 animate-fadeIn">
       <div className="text-center mb-10">
         <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-3">
           MBBS Mentorship <span className="text-blue-600">Spotlight</span>
@@ -118,7 +118,7 @@ export default function SportlightSection() {
             <div
               key={mentor.name}
               className={`
-                relative bg-white/60 backdrop-blur-lg border border-blue-100 rounded-3xl shadow-xl
+                relative bg-white/60 backdrop-blur-lg border border-blue-100 rounded-3xl 
                 flex flex-col items-center p-8 w-72 max-w-xs min-w-[18rem] transition-transform duration-300
                 ${idx === 1 ? "md:-translate-y-3" : ""}
                 snap-center md:snap-none
