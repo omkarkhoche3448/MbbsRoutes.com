@@ -28,7 +28,7 @@ export const termsAndConditions = {
     {
       title: "No University Affiliation",
       content: [
-        "We are not affiliated with any foreign medical university, embassy, government body, or educational institution unless explicitly stated and the affiliation clearly explained under a separate section of the website as ‘affiliations’. The decision to apply and enroll lies solely with the student."
+        "We are not affiliated with any foreign or Indian medical university, embassy, government body, or educational institution unless explicitly stated and the affiliation clearly explained under a separate section of the website as ‘affiliations’. The decision to apply and enroll lies solely with the student."
       ]
     },
     {
